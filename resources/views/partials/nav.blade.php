@@ -99,7 +99,7 @@
                 <a href="{{ route('login') }}"
                     class="no-underline inline-block text-base  px-4 py-2 leading-none text-grey-darker rounded-lg bg-mstore hover:text-white hover:bg-blue mt-4 sm:mt-0">
 
-                    ลงโฆษณาของคุณ!
+                    โพสโฆษณาของคุณ!
                 </a>
 
                 @endauth

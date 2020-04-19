@@ -8,16 +8,16 @@
 
 <!--image-->
 <div class="max-w-full mx-auto bg-white bg-cover "
-    style="background-image:url('{{  Storage::url('mshome2.jpg') }}'); height: 50vh;opacity: .75;">
+    style="background-image:url('{{  Storage::url('mshome4.jpg') }}'); height: 60vh;">
 
     <div class="p-6">
         <div class="xl:flex -mx-6">
-            <div class="max-w-2xl mx-auto p-4 md:p-2 t leading-normal">
+            <div class="max-w-2xl mx-auto p-2 md:p-2 t leading-normal ">
 
-                <h1 class="text-3xl text-black sm:text-4xl md:text-5xl xl:text-4xl font-light font-bold leading-tight">
+                <h1 class="text-2xl text-black sm:text-4xl md:text-5xl xl:text-4xl  font-semibold leading-tight">
                     Classifieds website portal
                 </h1>
-                <span class="sm:block text-grey-dark text-2xl font-normal">
+                <span class="sm:block text-white text-2xl font-normal">
                     โพสโฆษณาร้านค้าตามหมวดหมู่ที่คุณต้องการ</span>
                 <p class="mt-4 leading-relaxed sm:text-base md:text-xl xl:text-lg text-black font-semibold">
                     Simple online platform where users can post or view the ads as per their requirements.
@@ -29,7 +29,7 @@
                 <div class=" mx-auto flex mt-6 justify-start md:justify-center xl:justify-center">
 
                     <a href="/services"
-                        class="ml-4 rounded-lg px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 bg-blue hover:bg-mstore md:text-lg xl:text-base text-white font-semibold leading-tight shadow-md">หาอะไรอยู่
+                        class="ml-4 rounded-lg px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 bg-blue hover:bg-mstore md:text-lg xl:text-base text-white font-semibold leading-tight shadow-md">ลงโพส
                         คลิก!</a>
                 </div>
 
