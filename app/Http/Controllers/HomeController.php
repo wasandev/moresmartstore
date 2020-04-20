@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\Controller;
+use App\Models\System\User;
 class HomeController extends Controller
 {
     /**
@@ -13,9 +14,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth', 'verified']);
     }
-
     /**
      * Show the application dashboard.
      *
@@ -23,6 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = auth()->user();
+        if ($user->role !== 'admin') {
+
+            return view('members.home');
+        }
     }
 }

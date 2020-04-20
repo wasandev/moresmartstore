@@ -1,11 +1,5 @@
 @tailwind base
 
-@tailwind components
-
-@tailwind utilities
-
-@tailwind screens
-
 
 .transition
   transition: all .15s ease-in-out
@@ -44,22 +38,7 @@
 .input-class:focus
   @apply border-mstore
 
-//card
 
-.card
-@apply bg-white shadow rounded-lg
-
-.card-panel
-  height: 150px
-
-.card-refresh
-  @apply p-1 ml-auto text-grey-light inline-flex items-center
-
-
-.card-refresh:hover
-  @apply text-blue
-
-//Tables
 
 .table-fixed
   table-layout: fixed
@@ -86,3 +65,8 @@
 
 .notifications.has-notifications
   color: #bf5329
+
+@tailwind components
+
+@tailwind utilities
+

@@ -103,7 +103,7 @@ module.exports = {
         },
 
         fontFamily: {
-            'sans': ['Nunito',
+            'sans': ['Roboto',
                 'system-ui',
                 'BlinkMacSystemFont',
                 '-apple-system',

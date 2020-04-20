@@ -1,4 +1,4 @@
-<div class="font-sans antialiased" id="app">
+<div class="antialiased" id="app">
     <nav class="flex justify-between flex-wrap bg-white text-grey-darker p-4 mt-0 w-full shadow-lg">
         <div class="flex text-left flex-no-shrink mr-0">
             <a class="flex text-base font-semibold no-underline hover:text-mstore hover:no-underline" href="/">

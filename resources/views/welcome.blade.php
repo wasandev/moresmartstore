@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('nav')
-@include('partials.nav')
+
+<nav-bar></nav-bar>
 @endsection
 
 
@@ -8,28 +9,26 @@
 
 <!--image-->
 <div class="max-w-full mx-auto bg-white bg-cover "
-    style="background-image:url('{{  Storage::url('mshome4.jpg') }}'); height: 60vh;">
+    style="background-image:url('{{  Storage::url('mshome4.jpg') }}'); ">
 
     <div class="p-6">
         <div class="xl:flex -mx-6">
             <div class="max-w-2xl mx-auto p-2 md:p-2 t leading-normal ">
 
-                <h1 class="text-2xl text-black sm:text-4xl md:text-5xl xl:text-4xl  font-semibold leading-tight">
+                <h1 class="text-2xl text-black sm:text-4xl md:text-5xl xl:text-4xl leading-tight">
                     Classifieds website portal
                 </h1>
-                <span class="sm:block text-white text-2xl font-normal">
+                <span class="sm:block text-white text-xl ">
                     โพสโฆษณาร้านค้าตามหมวดหมู่ที่คุณต้องการ</span>
-                <p class="mt-4 leading-relaxed sm:text-base md:text-xl xl:text-lg text-black font-semibold">
-                    Simple online platform where users can post or view the ads as per their requirements.
-                    Advertisements posted
-                    in the portal are based on different types of categories and subcategories so that the customers can
-                    get their
-                    information quickly.
+                <p class="mt-4 leading-relaxed sm:text-base md:text-xl xl:text-lg text-black">
+                    แพลตฟอร์มออนไลน์ง่ายๆ ที่ผู้ใช้สามารถโพสต์หรือดูโฆษณาได้ตามความต้องการ
+                    โพสโฆษณาใน MStore มีการแยกประเภทและหมวดหมู่ย่อยที่แตกต่างกันเพื่อให้ลูกค้าสามารถ
+                    ได้รับข้อมูลที่ต้องการได้อย่างรวดเร็ว
                 </p>
-                <div class=" mx-auto flex mt-6 justify-start md:justify-center xl:justify-center">
+                <div class=" mx-auto flex mt-4 justify-center">
 
                     <a href="/services"
-                        class="ml-4 rounded-lg px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 bg-blue hover:bg-mstore md:text-lg xl:text-base text-white font-semibold leading-tight shadow-md">ลงโพส
+                        class="ml-4 rounded-lg px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 bg-mstore hover:bg-white md:text-lg xl:text-base text-black font-semibold leading-tight shadow-md">ลงโพส
                         คลิก!</a>
                 </div>
 
@@ -55,7 +54,7 @@
 </div>
 
 
-<div class="flex flex-wrap max-w-3xl mx-auto my-4">
+<div class="flex flex-wrap max-w-2xl mx-auto my-4">
 
     <div class="w-full md:w-1/2 lg:w-1/3 flex flex-col  ">
         <a href="/features"
@@ -66,8 +65,7 @@
             </div>
             <div class="p-6 flex flex-col flex-1 bg-white text-center rounded-b-lg">
                 <h2 class="mb-3 text-grey-darkest text-xl">Features</h2>
-                <p class="text-grey-darker mb-6 text-sm">You can promote your business quickly</p>
-
+                <p class="text-grey-darker mb-6 text-sm">ลงโพสโฆษณาธุรกิจของคุณได้ง่ายๆ
                 <div class="mb-4 w-full mx-auto text-center text-sm">
                     <button class="w-1/2 btn btn-blue btn-blue:hover focus:outline-none">
                         ดูรายละเอียด
@@ -87,8 +85,7 @@
             </div>
             <div class="p-6 flex flex-col flex-1 bg-white text-center rounded-b-lg">
                 <h2 class="mb-3 text-grey-darkest text-xl">Services</h2>
-                <p class="text-grey-darker mb-6 text-sm">Searching for. Images, contact details, contact number,
-                    explanations, properties
+                <p class="text-grey-darker mb-6 text-sm">ค้นหา สินค้า ร้านค้า ผู้ผลิต ที่แบ่งเป็นหมวดหมู่ดูง่าย
                 </p>
                 <div class="mb-4 w-full mx-auto text-center text-sm">
                     <button class="w-1/2 btn btn-blue btn-blue:hover focus:outline-none">
