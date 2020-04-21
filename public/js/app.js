@@ -37704,11 +37704,7 @@ var render = function() {
       [
         _c("img", {
           staticClass: "h-full w-full object-cover",
-          attrs: {
-            src:
-              "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&q=80",
-            alt: "Your avatar"
-          }
+          attrs: { src: "", alt: "Your avatar" }
         })
       ]
     ),
@@ -37911,7 +37907,7 @@ var render = function() {
                 {
                   staticClass:
                     "block px-2 py-1 text-white font-semibold rounded hover:bg-blue",
-                  attrs: { href: "#" }
+                  attrs: { href: "/" }
                 },
                 [_vm._v("Home")]
               ),
@@ -37931,7 +37927,7 @@ var render = function() {
                 {
                   staticClass:
                     "mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-blue sm:mt-0 sm:ml-2",
-                  attrs: { href: "#" }
+                  attrs: { href: "/blog" }
                 },
                 [_vm._v("Blog")]
               ),
@@ -37941,7 +37937,7 @@ var render = function() {
                 {
                   staticClass:
                     "mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-blue sm:mt-0 sm:ml-2",
-                  attrs: { href: "#" }
+                  attrs: { href: "/contact" }
                 },
                 [_vm._v("Contact Us")]
               ),
@@ -37992,15 +37988,11 @@ var staticRenderFns = [
           _c("img", {
             staticClass:
               "h-8 w-8 border-2 border-gray-600 rounded-full object-cover",
-            attrs: {
-              src:
-                "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&q=80",
-              alt: "Your avatar"
-            }
+            attrs: { src: "", alt: "Your avatar" }
           }),
           _vm._v(" "),
           _c("span", { staticClass: "ml-3 font-semibold text-white" }, [
-            _vm._v("Jane Doe")
+            _vm._v("Member")
           ])
         ]),
         _vm._v(" "),
@@ -50218,6 +50210,8 @@ __webpack_require__.r(__webpack_exports__);
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./nav */ "./resources/js/nav.js");
+
 window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
@@ -50505,6 +50499,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NavBar_vue_vue_type_template_id_5dd24bca___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/nav.js":
+/*!*****************************!*\
+  !*** ./resources/js/nav.js ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// Navbar Toggle
+document.addEventListener('DOMContentLoaded', function () {
+  // Get all "navbar-burger" elements
+  var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0); // Check if there are any navbar burgers
+
+  if ($navbarBurgers.length > 0) {
+    // Add a click event on each of them
+    $navbarBurgers.forEach(function ($el) {
+      $el.addEventListener('click', function () {
+        // Get the "main-nav" element
+        var $target = document.getElementById('main-nav'); // Toggle the class on "main-nav"
+
+        $target.classList.toggle('hidden');
+      });
+    });
+  }
+});
 
 /***/ }),
 

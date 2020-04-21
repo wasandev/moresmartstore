@@ -7,6 +7,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::post('register', 'Auth\RegisterController@register');
@@ -32,6 +33,12 @@ Route::get('/home', 'HomeController@index')->name('home');
     //setting
     Route::get('settings', 'SettingsController@settings')->name('settings');
     Route::post('settings', 'SettingsController@update')->name('user-update');
+
+    //Route::get('services', 'ServiceController@index')->name('services');
+    Route::get('about','PagesController@about')->name('about');
+    Route::get('contact','PagesController@contact')->name('contact');
+    Route::get('privacy','PagesController@privacy')->name('privacy');
+    Route::get('terms','PagesController@terms')->name('terms');
 
 
 

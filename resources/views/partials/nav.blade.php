@@ -1,112 +1,91 @@
-<div class="antialiased" id="app">
-    <nav class="flex justify-between flex-wrap bg-white text-grey-darker p-4 mt-0 w-full shadow-lg">
+<div id="app" class="bg-black sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3">
+    <div class="flex items-center justify-between px-4 py-3 sm:p-0">
         <div class="flex text-left flex-no-shrink mr-0">
             <a class="flex text-base font-semibold no-underline hover:text-mstore hover:no-underline" href="/">
-                @include('partials.logo')
+                <span class=" text-white text-center text-xl  font-extrabold">MStore</span>
             </a>
 
         </div>
 
-        <div class="block lg:hidden">
-            <button @click="toggle" class="flex items-center px-3 py-2  text-grey-darker hover:text-mstore ">
-                <svg class="fill-current h-5 w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <title>Menu</title>
-                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+        <div class="block sm:hidden">
+            <button class="navbar-burger block text-blue hover:text-white focus:text-white focus:outline-none">
+                <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                <path  fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"/>
                 </svg>
             </button>
         </div>
-
-        <div :class="open ? 'block': 'hidden'" class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-            <div class="text-base font-bold lg:flex-grow text-center">
-                <a href="/" class="block mt-2 lg:inline-block lg:mt-0 text-gray-darker hover:text-mstore mr-4">
-                    Home
-                </a>
-                <a href="#responsive-header"
-                    class="block mt-2 lg:inline-block lg:mt-0 text-gray-darker hover:text-mstore mr-4">
-                    Services
-                </a>
-                <a href="#responsive-header"
-                    class="block mt-2 lg:inline-block lg:mt-0 text-gray-darker hover:text-mstore mr-4">
-                    Blog
-                </a>
-                <a href="#responsive-header"
-                    class="block mt-2 lg:inline-block lg:mt-0 text-gray-darker hover:text-mstore mr-4">
-                    Contact Us
-                </a>
-            </div>
-
-
-            <div>
-
-                @auth
-                <div class="relative group items-center text-center">
-                    <div
-                        class="flex items-center cursor-pointer text-base text-grey-darker  group-hover:border-mstore hover:text-mstore  mt-1 px-6 mb-0 sm:mt-0">
-
-                        <img class="w-8 h-8 rounded-full mr-4 mt-1" src="{{ Storage::url(Auth::user()->avatar) }}"
-                            alt="">
-
-                        {{ Auth::user()->name }}
-                    </div>
-
-                    <div
-                        class=" w-full tems-center absolute border border-t-0 rounded-b-lg  bg-white p-1 invisible group-hover:visible w-full">
-                        <a href="{{ route('home') }}"
-                            class="no-underline px-4 py-2 block text-grey-darker hover:bg-grey-lighter">
-                            {{ __('Dashboard') }}
-
-                        </a>
-                        <a href="{{ route('show-profile') }}"
-                            class="no-underline px-4 py-2 block text-grey-darker hover:bg-grey-lighter">
-                            {{ __('auth.Profile') }}
-
-                        </a>
-                        <a href="{{ route('settings') }}"
-                            class="no-underline px-4 py-2 block text-grey-darker hover:bg-grey-lighter">
-                            {{ __('auth.Account Setting') }}
-
-                        </a>
-
-                        <hr class="border-t mx-2 border-grey-ligght">
-                        <a href="{{ route('logout') }}"
-                            class=" no-underline px-4 py-2 block text-grey-darker hover:bg-grey-lighter" onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </div>
+    </div>
+    <nav id="main-nav" class="sm:block">
+        <div class="px-2 pt-2 pb-4 sm:flex sm:p-0">
+            <a href="/" class="block px-2 py-1 text-white font-semibold rounded hover:bg-blue">Home</a>
+            <a href="#" class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-blue sm:mt-0 sm:ml-2">Services</a>
+            <a href="/blog" class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-blue sm:mt-0 sm:ml-2">Blog</a>
+            <a href="/contact" class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-blue sm:mt-0 sm:ml-2">Contact Us</a>
+            @auth
+            <div class="relative group hidden sm:block sm:ml-6">
+                <div class="flex items-center cursor-pointer text-base text-grey-dark  group-hover:border-mstore hover:text-mstore  mt-1 px-6 mb-0 sm:mt-0">
+                    <img class="h-8 w-8 border-2 border-gray-600 rounded-full object-cover" src="{{ Storage::url(Auth::user()->avatar) }}"
+                        alt="">
+                    <span class="ml-3 font-semibold text-white">{{ Auth::user()->name }}</span>
                 </div>
 
+                <div class="absolute right-0 mt-0 py-2 w-48 bg-white rounded-lg shadow-xl invisible group-hover:visible">
+                    <a href="{{ route('home') }}"
+                        class="no-underline px-4 py-2 block text-grey-darker hover:bg-grey-lighter">
+                        {{ __('Dashboard') }}
 
+                    </a>
+                    <a href="{{ route('show-profile') }}"
+                        class="no-underline px-4 py-2 block text-grey-darker hover:bg-grey-lighter">
+                        {{ __('auth.Profile') }}
 
-                @else
+                    </a>
+                    <a href="{{ route('settings') }}"
+                        class="no-underline px-4 py-2 block text-grey-darker hover:bg-grey-lighter">
+                        {{ __('auth.Account Setting') }}
 
-                <a href="{{ route('login') }}"
-                    class="no-underline inline-block text-base px-4 py-2 leading-none text-white rounded-lg bg-blue hover:text-white hover:bg-mstore  mt-4 sm:mt-0">
+                    </a>
 
-                    {{ __('auth.Login') }}
-                </a>
+                    <hr class="border-t mx-2 border-grey-ligght">
+                    <a href="{{ route('logout') }}"
+                        class=" no-underline px-4 py-2 block text-grey-darker hover:bg-grey-lighter" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
 
-                <a href="{{ route('register') }}"
-                    class="no-underline inline-block text-base  px-4 py-2 leading-none text-grey-darker rounded-lg bg-mstore hover:text-white hover:bg-blue mt-4 sm:mt-0">
-
-                    {{ __('auth.register') }}
-                </a>
-
-                <a href="{{ route('login') }}"
-                    class="no-underline inline-block text-base  px-4 py-2 leading-none text-grey-darker rounded-lg bg-mstore hover:text-white hover:bg-blue mt-4 sm:mt-0">
-
-                    โพสโฆษณาของคุณ!
-                </a>
-
-                @endauth
-
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </div>
             </div>
+            @else
+                <a href="{{ route('login') }}"
+                class="mt-1 block px-2 py-1 text-white bg-blue font-semibold rounded hover:bg-blue sm:mt-0 sm:ml-2">{{ __('auth.Login') }}</a>
 
+            @endauth
         </div>
-
+            @auth
+            <div class="px-4 py-5 border-t border-gray-800 sm:hidden">
+                <div class="flex items-center">
+                    <img class="h-8 w-8 border-2 border-gray-600 rounded-full object-cover" src="{{ Storage::url(Auth::user()->avatar) }}" alt="">
+                    <span class="ml-3 font-semibold text-white">{{ Auth::user()->name }}</span>
+                </div>
+                <div class="mt-4">
+                    <a href="{{ route('home') }}" class="block text-white hover:text-blue">{{ __('Dashboard') }}</a>
+                    <a href="{{ route('show-profile') }}" class="mt-2 block text-white hover:text-blue">{{ __('auth.Profile') }}</a>
+                    <a href="{{ route('settings') }}" class="mt-2 block text-white hover:text-blue">{{ __('auth.Account Setting') }}</a>
+                    <a href="{{ route('logout') }}" class="mt-2 block text-white hover:text-blue"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </div>
+            </div>
+            @endauth
     </nav>
 </div>
+
+

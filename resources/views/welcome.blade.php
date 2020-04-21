@@ -1,9 +1,7 @@
 @extends('layouts.app')
 @section('nav')
-
-<nav-bar></nav-bar>
+    @include('partials.nav')
 @endsection
-
 
 @section('content')
 

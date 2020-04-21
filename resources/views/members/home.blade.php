@@ -7,7 +7,7 @@
 @section('content')
 <!--image-->
 <div class="w-full max-w-4xl mx-auto bg-white bg-cover "
-    style="background-image:url('{{  Storage::url('mshome.jpg') }}'); height: 75vh;">
+    style="background-image:url('{{  Storage::url('mshome4.jpg') }}'); ">
     <div class="p-6">
         <div class="xl:flex -mx-6">
             <div class="max-w-2xl mx-auto p-2 md:p-2 t leading-normal ">
@@ -38,6 +38,8 @@
 
 
 <div class="flex flex-wrap max-w-2xl mx-auto my-2">
+    <div class="flex flex-wrap bg-black w-full mr-20 border rounded-lg shadow-2xl p-4 md:p-12 text-lg md:text-2lg text-grey-darkest leading-normal" >
+
 
     <div class="w-full md:w-1/2 lg:w-1/3 flex flex-col ">
         <a href="/" target="_blank"
@@ -102,6 +104,7 @@
             </div>
         </a>
     </div>
+</div>
 </div>
 
 @endsection
