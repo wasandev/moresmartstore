@@ -15,7 +15,7 @@
             </button>
         </div>
     </div>
-    <nav id="main-nav" class="sm:block">
+    <nav id="main-nav" class="sm:block sm:w-auto hidden">
         <div class="px-2 pt-2 pb-4 sm:flex sm:p-0">
             <a href="/" class="block px-2 py-1 text-white font-semibold rounded hover:bg-blue">Home</a>
             <a href="#" class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-blue sm:mt-0 sm:ml-2">Services</a>
