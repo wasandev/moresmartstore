@@ -19,7 +19,17 @@
     <script src="{{ mix('/js/app.js') }}" defer></script>
 
 
-    <!-- // ... // -->
+    <!-- // Google analytics. // -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1074154-29"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-1074154-29');
+    </script>
+    <script data-ad-client="ca-pub-5073377677831929" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
     <!-- Scripts -->
     <script>
@@ -34,10 +44,6 @@
         window.Laravel.userId = <?php echo auth()->user()->id; ?>
     </script>
     @endif
-
-
-
-
 
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
     @stack('scripts')
