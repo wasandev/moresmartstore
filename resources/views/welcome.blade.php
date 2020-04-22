@@ -83,7 +83,7 @@
             </div>
             <div class="p-6 flex flex-col flex-1 bg-white text-center rounded-b-lg">
                 <h2 class="mb-3 text-grey-darkest text-xl">Services</h2>
-                <p class="text-grey-darker mb-6 text-sm">ค้นหา สินค้า ร้านค้า ผู้ผลิต ที่แบ่งเป็นหมวดหมู่ดูง่าย
+                <p class="text-grey-darker mb-6 text-sm">ค้นหา สินค้า ร้านค้า ผู้ผลิต แบ่งเป็นหมวดหมู่
                 </p>
                 <div class="mb-4 w-full mx-auto text-center text-sm">
                     <button class="w-1/2 btn btn-blue btn-blue:hover focus:outline-none">
