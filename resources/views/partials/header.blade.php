@@ -1,6 +1,5 @@
-<div class="mx-auto py-8  text-center text-black text-90">
+<div class="mx-auto py-8">
 
-
-    @include('partials.logo')
+    @include('partials.logoblack')
 
 </div>

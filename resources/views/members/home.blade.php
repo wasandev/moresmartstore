@@ -6,17 +6,16 @@
 
 @section('content')
 <!--image-->
-<div class="w-full max-w-4xl mx-auto bg-white bg-cover "
-    style="background-image:url('{{  Storage::url('mshome4.jpg') }}'); ">
+<div class="w-full max-w-4xl mx-auto bg-blue-light bg-cover">
     <div class="p-6">
         <div class="xl:flex -mx-6">
             <div class="max-w-2xl mx-auto p-2 md:p-2 t leading-normal ">
-                <h1 class="text-2xl text-black sm:text-4xl md:text-5xl xl:text-4xl  font-semibold leading-tight">
+                <h1 class="text-2xl font-semibold leading-tight">
                     สำหรับสมาชิก MStore
                 </h1>
                 <span class="sm:block text-white text-xl font-base">
                     ลงโพสโฆษณาร้านค้าตามหมวดหมู่ที่คุณต้องการ</span>
-                <p class="mt-4 leading-relaxed sm:text-base md:text-xl xl:text-lg text-black font-base">
+                <p class="mt-4 leading-relaxed sm:text-base md:text-xl xl:text-lg text-black bg-blue-light font-base">
                     แพลตฟอร์มออนไลน์ง่ายๆ ที่ผู้ใช้สามารถโพสต์หรือดูโฆษณาได้ตามความต้องการ
                     โพสโฆษณาใน MStore มีการแยกประเภทและหมวดหมู่ย่อยที่แตกต่างกันเพื่อให้ลูกค้าสามารถ
                     ได้รับข้อมูลที่ต้องการได้อย่างรวดเร็ว
@@ -38,7 +37,7 @@
 
 
 <div class="flex flex-wrap max-w-2xl mx-auto my-2">
-    <div class="flex flex-wrap bg-black w-full mr-20 border rounded-lg shadow-2xl p-4 md:p-12 text-lg md:text-2lg text-grey-darkest leading-normal" >
+
 
 
     <div class="w-full md:w-1/2 lg:w-1/3 flex flex-col ">
@@ -104,7 +103,7 @@
             </div>
         </a>
     </div>
-</div>
+
 </div>
 
 @endsection

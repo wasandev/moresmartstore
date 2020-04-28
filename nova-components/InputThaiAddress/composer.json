@@ -1,0 +1,30 @@
+{
+    "name": "wasandev/input-thai-address",
+    "description": "A Laravel Nova field.",
+    "keywords": [
+        "laravel",
+        "nova"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1.0",
+        "laravel/helpers": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Wasandev\\InputThaiAddress\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Wasandev\\InputThaiAddress\\FieldServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

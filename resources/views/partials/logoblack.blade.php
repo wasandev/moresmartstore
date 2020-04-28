@@ -1,3 +1,3 @@
-<span class="text-gray_darkest text-center text-2xl  font-bold">Mstore</span>
+{{-- <span class=" text-grey-darkest text-center text-2xl  font-extrabold">MStore</span> --}}
 
-{{-- <img class="w-24  mr-4 mt-1" src="{{ Storage::url('gotaslogo.png') }}" alt=""> --}}
+<img class=" h-10 mx-auto " src="{{  Storage::url('mstorelogo2.svg') }}" alt="">

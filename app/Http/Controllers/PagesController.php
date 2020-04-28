@@ -3,33 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Page;
 
 class PagesController extends Controller
 {
 
-    public function about()
+    // Show a page by slug
+    public function show($slug = '')
     {
+        $page = page::whereSlug($slug)->first();
 
-        return view('pages.about');
+        //collect([])->isNotEmpty();
+        if (collect($page)->isNotEmpty() ) {
+            return view('pages.index')->with('page', $page);
+        }
+      }
 
-    }
-    public function terms()
-    {
-
-        return view('pages.terms');
-
-    }
-
-    public function privacy()
-    {
-
-        return view('pages.privacy');
-
-    }
-    public function contact()
-    {
-
-        return view('pages.contact');
-
-    }
 }

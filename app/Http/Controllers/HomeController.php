@@ -23,10 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user = auth()->user();
-        if ($user->role !== 'admin') {
 
             return view('members.home');
-        }
+
     }
 }
