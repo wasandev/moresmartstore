@@ -336,7 +336,7 @@ module.exports = {
         letterSpacing: ['responsive'],
         userSelect: ['responsive'],
         verticalAlign: ['responsive'],
-        visibility: ['responsive'],
+        visibility: ["responsive", "group-hover"],
         whitespace: ['responsive'],
         wordBreak: ['responsive'],
         width: ['responsive'],

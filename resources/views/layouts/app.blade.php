@@ -50,7 +50,7 @@
     @stack('scripts')
 </head>
 
-<body class="font-sans h-full bg-gray-400  leading-normal tracking-normal antialiased">
+<body class="font-sans h-full bg-gray-100  leading-normal tracking-normal antialiased">
     <div id="app">
         @yield('nav')
 

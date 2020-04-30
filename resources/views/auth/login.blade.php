@@ -7,7 +7,7 @@
 
 <div class="w-full mx-auto max-w-xs">
 <form
-    class=" bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST" action="{{ route('login') }}">
+    class=" bg-white shadow-md rounded px-8 pt-4 pb-8 mb-4" method="POST" action="{{ route('login') }}">
 
     {{ csrf_field() }}
     @component('partials.heading')
@@ -47,7 +47,7 @@
         </div>
     </div>
     <div class="mb-4 mx-auto text-center">
-        <button class="w-full inline-block px-2 py-2 rounded-lg shadow-lg btn btn-blue btn-blue:hover focus:outline-none focus:shadow-outline tracking-wider" type="submit" >
+        <button class="w-full inline-block px-2 py-2  btn btn-blue btn-blue:hover focus:outline-none focus:shadow-outline tracking-wider" type="submit" >
             {{ __('auth.Login') }}
         </button>
     </div>
@@ -58,5 +58,9 @@
     <div>
 
  </form>
+
+
 </div>
+
 @endsection
+

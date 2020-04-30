@@ -27,12 +27,14 @@ import Vue from 'vue';
 //Vue.use(ThaiAddressInput);
 
 require('./components');
-import NavBar from './components/NavBar';
+
+
 
 const app = new Vue({
     el: "#app",
-    components: {
-        NavBar
+    data: {
+        termModalShowing: false,
       },
+
 
 });

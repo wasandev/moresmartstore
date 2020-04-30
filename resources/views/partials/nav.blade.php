@@ -1,4 +1,4 @@
-<div id="app" class="bg-gray-900 sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3">
+<div class="bg-gray-900 sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3">
 
     <div class="flex items-center justify-between px-4 py-3 sm:p-0">
         <div class="flex text-left flex-no-shrink mr-0">
@@ -18,10 +18,10 @@
     </div>
     <div id="main-nav" class="sm:block sm:w-auto hidden">
         <div class="px-2 pt-2 pb-4 sm:flex sm:p-0">
-            <a href="/" class="block px-2 py-1 text-white text-base rounded hover:bg-blue-700 hover:text-white">Home</a>
-            <a href="/service" class="mt-1 block px-2 py-1 text-white text-base rounded hover:bg-blue-700 hover:text-white sm:mt-0 sm:ml-2">Services</a>
-            <a href="/blog" class="mt-1 block px-2 py-1 text-white text-base rounded hover:bg-blue-700 hover:text-white sm:mt-0 sm:ml-2">Blog</a>
-            <a href="/pages/contact" class="mt-1 block px-2 py-1 text-white text-base rounded hover:bg-blue-700 hover:text-white sm:mt-0 sm:ml-2">Contact Us</a>
+            <a href="/" class="block px-2 py-1 text-white text-base rounded hover:bg-blue-700 hover:text-white">หน้าหลัก</a>
+            <a href="/service" class="mt-1 block px-2 py-1 text-white text-base rounded hover:bg-blue-700 hover:text-white sm:mt-0 sm:ml-2">เพิ่มข้อมูลธุรกิจฟรี</a>
+            <a href="/blog" class="mt-1 block px-2 py-1 text-white text-base rounded hover:bg-blue-700 hover:text-white sm:mt-0 sm:ml-2">บทความ</a>
+            <a href="/pages/contact" class="mt-1 block px-2 py-1 text-white text-base rounded hover:bg-blue-700 hover:text-white sm:mt-0 sm:ml-2">ติดต่อเรา</a>
             @auth
             <div class="relative group hidden sm:block sm:ml-6">
                 <div class="flex items-center cursor-pointer text-base text-white  group-hover: border-gray  hover:text-blue  mt-1 px-6 mb-0 sm:mt-0">
@@ -30,7 +30,7 @@
                     <span class="ml-3 text-base text-white hover:text-yellow-700">{{ Auth::user()->name }}</span>
                 </div>
 
-                <div class="w-full absolute right-0 mt-0 py-2 w-4/12 bg-white rounded-lg shadow-xl invisible group-hover:visible w-full">
+                <div class="w-full absolute right-0 mt-0 py-2 bg-white rounded-lg shadow-xl invisible group-hover:visible">
 
                     <a href="/app"
                         class="no-underline px-4 py-2 block text-grey-900 hover:text-blue-500">
@@ -52,7 +52,7 @@
             </div>
             @else
                 <a href="{{ route('login') }}"
-                class="mt-1 block px-2 py-1 text-white text-base rounded hover:bg-blue-700 hover:text-white sm:mt-0 sm:ml-2">Sing Up</a>
+                class="mt-1 block px-2 py-1 text-grey-900 bg-gray-200 text-base rounded hover:bg-blue-700 hover:text-white sm:mt-0 sm:ml-2">เข้าสู่ระบบ</a>
 
             @endauth
         </div>
@@ -60,7 +60,7 @@
             <div class="px-4 py-5 border-t border-gray-800 sm:hidden">
                 <div class="flex items-center">
                     <img class="h-8 w-8 border-2 border-gray-600 rounded-full object-cover" src="{{ Storage::url(Auth::user()->avatar) }}" alt="">
-                    <span class="ml-3 text-base text-black">{{ Auth::user()->name }}</span>
+                    <span class="ml-3 text-base text-white">{{ Auth::user()->name }}</span>
                 </div>
                 <div class="mt-4">
                     <a href="/app" class="px-2 py-1 mt-2 block text-white text-base rounded hover:bg-blue-700 hover:text-white sm:mt-0 sm:ml-2">บัญชีโฆษณา</a>

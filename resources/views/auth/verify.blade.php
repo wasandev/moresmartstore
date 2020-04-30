@@ -20,7 +20,7 @@
                 {{ __('ถ้าหากคุณยังไม่ได้รับอีเมลจากเรา ') }}
                 <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                     @csrf
-                    <button type="submit" class="w-full mt-8 inline-block px-2 py-2 rounded-lg shadow-lg btn btn-blue btn-blue:hover focus:outline-none focus:shadow-outline tracking-wider">
+                    <button type="submit" class="w-full mt-8 inline-block px-2 py-2 btn btn-blue btn-blue:hover focus:outline-none focus:shadow-outline tracking-wider">
                         {{ __('คลิกเพื่อส่งอีเมลยืนยันอีกครั้ง') }}
                     </button>.
                 </form>

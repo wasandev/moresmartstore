@@ -2,4 +2,6 @@
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('nav-bar',require('./components/NavBar.vue').default);
 Vue.component('account-dropdown',require('./components/AccountDropdown.vue').default);
+Vue.component('terms-modal',require('./components/TermsModal.vue').default);
+
 

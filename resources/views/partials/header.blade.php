@@ -1,4 +1,4 @@
-<div class="mx-auto py-8">
+<div class="mx-auto py-4">
 
     @include('partials.logoblack')
 

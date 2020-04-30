@@ -32,7 +32,7 @@
                 <a href="{{ \Laravel\Nova\Nova::path() }}">
                     <div
                         class="absolute pin-t pin-l pin-r bg-logo flex items-center w-sidebar h-header px-6 text-white">
-                        @include('nova::partials.logo')
+                        @include('nova::partials.logo2')
                     </div>
                 </a>
 

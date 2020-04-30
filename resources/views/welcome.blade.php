@@ -6,14 +6,28 @@
 @section('content')
 
 <!--image-->
+<div class="max-w-full mx-auto rounded-t-lg  bg-white">
+    <div class="mx-0 sm:mx-6">
+        <div class="  w-full p-4 md:p-4 t leading-normal rounded-lg">
+            <p class="text-xl md:text-2xl font-semibold text-center text-black subpixel-antialiased">
+                หาอะไรอยู่?
+            </p>
+
+            <p class="py-2 text-lg md:text-xl  text-grey-darker text-center mt-4 subpixel-antialiased">
+                Search Component here!
+            </p>
+
+        </div>
+    </div>
+</div>
 <div class="max-w-full mx-auto bg-gray-300 bg-cover "
     style="background-image:url('{{  Storage::url('mshome3.jpg') }}'); height: 70vh; ">
 
     <div class="p-6">
         <div class="xl:flex -mx-6">
-            <div class="max-w-2xl mx-auto p-2 md:p-2 t leading-normal ">
+            <div class="max-w-2xl mx-auto p-4 md:p-4 t leading-normal ">
 
-                <h1 class="text-2xl text-black sm:text-4xl md:text-5xl xl:text-4xl leading-tight">
+                <h1 class="text-2xl text-black font-extrabold sm:text-4xl md:text-5xl xl:text-4xl leading-tight">
                     Classifieds website portal
                 </h1>
                 <span class="sm:block text-indigo-500 text-xl ">
@@ -36,23 +50,10 @@
     </div>
 </div>
 
-<div class="max-w-full mx-auto bg-white">
-    <div class="mx-0 sm:mx-6">
-        <div class="  w-full p-4 md:p-4 t leading-normal rounded-lg">
-            <p class="text-xl md:text-2xl font-semibold text-center text-black subpixel-antialiased">
-                หาอะไรอยู่?
-            </p>
-
-            <p class="py-2 text-lg md:text-xl  text-grey-darker text-center mt-4 subpixel-antialiased">
-                Search Component here!
-            </p>
-
-        </div>
-    </div>
-</div>
 
 
-<div class="flex flex-wrap max-w-2xl mx-auto my-2">
+
+<div class="flex flex-wrap max-w-3xl mx-auto my-2">
 
     <div class="w-full md:w-1/2 lg:w-1/3 flex flex-col  ">
         <a href="/features"
@@ -65,8 +66,8 @@
                 <h2 class="mb-3 text-grey-800 text-xl">Features</h2>
                 <p class="text-grey-800 mb-6 text-sm">ลงโพสโฆษณาธุรกิจของคุณได้ง่ายๆ
                 <div class="mb-4 w-full mx-auto text-center ">
-                    <button class="w-1/2 text-base btn btn-blue btn-blue:hover focus:outline-none">
-                        ดูรายละเอียด
+                    <button class="w-1/2  btn btn-blue btn-blue:hover focus:outline-none">
+                        รายละเอียด
                     </button>
                 </div>
 
@@ -86,8 +87,8 @@
                 <p class="text-grey-darker mb-6 text-sm">ค้นหา สินค้า ร้านค้า ผู้ผลิต แบ่งเป็นหมวดหมู่
                 </p>
                 <div class="mb-4 w-full mx-auto text-center">
-                    <button class="w-1/2 text-base btn btn-blue btn-blue:hover focus:outline-none">
-                        ดูรายละเอียด
+                    <button class="w-1/2  btn btn-blue btn-blue:hover focus:outline-none">
+                        รายละเอียด
                     </button>
                 </div>
             </div>
@@ -106,7 +107,7 @@
                 <p class="text-grey-darker mb-6 text-sm">บทความ/ข่าวสารที่น่าสนใจ</p>
                 <div class="mb-4 w-full mx-auto text-center ">
                     <button class="w-1/2 btn btn-blue btn-blue:hover focus:outline-none text-base">
-                        ดูรายละเอียด
+                        รายละเอียด
                     </button>
                 </div>
             </div>
@@ -118,6 +119,6 @@
 @endsection
 
 @section('footer')
-@include('partials.footer')
+    @include('partials.footer')
 
 @endsection
