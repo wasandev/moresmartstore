@@ -21,8 +21,8 @@
 
     <!-- // Google analytics. // -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    {{--
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1074154-29"></script>
+
+    {{-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1074154-29"></script>
         <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -30,8 +30,8 @@
 
         gtag('config', 'UA-1074154-29');
     </script>
-    <script data-ad-client="ca-pub-5073377677831929" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
- --}}
+    <script data-ad-client="ca-pub-5073377677831929" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> --}}
+
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -55,6 +55,7 @@
         @yield('nav')
 
         @yield('content')
+
 
         @yield('footer')
     </div>
