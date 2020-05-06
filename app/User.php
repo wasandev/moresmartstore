@@ -38,5 +38,5 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-
+    protected $dates = ['logged_in_at', 'logged_out_at'];
 }

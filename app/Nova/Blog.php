@@ -9,7 +9,10 @@ use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
-use Laravel\Nova\Fields\Trix;
+use Laravel\Nova\Fields\Textarea;
+use Drobee\NovaSluggable\SluggableText;
+use Drobee\NovaSluggable\Slug;
+
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Blog extends Resource
@@ -47,7 +50,7 @@ class Blog extends Resource
      */
     public static function label()
     {
-        return 'เนื้อหาเว็บ';
+        return 'บทความเว็บ';
     }
     /**
      * Get the fields displayed by the resource.
@@ -66,12 +69,12 @@ class Blog extends Resource
                 ->onlyOnDetail(),
             BelongsTo::make('Blog_cat','blog_cat','App\Nova\Blog_cat')
                 ->rules('required')
-                ->searchable()
                 ->sortable(),
             Text::make(__('Title'),  'title')
                 ->rules('required')
                 ->sortable(),
-            Trix::make(__('Content'),  'blog_content')
+
+            Textarea::make(__('Content'),  'blog_content')
                 ->rules('required')
                 ->hideFromIndex()
                 ->sortable(),

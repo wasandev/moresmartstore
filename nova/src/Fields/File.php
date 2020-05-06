@@ -10,12 +10,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class File extends Field implements StorableContract, DeletableContract, Downloadable
 {
-    use Storable;
-    use Deletable;
-    use AcceptsTypes;
-    use HasDownload;
-    use HasThumbnail;
-    use HasPreview;
+    use Storable, Deletable, AcceptsTypes, HasDownload, HasThumbnail, HasPreview;
 
     /**
      * The field's component.

@@ -1,6 +1,5 @@
 <div class="bg-gray-800 sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3 border-b border-gray-400 fixed top-0 inset-x-0 z-50 ">
 
-
     <div class="flex items-center justify-between px-4 py-3 sm:p-0">
         <div class="flex text-left flex-no-shrink mr-0">
             <a class="flex text-base  no-underline hover:text-mstore hover:no-underline" href="/">
@@ -18,12 +17,13 @@
         </div>
     </div>
 
-    <nav id="main-nav" class="sm:block sm:w-auto hidden   text-sm font-medium  bg-gray-800">
+    <div id="main-nav" class="sm:block sm:w-auto hidden   text-sm font-medium  bg-gray-800">
         <div class="px-2 pt-2 pb-4 sm:flex sm:p-0">
             <a href="/" class="block px-2 py-1 text-white  rounded hover:bg-blue-700 hover:text-white ">หน้าหลัก</a>
             <a href="/classifieds" class="mt-1 block px-2 py-1 text-white  rounded hover:bg-blue-700 hover:text-white sm:mt-0 sm:ml-2  ">ค้นหาข้อมูลธุรกิจ</a>
+            <a href="/post" class="mt-1 block px-2 py-1 text-white  rounded hover:bg-blue-700 hover:text-white sm:mt-0 sm:ml-2  ">ดูโพส</a>
             <a href="/blog" class="mt-1 block px-2 py-1 text-white  rounded hover:bg-blue-700 hover:text-white sm:mt-0 sm:ml-2  ">บทความ</a>
-            <a href="/app" class="mt-1 block px-2 py-1 text-white bg-red-600  rounded hover:bg-blue-700 hover:text-white sm:mt-0 sm:ml-2 ">เพิ่มข้อมูลธุรกิจฟรี!</a>
+            <a href="{{ route('login') }}" class="mt-1 block px-2 py-1 text-white bg-red-600  rounded hover:bg-blue-700 hover:text-white sm:mt-0 sm:ml-2 ">เพิ่มข้อมูลธุรกิจฟรี!</a>
             @auth
             <div class="relative group hidden sm:block sm:ml-6">
                 <div class="flex items-center cursor-pointer  text-white  group-hover: border-gray  hover:text-blue  mt-1 px-6 mb-0 sm:mt-0">
@@ -51,12 +51,13 @@
                         @csrf
                     </form>
                 </div>
-            </div>
-            @else
-                <a href="{{ route('login') }}"
-                class="mt-1 block px-2 py-1 text-gray-100 bg-gray-500 rounded hover:bg-blue-700 hover:text-white sm:mt-0 sm:ml-2 ">Login</a>
 
-            @endauth
+                @else
+                    <a href="{{ route('login') }}"
+                    class="mt-1 block px-2 py-1 text-gray-100 bg-gray-500 rounded hover:bg-blue-700 hover:text-white sm:mt-0 sm:ml-2 ">Login</a>
+
+                @endauth
+            </div>
         </div>
             @auth
             <div class="px-4 py-5 border-t border-gray-800 sm:hidden">
@@ -77,7 +78,7 @@
                 </div>
             </div>
             @endauth
-        </nav>
+    </div>
 </div>
 
 

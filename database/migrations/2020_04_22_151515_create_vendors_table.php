@@ -33,7 +33,7 @@ class CreateVendorsTable extends Migration
             $table->string('facebook')->nullable();
             $table->string('line')->nullable();
             $table->string('email')->nullable();
-            $table->string('imagefile')->default('store.png');
+            $table->string('imagefile')->default('store.jpg');
             $table->string('logofile')->default('storelogo.png');
             $table->string('location_lat')->nullable();
             $table->string('location_lng')->nullable();

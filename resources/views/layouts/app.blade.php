@@ -53,10 +53,11 @@
 <body class="font-sans h-full bg-gray-100  leading-normal tracking-normal antialiased">
     <div id="app">
         @yield('nav')
-
+        @yield('mstorehome')
+        @yield('searchhome')
+        @yield('search')
+        @yield('businesstype')
         @yield('content')
-
-
         @yield('footer')
     </div>
 </body>

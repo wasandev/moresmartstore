@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Blog extends Model
 {
+
     protected $fillable = [
         'slug',
         'blog_cat_id',
@@ -28,5 +29,7 @@ class Blog extends Model
     {
         return $this->belongsTo('App\Blog_cat');
     }
+
+
 
 }

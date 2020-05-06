@@ -110,6 +110,19 @@ class VaporFile extends Field implements StorableContract, DeletableContract, Do
     }
 
     /**
+     * Specify the callback that should be used to determine the file's storage name.
+     *
+     * @param  callable  $storeAsCallback
+     * @return $this
+     */
+    public function storeAs(callable $storeAsCallback)
+    {
+        $this->storeAsCallback = $storeAsCallback;
+
+        return $this;
+    }
+
+    /**
      * Prepare the storage callback.
      *
      * @param  callable|null  $storageCallback
@@ -138,9 +151,9 @@ class VaporFile extends Field implements StorableContract, DeletableContract, Do
                 ? call_user_func($this->storeAsCallback, $request)
                 : str_replace('tmp/', '', $key);
 
-            Storage::disk($this->getStorageDisk())->copy($key, $fileName);
+            Storage::disk($this->getStorageDisk())->copy($key, $this->getStorageDir().'/'.$fileName);
 
-            return $fileName;
+            return ltrim($this->getStorageDir().'/'.$fileName, '/');
         });
     }
 

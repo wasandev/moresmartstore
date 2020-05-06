@@ -78,9 +78,7 @@ class Post extends Resource
                 ->rules('required')
                 ->sortable(),
             BelongsTo::make('Vendor')
-                ->rules('required')
-                ->searchable()
-                ->sortable(),
+                ->rules('required'),
             Text::make(__('Title'),  'title')
                 ->rules('required')
 

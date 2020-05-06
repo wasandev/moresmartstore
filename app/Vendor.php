@@ -69,4 +69,9 @@ class Vendor extends Model
         $this->attributes['location_lat'] = $location_lat;
         $this->attributes['location_lng'] = $location_lng;
     }
+
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
+    }
 }

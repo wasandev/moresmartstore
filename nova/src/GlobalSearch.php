@@ -2,7 +2,6 @@
 
 namespace Laravel\Nova;
 
-use Illuminate\Support\Collection;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class GlobalSearch
@@ -28,7 +27,7 @@ class GlobalSearch
      * @param  \Illuminate\Support\Collection  $resources
      * @return void
      */
-    public function __construct(NovaRequest $request, Collection $resources)
+    public function __construct(NovaRequest $request, $resources)
     {
         $this->request = $request;
         $this->resources = $resources;

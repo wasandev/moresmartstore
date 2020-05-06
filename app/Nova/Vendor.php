@@ -61,10 +61,19 @@ class Vendor extends Resource
     {
         return [
             ID::make()->sortable(),
+            BelongsTo::make('ผู้เพิ่มข้อมูล', 'user', 'App\Nova\User')
+            ->onlyOnDetail(),
             Boolean::make('ใช้งาน', 'status'),
+            BelongsTo::make('ประเภทธุรกิจ', 'businesstype', 'App\Nova\Businesstype')
+                ->hideFromIndex(),
+
             Text::make('ชื่อร้านค้า', 'name')
                 ->sortable()
                 ->rules('required'),
+            Image::make('รูปภาพธุรกิจ', 'imagefile')
+                ->hideFromIndex(),
+            Image::make('โลโก้', 'logofile')->hideFromIndex(),
+            Textarea::make('รายละเอียดธุรกิจ', 'description')->hideFromIndex(),
             Text::make('เลขประจำตัวผู้เสียภาษี', 'taxid')
                 ->hideFromIndex(),
             Select::make('ประเภท', 'type')->options([
@@ -72,13 +81,9 @@ class Vendor extends Resource
                 'person' => 'บุคคลธรรมดา'
             ])->displayUsingLabels()
                 ->hideFromIndex(),
-
-            BelongsTo::make('ประเภทธุรกิจ', 'businesstype', 'App\Nova\Businesstype')
-                ->hideFromIndex(),
-
             new Panel('ข้อมูลการติดต่อ', $this->contactFields()),
             new Panel('ที่อยู่', $this->addressFields()),
-            new Panel('อื่นๆ', $this->otherFields()),
+
 
 
         ];
@@ -134,22 +139,7 @@ class Vendor extends Resource
         ];
     }
 
-    /**
-     * Get the address fields for the resource.
-     *
-     * @return array
-     */
-    protected function otherFields()
-    {
-        return [
-            Image::make('โลโก้', 'logofile'),
-            Image::make('ภาพหน้าร้าน', 'imagefile')
-                ->hideFromIndex(),
-            Textarea::make('รายละเอียดอื่นๆ', 'description')->hideFromIndex(),
-            BelongsTo::make('ผู้ทำรายการ', 'user', 'App\Nova\User')
-                ->onlyOnDetail(),
-        ];
-    }
+
     /**
      * Get the cards available for the request.
      *

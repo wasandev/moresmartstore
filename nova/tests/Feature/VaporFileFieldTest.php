@@ -163,6 +163,163 @@ class VaporFileFieldTest extends IntegrationTest
         Storage::assertExists($uuid);
     }
 
+    public function test_can_customize_file_name_strategy()
+    {
+        config(['filesystems.default' => 's3']);
+        config()->offsetUnset('filesystems.disks.local');
+        config()->offsetUnset('filesystems.disks.public');
+
+        Storage::fake('s3');
+        $uuid = Uuid::uuid();
+        $file = UploadedFile::fake()->image('wew.jpg');
+        $file->storeAs('tmp', $uuid, 's3');
+        Storage::disk('s3')->assertExists('tmp/'.$uuid);
+
+        $model = new Model();
+        $field = $this->makeField();
+        $field->storeAs(fn () => 'bar');
+
+        $request = NovaRequest::create('/', 'GET', [
+            'avatar' => 'wew.jpg',
+            'vaporFile' => [
+                'key' => 'tmp/'.$uuid,
+            ],
+        ]);
+
+        $field->fill($request, $model);
+
+        $this->assertEquals('bar', $model->avatar);
+
+        Storage::assertExists('bar');
+    }
+
+    public function test_can_customize_file_path_strategy()
+    {
+        config(['filesystems.default' => 's3']);
+        config()->offsetUnset('filesystems.disks.local');
+        config()->offsetUnset('filesystems.disks.public');
+
+        Storage::fake('s3');
+        $uuid = Uuid::uuid();
+        $file = UploadedFile::fake()->image('wew.jpg');
+        $file->storeAs('tmp', $uuid, 's3');
+        Storage::disk('s3')->assertExists('tmp/'.$uuid);
+
+        $model = new Model();
+        $field = $this->makeField();
+        $field->path('foo');
+
+        $request = NovaRequest::create('/', 'GET', [
+            'avatar' => 'wew.jpg',
+            'vaporFile' => [
+                'key' => 'tmp/'.$uuid,
+            ],
+        ]);
+
+        $field->fill($request, $model);
+
+        $this->assertEquals('foo/'.$uuid, $model->avatar);
+        Storage::assertExists('foo/'.$uuid);
+    }
+
+    public function test_can_store_file_extension()
+    {
+        config(['filesystems.default' => 's3']);
+        config()->offsetUnset('filesystems.disks.local');
+        config()->offsetUnset('filesystems.disks.public');
+
+        Storage::fake('s3');
+        $uuid = Uuid::uuid();
+        $file = UploadedFile::fake()->image('wew.jpg');
+        $file->storeAs('tmp', $uuid, 's3');
+        Storage::disk('s3')->assertExists('tmp/'.$uuid);
+
+        $model = new Model();
+        $field = $this->makeField();
+        $field->storeAs(function ($request) {
+            return $request->input('vaporFile')['key'].'.'.$request->input('vaporFile')['extension'];
+        });
+
+        $request = NovaRequest::create('/', 'GET', [
+            'avatar' => 'wew.jpg',
+            'vaporFile' => [
+                'key' => 'tmp/'.$uuid,
+                'extension' => 'jpg',
+            ],
+        ]);
+
+        $field->fill($request, $model);
+
+        $this->assertEquals('tmp/'.$uuid.'.jpg', $model->avatar);
+        Storage::assertExists('tmp/'.$uuid.'.jpg');
+    }
+
+    public function test_can_store_original_filename()
+    {
+        config(['filesystems.default' => 's3']);
+        config()->offsetUnset('filesystems.disks.local');
+        config()->offsetUnset('filesystems.disks.public');
+
+        Storage::fake('s3');
+        $uuid = Uuid::uuid();
+        $file = UploadedFile::fake()->image('wew.jpg');
+        $file->storeAs('tmp', $uuid, 's3');
+        Storage::disk('s3')->assertExists('tmp/'.$uuid);
+
+        $model = new Model();
+        $field = $this->makeField();
+        $field->storeAs(function ($request) {
+            return $request->input('vaporFile')['filename'];
+        });
+
+        $request = NovaRequest::create('/', 'GET', [
+            'avatar' => 'wew.jpg',
+            'vaporFile' => [
+                'key' => 'tmp/'.$uuid,
+                'filename' => 'wow.png',
+                'extension' => 'jpg',
+            ],
+        ]);
+
+        $field->fill($request, $model);
+
+        $this->assertEquals('wow.png', $model->avatar);
+        Storage::assertExists('wow.png');
+    }
+
+    public function test_can_customize_file_path_and_name_strategy()
+    {
+        config(['filesystems.default' => 's3']);
+        config()->offsetUnset('filesystems.disks.local');
+        config()->offsetUnset('filesystems.disks.public');
+
+        Storage::fake('s3');
+        $uuid = Uuid::uuid();
+        $file = UploadedFile::fake()->image('wew.jpg');
+        $file->storeAs('tmp', $uuid, 's3');
+//        $file->path('foo');
+        Storage::disk('s3')->assertExists('tmp/'.$uuid);
+
+        $model = new Model();
+        $field = $this->makeField();
+        $field->path('foo');
+        $field->storeAs(function () {
+            return 'wew';
+        });
+
+        $request = NovaRequest::create('/', 'GET', [
+            'avatar' => 'wew.jpg',
+            'vaporFile' => [
+                'key' => 'tmp/'.$uuid,
+            ],
+        ]);
+
+        $field->fill($request, $model);
+
+        $this->assertEquals('foo/wew', $model->avatar);
+        Storage::assertExists('foo/wew');
+    }
+
     public function test_can_correctly_store_extra_columns()
     {
         config(['filesystems.default' => 's3']);

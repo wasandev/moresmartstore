@@ -2,8 +2,11 @@
 
 namespace App\Observers;
 use App\Page;
+
 class PageObserver
 {
+
+
     public function creating(Page $page)
     {
         $page->user_id = auth()->user()->id;
@@ -12,5 +15,8 @@ class PageObserver
     public function saving(Page $page)
     {
         $page->user_id = auth()->user()->id;
+
     }
+
+
 }

@@ -43,7 +43,7 @@ class Blog_cat extends Resource
      */
     public static function label()
     {
-        return 'หมวดเนื้อหา';
+        return 'หมวดหมู่บทความ';
     }
     /**
      * Get the fields displayed by the resource.

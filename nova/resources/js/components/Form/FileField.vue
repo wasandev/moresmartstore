@@ -121,6 +121,8 @@ export default {
     vaporFile: {
       key: '',
       uuid: '',
+      filename: '',
+      extension: '',
     },
     uploading: false,
     uploadProgress: 0,
@@ -136,6 +138,8 @@ export default {
         formData.append(this.field.attribute, this.fileName)
         formData.append('vaporFile[key]', this.vaporFile.key)
         formData.append('vaporFile[uuid]', this.vaporFile.uuid)
+        formData.append('vaporFile[filename]', this.vaporFile.filename)
+        formData.append('vaporFile[extension]', this.vaporFile.extension)
       }
     }
   },
@@ -148,6 +152,7 @@ export default {
       let path = event.target.value
       let fileName = path.match(/[^\\/]*$/)[0]
       this.fileName = fileName
+      let extension = fileName.split('.').pop()
       this.file = this.$refs.fileField.files[0]
 
       if (this.isVaporField) {
@@ -161,6 +166,8 @@ export default {
         }).then(response => {
           this.vaporFile.key = response.key
           this.vaporFile.uuid = response.uuid
+          this.vaporFile.filename = fileName
+          this.vaporFile.extension = extension
           this.uploading = false
           this.uploadProgress = 0
           this.$emit('file-upload-finished')
@@ -277,7 +284,7 @@ export default {
      * Determine whether the file field input should be shown.
      */
     shouldShowField() {
-      return Boolean(this.field.deletable && !this.isReadonly)
+      return Boolean(!this.isReadonly)
     },
 
     /**
