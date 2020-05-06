@@ -14,7 +14,7 @@ class AddIpAddressToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('ip_address', 45)->nullable()->after('mobile');
+            $table->string('ip_address', 45)->nullable();
             $table->timestamp('logged_in_at')->nullable()->after('ip_address');
             $table->timestamp('logged_out_at')->nullable()->after('logged_in_at');
             $table->index('ip_address');
