@@ -12,11 +12,17 @@ class Product extends Model
         'category_id',
         'name',
         'description',
+        'image',
         'price',
         'unit_id',
         'user_id'
     ];
+    protected $appends = ['path'];
 
+    public function getPathAttribute()
+    {
+        return url('storage/'.$this->image);
+    }
     public function category()
     {
         return $this->belongsTo('App\Category');
@@ -26,10 +32,10 @@ class Product extends Model
     {
         return $this->belongsTo('App\Unit');
     }
-    public function product_images()
-    {
-        return $this->hasMany('App\Product_image');
-    }
+    // public function product_images()
+    // {
+    //     return $this->hasMany('App\Product_image');
+    // }
 
     public function user()
     {
@@ -38,8 +44,10 @@ class Product extends Model
 
     public function vendor()
     {
-        return $this->belongsToMany('App\Vendor')
-            ->withTimestamps();
+        return $this->belongsTo('App\Vendor');
     }
-
+    public function visits()
+    {
+        return visits($this);
+    }
 }

@@ -30,6 +30,9 @@ class Blog extends Model
         return $this->belongsTo('App\Blog_cat');
     }
 
-
+    public function visits()
+    {
+        return visits($this);
+    }
 
 }

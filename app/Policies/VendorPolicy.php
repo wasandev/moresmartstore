@@ -12,25 +12,35 @@ class VendorPolicy
 
     public function view(User $user, Vendor $vendor)
     {
-        return $user->role == 'admin' || $user->role == 'member' || $user->hasPermissionTo('view vendors');
-    }
+        if ($user->hasPermissionTo('view own vendors')) {
+            return $user->id === $vendor->user_id;
+        }
 
+        return $user->hasPermissionTo('view vendors');
+    }
 
     public function create(User $user)
     {
-        return $user->role == 'admin' || $user->role == 'member' || $user->hasPermissionTo('create vendors');
+
+        return $user->hasAnyPermission(['manage vendors', 'manage own vendors']);
     }
 
 
     public function update(User $user, Vendor $vendor)
     {
-
-        return  $user->role == 'admin' || $user->role == 'member' || $user->hasPermissionTo('edit vendors');
+        if ($user->hasPermissionTo('manage own vendors')) {
+            return $user->id == $vendor->user_id;
+        }
+        return $user->hasPermissionTo('manage vendors');
     }
 
 
     public function delete(User $user, Vendor $vendor)
     {
-        return $user->role == 'admin' || $user->role == 'member' || $user->hasPermissionTo('delete vendors');
+        if ($user->hasPermissionTo('manage own vendors')) {
+            return $user->id === $vendor->user_id;
+        }
+
+        return $user->hasPermissionTo('manage vendors');
     }
 }

@@ -13,6 +13,8 @@ use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\Image;
+
 //use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
 
 
@@ -22,7 +24,7 @@ class Product extends Resource
 {
     //public static $displayInNavigation = false;
     public static $group = "Classify";
-    public static $priority = 2;
+    public static $priority = 4;
 
     //public static $displayInNavigation = false;
     /**
@@ -63,21 +65,35 @@ class Product extends Resource
 
         return [
             ID::make()->sortable(),
-            Boolean::make('ใช้งาน', 'status')
-                ->hideWhenCreating(),
+
+            Boolean::make('สถานะ', 'status')
+                ->showOnCreating(function ($request) {
+                    return $request->user()->role == 'admin';
+                    })
+                ->showOnUpdating(function ($request) {
+                    return $request->user()->role == 'admin';
+                    }),
+            BelongsTo::make('ชื่อธุรกิจ','vendor','App\Nova\Vendor')
+                    ->rules('required'),
             BelongsTo::make('ประเภทสินค้า', 'category', 'App\Nova\Category')
                 ->sortable(),
             Text::make('ชื่อสินค้า', 'name')
                 ->sortable()
                 ->rules('required'),
-            Text::make('รายละเอียด', 'description')
-                ->sortable()
-                ->rules('required'),
+            Textarea::make('รายละเอียด', 'description')
+                ->rules('required')
+                ->hideFromIndex(),
+            Image::make('รูปสินค้า','image')
+                ->disk('public')
+                ->maxWidth(200),
             Number::make('ราคาขาย','price'),
 
             BelongsTo::make('หน่วยนับ', 'unit', 'App\Nova\Unit'),
             BelongsTo::make('ผู้ทำรายการ', 'user', 'App\Nova\User')
-                ->onlyOnDetail(),
+                ->onlyOnDetail()
+                ->canSee(function ($request) {
+                    return $request->user()->role == 'admin';
+                    }),
 
         ];
     }

@@ -7,7 +7,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Pktharindu\NovaPermissions\Traits\HasRoles;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
+//implements MustVerifyEmail
 {
     use Notifiable,HasRoles;
 
@@ -39,4 +40,22 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     protected $dates = ['logged_in_at', 'logged_out_at'];
+
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role', 'role_user', 'user_id', 'role_id');
+    }
+    public function assignRole(Role $role)
+    {
+        return $this->roles()->save($role);
+    }
+    public function vendors()
+    {
+        return $this->hasMany('App\Vendor');
+    }
+
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
+    }
 }

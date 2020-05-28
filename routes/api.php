@@ -48,3 +48,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     Route::get('users/{id}', 'UserController@show')->middleware('isAdminOrSelf');
 // });
 
+
+Route::get('search','ProductController@search');
+Route::get('products','ProductController@get');
+Route::get('classified','ClassifiedController@get');
+Route::get('searchvendor','ClassifiedController@searchvendor');
+//Route::get('allvendors','ClassifiedController@getall');
+
+
+Route::get('btype','ClassifiedController@btype');

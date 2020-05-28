@@ -15,7 +15,7 @@ class CreateVendorsTable extends Migration
     {
         Schema::create('vendors', function (Blueprint $table) {
             $table->id();
-            $table->boolean('status')->nullable()->default(true);
+            $table->boolean('status')->nullable()->default(false);
             $table->enum('type', ['company', 'person'])->nullable()->default('company');
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->string('taxid', 13)->nullable();

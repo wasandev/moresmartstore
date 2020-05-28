@@ -18,5 +18,4 @@ mix.js("resources/js/app.js", "public/js/app.js")
     .options({
         processCssUrls: false,
         postCss: [tailwindcss("./tailwind.config.js")],
-
     });

@@ -28,6 +28,7 @@
                     </div>
                     <p class="mb-2 text-grey-900 text-sm font-semibold text-left">{{ $post->title }} </p>
                     <p>{{ $post->content }}</p>
+                    <p>{{ $post->visits()->count() }}</p>
                 </div>
             </div>
 

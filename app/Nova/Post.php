@@ -17,7 +17,7 @@ class Post extends Resource
 {
 
     public static $group = "Classify";
-    public static $priority = 3;
+    public static $priority = 5;
     /**
      * The model the resource corresponds to.
      *
@@ -75,28 +75,32 @@ class Post extends Resource
                 ->rules('required')
                 ->sortable(),
             Boolean::make('เผยแพร่', 'published')
-                ->rules('required')
+                ->showOnCreating(function ($request) {
+                    return $request->user()->role == 'admin';
+                    })
+                ->showOnUpdating(function ($request) {
+                    return $request->user()->role == 'admin';
+                    })
                 ->sortable(),
-            BelongsTo::make('Vendor')
+            BelongsTo::make('ชื่อธุรกิจ','vendor','App\Nova\Vendor')
                 ->rules('required'),
-            Text::make(__('Title'),  'title')
+            Text::make('หัวข้อโพส', 'title')
                 ->rules('required')
-
                 ->sortable(),
-            Textarea::make(__('Content'),  'content')
+            Textarea::make('เนื้อหาโพส',  'content')
                 ->rules('required')
                 ->hideFromIndex()
                 ->sortable(),
-            Image::make(__('Image'),  'post_image')
-                ->hideFromIndex()
-                ->sortable(),
-
-            DateTime::make(__('Published At'),  'published_at')
+            Image::make('รูปภาพ',  'post_image')
+                ->hideFromIndex(),
+            DateTime::make('วันที่เผยแพร่',  'published_at')
                 ->hideFromIndex()
                 ->sortable(),
             BelongsTo::make('ผู้ทำรายการ', 'user', 'App\Nova\User')
-                ->onlyOnDetail(),
-            //HasMany::make('ความเห็น', 'comments', 'App\Nova\Comment')
+                   ->canSee(function ($request) {
+                    return $request->user()->role == 'admin';
+                    }),
+            HasMany::make('ความเห็น', 'comments', 'App\Nova\Comment')
         ];
     }
 

@@ -12,25 +12,35 @@ class ProductPolicy
 
     public function view(User $user, Product $product)
     {
-        return $user->role == 'admin' || $user->role == 'member' || $user->hasPermissionTo('view products');
-    }
+        if ($user->hasPermissionTo('view own products')) {
+            return $user->id === $product->user_id;
+        }
 
+        return $user->hasPermissionTo('view products');
+    }
 
     public function create(User $user)
     {
-        return $user->role == 'admin' || $user->role == 'member' || $user->hasPermissionTo('create products');
+
+        return $user->hasAnyPermission(['manage products', 'manage own products']);
     }
 
 
     public function update(User $user, Product $product)
     {
-
-        return $user->role == 'admin' || $user->role == 'member' || $user->hasPermissionTo('edit products');
+        if ($user->hasPermissionTo('manage own products')) {
+            return $user->id == $product->user_id;
+        }
+        return $user->hasPermissionTo('manage products');
     }
 
 
     public function delete(User $user, Product $product)
     {
-        return $user->role == 'admin' || $user->role == 'member' || $user->hasPermissionTo('delete products');
+        if ($user->hasPermissionTo('manage own products')) {
+            return $user->id === $product->user_id;
+        }
+
+        return $user->hasPermissionTo('manage products');
     }
 }

@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Businesstype extends Model
 {
     protected $fillable = [
-        'name', 'user_id'
+        'name', 'active','description'
     ];
 
-    public function customers()
+    public function vendors()
     {
         return $this->hasMany('App\Vendor');
     }

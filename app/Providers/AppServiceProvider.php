@@ -23,9 +23,11 @@ use App\Product;
 use App\Unit;
 use App\Vendor;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
+
     /**
      * Register any application services.
      *
@@ -53,5 +55,10 @@ class AppServiceProvider extends ServiceProvider
         Product::observe(ProductObserver::class);
         Unit::observe(UnitObserver::class);
         Vendor::observe(VendorObserver::class);
+
+        //paginager
+        Paginator::defaultView('vendor.pagination.tailwind');
+
+        Paginator::defaultSimpleView('vendor.pagination.simple-tailwind');
     }
 }

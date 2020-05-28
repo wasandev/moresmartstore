@@ -12,25 +12,35 @@ class PostPolicy
 
     public function view(User $user, Post $post)
     {
-        return $user->role == 'admin' || $user->role == 'member' || $user->hasPermissionTo('view posts');
-    }
+        if ($user->hasPermissionTo('view own posts')) {
+            return $user->id === $post->user_id;
+        }
 
+        return $user->hasPermissionTo('view posts');
+    }
 
     public function create(User $user)
     {
-        return $user->role == 'admin' || $user->role == 'member' || $user->hasPermissionTo('create posts');
+
+        return $user->hasAnyPermission(['manage posts', 'manage own posts']);
     }
 
 
     public function update(User $user, Post $post)
     {
-
-        return $user->role == 'admin' || $user->role == 'member' || $user->hasPermissionTo('edit posts');
+        if ($user->hasPermissionTo('manage own posts')) {
+            return $user->id == $post->user_id;
+        }
+        return $user->hasPermissionTo('manage posts');
     }
 
 
     public function delete(User $user, Post $post)
     {
-        return $user->role == 'admin' || $user->role == 'member' || $user->hasPermissionTo('delete posts');
+        if ($user->hasPermissionTo('manage own posts')) {
+            return $user->id === $post->user_id;
+        }
+
+        return $user->hasPermissionTo('manage posts');
     }
 }

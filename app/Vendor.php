@@ -37,6 +37,15 @@ class Vendor extends Model
         'businesstype_id',
     ];
 
+    protected $with = ['businesstype'];
+
+
+    protected $appends = ['path'];
+
+    public function getPathAttribute()
+    {
+        return url('storage/'.$this->imagefile);
+    }
     public function user()
     {
         return $this->belongsTo('App\User');
@@ -74,4 +83,13 @@ class Vendor extends Model
     {
         return $this->hasMany('App\Post');
     }
+    public function products()
+    {
+        return $this->hasMany('App\Product');
+    }
+    public function visits()
+    {
+        return visits($this);
+    }
+
 }

@@ -13,7 +13,6 @@
           :data="availableResources"
           :clearable="field.nullable"
           trackBy="value"
-          searchBy="display"
           class="w-full"
         >
           <div slot="default" v-if="selectedResource" class="flex items-center">

@@ -7,6 +7,7 @@ use Laravel\Nova\Cards\Help;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
 use App\Nova\Role;
+use Anaseqal\NovaImport\NovaImport;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -82,6 +83,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         return [
             \Pktharindu\NovaPermissions\NovaPermissions::make()
             ->roleResource(Role::class),
+            new NovaImport,
         ];
     }
 

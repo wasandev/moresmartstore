@@ -12,7 +12,7 @@ class PostController extends Controller
     {
         $posts = Post::where('published', 1)
         ->orderBy('published_at', 'desc')
-        ->get();
+        ->paginate(4);
 
         return view('posts.index',compact('posts'));
 
@@ -20,6 +20,8 @@ class PostController extends Controller
     public function show($slug)
     {
         $post = post::whereSlug($slug)->first();
+        $post->visits()->increment();
+
         return view('posts.show', compact('post'));
     }
 

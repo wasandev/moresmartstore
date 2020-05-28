@@ -7,12 +7,14 @@ class ProductObserver
     public function creating(Product $product)
     {
         $product->user_id = auth()->user()->id;
-        $product->status = '1';
+        $product->status = 0 ;
     }
 
-    public function saving(Product $product)
+
+    public function updating(Product $product)
     {
-        $product->user_id = auth()->user()->id;
-        $product->status = '1';
+        if(auth()->user()->role != 'admin') {
+            $product->status = 0 ;
+        }
     }
 }

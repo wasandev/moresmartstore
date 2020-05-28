@@ -3,6 +3,7 @@
 namespace Laravel\Nova\Tests\Feature;
 
 use Cake\Chronos\Chronos;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Metrics\Trend;
@@ -10,6 +11,7 @@ use Laravel\Nova\Metrics\Value;
 use Laravel\Nova\Nova;
 use Laravel\Nova\Tests\Fixtures\AverageWordCount;
 use Laravel\Nova\Tests\Fixtures\Post;
+use Laravel\Nova\Tests\Fixtures\PostAverageTrend;
 use Laravel\Nova\Tests\Fixtures\PostCountTrend;
 use Laravel\Nova\Tests\Fixtures\PostWithCustomCreatedAt;
 use Laravel\Nova\Tests\Fixtures\TotalUsers;
@@ -178,6 +180,18 @@ class MetricTest extends IntegrationTest
         $averageWordCount = factory(Post::class, 2)->create(['word_count' => 5.37894])->average('word_count');
         $this->assertEquals($averageWordCount, 5.37894);
         $this->assertEquals(5.38, (new AverageWordCount)->precision(2)->calculate(NovaRequest::create('/'))->value);
+    }
+
+    public function test_trend_metrics_default_precision()
+    {
+        factory(Post::class, 2)->create(['word_count' => 5.37894, 'published_at' => now()])->average('word_count');
+        $this->assertEquals(5, Arr::first((new PostAverageTrend)->calculate(NovaRequest::create('/', 'GET', ['range'=>1]))->trend));
+    }
+
+    public function test_trend_metrics_custom_precision()
+    {
+        factory(Post::class, 2)->create(['word_count' => 5.37894, 'published_at' => now()])->average('word_count');
+        $this->assertEquals(5.38, Arr::first((new PostAverageTrend)->precision(2)->calculate(NovaRequest::create('/', 'GET', ['range'=>1]))->trend));
     }
 
     public function test_value_metrics_can_provide_a_default_range()

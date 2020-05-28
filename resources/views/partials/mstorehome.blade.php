@@ -1,11 +1,11 @@
 <!--image home page-->
 
-<div class="max-w-full mx-auto bg-gray-300 bg-cover pt-12 "
+<div class="max-w-full mx-auto bg-gray-300 bg-cover pt-6 "
     style="background-image:url('{{  Storage::url('mshome3.jpg') }}'); ">
 
     <div class="p-6">
-        <div class="xl:flex -mx-6">
-            <div class="max-w-2xl mx-auto p-4 md:p-4 leading-tight">
+        <div class="xl:flex -mx-4">
+            <div class="max-w-3xl mx-auto p-4 md:p-4 leading-tight">
 
                 <h1 class="text-3xl text-black font-extrabold sm:text-4xl md:text-5xl xl:text-4xl leading-tight">
                     Classifieds website portal

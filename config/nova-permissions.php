@@ -122,30 +122,8 @@ return [
             'description'  => 'ลบ',
             'group'        => 'ประเภทธุรกิจ',
         ],
-        //หมวดสินค้า
-        'view categories' => [
-            'display_name' => 'ดู',
-            'description'  => 'ดู',
-            'group'        => 'ประเภทสินค้า',
-        ],
 
-        'create categories' => [
-            'display_name' => 'สร้าง',
-            'description'  => 'สร้าง',
-            'group'        => 'ประเภทสินค้า',
-        ],
 
-        'edit categories' => [
-            'display_name' => 'แก้ไข',
-            'description'  => 'แก้ไข',
-            'group'        => 'ประเภทสินค้า',
-        ],
-
-        'delete categories' => [
-            'display_name' => 'ลบ',
-            'description'  => 'ลบ',
-            'group'        => 'ประเภทสินค้า',
-        ],
         //เว็บเพจ
         'view pages' => [
             'display_name' => 'ดู',
@@ -218,101 +196,146 @@ return [
             'description'  => 'ลบ',
             'group'        => 'เนื้อหาเว็บ',
         ],
-        //ข้อมูลร้านค้า
+        //ข้อมูลธุรกิจ
+        'view own vendors' => [
+            'display_name' => 'ดูข้อมูลของตัวเอง',
+            'description'  => 'ดูข้อมูลของตัวเอง',
+            'group'        => 'ข้อมูลธุรกิจ',
+        ],
         'view vendors' => [
-            'display_name' => 'ดู',
-            'description'  => 'ดู',
-            'group'        => 'ข้อมูลร้านค้า',
+            'display_name' => 'ดูข้อมูล',
+            'description'  => 'ดูข้อมูล',
+            'group'        => 'ข้อมูลธุรกิจ',
         ],
 
-        'create vendors' => [
-            'display_name' => 'สร้าง',
-            'description'  => 'สร้าง',
-            'group'        => 'ข้อมูลร้านค้า',
+        'manage own vendors' => [
+            'display_name' => 'จัดการข้อมูลของตัวเอง',
+            'description'  => 'จัดการข้อมูลของตัวเอง',
+            'group'        => 'ข้อมูลธุรกิจ',
         ],
 
-        'edit vendors' => [
-            'display_name' => 'แก้ไข',
-            'description'  => 'แก้ไข',
-            'group'        => 'ข้อมูลร้านค้า',
+        'manage vendors' => [
+            'display_name' => 'จัดการข้อมูล',
+            'description'  => 'จัดการข้อมูล',
+            'group'        => 'ข้อมูลธุรกิจ',
         ],
 
-        'delete vendors' => [
-            'display_name' => 'ลบ',
-            'description'  => 'ลบ',
-            'group'        => 'ข้อมูลร้านค้า',
+
+        //หมวดสินค้า
+        'view own categories' => [
+            'display_name' => 'ดูข้อมูลของตัวเอง',
+            'description'  => 'ดูข้อมูลของตัวเอง',
+            'group'        => 'ประเภทสินค้า',
+        ],
+        'view categories' => [
+            'display_name' => 'ดูข้อมูล',
+            'description'  => 'ดูข้อมูล',
+            'group'        => 'ประเภทสินค้า',
+        ],
+
+        'manage own categories' => [
+            'display_name' => 'จัดการข้อมูลของตัวเอง',
+            'description'  => 'จัดการข้อมูลของตัวเอง',
+            'group'        => 'ประเภทสินค้า',
+        ],
+        'manage categories' => [
+            'display_name' => 'จัดการข้อมูล',
+            'description'  => 'จัดการข้อมูล',
+            'group'        => 'ประเภทสินค้า',
+        ],
+         //หน่วยนับ
+        'view own units' => [
+            'display_name' => 'ดูข้อมูลของตัวเอง',
+            'description'  => 'ดูข้อมูลของตัวเอง',
+            'group'        => 'หน่วยนับสินค้า',
+        ],
+        'view units' => [
+            'display_name' => 'ดูข้อมูล',
+            'description'  => 'ดูข้อมูล',
+            'group'        => 'หน่วยนับสินค้า',
+        ],
+
+        'manage own units' => [
+            'display_name' => 'จัดการข้อมูลของตัวเอง',
+            'description'  => 'จัดการข้อมูลของตัวเอง',
+            'group'        => 'หน่วยนับสินค้า',
+        ],
+        'manage units' => [
+            'display_name' => 'จัดการข้อมูล',
+            'description'  => 'จัดการข้อมูล',
+            'group'        => 'หน่วยนับสินค้า',
         ],
         //ข้อมูลสินค้า
+        'view own products' => [
+            'display_name' => 'ดูข้อมูลของตัวเอง',
+            'description'  => 'ดูข้อมูลของตัวเอง',
+            'group'        => 'ข้อมูลสินค้า',
+        ],
         'view products' => [
-            'display_name' => 'ดู',
-            'description'  => 'ดู',
+            'display_name' => 'ดูข้อมูล',
+            'description'  => 'ดูข้อมูล',
             'group'        => 'ข้อมูลสินค้า',
         ],
 
-        'create products' => [
-            'display_name' => 'สร้าง',
-            'description'  => 'สร้าง',
+        'manage own products' => [
+            'display_name' => 'จัดการข้อมูลของตัวเอง',
+            'description'  => 'จัดการข้อมูลของตัวเอง',
             'group'        => 'ข้อมูลสินค้า',
         ],
 
-        'edit products' => [
-            'display_name' => 'แก้ไข',
-            'description'  => 'แก้ไข',
+        'manage products' => [
+            'display_name' => 'จัดการข้อมูล',
+            'description'  => 'จัดการข้อมูล',
             'group'        => 'ข้อมูลสินค้า',
         ],
 
-        'delete products' => [
-            'display_name' => 'ลบ',
-            'description'  => 'ลบ',
-            'group'        => 'ข้อมูลสินค้า',
-        ],
+
         //โพสโฆษณา
+        'view own posts' => [
+            'display_name' => 'ดูข้อมูลของตัวเอง',
+            'description'  => 'ดูข้อมูลของตัวเอง',
+            'group'        => 'โพสโฆษณา',
+        ],
         'view posts' => [
-            'display_name' => 'ดู',
-            'description'  => 'ดู',
+            'display_name' => 'ดูข้อมูล',
+            'description'  => 'ดูข้อมูล',
+            'group'        => 'โพสโฆษณา',
+        ],
+        'manage own posts' => [
+            'display_name' => 'จัดการข้อมูลของตัวเอง',
+            'description'  => 'จัดการข้อมูลของตัวเอง',
             'group'        => 'โพสโฆษณา',
         ],
 
-        'create posts' => [
-            'display_name' => 'สร้าง',
-            'description'  => 'สร้าง',
+        'manage posts' => [
+            'display_name' => 'จัดการข้อมูล',
+            'description'  => 'จัดการข้อมูล',
             'group'        => 'โพสโฆษณา',
         ],
 
-        'edit posts' => [
-            'display_name' => 'แก้ไข',
-            'description'  => 'แก้ไข',
-            'group'        => 'โพสโฆษณา',
-        ],
 
-        'delete posts' => [
-            'display_name' => 'ลบ',
-            'description'  => 'ลบ',
-            'group'        => 'โพสโฆษณา',
-        ],
         //แสดงความเห็น
+        'view own comments' => [
+            'display_name' => 'ดูข้อมูลของตัวเอง',
+            'description'  => 'ดูข้อมูลของตัวเอง',
+            'group'        => 'แสดงความเห็น',
+        ],
         'view comments' => [
-            'display_name' => 'ดู',
-            'description'  => 'ดู',
+            'display_name' => 'ดูข้อมูล',
+            'description'  => 'ดูข้อมูล',
+            'group'        => 'แสดงความเห็น',
+        ],
+        'manage own comments' => [
+            'display_name' => 'จัดการข้อมูลของตัวเอง',
+            'description'  => 'จัดการข้อมูลของตัวเอง',
             'group'        => 'แสดงความเห็น',
         ],
 
-        'create comments' => [
-            'display_name' => 'สร้าง',
-            'description'  => 'สร้าง',
+        'manage comments' => [
+            'display_name' => 'จัดการข้อมูล',
+            'description'  => 'จัดการข้อมูล',
             'group'        => 'แสดงความเห็น',
         ],
 
-        'edit comments' => [
-            'display_name' => 'แก้ไข',
-            'description'  => 'แก้ไข',
-            'group'        => 'แสดงความเห็น',
-        ],
-
-        'delete comments' => [
-            'display_name' => 'ลบ',
-            'description'  => 'ลบ',
-            'group'        => 'แสดงความเห็น',
-        ],
     ],
 ];

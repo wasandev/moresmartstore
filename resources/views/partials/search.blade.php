@@ -1,5 +1,5 @@
 
-<div class="max-w-full mx-auto bg-gray-400 pt-16">
+<div  class="max-w-full mx-auto bg-gray-400 pt-16">
     <div class="max-w-md mx-auto mx-0 ">
 
         <div class="w-full p-4 md:p-4">
@@ -9,4 +9,5 @@
         </div>
 
     </div>
+    {{-- <searchbar></searchbar> --}}
 </div>

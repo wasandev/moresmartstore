@@ -12,25 +12,35 @@ class UnitPolicy
 
     public function view(User $user, Unit $unit)
     {
+        if ($user->hasPermissionTo('view own units')) {
+            return $user->id === $unit->user_id;
+        }
+
         return $user->hasPermissionTo('view units');
     }
 
-
     public function create(User $user)
     {
-        return $user->hasPermissionTo('create units');
+
+        return $user->hasAnyPermission(['manage units', 'manage own units']);
     }
 
 
     public function update(User $user, Unit $unit)
     {
-
-        return $user->hasPermissionTo('edit units');
+        if ($user->hasPermissionTo('manage own units')) {
+            return $user->id == $unit->user_id;
+        }
+        return $user->hasPermissionTo('manage units');
     }
 
 
     public function delete(User $user, Unit $unit)
     {
-        return $user->hasPermissionTo('delete units');
+        if ($user->hasPermissionTo('manage own units')) {
+            return $user->id === $unit->user_id;
+        }
+
+        return $user->hasPermissionTo('manage units');
     }
 }

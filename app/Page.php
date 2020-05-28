@@ -24,5 +24,9 @@ class Page extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function visits()
+    {
+        return visits($this);
+    }
 
 }

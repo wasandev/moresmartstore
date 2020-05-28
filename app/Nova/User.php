@@ -9,6 +9,8 @@ use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class User extends Resource
 {
@@ -45,7 +47,7 @@ class User extends Resource
      */
     public static function label()
     {
-        return 'ข้อมูลผู้ใช้';
+        return 'บัญชีผู้ใช้';
     }
     /**
      * Get the fields displayed by the resource.
@@ -60,28 +62,34 @@ class User extends Resource
 
             Gravatar::make()->maxWidth(50),
 
-            Text::make('Name')
+            Text::make('ชื่อผู้ใช้','name')
                 ->sortable()
                 ->rules('required', 'max:255'),
 
-            Text::make('Email')
+            Text::make('อีเมล','email')
                 ->sortable()
                 ->rules('required', 'email', 'max:254')
                 ->creationRules('unique:users,email')
                 ->updateRules('unique:users,email,{{resourceId}}'),
 
-            Password::make('Password')
+            Password::make('รหัสผ่าน','password')
                 ->onlyOnForms()
                 ->creationRules('required', 'string', 'min:8')
                 ->updateRules('nullable', 'string', 'min:8'),
             Text::make('โทรศัพท์', 'mobile'),
-
-
             Select::make('สิทธิ์การใช้งาน', 'role')->options([
                     'admin' => 'Admin',
                     'member' => 'Member',
-                ])->displayUsingLabels(),
-            BelongsToMany::make('Roles', 'roles', \Pktharindu\NovaPermissions\Nova\Role::class),
+                ])->displayUsingLabels()
+                  ->canSee(function ($request) {
+                    return $request->user()->role == 'admin';
+                    }),
+            BelongsToMany::make('กำหนดสิทธิ์การใช้งาน', 'roles', \Pktharindu\NovaPermissions\Nova\Role::class)
+                ->canSee(function ($request) {
+                    return $request->user()->role == 'admin';
+                    }),
+            HasMany::make('รายชื่อธุรกิจ','vendors','App\Nova\Vendor'),
+            HasMany::make('รายการโพส','posts','App\Nova\Post')
         ];
     }
 
@@ -127,5 +135,12 @@ class User extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+    public static function indexQuery(NovaRequest $request, $query)
+    {
+        if ($request->user()->role == 'member') {
+            return $query->where('id', $request->user()->id);
+        }
+        return $query;
     }
 }

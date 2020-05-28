@@ -4,7 +4,7 @@
 @endsection
 
 @section('search')
-    @include('partials.search')
+    @include('partials.blogsearch')
 @endsection
 
 
@@ -28,6 +28,7 @@
                     </div>
                     <p class="mb-2 text-grey-900 text-sm font-semibold text-left">{{ $blog->title }} </p>
                     <p>{{ $blog->blog_content }}</p>
+                    <p>{{ $blog->visits()->count() }}</p>
                 </div>
             </div>
 

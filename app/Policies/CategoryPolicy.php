@@ -10,27 +10,38 @@ class CategoryPolicy
 {
     use HandlesAuthorization;
 
+
     public function view(User $user, Category $category)
     {
+        if ($user->hasPermissionTo('view own categories')) {
+            return $user->id === $category->user_id;
+        }
+
         return $user->hasPermissionTo('view categories');
     }
 
-
     public function create(User $user)
     {
-        return $user->hasPermissionTo('create categories');
+
+        return $user->hasAnyPermission(['manage categories', 'manage own categories']);
     }
 
 
     public function update(User $user, Category $category)
     {
-
-        return $user->hasPermissionTo('edit categories');
+        if ($user->hasPermissionTo('manage own categories')) {
+            return $user->id == $category->user_id;
+        }
+        return $user->hasPermissionTo('manage categories');
     }
 
 
     public function delete(User $user, Category $category)
     {
-        return $user->hasPermissionTo('delete categories');
+        if ($user->hasPermissionTo('manage own categories')) {
+            return $user->id === $category->user_id;
+        }
+
+        return $user->hasPermissionTo('manage categories');
     }
 }

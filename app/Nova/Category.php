@@ -11,8 +11,8 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Category extends Resource
 {
-    public static $group = "Admin";
-    public static $priority = 4;
+    public static $group = "Classify";
+    public static $priority = 2;
     /**
      * The model the resource corresponds to.
      *
@@ -106,4 +106,12 @@ class Category extends Resource
     {
         return [];
     }
+
+    // public static function indexQuery(NovaRequest $request, $query)
+    // {
+    //     if ($request->user()->role == 'member') {
+    //         return $query->where('user_id', $request->user()->id);
+    //     }
+    //     return $query;
+    // }
 }

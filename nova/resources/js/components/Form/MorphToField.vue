@@ -51,7 +51,6 @@
             :data="availableResources"
             :clearable="field.nullable"
             trackBy="value"
-            searchBy="display"
           >
             <div
               slot="default"

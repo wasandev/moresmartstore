@@ -12,24 +12,35 @@ class BusinesstypePolicy
 
     public function view(User $user, Businesstype $businesstype)
     {
+        if ($user->hasPermissionTo('view own businesstypes')) {
+            return $user->id === $businesstype->user_id;
+        }
+
         return $user->hasPermissionTo('view businesstypes');
     }
 
     public function create(User $user)
     {
-        return $user->hasPermissionTo('create businesstypes');
+
+        return $user->hasAnyPermission(['manage businesstypes', 'manage own businesstypes']);
     }
 
 
     public function update(User $user, Businesstype $businesstype)
     {
-
-        return $user->hasPermissionTo('edit businesstypes');
+        if ($user->hasPermissionTo('manage own businesstypes')) {
+            return $user->id == $businesstype->user_id;
+        }
+        return $user->hasPermissionTo('manage businesstypes');
     }
 
 
     public function delete(User $user, Businesstype $businesstype)
     {
-        return $user->hasPermissionTo('delete businesstypes');
+        if ($user->hasPermissionTo('manage own businesstypes')) {
+            return $user->id === $businesstype->user_id;
+        }
+
+        return $user->hasPermissionTo('manage businesstypes');
     }
 }

@@ -9,27 +9,39 @@ use Illuminate\Auth\Access\HandlesAuthorization;
 class CommentPolicy
 {
     use HandlesAuthorization;
+
     public function view(User $user, Comment $comment)
     {
-        return $user->role == 'admin' || $user->role == 'member' || $user->hasPermissionTo('view comments');
+        if ($user->hasPermissionTo('view own comments')) {
+            return $user->id === $comment->user_id;
+        }
+
+        return $user->hasPermissionTo('view comments');
     }
 
     public function create(User $user)
     {
-        return $user->role == 'admin' || $user->role == 'member' || $user->hasPermissionTo('create comments');
+
+        return $user->hasAnyPermission(['manage comments', 'manage own comments']);
     }
 
 
     public function update(User $user, Comment $comment)
     {
-
-        return $user->role == 'admin' || $user->role == 'member' || $user->hasPermissionTo('edit comments');
+        if ($user->hasPermissionTo('manage own comments')) {
+            return $user->id == $comment->user_id;
+        }
+        return $user->hasPermissionTo('manage comments');
     }
 
 
     public function delete(User $user, Comment $comment)
     {
-        return $user->role == 'admin' || $user->role == 'member' || $user->hasPermissionTo('delete comments');
+        if ($user->hasPermissionTo('manage own comments')) {
+            return $user->id === $comment->user_id;
+        }
+
+        return $user->hasPermissionTo('manage comments');
     }
 
 }

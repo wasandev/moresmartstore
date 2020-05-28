@@ -33,4 +33,9 @@ class Post extends Model
     {
         return $this->belongsTo('App\Vendor');
     }
+
+    public function visits()
+    {
+        return visits($this);
+    }
 }

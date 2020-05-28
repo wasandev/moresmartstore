@@ -9,6 +9,8 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5",
+        "anaseqal/nova-import": "^0.0.3",
+        "awssat/laravel-visits": "^2.2",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "gregoriohc/laravel-nova-theme-responsive": "^0.8.1",
@@ -19,6 +21,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
         "pktharindu/nova-permissions": "^2.1",
+        "pusher/pusher-php-server": "~4.0",
         "wasandev/input-thai-address": "*"
     },
     "require-dev": {

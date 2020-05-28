@@ -277,6 +277,9 @@ module.exports = {
         stroke: {
             'current': 'currentColor',
         },
+
+
+
     },
     variants: {
         appearance: ['responsive'],
@@ -347,11 +350,10 @@ module.exports = {
     corePlugins: {
         objectFit: false,
         objectPosition: false,
-        container: false
+        container: true
     },
     plugins: [
-
-
+        require('tailwindcss-plugins/pagination')
     ],
 
 

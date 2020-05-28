@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\System\User;
+use Illuminate\Support\Facades\Auth;
+use App\Vendor;
+use App\Product;
+use App\Post;
+
 class HomeController extends Controller
 {
     /**
@@ -23,8 +27,19 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $vendors = Vendor::where('user_id', Auth::id())
+        ->orderBy('created_at', 'desc')
+        ->get();
 
-            return view('members.home');
+        $products = Product::where('user_id', Auth::id())
+        ->orderBy('created_at', 'desc')
+        ->get();
+
+        $posts = Post::where('user_id', Auth::id())
+        ->orderBy('published_at', 'desc')
+        ->get();
+
+        return view('members.home',compact('vendors','products','posts'));
 
     }
 }

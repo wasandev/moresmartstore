@@ -62,12 +62,18 @@ class Vendor extends Resource
         return [
             ID::make()->sortable(),
             BelongsTo::make('ผู้เพิ่มข้อมูล', 'user', 'App\Nova\User')
-            ->onlyOnDetail(),
-            Boolean::make('ใช้งาน', 'status'),
+                ->onlyOnDetail(),
+            Boolean::make('ใช้งาน', 'status')
+                ->showOnCreating(function ($request) {
+                    return $request->user()->role == 'admin';
+                    })
+                ->showOnUpdating(function ($request) {
+                    return $request->user()->role == 'admin';
+                    }),
             BelongsTo::make('ประเภทธุรกิจ', 'businesstype', 'App\Nova\Businesstype')
                 ->hideFromIndex(),
 
-            Text::make('ชื่อร้านค้า', 'name')
+            Text::make('ชื่อธุรกิจ', 'name')
                 ->sortable()
                 ->rules('required'),
             Image::make('รูปภาพธุรกิจ', 'imagefile')
@@ -83,6 +89,7 @@ class Vendor extends Resource
                 ->hideFromIndex(),
             new Panel('ข้อมูลการติดต่อ', $this->contactFields()),
             new Panel('ที่อยู่', $this->addressFields()),
+            HasMany::make('รายการสินค้า','products','App\Nova\Product'),
 
 
 

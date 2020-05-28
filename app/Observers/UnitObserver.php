@@ -9,8 +9,5 @@ class UnitObserver
         $unit->user_id = auth()->user()->id;
     }
 
-    public function saving(Unit $unit)
-    {
-        $unit->user_id = auth()->user()->id;
-    }
+
 }
