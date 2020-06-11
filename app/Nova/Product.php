@@ -66,7 +66,7 @@ class Product extends Resource
         return [
             ID::make()->sortable(),
 
-            Boolean::make('สถานะ', 'status')
+            Boolean::make('การเผยแพร่', 'status')
                 ->showOnCreating(function ($request) {
                     return $request->user()->role == 'admin';
                     })
@@ -76,7 +76,8 @@ class Product extends Resource
             BelongsTo::make('ชื่อธุรกิจ','vendor','App\Nova\Vendor')
                     ->rules('required'),
             BelongsTo::make('ประเภทสินค้า', 'category', 'App\Nova\Category')
-                ->sortable(),
+                ->sortable()
+                ->showCreateRelationButton(),
             Text::make('ชื่อสินค้า', 'name')
                 ->sortable()
                 ->rules('required'),
@@ -88,7 +89,8 @@ class Product extends Resource
                 ->maxWidth(200),
             Number::make('ราคาขาย','price'),
 
-            BelongsTo::make('หน่วยนับ', 'unit', 'App\Nova\Unit'),
+            BelongsTo::make('หน่วยนับ', 'unit', 'App\Nova\Unit')
+                ->showCreateRelationButton(),
             BelongsTo::make('ผู้ทำรายการ', 'user', 'App\Nova\User')
                 ->onlyOnDetail()
                 ->canSee(function ($request) {

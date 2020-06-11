@@ -16,7 +16,7 @@ class AddForeignKeyToProductsTable extends Migration
         Schema::table('products', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('vendor_id')->references('id')->on('vendors')->onDelete('cascade');
-
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 
@@ -30,6 +30,7 @@ class AddForeignKeyToProductsTable extends Migration
         Schema::table('products', function (Blueprint $table) {
             $table->dropForeign('products_user_id_foreign');
             $table->dropForeign('products_vendor_id_foreign');
+            $table->dropForeign('products_category_id_foreign');
         });
     }
 }

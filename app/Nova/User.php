@@ -89,7 +89,7 @@ class User extends Resource
                     return $request->user()->role == 'admin';
                     }),
             HasMany::make('รายชื่อธุรกิจ','vendors','App\Nova\Vendor'),
-            HasMany::make('รายการโพส','posts','App\Nova\Post')
+           //HasMany::make('รายการโพส','posts','App\Nova\Post')
         ];
     }
 

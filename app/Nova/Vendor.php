@@ -5,7 +5,6 @@ namespace App\Nova;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
@@ -19,7 +18,6 @@ use Wasandev\InputThaiAddress\InputPostalCode;
 use Jfeid\NovaGoogleMaps\NovaGoogleMaps;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Fields\Number;
 
 class Vendor extends Resource
 {
@@ -63,7 +61,7 @@ class Vendor extends Resource
             ID::make()->sortable(),
             BelongsTo::make('ผู้เพิ่มข้อมูล', 'user', 'App\Nova\User')
                 ->onlyOnDetail(),
-            Boolean::make('ใช้งาน', 'status')
+            Boolean::make('การเผยแพร่', 'status')
                 ->showOnCreating(function ($request) {
                     return $request->user()->role == 'admin';
                     })
@@ -79,7 +77,11 @@ class Vendor extends Resource
             Image::make('รูปภาพธุรกิจ', 'imagefile')
                 ->hideFromIndex(),
             Image::make('โลโก้', 'logofile')->hideFromIndex(),
-            Textarea::make('รายละเอียดธุรกิจ', 'description')->hideFromIndex(),
+            Textarea::make('รายละเอียดธุรกิจ', 'description')
+                ->withMeta(['extraAttributes' => [
+                    'placeholder' => 'ความยาวต้องไม่ต่ำกว่า 500 ตัวอักษร']
+                    ])
+                ->rules('required','min:500'),
             Text::make('เลขประจำตัวผู้เสียภาษี', 'taxid')
                 ->hideFromIndex(),
             Select::make('ประเภท', 'type')->options([
@@ -90,6 +92,7 @@ class Vendor extends Resource
             new Panel('ข้อมูลการติดต่อ', $this->contactFields()),
             new Panel('ที่อยู่', $this->addressFields()),
             HasMany::make('รายการสินค้า','products','App\Nova\Product'),
+            //HasMany::make('รายการโพสโฆษณา','posts','App\Nova\Post'),
 
 
 
@@ -104,16 +107,23 @@ class Vendor extends Resource
     {
         return [
             Text::make('ชื่อผู้ติดต่อ', 'contractname')
-                ->hideFromIndex(),
-            Text::make('โทรศัพท์', 'phoneno'),
+                ->hideFromIndex()
+                ->rules('required'),
+            Text::make('โทรศัพท์', 'phoneno')
+                ->rules('required'),
             Text::make('เว็บไซต์', 'weburl')
-                ->hideFromIndex(),
+                ->hideFromIndex()
+                ->rules('nullable','url')
+                ->help('url ของเว็บไซต์ต้องมีรูปแบบดังนี้ http://www.example.com'),
             Text::make('Facebook', 'facebook')
-                ->hideFromIndex(),
-            Text::make('Line', 'line')
+                ->hideFromIndex()
+                ->rules('nullable','url')
+                ->help('url ของ Facebook ต้องมีรูปแบบดังนี้ https://www.facebook.com/example'),
+            Text::make('Line ID', 'line')
                 ->hideFromIndex(),
             Text::make('Email', 'email')
-                ->hideFromIndex(),
+                ->hideFromIndex()
+                ->rules('required', 'email:rfc,dns', 'max:255'),
 
         ];
     }
@@ -126,20 +136,24 @@ class Vendor extends Resource
     {
         return [
 
-            Text::make('ที่อยู่', 'address')->hideFromIndex(),
+            Text::make('ที่อยู่', 'address')->hideFromIndex()
+                ->rules('required'),
             InputSubDistrict::make('ตำบล/แขวง', 'sub_district')
                 ->withValues(['district', 'amphoe', 'province', 'zipcode'])
-                ->fromValue('district'),
+                ->fromValue('district')
+                ->rules('required'),
             InputDistrict::make('อำเภอ/เขต', 'district')
                 ->withValues(['district', 'amphoe', 'province', 'zipcode'])
-                ->fromValue('amphoe'),
+                ->fromValue('amphoe')
+                ->rules('required'),
             InputProvince::make('จังหวัด', 'province')
                 ->withValues(['district', 'amphoe', 'province', 'zipcode'])
-                ->fromValue('province'),
+                ->fromValue('province')
+                ->rules('required'),
             InputPostalCode::make('รหัสไปรษณีย์', 'postal_code')
                 ->withValues(['district', 'amphoe', 'province', 'zipcode'])
-                ->fromValue('zipcode'),
-
+                ->fromValue('zipcode')
+                ->rules('required'),
             NovaGoogleMaps::make('ตำแหน่งที่ตั้งบน Google Map', 'location')->setValue($this->location_lat, $this->location_lng)
                 ->hideFromIndex(),
 

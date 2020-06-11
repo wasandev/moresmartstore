@@ -11,11 +11,12 @@ use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Post extends Resource
 {
-
+    public static $displayInNavigation = false;
     public static $group = "Classify";
     public static $priority = 5;
     /**
@@ -87,7 +88,7 @@ class Post extends Resource
             Text::make('หัวข้อโพส', 'title')
                 ->rules('required')
                 ->sortable(),
-            Textarea::make('เนื้อหาโพส',  'content')
+            Trix::make('เนื้อหาโพส',  'content')
                 ->rules('required')
                 ->hideFromIndex()
                 ->sortable(),

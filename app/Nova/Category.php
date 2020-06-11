@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Category extends Resource
@@ -56,9 +57,21 @@ class Category extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('ประเภทสินค้า', 'name')->sortable(),
+
+            Boolean::make('การเผยแพร่', 'active')
+                ->showOnCreating(function ($request) {
+                    return $request->user()->role == 'admin';
+                    })
+                ->showOnUpdating(function ($request) {
+                    return $request->user()->role == 'admin';
+                    }),
+                    Text::make('ประเภทสินค้า', 'name')->sortable(),
             BelongsTo::make('ผู้ทำรายการ', 'user', 'App\Nova\User')
-                ->onlyOnDetail(),
+                ->onlyOnDetail()
+                ->canSee(function ($request) {
+                    return $request->user()->role == 'admin';
+                    }),
+
             HasMany::make('สินค้า', 'products', 'App\Nova\Product'),
         ];
     }

@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Fields\Boolean;
 
 class Businesstype extends Resource
 {
@@ -58,15 +59,24 @@ class Businesstype extends Resource
     {
         return [
             ID::make()->sortable(),
+
+            Boolean::make('ใช้งาน', 'active')
+                ->showOnCreating(function ($request) {
+                    return $request->user()->role == 'admin';
+                    })
+                ->showOnUpdating(function ($request) {
+                    return $request->user()->role == 'admin';
+                    }),
             Text::make('Name')
-                ->sortable()
-                ->rules('required', 'max:255'),
+                    ->sortable()
+                    ->rules('required', 'max:255'),
             Textarea::Make('Description'),
             BelongsTo::make('ผู้ทำรายการ', 'user', 'App\Nova\User')
                 ->onlyOnDetail()
                 ->canSee(function ($request) {
                     return $request->user()->role == 'admin';
                     }),
+
 
         ];
     }

@@ -16,13 +16,13 @@ class BusinesstypePolicy
             return $user->id === $businesstype->user_id;
         }
 
-        return $user->hasPermissionTo('view businesstypes');
+        return  $user->role == 'admin' || $user->hasPermissionTo('view businesstypes');
     }
 
     public function create(User $user)
     {
 
-        return $user->hasAnyPermission(['manage businesstypes', 'manage own businesstypes']);
+        return $user->role == 'admin' || $user->hasAnyPermission(['manage businesstypes', 'manage own businesstypes']);
     }
 
 
@@ -31,7 +31,7 @@ class BusinesstypePolicy
         if ($user->hasPermissionTo('manage own businesstypes')) {
             return $user->id == $businesstype->user_id;
         }
-        return $user->hasPermissionTo('manage businesstypes');
+        return $user->role == 'admin' || $user->hasPermissionTo('manage businesstypes');
     }
 
 
@@ -41,6 +41,6 @@ class BusinesstypePolicy
             return $user->id === $businesstype->user_id;
         }
 
-        return $user->hasPermissionTo('manage businesstypes');
+        return $user->role == 'admin' || $user->hasPermissionTo('manage businesstypes');
     }
 }

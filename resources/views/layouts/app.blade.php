@@ -48,6 +48,9 @@
 
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
     @stack('scripts')
+    <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v7.0&appId=662144831184109&autoLogAppEvents=1">
+        </script>
 </head>
 
 <body class="font-sans h-full bg-gray-100  leading-normal tracking-normal antialiased">
@@ -55,9 +58,7 @@
         @yield('nav')
         @yield('search')
         @yield('mstorehome')
-
         @yield('businesstype')
-        @yield('sidebar')
         @yield('content')
         @yield('footer')
     </div>

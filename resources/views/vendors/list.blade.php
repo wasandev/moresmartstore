@@ -1,0 +1,55 @@
+@extends('layouts.app')
+@section('nav')
+    @include('partials.nav')
+@endsection
+@section('search')
+    @include('partials.search')
+@endsection
+
+@section('content')
+
+<div id="app"  class="max-w-full mx-auto sm:justify-between sm:items-center  sm:py-3">
+
+    <div class="flex items-center justify-between px-4 py-3 sm:p-0  bg-gray-800 block sm:hidden ">
+
+        <div class="">
+            <button class="sidebar-sign block text-blue-500 hover:text-white focus:text-white focus:outline-none">
+                <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                <path  fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"/>
+                </svg>
+            </button>
+        </div>
+        <div class="flex text-left flex-no-shrink mr-0 ">
+
+            <h2 class="text-gray-100">เลือกประเภทธุรกิจ</h2>
+
+        </div>
+
+    </div>
+    <div class="flex flex-wrap">
+        <nav id = "sidebar-nav" class="sm:block w-full hidden text-sm font-medium  md:w-1/4 ">
+            <div class="px-2  sm:flex sm:p-0 ">
+                  <div class="grid grid-cols-1 gap-1  p-2 shadow-lg">
+
+                    @foreach ($businessData as $item)
+                        <a href="/vendors/type/{{ $item->id }}" class=" block py-2 px-2 text-base font-medium text-gray-100 bg-blue-600 rounded lg:rounded-r-lg border-l-4 border-blue-200 hover:border-red-500 hover:bg-blue-600 hover:text-white">
+                            {{ $item->name }} - <span class="text-gray-400">({{ $item->vendors_count }} ธุรกิจ)</span>
+                        </a>
+                    @endforeach
+                </div>
+            </div>
+        </nav>
+        <div class="hidden md:block md:w-3/4">
+            @include('vendors.listbytype')
+        </div>
+    </div>
+    <div class="md:hidden">
+            @include('vendors.listbytype')
+    </div>
+</div>
+@endsection
+
+@section('footer')
+    @include('partials.footer')
+
+@endsection

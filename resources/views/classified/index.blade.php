@@ -46,9 +46,9 @@
 
         </div>
     </div>
-    {{-- <div class="md:hidden p-2">
+    <div class="md:hidden p-2">
         <router-view></router-view>
-    </div> --}}
+    </div>
 </div>
 @endsection
 
