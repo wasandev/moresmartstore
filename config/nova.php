@@ -99,6 +99,7 @@ return [
 
     'middleware' => [
         'web',
+        'verified',
         Authenticate::class,
         DispatchServingNovaEvent::class,
         BootTools::class,

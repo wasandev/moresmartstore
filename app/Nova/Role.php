@@ -13,6 +13,6 @@ class Role extends RoleResource
 
     public static function label()
     {
-        return 'กำหนดสิทธิ์การใช้งาน';
+        return 'สิทธิ์การใช้งาน';
     }
 }

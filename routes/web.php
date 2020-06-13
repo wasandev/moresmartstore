@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\Route;
 
 
 
-//Auth::routes(['verify' => true]);
-Auth::routes();
+Auth::routes(['verify' => true]);
+//Auth::routes();
 //Welcome page : /
 Route::get('/','MstoreController@index');
 

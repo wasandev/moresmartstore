@@ -12,4 +12,9 @@ return [
     */
     'previous' => '&laquo; ก่อนหน้า',
     'next'     => 'ถัดไป &raquo;',
+    'Showing'   => 'แสดง',
+    'to'        => 'ถึง',
+    'of'        => 'ของ',
+    'results'   => 'รายการ',
+
 ];

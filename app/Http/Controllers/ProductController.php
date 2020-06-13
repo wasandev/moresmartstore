@@ -12,7 +12,10 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $category  = Category::withCount(['products' => function ($query) {
-            $query->where('status',1);
+            $query->where('status',1)
+                ->whereHas('vendor',function($query){
+                    $query->where('status',1);
+                });
             }])
             ->where('active',1)
             ->orderBy('products_count','desc')->get();
@@ -20,6 +23,9 @@ class ProductController extends Controller
         $products = Product::where('status',1)
                     ->whereHas('category',function ($query){
                         $query->where('active',1);
+                    })
+                    ->whereHas('vendor',function($query){
+                        $query->where('status',1);
                     })
                     ->where( function($query) use($q) {
                         $query->where('name','LIKE','%'.$q.'%')
@@ -36,7 +42,10 @@ class ProductController extends Controller
     {
 
         $category  = Category::withCount(['products' => function ($query) {
-            $query->where('status',1);
+            $query->where('status',1)
+            ->whereHas('vendor',function($query){
+                $query->where('status',1);
+                });
             }])
             ->where('active',1)
             ->orderBy('products_count','desc')->get();
@@ -47,6 +56,9 @@ class ProductController extends Controller
                     ->where('status',1)
                     ->whereHas('category',function ($query){
                         $query->where('active',1);
+                    })
+                    ->whereHas('vendor',function($query){
+                        $query->where('status',1);
                     })
                     ->paginate(9);
 
@@ -66,6 +78,9 @@ class ProductController extends Controller
                             ->where('status',1)
                             ->whereHas('category',function ($query){
                                 $query->where('active',1);
+                            })
+                            ->whereHas('vendor',function($query){
+                                $query->where('status',1);
                             })
                             ->orderBy('created_at', 'desc')
                             //->take(4)

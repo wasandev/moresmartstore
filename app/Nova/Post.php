@@ -17,7 +17,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 class Post extends Resource
 {
     public static $displayInNavigation = false;
-    public static $group = "Classify";
+    public static $group = "จัดการข้อมูลธุรกิจ";
     public static $priority = 5;
     /**
      * The model the resource corresponds to.

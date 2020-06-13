@@ -39,4 +39,7 @@ return [
     'Account Setting' => 'จัดการบัญชี',
     'Role' => 'สิทธิ์การใช้งาน',
     'Verify your Email Address' => 'ยืนยันอีเมล',
+    'Verify Email Address' => 'ยืนยันอีเมล',
+    'Please click the button below to verify your email address.' => 'คลิกที่ปุ่มด้านล่างเพื่อยืนยันอีเมลที่คุณในใช้ในการลงทะเบียน',
+    'If you did not create an account, no further action is required.' => 'ถ้าคุณไม่ได้เป็นผู้ลงทะเบียนกับเรา, ไม่ต้องดำเนินการใดๆ',
 ];

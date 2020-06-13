@@ -52,7 +52,7 @@
         </button>
     </div>
     <div class="mb-4 w-full mx-auto text-center">
-        <a class="w-full inline-block px-2 py-2 align-baseline font-bold text-sm rounded-lg text-gray-800 bg-gray-400 hover:text-black hover:bg-yellow-400" href="{{ route('register') }}">
+        <a class="w-full inline-block px-2 py-2 align-baseline font-base text-sm rounded-lg text-gray-100 bg-red-500 hover:text-black hover:bg-yellow-400" href="{{ route('register') }}">
             ยังไม่มีบัญชี คลิกที่นี่เพื่อสมัคร
         </a>
     <div>

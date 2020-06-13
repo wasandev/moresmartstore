@@ -78,25 +78,25 @@ return [
         'view roles' => [
             'display_name' => 'ดู',
             'description'  => 'Can view roles',
-            'group'        => 'กำหนดสิทธิ์',
+            'group'        => 'สิทธิ์การใช้งาน',
         ],
 
         'create roles' => [
             'display_name' => 'สร้าง',
             'description'  => 'Can create roles',
-            'group'        => 'กำหนดสิทธิ์',
+            'group'        => 'สิทธิ์การใช้งาน',
         ],
 
         'edit roles' => [
             'display_name' => 'แก้ไข',
             'description'  => 'Can edit roles',
-            'group'        => 'กำหนดสิทธิ์',
+            'group'        => 'สิทธิ์การใช้งาน',
         ],
 
         'delete roles' => [
             'display_name' => 'ลบ',
             'description'  => 'Can delete roles',
-            'group'        => 'กำหนดสิทธิ์',
+            'group'        => 'สิทธิ์การใช้งาน',
         ],
         //ประเภทธุรกิจ
         'view businesstypes' => [

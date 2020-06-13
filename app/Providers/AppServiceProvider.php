@@ -55,10 +55,9 @@ class AppServiceProvider extends ServiceProvider
         Product::observe(ProductObserver::class);
         Unit::observe(UnitObserver::class);
         Vendor::observe(VendorObserver::class);
-
         //paginager
         Paginator::defaultView('vendor.pagination.tailwind');
-
         Paginator::defaultSimpleView('vendor.pagination.simple-tailwind');
+
     }
 }

@@ -15,7 +15,7 @@ class Page extends Resource
 {
 
     public static $group = "Admin";
-    public static $priority = 4;
+    public static $priority = 6;
     /**
      * The model the resource corresponds to.
      *

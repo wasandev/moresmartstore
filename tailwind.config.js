@@ -12,7 +12,7 @@ module.exports = {
         },
 
         fontFamily: {
-            'sans': ['Prompt',
+            'sans': ['Nunito',
                 'system-ui',
                 'BlinkMacSystemFont',
                 '-apple-system',

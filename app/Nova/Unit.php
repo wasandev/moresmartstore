@@ -11,8 +11,8 @@ use Laravel\Nova\Fields\BelongsTo;
 class Unit extends Resource
 {
     //public static $displayInNavigation = false;
-    public static $group = "Classify";
-    public static $priority = 3;
+    public static $group = "Admin";
+    public static $priority = 5;
 
     /**
      * The model the resource corresponds to.

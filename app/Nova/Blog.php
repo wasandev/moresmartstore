@@ -10,15 +10,13 @@ use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Textarea;
-use Drobee\NovaSluggable\SluggableText;
-use Drobee\NovaSluggable\Slug;
 
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Blog extends Resource
 {
     public static $group = "Admin";
-    public static $priority = 6;
+    public static $priority = 8;
     /**
      * The model the resource corresponds to.
      *
@@ -67,22 +65,23 @@ class Blog extends Resource
                 ->sortable(),
             BelongsTo::make('ผู้ทำรายการ', 'user', 'App\Nova\User')
                 ->onlyOnDetail(),
-            BelongsTo::make('Blog_cat','blog_cat','App\Nova\Blog_cat')
+            BelongsTo::make('หมวดบทความ','blog_cat','App\Nova\Blog_cat')
                 ->rules('required')
                 ->sortable(),
-            Text::make(__('Title'),  'title')
+            Text::make('เรื่อง',  'title')
                 ->rules('required')
                 ->sortable(),
 
-            Textarea::make(__('Content'),  'blog_content')
+            Textarea::make('บทความ',  'blog_content')
                 ->rules('required')
                 ->hideFromIndex()
-                ->sortable(),
-            Image::make(__('Image'),  'blog_image')
+                ->stacked()
+                ->alwaysShow(),
+            Image::make('รูปภาพ',  'blog_image')
                 ->hideFromIndex()
                 ->sortable(),
 
-            DateTime::make(__('Published At'),  'published_at')
+            DateTime::make('วันที่เผยแพร',  'published_at')
                 ->hideFromIndex()
                 ->sortable(),
         ];

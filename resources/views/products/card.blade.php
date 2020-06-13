@@ -11,7 +11,7 @@
                 <div class="p-2 bg-gray-300 flex flex-col subpixel-antialiased flex-1">
 
                     <div class="mb-3 w-full mx-auto text-left text-sm font-thin flex-1 ">
-                        <p> {{Str::of( $product->description)->limit(200) }} </p>
+                        <p> {{ Str::of( $product->description)->limit(200) }} </p>
 
                     </div>
                     <div class="mb-3 w-full mx-auto text-right text-base text-blue-700">

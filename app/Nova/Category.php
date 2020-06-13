@@ -12,8 +12,8 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Category extends Resource
 {
-    public static $group = "Classify";
-    public static $priority = 2;
+    public static $group = "Admin";
+    public static $priority = 4;
     /**
      * The model the resource corresponds to.
      *

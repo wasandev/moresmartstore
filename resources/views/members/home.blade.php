@@ -19,7 +19,7 @@
                 สวัสดี {{ Auth::user()->name }} ,
                 </h1>
                 <span class="sm:block text-blue-700 text-xl font-base">
-                    นี่คือหน้าธุรกิจของคุณ สำหรับจัดการรายชื่อธุรกิจ,สินค้าและโพสโฆษณา
+                    นี่คือหน้าธุรกิจของคุณ สำหรับโพสรายชื่อธุรกิจ,สินค้า
                 </span>
             </div>
 
@@ -75,9 +75,9 @@
                     @endforeach
                 </div>
             @else
-                <div class="w-full  flex flex-col h-32 text-center bg-white">
+                <div class="w-full mx-2 flex flex-col h-32 text-center bg-white p-4">
                     <p class="mt-10 text-gray-800 text-base">ไม่มีข้อมูลธุรกิจในระบบ </p>
-                    <a  href="/app/resources/vendors">
+                    <a  href="/app/resources/vendors" target="_blank">
                         <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded">
                             เพิ่ม ธุรกิจ
                         </button>
@@ -132,9 +132,9 @@
                             </div>
                         @endforeach
                     @else
-                        <div class="w-full  flex flex-col h-32 text-center bg-white">
+                        <div class="w-full mx-2 flex flex-col h-32 text-center bg-white p-4">
                             <p class="mt-10 text-gray-800 text-base ">ไม่มีสินค้าในระบบ</p>
-                            <a href="/app/resources/products">
+                            <a href="/app/resources/products" target="_blank">
                                 <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded">
                                     เพิ่ม สินค้า
                                 </button>

@@ -12,7 +12,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 class Blog_cat extends Resource
 {
     public static $group = "Admin";
-    public static $priority = 5;
+    public static $priority = 7;
     /**
     /**
      * The model the resource corresponds to.

@@ -6,11 +6,8 @@ use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\MorphTo;
 use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Image;
@@ -23,8 +20,8 @@ use Laravel\Nova\Fields\Image;
 class Product extends Resource
 {
     //public static $displayInNavigation = false;
-    public static $group = "Classify";
-    public static $priority = 4;
+    public static $group = "จัดการข้อมูลธุรกิจ";
+    public static $priority = 2;
 
     //public static $displayInNavigation = false;
     /**
@@ -83,10 +80,12 @@ class Product extends Resource
                 ->rules('required'),
             Textarea::make('รายละเอียด', 'description')
                 ->rules('required')
+                ->alwaysShow()
                 ->hideFromIndex(),
             Image::make('รูปสินค้า','image')
                 ->disk('public')
-                ->maxWidth(200),
+                ->maxWidth(200)
+                ->hideFromIndex(),
             Number::make('ราคาขาย','price'),
 
             BelongsTo::make('หน่วยนับ', 'unit', 'App\Nova\Unit')
@@ -119,7 +118,9 @@ class Product extends Resource
      */
     public function filters(Request $request)
     {
-        return [];
+        return [
+            new Filters\ProductStatus,
+        ];
     }
 
     /**
@@ -145,7 +146,21 @@ class Product extends Resource
             // (new Actions\AddProductServicePrice)->showOnTableRow(),
             // //new Actions\AddProductCustomerPrice,
             // new DownloadExcel,
+            (new Actions\SetProductActive)
+                ->confirmText('ต้องการอนุมัติธุรกิจรายการนี้?')
+                ->confirmButtonText('อนุมัติ')
+                ->cancelButtonText("ยกเลิก")
+                ->canSee(function ($request) {
+                    return $request->user()->role == 'admin' ;
 
+                }),
+            (new Actions\SetProductInActive)
+                ->confirmText('ไม่อนุมัติธุรกิจรายการนี้?')
+                ->confirmButtonText('ไม่อนุมัติ')
+                ->cancelButtonText("ยกเลิก")
+                ->canSee(function ($request) {
+                    return $request->user()->role == 'admin' ;
+                }),
 
         ];
     }

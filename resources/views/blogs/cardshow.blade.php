@@ -10,7 +10,7 @@
                 <div class="p-2 flex flex-col flex-1 text-left rounded-b-lg ">
                     <p class="text-base font-semibold text-left text-blue-700 ">{{ $blog->title }} </p>
 
-                    <p> {!! Str::of( $blog->blog_content)->limit(300) !!} </p>
+                    <p> {{ Str::of( $blog->blog_content)->limit(300) }} </p>
 
                 </div>
 

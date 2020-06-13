@@ -7,8 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Pktharindu\NovaPermissions\Traits\HasRoles;
 
-class User extends Authenticatable
-//implements MustVerifyEmail
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable,HasRoles;
 

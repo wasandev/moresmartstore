@@ -21,7 +21,7 @@ use Laravel\Nova\Fields\Textarea;
 
 class Vendor extends Resource
 {
-    public static $group = "Classify";
+    public static $group = "จัดการข้อมูลธุรกิจ";
     public static $priority = 1;
     /**
      * The model the resource corresponds to.
@@ -81,6 +81,7 @@ class Vendor extends Resource
                 ->withMeta(['extraAttributes' => [
                     'placeholder' => 'ความยาวต้องไม่ต่ำกว่า 500 ตัวอักษร']
                     ])
+                ->alwaysShow()
                 ->rules('required','min:500'),
             Text::make('เลขประจำตัวผู้เสียภาษี', 'taxid')
                 ->hideFromIndex(),
@@ -91,7 +92,7 @@ class Vendor extends Resource
                 ->hideFromIndex(),
             new Panel('ข้อมูลการติดต่อ', $this->contactFields()),
             new Panel('ที่อยู่', $this->addressFields()),
-            HasMany::make('รายการสินค้า','products','App\Nova\Product'),
+            HasMany::make('สินค้า','products','App\Nova\Product'),
             //HasMany::make('รายการโพสโฆษณา','posts','App\Nova\Post'),
 
 
@@ -107,8 +108,7 @@ class Vendor extends Resource
     {
         return [
             Text::make('ชื่อผู้ติดต่อ', 'contractname')
-                ->hideFromIndex()
-                ->rules('required'),
+                ->hideFromIndex(),
             Text::make('โทรศัพท์', 'phoneno')
                 ->rules('required'),
             Text::make('เว็บไซต์', 'weburl')
@@ -141,7 +141,8 @@ class Vendor extends Resource
             InputSubDistrict::make('ตำบล/แขวง', 'sub_district')
                 ->withValues(['district', 'amphoe', 'province', 'zipcode'])
                 ->fromValue('district')
-                ->rules('required'),
+                ->rules('required')
+                ->hideFromIndex(),
             InputDistrict::make('อำเภอ/เขต', 'district')
                 ->withValues(['district', 'amphoe', 'province', 'zipcode'])
                 ->fromValue('amphoe')
@@ -153,7 +154,8 @@ class Vendor extends Resource
             InputPostalCode::make('รหัสไปรษณีย์', 'postal_code')
                 ->withValues(['district', 'amphoe', 'province', 'zipcode'])
                 ->fromValue('zipcode')
-                ->rules('required'),
+                ->rules('required')
+                ->hideFromIndex(),
             NovaGoogleMaps::make('ตำแหน่งที่ตั้งบน Google Map', 'location')->setValue($this->location_lat, $this->location_lng)
                 ->hideFromIndex(),
 
@@ -180,7 +182,9 @@ class Vendor extends Resource
      */
     public function filters(Request $request)
     {
-        return [];
+        return [
+            new Filters\VendorStatus,
+        ];
     }
 
     /**
@@ -202,8 +206,27 @@ class Vendor extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+
+        return [
+            (new Actions\SetVendorActive)
+                ->confirmText('ต้องการอนุมัติธุรกิจรายการนี้?')
+                ->confirmButtonText('อนุมัติ')
+                ->cancelButtonText("ยกเลิก")
+                ->canSee(function ($request) {
+                    return $request->user()->role == 'admin' ;
+
+                }),
+            (new Actions\SetVendorInActive)
+                ->confirmText('ไม่อนุมัติธุรกิจรายการนี้?')
+                ->confirmButtonText('ไม่อนุมัติ')
+                ->cancelButtonText("ยกเลิก")
+                ->canSee(function ($request) {
+                    return $request->user()->role == 'admin' ;
+                }),
+        ];
+
     }
+
     public static function indexQuery(NovaRequest $request, $query)
     {
         if ($request->user()->role == 'member') {

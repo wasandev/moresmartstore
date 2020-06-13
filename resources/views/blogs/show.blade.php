@@ -32,7 +32,7 @@
                             {{ $blog->title }}
                         </div>
 
-                        <p class="text-gray-700 text-base">{!! $blog->blog_content !!}</p>
+                        <p class="text-gray-700 text-base">{{ $blog->blog_content }}</p>
 
                     </div>
 

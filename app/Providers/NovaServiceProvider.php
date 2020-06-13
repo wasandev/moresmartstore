@@ -8,6 +8,11 @@ use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
 use App\Nova\Role;
 use Anaseqal\NovaImport\NovaImport;
+use App\Nova\Dashboards\MstoreAdmin;
+use App\Nova\Metrics\NewUsers;
+use App\Nova\Metrics\UsersPerDay;
+use App\Nova\Metrics\NewVendors;
+use App\Nova\Metrics\VendorsPerDay;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -59,7 +64,15 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function cards()
     {
         return [
-            new Help,
+            (new NewUsers)->width('1/3')
+                ->help('คำนวณจากจำนวนสมาชิกทั้งหมดรวมทั้งที่ Active และถูกแบนแล้ว'),
+            (new UsersPerDay)->width('1/3')
+                ->help('คำนวณจากจำนวนสมาชิกทั้งหมดรวมทั้งที่ Active และถูกแบนแล้ว'),
+            (new NewVendors)->width('1/3')
+                ->help('คำนวณจากจำนวนธุรกิจทั้งหมดรวมทั้ง อนุมัติ และไม่อนุมัติ'),
+            (new VendorsPerDay)->width('1/3')
+                ->help('คำนวณจากจำนวนธุรกิจทั้งหมดรวมทั้ง อนุมัติ และไม่อนุมัติ'),
+
         ];
     }
 
@@ -70,7 +83,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     protected function dashboards()
     {
-        return [];
+        return [
+
+        ];
     }
 
     /**
