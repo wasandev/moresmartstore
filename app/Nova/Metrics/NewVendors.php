@@ -31,13 +31,13 @@ class NewVendors extends Value
     public function ranges()
     {
         return [
-            30 => '30 Days',
-            60 => '60 Days',
-            365 => '365 Days',
-            'TODAY' => 'Today',
-            'MTD' => 'Month To Date',
-            'QTD' => 'Quarter To Date',
-            'YTD' => 'Year To Date',
+            30 => '30 วัน',
+            60 => '60 วัน',
+            365 => '365 วัน',
+            'TODAY' => 'วันนี้',
+            'MTD' => 'เดือนนี้',
+            'QTD' => 'ไตรมาสนี้',
+            'YTD' => 'ปีนี้',
         ];
     }
 

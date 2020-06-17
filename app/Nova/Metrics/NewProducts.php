@@ -4,9 +4,13 @@ namespace App\Nova\Metrics;
 
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Metrics\Value;
-
+use App\Product;
 class NewProducts extends Value
 {
+    public function name()
+    {
+        return 'จำนวนสินค้าใหม่';
+    }
     /**
      * Calculate the value of the metric.
      *
@@ -15,7 +19,7 @@ class NewProducts extends Value
      */
     public function calculate(NovaRequest $request)
     {
-        return $this->count($request, Model::class);
+        return $this->count($request, Product::class);
     }
 
     /**
@@ -26,13 +30,13 @@ class NewProducts extends Value
     public function ranges()
     {
         return [
-            30 => '30 Days',
-            60 => '60 Days',
-            365 => '365 Days',
-            'TODAY' => 'Today',
-            'MTD' => 'Month To Date',
-            'QTD' => 'Quarter To Date',
-            'YTD' => 'Year To Date',
+            30 => '30 วัน',
+            60 => '60 วัน',
+            365 => '365 วัน',
+            'TODAY' => 'วันนี้',
+            'MTD' => 'เดือนนี้',
+            'QTD' => 'ไตรมาสนี้',
+            'YTD' => 'ปีนี้',
         ];
     }
 

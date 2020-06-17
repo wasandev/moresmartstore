@@ -29,23 +29,21 @@
 
         <div class="px-2 pt-2 pb-4 sm:flex sm:p-0 lg:items-center lg:w-auto text-white text-sm font-thin">
                 <a class="block px-2 py-1   hover:text-yellow-500"
-                    href="/">หน้าหลัก
+                    href="/">Home
+                </a>
+
+
+
+                <a class="mt-1 block px-2 py-1  hover:text-yellow-500 sm:mt-0 sm:ml-2"
+                    href="/pages/terms">Terms
                 </a>
 
                 <a class="mt-1 block px-2 py-1  hover:text-yellow-500 sm:mt-0 sm:ml-2"
-                    href="/services">บริการ
+                    href="/pages/privacy">Privacy
                 </a>
 
                 <a class="mt-1 block px-2 py-1  hover:text-yellow-500 sm:mt-0 sm:ml-2"
-                    href="/pages/terms">ข้อตกลงในการใช้บริการ
-                </a>
-
-                <a class="mt-1 block px-2 py-1  hover:text-yellow-500 sm:mt-0 sm:ml-2"
-                    href="/pages/privacy">นโยบายความเป็นส่วนตัว
-                </a>
-
-                <a class="mt-1 block px-2 py-1  hover:text-yellow-500 sm:mt-0 sm:ml-2"
-                    href="/pages/contact">ติดต่อเรา
+                    href="/pages/contact">Contact Us
                 </a>
 
                 <a class="mt-1 block px-2 py-1  hover:text-yellow-500 sm:mt-0 sm:ml-2"

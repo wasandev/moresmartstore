@@ -20,12 +20,12 @@
 
         <div id="main-nav" class="sm:block sm:w-auto hidden text-base font-medium">
             <div class="px-2 pt-2 pb-4 sm:flex sm:p-0">
-                <a href="/" class="block px-2 py-1 text-gray-800  rounded hover:bg-blue-700 hover:text-gray-100 ">หน้าหลัก</a>
+                <a href="/" class="block px-2 py-1 text-gray-800  rounded hover:bg-blue-700 hover:text-gray-100">หน้าหลัก</a>
                 <a href="/vendors" class="mt-1 block px-2 py-1 text-gray-800  rounded hover:bg-blue-700 hover:text-gray-100 sm:mt-0 sm:ml-2  ">ข้อมูลธุรกิจ</a>
                 <a href="/products" class="mt-1 block px-2 py-1 text-gray-800  rounded hover:bg-blue-700 hover:text-gray-100 sm:mt-0 sm:ml-2  ">สินค้า</a>
                 {{-- <a href="/post" class="mt-1 block px-2 py-1 text-gray-800  rounded hover:bg-blue-700 hover:text-gray-100 sm:mt-0 sm:ml-2  ">โพส</a> --}}
                 <a href="/blogs" class="mt-1 block px-2 py-1 text-gray-800  rounded hover:bg-blue-700 hover:text-gray-100 sm:mt-0 sm:ml-2  ">บทความ</a>
-                <a href="/home" class="mt-1 block px-2 py-1 text-gray-100 bg-red-600  rounded hover:bg-blue-700 hover:text-gray-100 sm:mt-0 sm:ml-2 ">โพสข้อมูลธุรกิจ</a>
+                <a href="/home" class="mt-1 block px-2 py-1 text-gray-100 bg-red-600  rounded hover:bg-blue-700 hover:text-gray-100 sm:mt-0 sm:ml-2 ">โพสข้อมูลธุรกิจ ฟรี</a>
                 @auth
                 <div class="relative group hidden sm:block sm:ml-6">
                     <div class="flex items-center cursor-pointer  text-gray-800  group-hover: border-gray  hover:text-blue  mt-1 px-6 mb-0 sm:mt-0">
@@ -38,7 +38,7 @@
 
                         <a href="/home"
                             class="no-underline px-4 py-2 block text-grey-900 hover:text-blue-500">
-                            หน้าธุรกิจ
+                            จัดการธุรกิจ
 
                         </a>
 

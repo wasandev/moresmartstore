@@ -3,14 +3,14 @@
 namespace App\Nova\Metrics;
 
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Metrics\Trend;
-use App\Vendor;
+use Laravel\Nova\Metrics\Value;
 
-class VendorsPerDay extends Trend
+
+class ViewProducts extends Value
 {
     public function name()
     {
-        return 'ธุรกิจใหม่ต่อวัน';
+        return 'การดูข้อมูลสินค้า(ครั้ง)';
     }
     /**
      * Calculate the value of the metric.
@@ -20,7 +20,7 @@ class VendorsPerDay extends Trend
      */
     public function calculate(NovaRequest $request)
     {
-        return $this->countByDays($request, Vendor::class);
+        return $this->result( visits('App\Product')->count());
     }
 
     /**
@@ -31,9 +31,7 @@ class VendorsPerDay extends Trend
     public function ranges()
     {
         return [
-            30 => '30 วัน',
-            60 => '60 วัน',
-            90 => '90 วัน',
+
         ];
     }
 
@@ -54,6 +52,6 @@ class VendorsPerDay extends Trend
      */
     public function uriKey()
     {
-        return 'vendors-per-day';
+        return 'view-products';
     }
 }

@@ -10,18 +10,19 @@
 @section('content')
 
 {{-- new post list for mobile--}}
-<div class="w-max-full mx-auto">
+<div class="lg:max-w-xl max-w-full mx-auto">
     <div class="flex ">
         {{-- vendor detail --}}
 
-        <div class="w-full">
+        <div>
 
             <div class="w-full ">
                 @include('partials.headbar',[
                     'svg' => '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class="fill-current absolute"><path d="M2 2c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v18l-8-4-8 4V2z"/></svg>',
                     'title' => 'หน้าธุรกิจ',
                     'link' => '/vendors',
-                    'linktext' => 'แสดงทั้งหมด'
+                    'linktext' => 'แสดงทั้งหมด',
+                    'target' => '_self'
                 ])
             </div>
             <div class="w-full lg:max-w-full mx-auto lg:flex p-4 rounded-lg">
@@ -40,7 +41,7 @@
                                 <img class="w-10 h-10 rounded-full mr-2" src="{{  Storage::url($vendor->logofile) }}" alt="{{ $vendor->name }}">
                                 <div class="text-sm">
                                     <p class="text-gray-900 leading-none">{{ $vendor->user->name }}</p>
-                                    <p class="text-gray-600">{{  $vendor->visits()->count() }} View</p>
+                                    <p class="text-gray-600">การดู {{  $vendor->visits()->count() }} ครั้ง</p>
                                 </div>
                             </div>
                             <div class="w-1/2 text-sm font-thin text-right">
@@ -68,14 +69,19 @@
                                     </a>
                                 </div>
                             @endif
-
+                        <div class="fb-share-button p-4" data-href="{{url('/vendors/{$vendor->id}')}}" data-layout="button_count" data-size="large">
+                            <a target="_blank"
+                                href="https://www.facebook.com/sharer/sharer.php?u={{url('/vendors/{$vendor->id}')}};src=sdkpreparse"
+                                class="fb-xfbml-parse-ignore">
+                                แชร์</a>
+                        </div>
 
                     </div>
 
-                    <div class=" flex  flex-row p-4 justify-between bg-gray-300 ">
+                    <div class=" flex  flex-row p-4 justify-between bg-blue-500 ">
                             @if(!empty($vendor->weburl))
                                 <div class="mr-4 ml-4">
-                                    <a class="text-blue-500 hover:text-blue-700" href="{{ $vendor->weburl }}" target="_blank">
+                                    <a class="text-gray-100 hover:text-blue-700" href="{{ $vendor->weburl }}" target="_blank">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute" viewBox="0 0 24 24" width="24" height="24"><path d="M8 20H3V10H0L10 0l10 10h-3v10h-5v-6H8v6z"/></svg>
                                         <span class="pl-6">เว็บไซต์</span>
 
@@ -85,14 +91,14 @@
 
                             @if(!empty($vendor->email))
                                 <div class="mr-4">
-                                    <a class="text-blue-500 hover:text-blue-700 pl-8 py-2" href="mailto:{{ $vendor->email }}" >
+                                    <a class="text-gray-100 hover:text-blue-700 pl-8 py-2" href="mailto:{{ $vendor->email }}" >
                                         <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2zm16 3.38V6H4v1.38l8 4 8-4zm0 2.24l-7.55 3.77a1 1 0 0 1-.9 0L4 9.62V18h16V9.62z"/></svg>
                                     </a>
                                 </div>
                             @endif
                             @if(!empty($vendor->facebook))
                                 <div class="mr-4">
-                                    <a class="text-blue-500 hover:text-blue-700 pl-8 py-2" href="{{ $vendor->facebook}}" target="_blank">
+                                    <a class="text-gray-100 hover:text-blue-700 pl-8 py-2" href="{{ $vendor->facebook}}" target="_blank">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 fill-current absolute" viewBox="0 0 24 24" width="24" height="24"><path d="M17,1H3C1.9,1,1,1.9,1,3v14c0,1.101,0.9,2,2,2h7v-7H8V9.525h2V7.475c0-2.164,1.212-3.684,3.766-3.684l1.803,0.002v2.605 h-1.197C13.378,6.398,13,7.144,13,7.836v1.69h2.568L15,12h-2v7h4c1.1,0,2-0.899,2-2V3C19,1.9,18.1,1,17,1z"/></svg>
                                     </a>
                                 </div>
@@ -100,12 +106,14 @@
                             @if(!empty($vendor->line))
                                 <div class="mr-4">
                                     @if (substr($vendor->line, 0, 1) == '@')
-                                        <a class="text-blue-500 hover:text-blue-700 pl-8 py-2" href="http://line.me/R/ti/p/{{ $vendor->line}}" target="_blank">
-                                            <img class="h-8 w-8 fill-current absolute" src="{{  Storage::url('line.svg') }}">
+                                        <a class="text-gray-100 hover:text-blue-700 pl-8 py-2" href="http://line.me/R/ti/p/{{ $vendor->line}}" target="_blank">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 fill-current absolute" viewBox="0 0 20 20"><path d="M10 15l-4 4v-4H2a2 2 0 0 1-2-2V3c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-8zM5 7v2h2V7H5zm4 0v2h2V7H9zm4 0v2h2V7h-2z"/></svg>
+                                             Line
                                         </a>
                                     @else
-                                        <a class="text-blue-500 hover:text-blue-700 pl-8 py-2" href="http://line.me/ti/p/~{{ $vendor->line}}" target="_blank">
-                                            <img class="h-8 w-8 fill-current absolute" src="{{  Storage::url('line.svg') }}">
+                                        <a class="text-gray-100 hover:text-blue-700 pl-8 py-2" href="http://line.me/ti/p/~{{ $vendor->line}}" target="_blank">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 fill-current absolute" viewBox="0 0 20 20"><path d="M10 15l-4 4v-4H2a2 2 0 0 1-2-2V3c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-8zM5 7v2h2V7H5zm4 0v2h2V7H9zm4 0v2h2V7h-2z"/></svg>
+                                            <span class="ml-2">Line</span>
                                         </a>
                                     @endif
                                 </div>
@@ -113,19 +121,19 @@
                         </div>
                 </div>
 
+
             </div>
 
+            <div class="lg:flex lg:flex-row p-4 mx-4 mt-4 rounded-lg border bg-white text-right ">
+                @if (!empty($vendor->location_lat) || !empty($vendor->location_lat  ))
+                    <div class="lg:w-2/5 w-full  bg-white text-center ">
+                        @include('vendors.googlemap')
+                    </div>
+                    <div class="lg:w-3/5 w-full lg:p-4 text-gray-800 text-base text-left mt-2 ">{{ $vendor->description }}</div>
+                @else
+                    <div class="lg:w-full w-full lg:p-4 text-gray-800 text-base text-left mt-2 ">{{ $vendor->description }}</div>
 
-
-            <div class="p-4 mx-4 rounded-lg border bg-white text-right">
-
-                <p class="text-gray-700 text-base text-left mt-2">{{ $vendor->description }}</p>
-                <div class="fb-share-button" data-href="{{url('/vendors/{$vendor->id}')}}" data-layout="button_count" data-size="large">
-                    <a target="_blank"
-                        href="https://www.facebook.com/sharer/sharer.php?u={{url('/vendors/{$vendor->id}')}};src=sdkpreparse"
-                        class="fb-xfbml-parse-ignore">
-                        แชร์</a>
-                </div>
+                @endif
             </div>
 
             {{-- สินค้า list --}}
@@ -134,7 +142,8 @@
                 'svg' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="fill-current absolute"><path class="heroicon-ui" d="M5 3h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2zm0 2v4h4V5H5zm10-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2zm0 2v4h4V5h-4zM5 13h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4c0-1.1.9-2 2-2zm0 2v4h4v-4H5zm10-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4c0-1.1.9-2 2-2zm0 2v4h4v-4h-4z"/></svg>',
                 'title' => 'สินค้า',
                 'link' => '/products',
-                'linktext' => 'สินค้า'
+                'linktext' => 'สินค้า',
+                'target' => '_self'
             ])
             @include('products.card',[
                 'showimage' => 1
@@ -143,8 +152,12 @@
             {{ $products->links('vendor.pagination.tailwind') }}
             </div>
         </div>
+        {{-- <div class="hidden lg:w-1/4 border-r  border-l border-gray-400 lg:border-r-0 lg:border-l-0 bg-white rounded-b flex flex-1 flex-col justify-between leading-normal ">
+            @include('vendors.googlemap')
+        </div> --}}
 
     </div>
+
 </div>
 
 

@@ -75,7 +75,7 @@ class VendorController extends Controller
     public function show($id)
     {
         $vendor = Vendor::where('id',$id)->firstOrFail();
-        $vendor->visits()->increment();
+        $vendor->visits()->seconds(30)->increment(1,false, ['country', 'language']);
 
         $products = Product::where('vendor_id',$id)
                     ->where('status',1)

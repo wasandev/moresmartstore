@@ -70,6 +70,9 @@ class Product extends Resource
                 ->showOnUpdating(function ($request) {
                     return $request->user()->role == 'admin';
                     }),
+            Number::make('การดู(ครั้ง)', function () {
+                        return $this->visits($this->id)->count();
+                        }),
             BelongsTo::make('ชื่อธุรกิจ','vendor','App\Nova\Vendor')
                     ->rules('required'),
             BelongsTo::make('ประเภทสินค้า', 'category', 'App\Nova\Category')

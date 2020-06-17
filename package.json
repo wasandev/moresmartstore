@@ -22,7 +22,7 @@
         "lodash": "^4.17.13",
         "popper.js": "^1.12",
         "resolve-url-loader": "^2.3.1",
-        "sass": "^1.26.5",
+        "sass": "^1.26.8",
         "sass-loader": "^8.0.0",
         "tailwindcss-plugins": "^0.3.0",
         "vue": "^2.5.17",
@@ -31,12 +31,14 @@
     },
     "dependencies": {
         "element-ui": "^2.13.2",
+        "google-maps-api-loader": "^1.1.1",
         "laravel-echo": "^1.8.0",
         "postcss-cli": "^7.1.1",
         "postcss-import": "^12.0.1",
         "pusher-js": "^6.0.3",
         "tailwindcss": "^1.4.6",
-        "vue-router": "^3.1.6",
+        "vue-router": "^3.3.4",
+        "vue2-google-maps": "^0.10.7",
         "vuex": "^3.4.0"
     }
 }

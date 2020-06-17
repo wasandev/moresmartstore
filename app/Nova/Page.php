@@ -73,7 +73,7 @@ class Page extends Resource
             ID::make(__('Id'),  'id')
                 ->rules('required')
                 ->sortable(),
-            Boolean::make('เผยแพร่', 'published')
+            Boolean::make('การเผยแพร่', 'published')
                 ->rules('required')
                 ->sortable(),
             Text::make(__('Slug'),  'slug')

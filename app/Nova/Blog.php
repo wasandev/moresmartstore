@@ -12,6 +12,7 @@ use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Textarea;
 
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Symfony\Component\VarDumper\Cloner\Data;
 
 class Blog extends Resource
 {
@@ -60,13 +61,20 @@ class Blog extends Resource
     {
         return [
             ID::make()->sortable(),
-            Boolean::make('เผยแพร่', 'published')
+            Boolean::make('การเผยแพร่', 'published')
                 ->rules('required')
                 ->sortable(),
+            DateTime::make('วันที่เผยแพร่',  'published_at')
+                ->sortable(),
+
+            Text::make('การดู(ครั้ง)', function () {
+                    return $this->visits($this->id)->count();
+                    }),
             BelongsTo::make('ผู้ทำรายการ', 'user', 'App\Nova\User')
                 ->onlyOnDetail(),
             BelongsTo::make('หมวดบทความ','blog_cat','App\Nova\Blog_cat')
                 ->rules('required')
+                ->hideFromIndex()
                 ->sortable(),
             Text::make('เรื่อง',  'title')
                 ->rules('required')
@@ -81,9 +89,7 @@ class Blog extends Resource
                 ->hideFromIndex()
                 ->sortable(),
 
-            DateTime::make('วันที่เผยแพร',  'published_at')
-                ->hideFromIndex()
-                ->sortable(),
+
         ];
     }
 

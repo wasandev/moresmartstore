@@ -71,7 +71,7 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::where('id',$id)->firstOrFail();
-        $product->visits()->increment();
+        $product->visits()->seconds(30)->increment(1,false, ['country', 'language']);
 
         $products = Product::where('category_id', $product->category->id)
                             ->where('id','<>',$id)

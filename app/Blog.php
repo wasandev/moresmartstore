@@ -17,6 +17,7 @@ class Blog extends Model
         'published',
         'published_at'
     ];
+   // protected $dateFormat = 'TH';
     protected $casts = [
         'published_at' => 'datetime',
     ];

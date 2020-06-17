@@ -13,6 +13,12 @@ use App\Nova\Metrics\NewUsers;
 use App\Nova\Metrics\UsersPerDay;
 use App\Nova\Metrics\NewVendors;
 use App\Nova\Metrics\VendorsPerDay;
+use App\Nova\Metrics\NewProducts;
+use App\Nova\Metrics\ProductsPerCategory;
+use App\Nova\Metrics\ProductsPerDay;
+use App\Nova\Metrics\VendorsPerType;
+use App\Nova\Metrics\ViewProducts;
+use App\Nova\Metrics\ViewVendors;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -64,14 +70,23 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function cards()
     {
         return [
+            (new VendorsPerType())->width('1/2'),
+            (new ProductsPerCategory())->width('1/2'),
+            (new ViewVendors())->width('1/2'),
+            (new ViewProducts())->width('1/2'),
             (new NewUsers)->width('1/3')
-                ->help('คำนวณจากจำนวนสมาชิกทั้งหมดรวมทั้งที่ Active และถูกแบนแล้ว'),
-            (new UsersPerDay)->width('1/3')
                 ->help('คำนวณจากจำนวนสมาชิกทั้งหมดรวมทั้งที่ Active และถูกแบนแล้ว'),
             (new NewVendors)->width('1/3')
                 ->help('คำนวณจากจำนวนธุรกิจทั้งหมดรวมทั้ง อนุมัติ และไม่อนุมัติ'),
+            (new NewProducts)->width('1/3')
+                ->help('คำนวณจากจำนวนสินค้าทั้งหมดรวมทั้ง อนุมัติ และไม่อนุมัติ'),
+            (new UsersPerDay)->width('1/3')
+                ->help('คำนวณจากจำนวนสมาชิกทั้งหมดรวมทั้งที่ Active และถูกแบนแล้ว'),
             (new VendorsPerDay)->width('1/3')
                 ->help('คำนวณจากจำนวนธุรกิจทั้งหมดรวมทั้ง อนุมัติ และไม่อนุมัติ'),
+            (new ProductsPerDay)->width('1/3')
+                ->help('คำนวณจากจำนวนสินค้าทั้งหมดรวมทั้ง อนุมัติ และไม่อนุมัติ'),
+
 
         ];
     }

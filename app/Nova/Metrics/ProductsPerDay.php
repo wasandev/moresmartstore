@@ -4,9 +4,14 @@ namespace App\Nova\Metrics;
 
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Metrics\Trend;
+use App\Product;
 
 class ProductsPerDay extends Trend
 {
+    public function name()
+    {
+        return 'สินค้าใหม่ต่อวัน';
+    }
     /**
      * Calculate the value of the metric.
      *
@@ -15,7 +20,7 @@ class ProductsPerDay extends Trend
      */
     public function calculate(NovaRequest $request)
     {
-        return $this->countByDays($request, Model::class);
+        return $this->countByDays($request, Product::class);
     }
 
     /**
@@ -26,9 +31,9 @@ class ProductsPerDay extends Trend
     public function ranges()
     {
         return [
-            30 => '30 Days',
-            60 => '60 Days',
-            90 => '90 Days',
+            30 => '30 วัน',
+            60 => '60 วัน',
+            90 => '90 วัน',
         ];
     }
 

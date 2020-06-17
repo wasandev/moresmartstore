@@ -16,6 +16,7 @@ use Wasandev\InputThaiAddress\InputDistrict;
 use Wasandev\InputThaiAddress\InputProvince;
 use Wasandev\InputThaiAddress\InputPostalCode;
 use Jfeid\NovaGoogleMaps\NovaGoogleMaps;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Textarea;
 
@@ -65,12 +66,15 @@ class Vendor extends Resource
                 ->showOnCreating(function ($request) {
                     return $request->user()->role == 'admin';
                     })
+                ->sortable()
                 ->showOnUpdating(function ($request) {
                     return $request->user()->role == 'admin';
                     }),
+            Number::make('การดู(ครั้ง)', function () {
+                    return $this->visits($this->id)->count();
+                    }),
             BelongsTo::make('ประเภทธุรกิจ', 'businesstype', 'App\Nova\Businesstype')
                 ->hideFromIndex(),
-
             Text::make('ชื่อธุรกิจ', 'name')
                 ->sortable()
                 ->rules('required'),
@@ -110,7 +114,8 @@ class Vendor extends Resource
             Text::make('ชื่อผู้ติดต่อ', 'contractname')
                 ->hideFromIndex(),
             Text::make('โทรศัพท์', 'phoneno')
-                ->rules('required'),
+                ->rules('required')
+                ->hideFromIndex(),
             Text::make('เว็บไซต์', 'weburl')
                 ->hideFromIndex()
                 ->rules('nullable','url')
@@ -146,11 +151,13 @@ class Vendor extends Resource
             InputDistrict::make('อำเภอ/เขต', 'district')
                 ->withValues(['district', 'amphoe', 'province', 'zipcode'])
                 ->fromValue('amphoe')
-                ->rules('required'),
+                ->rules('required')
+                ->sortable(),
             InputProvince::make('จังหวัด', 'province')
                 ->withValues(['district', 'amphoe', 'province', 'zipcode'])
                 ->fromValue('province')
-                ->rules('required'),
+                ->rules('required')
+                ->sortable(),
             InputPostalCode::make('รหัสไปรษณีย์', 'postal_code')
                 ->withValues(['district', 'amphoe', 'province', 'zipcode'])
                 ->fromValue('zipcode')

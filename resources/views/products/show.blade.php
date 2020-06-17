@@ -16,7 +16,7 @@
 
             {{-- product detail --}}
             <div class="w-full lg:max-w-full lg:flex">
-                <div class="h-64 lg:h-auto lg:w-1/2 flex-none bg-cover rounded-t  lg:rounded-t-none lg:rounded-l lg:rounded-bl-none lg:border-l lg:border-t lg:border-gray-400 text-center overflow-hidden" style="background:url('{{  Storage::url($product->image) }}') no-repeat center center/cover" title="{{ $product->name }}">
+                <div class="h-64  lg:w-1/2 flex-none bg-cover rounded-t  lg:rounded-t-none lg:rounded-l lg:rounded-bl-none lg:border-l lg:border-t lg:border-gray-400 text-center overflow-hidden" style="background:url('{{  Storage::url($product->image) }}') no-repeat center center/cover  " title="{{ $product->name }}">
                 </div>
                 <div class=" lg:w-1/2 border-r  border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b-none lg:rounded-t-r p-4 flex flex-1 flex-col justify-between leading-normal">
                     <div class="mb-4">
@@ -47,7 +47,7 @@
                         </a>
                     </div>
                     <div class="w-1/3 text-center">
-                        <p class="text-gray-600">{{  $product->visits()->count() }} Views</p>
+                        <p class="text-gray-600">การดู {{  $product->visits()->count() }} ครั้ง</p>
                     </div>
 
                     <div class="w-1/3  text-right">
@@ -66,7 +66,8 @@
                     'svg' => ' <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current absolute"><path class="heroicon-ui" d="M6.3 12.3l10-10a1 1 0 0 1 1.4 0l4 4a1 1 0 0 1 0 1.4l-10 10a1 1 0 0 1-.7.3H7a1 1 0 0 1-1-1v-4a1 1 0 0 1 .3-.7zM8 16h2.59l9-9L17 4.41l-9 9V16zm10-2a1 1 0 0 1 2 0v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2h6a1 1 0 0 1 0 2H4v14h14v-6z"/></svg>',
                     'title' => 'สินค้าอื่นๆจากผู้ขายนี้',
                     'link' => '/vendors/'.$product->vendor_id,
-                    'linktext' => 'แสดงทั้งหมด'
+                    'linktext' => 'แสดงทั้งหมด',
+                    'target' => '_self'
                 ])
                 @include('products.cardvendor',[
                     'showimage' => 1
@@ -79,7 +80,8 @@
                     'svg' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="fill-current absolute"><path class="heroicon-ui" d="M5 3h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2zm0 2v4h4V5H5zm10-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2zm0 2v4h4V5h-4zM5 13h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4c0-1.1.9-2 2-2zm0 2v4h4v-4H5zm10-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4c0-1.1.9-2 2-2zm0 2v4h4v-4h-4z"/></svg>',
                     'title' => 'สินค้าหมวดเดียวกัน',
                     'link' => '/products/category/'.$product->category_id,
-                    'linktext' => 'แสดงทั้งหมด'
+                    'linktext' => 'แสดงทั้งหมด',
+                    'target' => '_self'
                 ])
              @if(count($products) > 0 )
                 @include('products.card',[
@@ -98,7 +100,8 @@
                     'svg' => ' <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current absolute"><path class="heroicon-ui" d="M6.3 12.3l10-10a1 1 0 0 1 1.4 0l4 4a1 1 0 0 1 0 1.4l-10 10a1 1 0 0 1-.7.3H7a1 1 0 0 1-1-1v-4a1 1 0 0 1 .3-.7zM8 16h2.59l9-9L17 4.41l-9 9V16zm10-2a1 1 0 0 1 2 0v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2h6a1 1 0 0 1 0 2H4v14h14v-6z"/></svg>',
                     'title' => 'สินค้าจากผู้ขายนี้',
                     'link' => '/vendors/'.$product->vendor_id,
-                    'linktext' => 'แสดงทั้งหมด'
+                    'linktext' => 'แสดงทั้งหมด',
+                    'target' => '_self'
                 ])
             @include('products.cardvendor',[
                 'showimage' => 1

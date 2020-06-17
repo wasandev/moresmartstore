@@ -4,7 +4,8 @@
         'svg' => '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class="fill-current absolute  "><path d="M1 4h2v2H1V4zm4 0h14v2H5V4zM1 9h2v2H1V9zm4 0h14v2H5V9zm-4 5h2v2H1v-2zm4 0h14v2H5v-2z"/></svg>',
         'title' => 'ประเภทธุรกิจ',
         'link' => '/vendors',
-        'linktext' => 'แสดงทั้งหมด'
+        'linktext' => 'แสดงทั้งหมด',
+        'target' => '_self'
     ])
     <div class="w-full xl:mx-0 rounded-lg">
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-6">

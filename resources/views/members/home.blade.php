@@ -35,7 +35,8 @@
                 'svg' => '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class="fill-current absolute"><path d="M2 2c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v18l-8-4-8 4V2z"/></svg>',
                 'title' => 'ข้อมูลธุรกิจของคุณ',
                 'link' => '/app/resources/vendors',
-                'linktext' => 'จัดการข้อมูลธุรกิจ'
+                'linktext' => 'จัดการข้อมูลธุรกิจ',
+                'target' =>'_blank'
             ])
             <div class="flex flex-wrap  w-full xl:mx-0 rounded-lg">
 
@@ -43,7 +44,7 @@
                 <div class="flex flex-wrap  w-full xl:mx-0 rounded-lg">
                     @foreach ($vendors as $vendor)
                     <div class="w-full flex flex-col md:w-1/2 lg:w-1/2 xl:w-1/2">
-                        <a href="/vendors/{{ $vendor->id }}" class="bg-blue-500 flex flex-col flex-1 rounded shadow hover:shadow-lg translateY-2px m-4 no-underline transition" target="_blank">
+                        <a href="/vendors/{{ $vendor->id }}" class="bg-blue-500 flex flex-col flex-1 rounded shadow hover:shadow-lg translateY-2px m-4 no-underline transition">
                             <div class="aspect-16x9 "
                                 style="background:url('{{  Storage::url($vendor->imagefile) }}') no-repeat center center/cover">
                             </div>
@@ -56,7 +57,7 @@
 
                                     <div class="text-left w-1/2">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M17.56 17.66a8 8 0 0 1-11.32 0L1.3 12.7a1 1 0 0 1 0-1.42l4.95-4.95a8 8 0 0 1 11.32 0l4.95 4.95a1 1 0 0 1 0 1.42l-4.95 4.95zm-9.9-1.42a6 6 0 0 0 8.48 0L20.38 12l-4.24-4.24a6 6 0 0 0-8.48 0L3.4 12l4.25 4.24zM11.9 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
-                                        <span class="pl-8 py-2">{{  $vendor->visits()->count() }} </span>
+                                        <span class="pl-8 py-2">การดู {{  $vendor->visits()->count() }} ครั้ง </span>
                                     </div>
                                     <div class="text-left justify-center w-1/2">
                                         @if($vendor->status)
@@ -92,7 +93,8 @@
                     'svg' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="fill-current absolute"><path class="heroicon-ui" d="M5 3h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2zm0 2v4h4V5H5zm10-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2zm0 2v4h4V5h-4zM5 13h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4c0-1.1.9-2 2-2zm0 2v4h4v-4H5zm10-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4c0-1.1.9-2 2-2zm0 2v4h4v-4h-4z"/></svg>',
                     'title' => 'สินค้าของคุณ',
                     'link' => '/app/resources/products',
-                    'linktext' => 'จัดการสินค้า'
+                    'linktext' => 'จัดการสินค้า',
+                    'target' =>'_blank'
 
                 ])
             <div class="flex flex-wrap  w-full xl:mx-0 rounded-lg">
@@ -100,7 +102,7 @@
                     @if (count($products) > 0  )
                         @foreach ($products as $product)
                             <div class="w-full flex flex-col md:w-1/2 lg:w-1/3 xl:w-1/3">
-                                <a href="/products/{{ $product->id}}" class="bg-blue-500 flex flex-col flex-1 rounded-lg shadow hover:shadow-lg translateY-2px m-4 no-underline transition" target="_blank">
+                                <a href="/products/{{ $product->id}}" class="bg-blue-500 flex flex-col flex-1 rounded-lg shadow hover:shadow-lg translateY-2px m-4 no-underline transition" >
                                     <div class="aspect-16x9 rounded-t"
                                         style="background:url('{{  Storage::url($product->image) }}') no-repeat center center/cover">
                                     </div>
@@ -114,7 +116,7 @@
 
                                             <div class="text-left w-1/3">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M17.56 17.66a8 8 0 0 1-11.32 0L1.3 12.7a1 1 0 0 1 0-1.42l4.95-4.95a8 8 0 0 1 11.32 0l4.95 4.95a1 1 0 0 1 0 1.42l-4.95 4.95zm-9.9-1.42a6 6 0 0 0 8.48 0L20.38 12l-4.24-4.24a6 6 0 0 0-8.48 0L3.4 12l4.25 4.24zM11.9 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
-                                                <span class="pl-8 ">{{  $product->visits()->count() }} </span>
+                                                <span class="pl-8 ">การดู {{  $product->visits()->count() }} ครั้ง</span>
                                             </div>
                                             <div class="text-left w-1/3">
                                                 @if($product->status)

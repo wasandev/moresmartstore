@@ -1,4 +1,6 @@
 import Vue from 'vue';
+import VendorMap from './components/VendorMap';
+
 // import VueRouter from 'vue-router';
 // import routes from './routes';
 //import ElementUI from 'element-ui';
@@ -31,8 +33,9 @@ var app = new Vue({
     //router: new VueRouter(routes),
     data: {
         termModalShowing: false,
+
     },
-    //store
+
 
 });
 

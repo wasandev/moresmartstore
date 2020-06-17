@@ -15,6 +15,7 @@ class BlogController extends Controller
         $blogs = Blog::where('published','1')
                 ->where('title','LIKE','%'.$q.'%')
                 ->orWhere('blog_content','LIKE','%'.$q.'%')
+                ->orderBy('published_at', 'desc')
                 ->paginate(6);
 
         if(count($blogs) > 0)
@@ -26,7 +27,7 @@ class BlogController extends Controller
     public function show($slug)
     {
         $blog = Blog::whereSlug($slug)->first();
-        $blog->visits()->increment();
+        $blog->visits()->seconds(30)->increment(1,false, ['country', 'language']);
         return view('blogs.show', compact('blog'));
     }
 }
