@@ -177,7 +177,9 @@ class VaporFileFieldTest extends IntegrationTest
 
         $model = new Model();
         $field = $this->makeField();
-        $field->storeAs(fn () => 'bar');
+        $field->storeAs(function () {
+            return 'bar';
+        });
 
         $request = NovaRequest::create('/', 'GET', [
             'avatar' => 'wew.jpg',

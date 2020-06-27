@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 use Laravel\Nova\Fields\Avatar;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Heading;
 use Laravel\Nova\Fields\MorphTo;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Select;
@@ -538,6 +539,16 @@ class FieldTest extends IntegrationTest
         $this->assertSubset([
             'value' => 'David Hemphill',
         ], $field->jsonSerialize());
+    }
+
+    public function test_heading_fields_can_be_computed()
+    {
+        $field = Heading::make('InvokableComputed', function () {
+            return 'Computed';
+        });
+
+        $field->resolve((object) ['name' => 'David']);
+        $this->assertEquals('David', $field->value);
     }
 }
 

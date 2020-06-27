@@ -24,6 +24,16 @@ Vue.component(
   require('./components/Form/HeadingField.vue')
 )
 
+// Line Field...
+Vue.component('index-line-field', require('./components/Index/LineField.vue'))
+
+// Stack Field...
+Vue.component('index-stack-field', require('./components/Index/StackField.vue'))
+Vue.component(
+  'detail-stack-field',
+  require('./components/Detail/StackField.vue')
+)
+
 // Text Field...
 Vue.component('index-text-field', require('./components/Index/TextField.vue'))
 Vue.component('detail-text-field', require('./components/Detail/TextField.vue'))

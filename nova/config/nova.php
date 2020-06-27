@@ -144,6 +144,6 @@ return [
     |
     */
 
-    'currency' => 'THB',
+    'currency' => 'USD',
 
 ];

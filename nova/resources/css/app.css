@@ -474,6 +474,7 @@ textarea.form-input:read-only,
 /* MultiSelect Component
 ---------------------------------------------------------------------------- */
 .select-box {
+  @apply rounded;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath fill='%2335393C' fill-rule='nonzero' d='M8.293.293a1 1 0 0 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4A1 1 0 0 1 1.707.293L5 3.586 8.293.293z'/%3E%3C/svg%3E");
   background-size: 10px 6px;
   background-repeat: no-repeat;
@@ -481,6 +482,7 @@ textarea.form-input:read-only,
 }
 
 .select-box-sm {
+  @apply rounded-sm;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath fill='%2335393C' fill-rule='nonzero' d='M8.293.293a1 1 0 0 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4A1 1 0 0 1 1.707.293L5 3.586 8.293.293z'/%3E%3C/svg%3E");
   background-size: 8px 5px;
   background-repeat: no-repeat;

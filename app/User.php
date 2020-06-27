@@ -6,10 +6,13 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Pktharindu\NovaPermissions\Traits\HasRoles;
+use Overtrue\LaravelFollow\Followable;
+
+
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable,HasRoles;
+    use Notifiable,HasRoles,Followable;
 
     /**
      * The attributes that are mass assignable.
@@ -56,5 +59,36 @@ class User extends Authenticatable implements MustVerifyEmail
     // public function posts()
     // {
     //     return $this->hasMany('App\Post');
+    // }
+
+    // public function followers()
+    // {
+    //     return $this->belongsToMany(self::class, 'followers', 'follows_id', 'user_id')
+    //                 ->withTimestamps();
+
+
+    // }
+
+    // public function follows()
+    // {
+    //     return $this->belongsToMany(self::class, 'followers', 'user_id', 'follows_id')
+    //                 ->withTimestamps();
+    // }
+
+    // public function follow($userId)
+    // {
+    //     $this->follows()->attach($userId);
+    //     return $this;
+    // }
+
+    // public function unfollow($userId)
+    // {
+    //     $this->follows()->detach($userId);
+    //     return $this;
+    // }
+
+    // public function isFollowing($userId)
+    // {
+    //     return (boolean) $this->follows()->where('follows_id', $userId)->first();
     // }
 }

@@ -80,7 +80,7 @@ class Currency extends Number
                 return ! $this->isNullValue($value) ? $this->formatMoney($value) : null;
             })
             ->resolveUsing(function ($value) {
-                if (! $this->minorUnits) {
+                if ($this->isNullValue($value) || ! $this->minorUnits) {
                     return $value;
                 }
 

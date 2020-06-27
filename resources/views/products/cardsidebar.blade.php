@@ -1,15 +1,15 @@
 <div class="flex flex-col xl:mx-0 ">
     @foreach ($products as $product)
-    <a href="/products/{{ $product->id }}" class="bg-blue-500 flex flex-col flex-1 rounded-t-lg shadow hover:shadow-lg translateY-2px m-2 no-underline transition">
+    <a href="/products/{{ $product->id }}" class="bg-blue-500 rounded-lg flex flex-col flex-1 shadow hover:shadow-lg translateY-2px m-2 no-underline transition">
         @if ($showimage)
         <div class="aspect-16x9 rounded-t-lg"
             style="background:url('{{  Storage::url($product->image) }}') no-repeat center center/cover">
 
         </div>
         @endif
-        <p class="p-2 text-gray-100 text-base font-light">{{ $product->name }} </p>
+        <p class="p-2 text-gray-100 text-base font-light text-center">{{ $product->name }} </p>
 
-        <div class="p-2 bg-gray-300 flex flex-col flex-1 text-left subpixel-antialiased">
+        <div class="p-2 bg-white flex flex-col flex-1 text-left subpixel-antialiased">
 
             <div class="text-left text-sm flex-1 font-thin">
                 <p> {{ Str::of( $product->description)->limit(200) }} </p>

@@ -3,10 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use App\User;
 
 class Vendor extends Model
 {
-
+    use Notifiable;
     protected $fillable = [
         'status',
         'type',
@@ -92,4 +94,14 @@ class Vendor extends Model
         return visits($this);
     }
 
+    public function routeNotificationForMail($notification)
+    {
+        // Return admin email address only...
+        if(auth()->user()->role != 'admin') {
+            $adminuser = User::where('role','admin')->first();
+            return $adminuser->email;
+        }
+        return $this->email;
+
+    }
 }

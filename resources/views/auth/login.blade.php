@@ -5,7 +5,7 @@
 
 @include('partials.header')
 
-<div  class="w-full mx-auto max-w-xs">
+<div  class="w-full mx-auto max-w-sm">
 <form
     class=" bg-white shadow-md rounded px-8 pt-4 pb-8 mb-4" method="POST" action="{{ route('login') }}">
 

@@ -20,6 +20,7 @@
         "laravel/nova": "*",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
+        "overtrue/laravel-follow": "^2.1",
         "pktharindu/nova-permissions": "^2.1",
         "pusher/pusher-php-server": "~4.0",
         "wasandev/input-thai-address": "*"

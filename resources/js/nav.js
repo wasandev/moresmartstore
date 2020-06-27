@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
           });
         });
-      }
-      if ($sidebarSigns.length > 0) {
+    }
+    if ($sidebarSigns.length > 0) {
 
         // Add a click event on each of them
         $sidebarSigns.forEach(function ($el) {
@@ -51,6 +51,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
           });
         });
-      }
+    }
 
   });

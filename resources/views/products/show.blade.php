@@ -10,9 +10,9 @@
 @section('content')
 
 {{-- new post list for mobile--}}
-<div class="w-max-full mx-auto">
+<div class="max-w-full mx-auto">
     <div class="flex">
-        <div class="max-w-full w-full xl:w-3/4  p-4">
+        <div class=" w-full xl:w-3/4  p-4">
 
             {{-- product detail --}}
             <div class="w-full lg:max-w-full lg:flex">
@@ -33,6 +33,11 @@
                         <p class="w-full py-2 text-sm text-red-600 flex text-center">
                             <span class="text-lg font-semibold">ราคา: {{ number_format($product->price,2) }} บาท/{{$product->unit->name}}</span>
                         </p>
+                        @if(!empty($product->shopurl))
+                            <a href="{{$product->shopurl}}" class="bg-blue-500 p-2 rounded-full text-white text-sm hover:bg-blue-700" target="_blank">
+                                สั่งซื้อออนไลน์
+                            </a>
+                        @endif
                     </div>
 
                 </div>

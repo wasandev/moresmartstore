@@ -55,4 +55,17 @@ class CurrencyTest extends IntegrationTest
         $field->resolveForDisplay((object) ['cost' => 200]);
         $this->assertEquals('$2.00', $field->value);
     }
+
+    public function test_the_field_can_have_null_values()
+    {
+        $field = Currency::make('Cost')
+            ->nullable()
+            ->asMinorUnits();
+
+        $field->resolve((object) ['cost' => null]);
+        $this->assertEquals(null, $field->value);
+
+        $field->resolveForDisplay((object) ['cost' => null]);
+        $this->assertEquals(null, $field->value);
+    }
 }

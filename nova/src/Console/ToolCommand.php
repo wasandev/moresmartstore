@@ -17,7 +17,7 @@ class ToolCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'nova:tool {name}';
+    protected $signature = 'nova:tool {name} {--no-interaction : Do not ask any interactive question.}';
 
     /**
      * The console command description.
@@ -36,6 +36,8 @@ class ToolCommand extends Command
         if (! $this->hasValidNameArgument()) {
             return;
         }
+
+        $noInteraction = $this->option('no-interaction');
 
         (new Filesystem)->copyDirectory(
             __DIR__.'/tool-stubs',
@@ -84,19 +86,19 @@ class ToolCommand extends Command
         $this->addToolPackageToRootComposer();
         $this->addScriptsToNpmPackage();
 
-        if ($this->confirm("Would you like to install the tool's NPM dependencies?", true)) {
+        if ($noInteraction || $this->confirm("Would you like to install the tool's NPM dependencies?", true)) {
             $this->installNpmDependencies();
 
             $this->output->newLine();
         }
 
-        if ($this->confirm("Would you like to compile the tool's assets?", true)) {
+        if ($noInteraction || $this->confirm("Would you like to compile the tool's assets?", true)) {
             $this->compile();
 
             $this->output->newLine();
         }
 
-        if ($this->confirm('Would you like to update your Composer packages?', true)) {
+        if ($noInteraction || $this->confirm('Would you like to update your Composer packages?', true)) {
             $this->composerUpdate();
         }
     }

@@ -11,9 +11,13 @@ import VendorMap from './components/VendorMap';
 //Vue.use(ElementUI);
 
 require('./bootstrap');
+
 require('./nav');
 
+
 window.$ = window.jQuery = require('jquery');
+require('./follow');
+require('./notification');
 
 window.Vue = require('vue');
 

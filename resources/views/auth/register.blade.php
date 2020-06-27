@@ -6,7 +6,7 @@
 @include('partials.header')
 <div id="app">
     <form
-        class="bg-white shadow-md rounded-lg p-4 max-w-xs mx-auto"
+        class="bg-white shadow-md rounded-lg p-4 max-w-sm mx-auto"
         method="POST" action="{{ route('register') }}">
 
         {{ csrf_field() }}

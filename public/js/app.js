@@ -58493,6 +58493,11 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 __webpack_require__(/*! ./nav */ "./resources/js/nav.js");
 
 window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+
+__webpack_require__(/*! ./follow */ "./resources/js/follow.js");
+
+__webpack_require__(/*! ./notification */ "./resources/js/notification.js");
+
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"); //import store from './store/index';
 //import ThaiAddressInput from 'vue-thai-address-input/dist/vue-thai-address-input.common';
 //require('vue-thai-address-input/dist/vue-thai-address-input.min.css');
@@ -59081,6 +59086,48 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/follow.js":
+/*!********************************!*\
+  !*** ./resources/js/follow.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+  $('.action-follow').click(function () {
+    var user_id = $(this).data('id');
+    var cObj = $(this); //var c = $(this).parent("div").find(".tl-follower").text();
+
+    var c = $(".tl-follower").text();
+    $.ajax({
+      type: 'POST',
+      url: '/followUserRequest',
+      data: {
+        user_id: user_id
+      },
+      dataType: 'json',
+      success: function success(data) {
+        console.log(data.success);
+
+        if (data.success == "unfollow") {
+          cObj.find("strong").text("ติดตาม");
+          $(".tl-follower").text(parseInt(c) - 1);
+        } else {
+          cObj.find("strong").text("เลิกติดตาม");
+          $(".tl-follower").text(parseInt(c) + 1);
+        }
+      }
+    });
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/js/nav.js":
 /*!*****************************!*\
   !*** ./resources/js/nav.js ***!
@@ -59131,6 +59178,78 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+/***/ }),
+
+/***/ "./resources/js/notification.js":
+/*!**************************************!*\
+  !*** ./resources/js/notification.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var notifications = [];
+var NOTIFICATION_TYPES = {
+  follow: "App\\Notifications\\UserFollowed"
+};
+$(document).ready(function () {
+  // check if there's a logged in user
+  if (Laravel.userId) {
+    $.get('/notifications', function (data) {
+      addNotifications(data, "#notifications");
+    });
+  }
+});
+
+function addNotifications(newNotifications, target) {
+  notifications = _.concat(notifications, newNotifications); // show only last 5 notifications
+
+  notifications.slice(0, 5);
+  showNotifications(notifications, target);
+}
+
+function showNotifications(notifications, target) {
+  if (notifications.length) {
+    var htmlElements = notifications.map(function (notification) {
+      return makeNotification(notification);
+    });
+    $(target + 'Menu').html(htmlElements.join(''));
+    $(target).addClass('text-red-500');
+  } else {
+    $(target + 'Menu').html('ไม่มีข้อความแจ้งเตือน');
+    $(target).removeClass('text-red-500');
+  }
+} // Make a single notification string
+
+
+function makeNotification(notification) {
+  var to = routeNotification(notification);
+  var notificationText = makeNotificationText(notification);
+  return '<p><a href="' + to + '">' + notificationText + '</a></p>';
+} // get the notification route based on it's type
+
+
+function routeNotification(notification) {
+  var to = '?read=' + notification.id;
+
+  if (notification.type === NOTIFICATION_TYPES.follow) {
+    to = 'home' + to;
+  }
+
+  return '/' + to;
+} // get the notification text based on it's type
+
+
+function makeNotificationText(notification) {
+  var text = '';
+
+  if (notification.type === NOTIFICATION_TYPES.follow) {
+    var name = notification.data.follower_name;
+    text += name + ' กดติดตามคุณ';
+  }
+
+  return text;
+}
 
 /***/ }),
 

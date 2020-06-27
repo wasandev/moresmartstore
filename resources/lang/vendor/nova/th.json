@@ -31,7 +31,7 @@
     "Force Delete": "Force Delete",
     "The :resource was created!": "The :resource was created!",
     "Are you sure you want to delete this resource?": "ต้องการลบข้อมูลรายการนี้?",
-    "Are you sure you want to delete the selected resources?": "Are you sure you want to delete the selected resources?",
+    "Are you sure you want to delete the selected resources?": "แน่ใจว่าต้องการลบข้อมูลที่เลือกไว้?",
     "Are you sure you want to detach this resource?": "Are you sure you want to detach this resource?",
     "Are you sure you want to detach the selected resources?": "Are you sure you want to detach the selected resources?",
     "Are you sure you want to force delete this resource?": "Are you sure you want to force delete this resource?",

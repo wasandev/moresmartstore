@@ -93,6 +93,10 @@ class Product extends Resource
 
             BelongsTo::make('หน่วยนับ', 'unit', 'App\Nova\Unit')
                 ->showCreateRelationButton(),
+            Text::make('ลิงก์สำหรับสั่งซื้อออนไลน์', 'shopurl')
+                ->hideFromIndex()
+                ->rules('nullable','url')
+                ->help('url ของลิงก์ต้องมีรูปแบบดังนี้ http://www.example.com/xyz..'),
             BelongsTo::make('ผู้ทำรายการ', 'user', 'App\Nova\User')
                 ->onlyOnDetail()
                 ->canSee(function ($request) {

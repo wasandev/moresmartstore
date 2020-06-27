@@ -98161,3 +98161,7 @@ video {
   color: #f56565;
   color: rgba(245, 101, 101, var(--text-opacity));
 }
+
+#notifications.has-notifications {
+  color: text-red-500;
+}

@@ -16,7 +16,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Post extends Resource
 {
-    public static $displayInNavigation = false;
+    public static $displayInNavigation = true;
     public static $group = "จัดการข้อมูลธุรกิจ";
     public static $priority = 5;
     /**
@@ -101,7 +101,7 @@ class Post extends Resource
                    ->canSee(function ($request) {
                     return $request->user()->role == 'admin';
                     }),
-            HasMany::make('ความเห็น', 'comments', 'App\Nova\Comment')
+            //HasMany::make('ความเห็น', 'comments', 'App\Nova\Comment')
         ];
     }
 

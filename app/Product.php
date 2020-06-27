@@ -15,7 +15,8 @@ class Product extends Model
         'image',
         'price',
         'unit_id',
-        'user_id'
+        'user_id',
+        'shopurl'
     ];
     protected $appends = ['path'];
 

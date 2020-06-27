@@ -81,12 +81,13 @@ class Vendor extends Resource
             Image::make('รูปภาพธุรกิจ', 'imagefile')
                 ->hideFromIndex(),
             Image::make('โลโก้', 'logofile')->hideFromIndex(),
+
             Textarea::make('รายละเอียดธุรกิจ', 'description')
                 ->withMeta(['extraAttributes' => [
-                    'placeholder' => 'ความยาวต้องไม่ต่ำกว่า 500 ตัวอักษร']
+                    'placeholder' => 'ความยาวต้องไม่ต่ำกว่า 400 ตัวอักษร']
                     ])
                 ->alwaysShow()
-                ->rules('required','min:500'),
+                ->rules('required','min:400'),
             Text::make('เลขประจำตัวผู้เสียภาษี', 'taxid')
                 ->hideFromIndex(),
             Select::make('ประเภท', 'type')->options([
