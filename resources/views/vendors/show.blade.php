@@ -39,16 +39,6 @@
             </div>
             <div class="w-full lg:max-w-full mx-auto lg:flex p-4 rounded-lg">
                 <div class="h-64 lg:h-auto lg:w-1/2 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-left  overflow-hidden" style="background:url('{{  Storage::url($vendor->imagefile) }}') no-repeat center center/cover" title="{{ $vendor->name }}">
-                    <div class="fb-share-button p-4 "
-                        data-href="{{url('/vendors/{$vendor->id}')}}"
-                        data-layout="button_count" data-size="large">
-                        <a target="_blank"
-                            href="https://www.facebook.com/sharer/sharer.php?u={{url('/vendors/{$vendor->id}')}};src=sdkpreparse"
-                            class="fb-xfbml-parse-ignore">
-                            แชร์
-                        </a>
-                    </div>
-
                 </div>
 
 
@@ -70,10 +60,11 @@
                             <a href="/vendors/type/{{$vendor->businesstype_id}}" class="text-blue-500 hover:text-blue-700">
                                ประเภทธุรกิจ: {{$vendor->businesstype->name}}
                             </a>
+
                         </div>
-                        <div class="lg:flex lg:justify-between bg-gray-100 rounded-lg p-4">
+                        <div class="lg:flex lg:justify-between bg-gray-200 rounded-lg p-4">
                             <div class="flex items-center lg:w-1/2 w-full">
-                                <img class="w-12 h-12 rounded-full mr-2" src="{{  Storage::url($vendor->user->avatar) }}" alt="{{ $vendor->user->name }}">
+                                <img class=" w-16 h-16 rounded-full mr-2" src="{{  Storage::url($vendor->user->avatar) }}" alt="{{ $vendor->user->name }}">
                                 <div class="text-sm">
                                     <p class="text-gray-900 leading-none">สมาชิกผู้โพส : {{ $vendor->user->name }}</p>
                                     <p class="text-gray-900 leading-normal">เข้าร่วมเมื่อ : {{ formatDateThai($vendor->user->created_at) }}</p>
@@ -83,12 +74,15 @@
 
                             </div>
                             <div class="lg:w-1/2 w-full  text-center lg:text-right mt-4 text-sm">
-                             <a class="bg-blue-500 hover:bg-blue-700 p-2 border border-gray-200 shadow rounded-lg text-white" href="/profile/{{$vendor->user->id}}">ดูรายละเอียดสมาชิก</a>
+                             <a class="bg-blue-500 hover:bg-blue-700 p-2  shadow rounded-lg text-white"
+                                href="/profile/{{$vendor->user->id}}">
+                                รายละเอียดสมาชิก
+                            </a>
 
 
                             </div>
                         </div>
-                        <p class="w-full bg-gray-200 py-2  px-4 text-sm text-gray-600 flex items-center rounded-full mt-2">
+                        <p class="w-full bg-gray-200 py-2  px-4 text-sm text-gray-600 flex items-center rounded-lg mt-2">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M5.64 16.36a9 9 0 1 1 12.72 0l-5.65 5.66a1 1 0 0 1-1.42 0l-5.65-5.66zm11.31-1.41a7 7 0 1 0-9.9 0L12 19.9l4.95-4.95zM12 14a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
                             <span class=" text-base ml-2">
                                 {{$vendor->address}}  {{ $vendor->sub_district}} {{$vendor->district}}
@@ -105,8 +99,12 @@
                                     </a>
                                 </div>
                             @endif
-
-
+                        <div class="text-center">
+                            <div class="fb-share-button "
+                                data-href="{{url('/vendors/{$vendor->id}')}}"
+                                data-layout="box_count">
+                            </div>
+                        </div>
                     </div>
 
                     <div class="flex flex-row p-4 text-sm justify-between bg-blue-300 text-center">
