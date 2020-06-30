@@ -7,8 +7,6 @@
     <meta property="og:description" content="{{ $open_graph['description'] }}" />
     <meta property="og:image" content="{{ $open_graph['image'] }}" />
 
-
-
 @stop
 
 @section('nav')
