@@ -46,9 +46,11 @@
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
     @stack('scripts')
 
+
 </head>
 
 <body class="font-sans h-full bg-gray-200  leading-normal tracking-normal antialiased">
+
     <div>
         @yield('nav')
         @yield('search')
@@ -57,6 +59,8 @@
         @yield('content')
         @yield('footer')
     </div>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v7.0&appId=662144831184109&autoLogAppEvents=1" nonce="jwuzzQ7K"></script>
 </body>
 
 </html>

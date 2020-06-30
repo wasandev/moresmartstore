@@ -14,8 +14,8 @@ use App\Observers\CategoryObserver;
 use App\Observers\CommentObserver;
 use App\Page;
 use App\Observers\PageObserver;
-// use App\Post;
-//use App\Observers\PostObserver;
+use App\Post;
+use App\Observers\PostObserver;
 use App\Observers\ProductObserver;
 use App\Observers\UnitObserver;
 use App\Observers\VendorObserver;
@@ -46,7 +46,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Page::observe(PageObserver::class);
-        //Post::observe(PostObserver::class);
+        Post::observe(PostObserver::class);
         Blog::observe(BlogObserver::class);
         Blog_cat::observe(Blog_catObserver::class);
         Businesstype::observe(BusinesstypeObserver::class);

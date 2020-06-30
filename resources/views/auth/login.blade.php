@@ -5,9 +5,9 @@
 
 @include('partials.header')
 
-<div  class="w-full mx-auto max-w-sm">
+<div  class="w-full mx-auto max-w-xs">
 <form
-    class=" bg-white shadow-md rounded px-8 pt-4 pb-8 mb-4" method="POST" action="{{ route('login') }}">
+    class=" bg-white shadow-md rounded-lg px-8 pt-4 pb-8 mb-4" method="POST" action="{{ route('login') }}">
 
     {{ csrf_field() }}
     @component('partials.heading')

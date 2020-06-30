@@ -3,6 +3,7 @@
 namespace App\Observers;
 use App\Post;
 use App\Traits\ThaiSlug;
+use App\Notifications\NewPost;
 class PostObserver
 {
     use ThaiSlug;
@@ -22,6 +23,14 @@ class PostObserver
     {
         if(auth()->user()->role != 'admin') {
             $post->published = 0 ;
+        }
+    }
+
+    public function created(Post $post)
+    {
+        $user = $post->user;
+        foreach ($user->followers as $follower) {
+            $follower->notify(new NewPost($user, $post));
         }
     }
 }

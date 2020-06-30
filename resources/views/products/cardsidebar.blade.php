@@ -15,7 +15,7 @@
                 <p> {{ Str::of( $product->description)->limit(200) }} </p>
 
             </div>
-            <div class="mt-2 text-right">
+            <div class="mt-2 text-left text-sm">
                 {{ $product->category->name }}
 
             </div>

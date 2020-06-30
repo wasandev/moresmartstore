@@ -31,7 +31,7 @@ Route::get('/vendors/{id}','VendorController@show');
 //Route::get('send', 'VendorController@sendNotification');
 //Posts
 Route::any('/post','PostController@index');
-Route::get('/post/{slug}', 'PostController@show');
+Route::get('/post/{id}', 'PostController@show');
 //Blogs
 Route::any('/blogs', 'BlogController@index');
 

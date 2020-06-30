@@ -36,13 +36,14 @@ class PostController extends Controller
 
 
     }
-    public function show($slug)
+    public function show($id)
     {
-        $post = post::whereSlug($slug)->first();
-        $post->visits()->increment();
+
+        $post = Post::where('id',$id)->firstOrFail();
+        $post->visits()->seconds(30)->increment(1,false, ['country', 'language']);
 
         $postvendors = Post::where('vendor_id', $post->vendor->id)
-                            ->where('slug','<>',$slug)
+                            ->where('id','<>',$id)
                             ->where('published',1)
                             ->orderBy('published_at', 'desc')
                             ->paginate(10);

@@ -291,27 +291,27 @@ return [
 
 
         //โพสโฆษณา
-        // 'view own posts' => [
-        //     'display_name' => 'ดูข้อมูลของตัวเอง',
-        //     'description'  => 'ดูข้อมูลของตัวเอง',
-        //     'group'        => 'โพสโฆษณา',
-        // ],
-        // 'view posts' => [
-        //     'display_name' => 'ดูข้อมูล',
-        //     'description'  => 'ดูข้อมูล',
-        //     'group'        => 'โพสโฆษณา',
-        // ],
-        // 'manage own posts' => [
-        //     'display_name' => 'จัดการข้อมูลของตัวเอง',
-        //     'description'  => 'จัดการข้อมูลของตัวเอง',
-        //     'group'        => 'โพสโฆษณา',
-        // ],
+        'view own posts' => [
+            'display_name' => 'ดูข้อมูลของตัวเอง',
+            'description'  => 'ดูข้อมูลของตัวเอง',
+            'group'        => 'โพสโฆษณา',
+        ],
+        'view posts' => [
+            'display_name' => 'ดูข้อมูล',
+            'description'  => 'ดูข้อมูล',
+            'group'        => 'โพสโฆษณา',
+        ],
+        'manage own posts' => [
+            'display_name' => 'จัดการข้อมูลของตัวเอง',
+            'description'  => 'จัดการข้อมูลของตัวเอง',
+            'group'        => 'โพสโฆษณา',
+        ],
 
-        // 'manage posts' => [
-        //     'display_name' => 'จัดการข้อมูล',
-        //     'description'  => 'จัดการข้อมูล',
-        //     'group'        => 'โพสโฆษณา',
-        // ],
+        'manage posts' => [
+            'display_name' => 'จัดการข้อมูล',
+            'description'  => 'จัดการข้อมูล',
+            'group'        => 'โพสโฆษณา',
+        ],
 
 
         //แสดงความเห็น

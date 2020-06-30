@@ -12,7 +12,7 @@
                     <p class="text-sm">วันที่เผยแพร่ : {{formatDateThai( $blog->published_at )}}</p>
                 </p>
 
-                    <p> {{Str::of( $blog->blog_content)->limit(150) }} </p>
+                    <p class="text-sm"> {{Str::of( $blog->blog_content)->limit(150) }} </p>
 
                 </div>
                 <div class="px-2 w-full  flex  flex-row border-t border-gray-100 text-sm font-thin ">

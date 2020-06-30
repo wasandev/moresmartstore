@@ -9,7 +9,7 @@
 
 @section('content')
 
-<div class="w-max-full mx-auto p-4">
+<div id="app" class="w-max-full mx-auto p-4">
 
     {{-- post detail --}}
     <div class="w-full lg:max-w-full lg:flex">

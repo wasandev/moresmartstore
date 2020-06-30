@@ -5,16 +5,18 @@
 @endsection
 
 @section('search')
+
     @include('partials.search')
 @endsection
 
 
 @section('content')
+
 <!--image-->
 <div id="app" class="max-w-2xl mx-auto mt-4 bg-gray-300 rounded-lg shadow-md">
     <div class="p-2">
 
-        <div class="md:flex md:flex-row w-full mx-auto  leading-normal ">
+        <div class="lg:flex md:flex-row w-full mx-auto  leading-normal ">
             <div class="md:flex md:flex-row md:w-2/3  w-full mt-2">
                 <div class="md:mr-2 text-center">
                     <img class="w-16 h-16 rounded-full md:ml-2 " src="{{  Storage::url(Auth::user()->avatar) }}" alt="{{Auth::user()->name }}">

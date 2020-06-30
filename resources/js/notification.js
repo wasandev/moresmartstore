@@ -1,16 +1,23 @@
 var notifications = [];
 
 const NOTIFICATION_TYPES = {
-    follow: 'App\\Notifications\\UserFollowed'
+    follow: 'App\\Notifications\\UserFollowed',
+    newPost: 'App\\Notifications\\NewPost'
 };
 
 
 $(document).ready(function() {
     // check if there's a logged in user
     if(Laravel.userId) {
-        $.get('/notifications', function (data) {
+        $.get(`/notifications`, function (data) {
             addNotifications(data, "#notifications");
         });
+
+        // listen to notifications from pusher
+        window.Echo.private(`App.User.${Laravel.userId}`)
+            .notification((notification) => {
+                addNotifications([notification], '#notifications');
+            });
     }
 });
 
@@ -45,6 +52,9 @@ function routeNotification(notification) {
     var to = '?read=' + notification.id;
     if(notification.type === NOTIFICATION_TYPES.follow) {
         to = 'home' + to;
+    }else if(notification.type === NOTIFICATION_TYPES.newPost) {
+        const postId = notification.data.post_id;
+        to = 'post/'+ postId + to;
     }
     return '/' + to;
 }
@@ -54,7 +64,10 @@ function makeNotificationText(notification) {
     var text = '';
     if(notification.type === NOTIFICATION_TYPES.follow) {
         const name = notification.data.follower_name;
-        text +=  name + ' กดติดตามคุณ';
+        text += name + 'ได้กดติดตามคุณ';
+    }else if(notification.type === NOTIFICATION_TYPES.newPost) {
+        const name = notification.data.following_name;
+        text += name + 'ได้เพิ่มโพสใหม';
     }
     return text;
 }

@@ -11,14 +11,15 @@
 @section('content')
 
 {{-- new post list for mobile--}}
-<div class="w-max-full mx-auto ">
+<div id="app"  class="max-w-full mx-auto sm:justify-between sm:items-center  sm:py-3">
+
     {{-- post list --}}
     @include('posts.card',[
         'showimage' => 1
     ])
 
 </div>
-<div class="p-4">
+<div  class="p-4">
     {{ $posts->links('vendor.pagination.tailwind') }}
 </div>
 

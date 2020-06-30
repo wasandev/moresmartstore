@@ -58559,7 +58559,7 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   broadcaster: 'pusher',
   key: "2db55c10826ea0b8c98c",
   cluster: "ap1",
-  encrypted: false
+  encrypted: true
 });
 
 /***/ }),
@@ -59190,13 +59190,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
 var notifications = [];
 var NOTIFICATION_TYPES = {
-  follow: "App\\Notifications\\UserFollowed"
+  follow: "App\\Notifications\\UserFollowed",
+  newPost: 'App\\Notifications\\NewPost'
 };
 $(document).ready(function () {
   // check if there's a logged in user
   if (Laravel.userId) {
-    $.get('/notifications', function (data) {
+    $.get("/notifications", function (data) {
       addNotifications(data, "#notifications");
+    }); // listen to notifications from pusher
+
+    window.Echo["private"]("App.User.".concat(Laravel.userId)).notification(function (notification) {
+      addNotifications([notification], '#notifications');
     });
   }
 });
@@ -59234,6 +59239,9 @@ function routeNotification(notification) {
 
   if (notification.type === NOTIFICATION_TYPES.follow) {
     to = 'home' + to;
+  } else if (notification.type === NOTIFICATION_TYPES.newPost) {
+    var postId = notification.data.post_id;
+    to = 'post/' + postId + to;
   }
 
   return '/' + to;
@@ -59245,7 +59253,10 @@ function makeNotificationText(notification) {
 
   if (notification.type === NOTIFICATION_TYPES.follow) {
     var name = notification.data.follower_name;
-    text += name + ' กดติดตามคุณ';
+    text += name + 'ได้กดติดตามคุณ';
+  } else if (notification.type === NOTIFICATION_TYPES.newPost) {
+    var _name = notification.data.following_name;
+    text += _name + 'ได้เพิ่มโพสใหม';
   }
 
   return text;

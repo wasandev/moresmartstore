@@ -11,6 +11,11 @@ use App\Product;
 
 class VendorController extends Controller
 {
+    public function __construct(Request $request)
+    {
+        $this->request = $request;
+    }
+
     public function index(Request $request)
     {
         $businessData = Businesstype::withCount(['vendors' => function ($query) {
@@ -88,7 +93,16 @@ class VendorController extends Controller
         //             ->where('published',1)
         //             ->orderBy('published_at', 'desc')
         //             ->get();
-        return view('vendors.show', compact('vendor','products'));
+        return view('vendors.show',[
+            'vendor' => $vendor,
+            'products' => $products,
+            'open_graph' => [
+                'title' => $vendor->title,
+                'image' => $vendor->imagefile,
+                'url' => $this->request->url(),
+                'description' => $vendor->description,
+                ]
+            ]);
     }
 
 
