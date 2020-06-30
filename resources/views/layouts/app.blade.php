@@ -60,12 +60,8 @@
         @yield('footer')
     </div>
 
-    <!-- Load Facebook SDK for JavaScript -->
     <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous"
-        src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v7.0&appId=662144831184109&autoLogAppEvents=1"
-        nonce="OPzYkWDH">
-    </script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v7.0&appId=662144831184109&autoLogAppEvents=1" nonce="iDG8qok2"></script>
 </body>
 
 </html>

@@ -97,7 +97,7 @@ class VendorController extends Controller
             'vendor' => $vendor,
             'products' => $products,
             'open_graph' => [
-                'title' => $vendor->title,
+                'title' => $vendor->name,
                 'image' => $vendor->imagefile,
                 'url' => $this->request->url(),
                 'description' => $vendor->description,

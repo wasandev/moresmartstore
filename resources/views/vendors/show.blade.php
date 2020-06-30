@@ -26,6 +26,7 @@
 
         <div class="w-full">
 
+
             <div class="w-full ">
                 @include('partials.headbar',[
                     'svg' => '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class="fill-current absolute"><path d="M2 2c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v18l-8-4-8 4V2z"/></svg>',
@@ -99,9 +100,16 @@
                             @endif
                         <div class="text-center">
                             <div class="fb-share-button "
-                                data-href="{{url('/vendors/{$vendor->id}')}}"
+                                data-href="{{ $open_graph['url'] }}"
                                 data-layout="box_count">
                             </div>
+                            {{-- <div class="fb-share-button"
+                                data-href="{{ $open_graph['url'] }}"
+                                data-layout="box_count">
+                                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=".{{ $open_graph['url'] }}.
+                                ";src=sdkpreparse"
+                                class="fb-xfbml-parse-ignore">แชร์</a>
+                            </div> --}}
                         </div>
                     </div>
 
@@ -180,9 +188,7 @@
             {{ $products->links('vendor.pagination.tailwind') }}
             </div>
         </div>
-        {{-- <div class="hidden lg:w-1/4 border-r  border-l border-gray-400 lg:border-r-0 lg:border-l-0 bg-white rounded-b flex flex-1 flex-col justify-between leading-normal ">
-            @include('vendors.googlemap')
-        </div> --}}
+
 
     </div>
 
