@@ -52,6 +52,7 @@
 <body class="font-sans h-full bg-gray-200  leading-normal tracking-normal antialiased">
 
     <div>
+
         @yield('nav')
         @yield('search')
         @yield('mstorehome')

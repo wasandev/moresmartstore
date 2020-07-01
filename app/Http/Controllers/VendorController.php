@@ -7,6 +7,7 @@ use App\Businesstype;
 use App\Vendor;
 //use App\Post;
 use App\Product;
+use Illuminate\Support\Str;
 //use Illuminate\Database\Eloquent\Builder;
 
 class VendorController extends Controller
@@ -100,7 +101,7 @@ class VendorController extends Controller
                 'title' => $vendor->name,
                 'image' => $vendor->imagefile,
                 'url' => $this->request->url(),
-                'description' => $vendor->description,
+                'description' => Str::of( $vendor->description)->limit(150) ,
                 ]
             ]);
     }

@@ -11,43 +11,42 @@
 
 @section('content')
 <!--image-->
-<div id="app" class="max-w-2xl mx-auto mt-4 bg-gray-300 rounded-lg">
-    <div class="p-4">
-
-            <div class="flex flex-row w-full mx-auto p-2 md:p-2 t leading-normal">
-                <div class="w-1/3">
-                    <img class=" w-16 h-16 rounded-full ml-3" src="{{  Storage::url(Auth::user()->avatar) }}" alt="{{Auth::user()->name }}">
-
-                    <h1 class="text-xl font-semibold leading-tight">
-                     {{ $user->name }}
-                    </h1>
-                    <span class="sm:block text-blue-700 text-sm">
-                        เข้าร่วม : {{ formatDateThai($user->created_at) }}
-                    </span>
-                </div>
-                <div class="flex flex-col w-2/3 mt-6">
-                        <div class="flex flex-col text-right">
-                           <p>ผู้ติดตาม : <span class="tl-follower text-sm">{{ $user->followers()->get()->count() }}</span></p>
-                            <p>กำลังติดตาม : <span class= "text-sm">{{ $user->followings()->get()->count() }}</span></p>
-
-                        </div>
-                        <div class="text-right">
-                        @if( $user->id != auth()->user()->id)
-                            <button class="action-follow  btn btn-blue" data-id="{{ $user->id }}">
-                                <strong>
-                                @if(auth()->user()->isFollowing($user))
-                                    เลิกติดตาม
-                                @else
-                                    ติดตาม
-                                @endif
-                                </strong>
-                            </button>
-                        @endif
-                        </div>
-                </div>
+<div id="app" class="max-w-2xl m-2 lg:mx-auto mt-4 p-4 bg-gray-300 rounded-lg shadow-md">
+    <div class="lg:flex md:flex-row  mx-auto  leading-normal p-4 items-center text-center lg:text-left">
+        <div class="lg:flex lg:flex-row lg:w-2/3  w-full mt-2">
+            <div class="md:mr-2 text-center">
+                <img class="w-16 h-16 rounded-full lg:ml-2 mx-auto" src="{{  Storage::url(Auth::user()->avatar) }}" alt="{{Auth::user()->name }}">
             </div>
+            <div class="">
+                <h1 class="text-xl font-semibold leading-tight mt-2">
+                    {{ $user->name }}
+                </h1>
+                <span class="sm:block text-blue-700 text-sm">
+                    เข้าร่วม : {{ formatDateThai($user->created_at) }}
+                </span>
+            </div>
+        </div>
+        <div class="lg:flex lg:flex-col lg:text-right lg:w-1/3 w-full mt-2">
 
+                <p>ผู้ติดตาม : <span class="tl-follower text-sm">{{ $user->followers()->get()->count() }}</span></p>
+                <p>กำลังติดตาม : <span class= "text-sm">{{ $user->followings()->get()->count() }}</span></p>
+
+                <div class="lg:text-right">
+                    @if( $user->id != auth()->user()->id)
+                        <button class="action-follow  btn btn-blue" data-id="{{ $user->id }}">
+                            <strong>
+                            @if(auth()->user()->isFollowing($user))
+                                เลิกติดตาม
+                            @else
+                                ติดตาม
+                            @endif
+                            </strong>
+                        </button>
+                    @endif
+                </div>
+        </div>
     </div>
+
 </div>
 
 <div class="max-w-2xl mx-auto">

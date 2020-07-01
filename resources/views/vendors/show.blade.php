@@ -1,13 +1,7 @@
 @extends('layouts.app')
 
-@section('head')
-    <meta property="og:url" content="{{ $open_graph['url'] }}" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="{{ $open_graph['title'] }}" />
-    <meta property="og:description" content="{{ $open_graph['description'] }}" />
-    <meta property="og:image" content="{{ $open_graph['image'] }}" />
 
-@stop
+
 
 @section('nav')
     @include('partials.nav')
@@ -18,6 +12,14 @@
 @endsection
 
 @section('content')
+
+
+    <meta property="og:url" content="{{ $open_graph['url'] }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ $open_graph['title'] }}" />
+    <meta property="og:description" content="{{ $open_graph['description'] }}" />
+    <meta property="og:image" content="{{ $open_graph['image'] }}" />
+
 
 {{-- new post list for mobile--}}
 <div  id="app" class="max-w-full mx-auto">

@@ -13,36 +13,27 @@
 @section('content')
 
 <!--image-->
-<div id="app" class="max-w-2xl mx-auto mt-4 bg-gray-300 rounded-lg shadow-md">
-    <div class="p-2">
-
-        <div class="lg:flex md:flex-row w-full mx-auto  leading-normal ">
-            <div class="md:flex md:flex-row md:w-2/3  w-full mt-2">
-                <div class="md:mr-2 text-center">
-                    <img class="w-16 h-16 rounded-full md:ml-2 " src="{{  Storage::url(Auth::user()->avatar) }}" alt="{{Auth::user()->name }}">
-
-                </div>
-                <div>
-                    <h1 class="text-xl font-semibold leading-tight mt-2">
-                        สวัสดี {{ Auth::user()->name }} ,
-                    </h1>
-                    <span class="sm:block text-blue-700 text-base">
-                        หน้าธุรกิจของคุณ สำหรับจัดการรายชื่อธุรกิจ,สินค้า
-                    </span>
-                </div>
-            </div>
-
-
-            <div class="md:flex md:flex-col md:text-right md:w-1/3 w-full mt-2">
-                   <p>ผู้ติดตาม : <span class="tl-follower text-sm">{{ Auth::user()->followers()->get()->count() }}</span></p>
-                    <p>กำลังติดตาม : <span class= "text-sm">{{ Auth::user()->followings()->get()->count() }}</span></p>
+<div id="app" class="max-w-2xl lg:mx-auto m-2 mt-4 p-4 lg:flex items-center lg:text-left text-center rounded-lg shadow-md bg-white">
+        <div class="lg:flex lg:flex-row lg:w-2/3  mt-2 mx-2">
+            <div class="lg:mr-2">
+                <img class="w-16 h-16 rounded-full lg:ml-2 mx-auto" src="{{  Storage::url(Auth::user()->avatar) }}" alt="{{Auth::user()->name }}">
 
             </div>
-
-
+            <div class="">
+                <h1 class="text-xl font-semibold leading-tight mt-2">
+                    สวัสดี {{ Auth::user()->name }} ,
+                </h1>
+                <span class="sm:block text-blue-700 text-base">
+                    หน้าธุรกิจของคุณ สำหรับจัดการรายชื่อธุรกิจ,สินค้า
+                </span>
+            </div>
         </div>
 
-    </div>
+        <div class="lg:flex lg:flex-col lg:text-right lg:w-1/3 w-full mt-2">
+                <p>ผู้ติดตาม : <span class="tl-follower text-sm">{{ Auth::user()->followers()->get()->count() }}</span></p>
+                <p>กำลังติดตาม : <span class= "text-sm">{{ Auth::user()->followings()->get()->count() }}</span></p>
+        </div>
+
 </div>
 
 <div class="max-w-2xl mx-auto">

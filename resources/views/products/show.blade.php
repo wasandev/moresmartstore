@@ -10,7 +10,7 @@
 @section('content')
 
 {{-- new post list for mobile--}}
-<div class="max-w-full mx-auto">
+<div id="app" class="max-w-full mx-auto">
     <div class="flex">
         <div class=" w-full xl:w-3/4  p-4">
 

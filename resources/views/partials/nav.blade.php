@@ -86,7 +86,7 @@
                     </div>
                     <div class="mt-4">
 
-                        <a href="/app" class="px-2 py-1 mt-2 block text-gray-800  rounded hover:bg-blue-700 hover:text-gray-100 lg:mt-0 lg:ml-2">จัดการหน้าธุรกิจ</a>
+                        <a href="/home" class="px-2 py-1 mt-2 block text-gray-800  rounded hover:bg-blue-700 hover:text-gray-100 lg:mt-0 lg:ml-2">หน้าธุรกิจของคุณ</a>
                         <a href="{{ route('logout') }}" class="px-2 py-1 mt-2 block text-gray-800 rounded hover:bg-blue-700 hover:text-gray-100 lg:mt-0 lg:ml-2"
                             onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
