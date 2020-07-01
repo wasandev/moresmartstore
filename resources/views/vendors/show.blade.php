@@ -1,14 +1,5 @@
 @extends('layouts.app')
 
-@section('head')
-    <meta property="og:url" content="{{ $open_graph['url'] }}" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="{{ $open_graph['title'] }}" />
-    <meta property="og:description" content="{{ $open_graph['description'] }}" />
-    <meta property="og:image" content="{{ $open_graph['image'] }}" />
-@endsection
-
-
 @section('nav')
     @include('partials.nav')
 @endsection
@@ -105,13 +96,7 @@
                                 data-href="{{ $open_graph['url'] }}"
                                 data-layout="box_count">
                             </div>
-                            {{-- <div class="fb-share-button"
-                                data-href="{{ $open_graph['url'] }}"
-                                data-layout="box_count">
-                                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=".{{ $open_graph['url'] }}.
-                                ";src=sdkpreparse"
-                                class="fb-xfbml-parse-ignore">แชร์</a>
-                            </div> --}}
+
                         </div>
                     </div>
 
@@ -198,7 +183,13 @@
 
 
 @endsection
-
+@section('ogmeta')
+    <meta property="og:url" content="{{ $open_graph['url'] }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{ $open_graph['title'] }}" />
+    <meta property="og:description" content="{{ $open_graph['description'] }}" />
+    <meta property="og:image" content="{{ $open_graph['image'] }}" />
+@endsection
 @section('footer')
     @include('partials.footer')
 

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Businesstype;
 use App\Vendor;
-//use App\Post;
+use App\Post;
 use App\Product;
 use Illuminate\Support\Str;
 //use Illuminate\Database\Eloquent\Builder;
@@ -42,13 +42,13 @@ class VendorController extends Controller
                                     $query->where('name', 'like', '%'.$q.'%')
                                     ->where('status',1)
                                     ->orWhere('description','like', '%'.$q.'%');
+                                })
+                            ->orWhereHas('posts', function ( $query) use($q)
+                                {
+                                    $query->where('title', 'like', '%'.$q.'%')
+                                    ->where('published',1)
+                                    ->orWhere('content','like', '%'.$q.'%');
                                 });
-                            // ->orWhereHas('posts', function ( $query) use($q)
-                            //     {
-                            //         $query->where('title', 'like', '%'.$q.'%')
-                            //         ->where('published',1)
-                            //         ->orWhere('content','like', '%'.$q.'%');
-                            //     });
                     })->paginate(9);
 
         if(count($vendors) > 0)
@@ -90,10 +90,10 @@ class VendorController extends Controller
                     })
                     ->orderBy('created_at', 'desc')
                     ->paginate(3);
-        // $posts = Post::where('vendor_id',$id)
-        //             ->where('published',1)
-        //             ->orderBy('published_at', 'desc')
-        //             ->get();
+        $posts = Post::where('vendor_id',$id)
+                    ->where('published',1)
+                    ->orderBy('published_at', 'desc')
+                    ->get();
         return view('vendors.show',[
             'vendor' => $vendor,
             'products' => $products,
@@ -101,7 +101,7 @@ class VendorController extends Controller
                 'title' => $vendor->name,
                 'image' => $vendor->imagefile,
                 'url' => $this->request->url(),
-                'description' => Str::of( $vendor->description)->limit(150) ,
+                'description' => Str::of( $vendor->description)->limit(150)
                 ]
             ]);
     }
