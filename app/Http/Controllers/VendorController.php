@@ -8,6 +8,8 @@ use App\Vendor;
 use App\Post;
 use App\Product;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+
 //use Illuminate\Database\Eloquent\Builder;
 
 class VendorController extends Controller
@@ -99,7 +101,7 @@ class VendorController extends Controller
             'products' => $products,
             'open_graph' => [
                 'title' => $vendor->name,
-                'image' => $vendor->imagefile,
+                'image' => url(Storage::url($vendor->imagefile)),
                 'url' => $this->request->url(),
                 'description' => Str::of( $vendor->description)->limit(150)
                 ]
