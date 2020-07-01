@@ -12,7 +12,13 @@
 @endsection
 
 @section('content')
-
+<div>
+    <meta property="og:url" content="{{ $open_graph['url'] }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{ $open_graph['title'] }}" />
+    <meta property="og:description" content="{{ $open_graph['description'] }}" />
+    <meta property="og:image" content="{{ $open_graph['image'] }}" />
+</div>
 
 {{-- new post list for mobile--}}
 <div  id="app" class="max-w-full mx-auto">
@@ -32,11 +38,7 @@
                 ])
             </div>
             <div class="w-full lg:max-w-full mx-auto lg:flex p-4 rounded-lg">
-                <meta property="og:url" content="{{ $open_graph['url'] }}" />
-                <meta property="og:type" content="website" />
-                <meta property="og:title" content="{{ $open_graph['title'] }}" />
-                <meta property="og:description" content="{{ $open_graph['description'] }}" />
-                <meta property="og:image" content="{{ $open_graph['image'] }}" />
+
                 <div class="h-64 lg:h-auto lg:w-1/2 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-left  overflow-hidden" style="background:url('{{  Storage::url($vendor->imagefile) }}') no-repeat center center/cover" title="{{ $vendor->name }}">
                 </div>
 
