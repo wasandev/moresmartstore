@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
-
+@section('head')
+    <meta property="og:url" content="{{ $open_graph['url'] }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{ $open_graph['title'] }}" />
+    <meta property="og:description" content="{{ $open_graph['description'] }}" />
+    <meta property="og:image" content="{{ $open_graph['image'] }}" />
+@endsection
 
 
 @section('nav')
@@ -12,13 +18,7 @@
 @endsection
 
 @section('content')
-<div>
-    <meta property="og:url" content="{{ $open_graph['url'] }}" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="{{ $open_graph['title'] }}" />
-    <meta property="og:description" content="{{ $open_graph['description'] }}" />
-    <meta property="og:image" content="{{ $open_graph['image'] }}" />
-</div>
+
 
 {{-- new post list for mobile--}}
 <div  id="app" class="max-w-full mx-auto">
