@@ -92,6 +92,7 @@ class VendorController extends Controller
                     })
                     ->orderBy('created_at', 'desc')
                     ->paginate(3);
+
         $posts = Post::where('vendor_id',$id)
                     ->where('published',1)
                     ->orderBy('published_at', 'desc')
@@ -99,6 +100,7 @@ class VendorController extends Controller
         return view('vendors.show',[
             'vendor' => $vendor,
             'products' => $products,
+            'posts' => $posts,
             'open_graph' => [
                 'title' => $vendor->name,
                 'image' => url(Storage::url($vendor->imagefile)),

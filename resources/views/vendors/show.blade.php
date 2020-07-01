@@ -100,7 +100,7 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-row p-4 text-sm justify-between bg-blue-300 text-center">
+                    <div class="flex flex-row p-4 text-sm justify-between bg-blue-500 text-center">
                             @if(!empty($vendor->weburl))
                             <div>
                                 <a class="text-gray-100 hover:text-blue-700 pl-4 py-2" href="{{ $vendor->weburl }}" target="_blank" >

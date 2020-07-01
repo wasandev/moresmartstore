@@ -1,6 +1,6 @@
 <template>
 
-    <div class="max-w-md mx-auto mx-0 ">
+    <div class="max-w-md mx-auto  ">
 
         <div class="w-full flex p-4 md:p-4">
 

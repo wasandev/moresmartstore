@@ -81,10 +81,10 @@ class Vendor extends Model
         $this->attributes['location_lng'] = $location_lng;
     }
 
-    // public function posts()
-    // {
-    //     return $this->hasMany('App\Post');
-    // }
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
+    }
     public function products()
     {
         return $this->hasMany('App\Product');
