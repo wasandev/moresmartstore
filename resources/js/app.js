@@ -13,6 +13,7 @@ import VendorMap from './components/VendorMap';
 require('./bootstrap');
 
 require('./nav');
+require('./addtohome');
 
 
 window.$ = window.jQuery = require('jquery');

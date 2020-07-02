@@ -70,16 +70,21 @@
                             </form>
                     </div>
 
+
                 @else
                     <a href="{{ route('login') }}"
                         class="mt-1 block px-2 py-1 text-gray-100 bg-blue-500 rounded hover:bg-red-600 hover:text-gray-100 lg:mt-0 lg:ml-2 ">
                         Login
                     </a>
                 @endauth
+                <a href="#"  class="lg:hidden px-2 py-1 mt-2 block text-gray-800  rounded hover:bg-blue-700 hover:text-gray-100 lg:mt-0 lg:ml-2" onclick="addToHomeScreen()">
+                    เพิ่มลงในหน้าจอหลัก
+                </a>
                 </div>
             </div>
-                @auth
+            @auth
                 <div class="px-4 py-5 border-t border-gray-800 lg:hidden">
+
                     <div  class="flex items-center">
                         <img class="h-8 w-8 border-2 border-gray-600 rounded-full object-cover" src="{{ Storage::url(Auth::user()->avatar) }}" alt="">
                         <span class="ml-3 text-sm text-gray-800">{{ Auth::user()->name }}</span>
@@ -96,8 +101,12 @@
                             @csrf
                         </form>
                     </div>
+
+
+
                 </div>
-                @endauth
+            @endauth
+
         </div>
 
 </div>
