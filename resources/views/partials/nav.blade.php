@@ -77,9 +77,7 @@
                         Login
                     </a>
                 @endauth
-                <a href="#"  class="lg:hidden px-2 py-1 mt-2 block text-gray-800  rounded hover:bg-blue-700 hover:text-gray-100 lg:mt-0 lg:ml-2" onclick="addToHomeScreen()">
-                    เพิ่มลงในหน้าจอหลัก
-                </a>
+
                 </div>
             </div>
             @auth
