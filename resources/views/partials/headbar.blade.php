@@ -1,5 +1,5 @@
 <div class="mx-2">
-    <div class="w-full mt-4 flex flex-row p-2  border-l-2 border-r-2 border-blue-500 shadow-md">
+    <div class="w-full mt-4 flex flex-row p-2   shadow-md">
 
         <div class="text-base w-1/2 font-light  text-left text-gray-700 subpixel-antialiased">
             {!! $svg !!}

@@ -1,7 +1,7 @@
 <div class="flex flex-wrap  w-full xl:mx-0 ">
     @foreach ($vendors as $vendor)
         <div class="w-full flex flex-col md:w-1/2 lg:w-1/3 xl:w-1/3 ">
-            <a href="/vendors/{{ $vendor->id}}" class="rounded-lg bg-blue-500 flex flex-col flex-1  shadow hover:shadow-lg translateY-2px m-2 no-underline transition">
+            <a href="/vendors/{{ $vendor->id}}" class="rounded-lg bg-blue-500 flex flex-col flex-1  shadow hover:shadow-xl translateY-2px m-2 no-underline transition">
                 @if ($showimage)
                     <div class="aspect-16x9 rounded-t-lg "
                         style="background:url('{{  Storage::url($vendor->imagefile) }}') no-repeat center center/cover">

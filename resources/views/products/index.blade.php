@@ -10,7 +10,7 @@
 
 <div id="app"  class="max-w-full mx-auto sm:justify-between sm:items-center  sm:py-3">
 
-    <div class="flex items-center justify-between px-4 py-4 sm:p-0  bg-gray-800 block sm:hidden ">
+    <div class="flex items-center justify-between px-4 py-4 sm:p-0  bg-gray-800 sm:hidden ">
 
         <div class="">
             <button class="sidebar-sign block text-blue-500 hover:text-white focus:text-white focus:outline-none">
@@ -31,7 +31,7 @@
             <div class="px-2 sm:flex sm:p-0 ">
                   <div class="w-full grid grid-cols-1 gap-1  p-2 shadow-lg">
                     @foreach ($category as $item)
-                        <a href="/products/category/{{ $item->id }}" class="block py-2 px-2 text-base font-medium text-gray-100 bg-blue-600 rounded lg:rounded-r-lg border-l-4 border-blue-200 hover:border-red-500 hover:bg-blue-600 hover:text-white">
+                        <a href="/products/category/{{ $item->id }}" class="block py-2 px-2 text-base font-medium text-gray-100 bg-blue-500 rounded lg:rounded-r-lg border-l-4 border-blue-200 hover:border-red-500 hover:bg-blue-700 hover:text-white">
                             {{ $item->name }} - <span class="text-gray-400">({{ $item->products_count }} ธุรกิจ)</span>
                         </a>
                     @endforeach

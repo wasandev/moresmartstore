@@ -1,6 +1,6 @@
 <!--image home page-->
 
-<div class="max-w-full mx-auto bg-gray-300 bg-cover pt-6 lg:mb-4"
+<div class="max-w-full mx-auto bg-gray-500 bg-cover pt-6 lg:mb-4"
     style="background-image:url('{{  Storage::url('mshome6.jpg') }}'); height: 55vh;">
 
         <div class="p-6 lg:mt-12 max-w-lg  mx-4 lg:mx-auto text-center leading-tight bg-gray-300 rounded-lg shadow-xl" style="opacity: .70;">
