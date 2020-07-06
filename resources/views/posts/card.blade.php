@@ -18,6 +18,15 @@
                     <div class="text-left text-sm  font-thin items-end">
                         <p class="text-blue-500 font-semibold">ชื่อธุรกิจ: {{ $post->vendor->name }}</p>
                         <p class="text-gray-600 text-sm">ผู้โพส: {{ $post->user->name}} </p>
+                        @auth
+                        <p class="text-red-600 text-sm">
+                            @if ( $post->published)
+                                <span class="text-right">การเผยแพร่:เผยแพร่แล้ว</span>
+                            @else
+                                <span class="text-right">การเผยแพร่:รอการอนุมัติ</span>
+                            @endif
+                         </p>
+                        @endauth
                     </div>
                     <div class="w-full flex flex-row border-t border-gray-100 text-sm font-thin ">
                         <div class="text-left w-1/2 m-1 items-center">
