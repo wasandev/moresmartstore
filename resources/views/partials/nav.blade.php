@@ -80,9 +80,9 @@
                                 <span class="ml-6">จัดการข้อมูลธุรกิจ</span>
                             </a>
 
-                            <hr class="border-t mx-2 border-gray-light">
+                            <hr class="border-t mx-2 border-gray-300">
                             <a href="{{ route('logout') }}"
-                                class=" no-underline px-4 py-2 block text-grey-900 hover:text-blue-500" onclick="event.preventDefault();
+                                class=" no-underline px-4 py-2 block text-gray-900 hover:text-blue-500" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
                                   <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute mr-4"  width="24" height="24" viewBox="0 0 24 24"><path d="M10 7H2v6h8v5l8-8-8-8v5z"/></svg>
 
