@@ -1,7 +1,7 @@
 <div class="flex flex-wrap  w-full xl:mx-0 ">
     @foreach ($blogs as $blog)
         <div class="w-full  flex flex-col md:w-1/3 ">
-        <a href="/blogs/{{ $blog->slug }}" class="bg-white flex flex-col flex-1 rounded-lg shadow hover:shadow-lg translateY-2px m-4 no-underline transition">
+        <a href="/blogs/{{ $blog->slug }}" class="bg-white flex flex-col flex-1 rounded-lg shadow hover:shadow-lg translateY-2px m-2 no-underline transition">
                 <div class="aspect-16x9 rounded-t-lg"
                     style="background:url('{{  Storage::url($blog->blog_image) }}') no-repeat center center/cover">
                 </div>

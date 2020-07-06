@@ -11,15 +11,13 @@
 @section('content')
 
 
-{{-- new post list for mobile--}}
 <div  id="app" class="max-w-full mx-auto">
     <div class="flex ">
         {{-- vendor detail --}}
-
         <div class="w-full">
 
 
-            <div class="w-full ">
+            <div class="w-full p-2">
                 @include('partials.headbar',[
                     'svg' => '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class="fill-current absolute"><path d="M2 2c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v18l-8-4-8 4V2z"/></svg>',
                     'title' => 'หน้าธุรกิจ',
@@ -29,12 +27,10 @@
                 ])
             </div>
             <div class="w-full lg:max-w-full mx-auto lg:flex p-4 rounded-lg">
-
                 <div class="h-64 lg:h-auto lg:w-1/2 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-left  overflow-hidden" style="background:url('{{  Storage::url($vendor->imagefile) }}') no-repeat center center/cover" title="{{ $vendor->name }}">
                 </div>
 
-
-                <div class="lg:w-1/2 border-r  border-l border-gray-400 lg:border-r-0 lg:border-l-0 bg-white rounded-b flex flex-1 flex-col justify-between leading-normal ">
+                <div class="lg:w-1/2  bg-white rounded-b flex flex-1 flex-col justify-between leading-normal ">
 
                     <div class="mb-4 p-4">
                         <div class="flex flex-row ">
@@ -80,20 +76,9 @@
 
                             </div>
                         </div>
-
-                        {{-- @if(!empty($vendor->phoneno))
-                            <div class="w-full mx-auto">
-                                <a class="text-center items-center rounded-full border border-blue-500 p-2 mx-2 text-blue-500 hover:text-gray-100 hover:bg-blue-500" href="tel:{{ $vendor->phoneno }}" >
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute mx-4" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M13.04 14.69l1.07-2.14a1 1 0 0 1 1.2-.5l6 2A1 1 0 0 1 22 15v5a2 2 0 0 1-2 2h-2A16 16 0 0 1 2 6V4c0-1.1.9-2 2-2h5a1 1 0 0 1 .95.68l2 6a1 1 0 0 1-.5 1.21L9.3 10.96a10.05 10.05 0 0 0 3.73 3.73zM8.28 4H4v2a14 14 0 0 0 14 14h2v-4.28l-4.5-1.5-1.12 2.26a1 1 0 0 1-1.3.46 12.04 12.04 0 0 1-6.02-6.01 1 1 0 0 1 .46-1.3l2.26-1.14L8.28 4zm7.43 5.7a1 1 0 1 1-1.42-1.4L18.6 4H16a1 1 0 0 1 0-2h5a1 1 0 0 1 1 1v5a1 1 0 0 1-2 0V5.41l-4.3 4.3z"/>
-                                    </svg>
-                                    <span class="ml-6">{{ $vendor->phoneno }}</span>
-                                </a>
-                            </div>
-                        @endif --}}
-
                     </div>
 
-                    <div class="flex lg:flex-row flex-col p-2 text-sm lg:justify-center text-center border-t border-gray-300">
+                    <div class="flex lg:flex-row flex-col p-2 text-sm lg:justify-center text-center ">
 
 
                         @if(!empty($vendor->phoneno))
@@ -166,20 +151,38 @@
             </div>
 
             {{-- สินค้า list --}}
-
+            <div class="p-2">
                 @include('partials.headbar',[
                 'svg' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="fill-current absolute"><path class="heroicon-ui" d="M5 3h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2zm0 2v4h4V5H5zm10-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2zm0 2v4h4V5h-4zM5 13h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4c0-1.1.9-2 2-2zm0 2v4h4v-4H5zm10-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4c0-1.1.9-2 2-2zm0 2v4h4v-4h-4z"/></svg>',
                 'title' => 'สินค้า/บริการ',
                 'link' => '/products',
                 'linktext' => 'แสดงทั้งหมด',
                 'target' => '_self'
-            ])
-            @include('products.card',[
-                'showimage' => 1
-            ])
-            <div class="w-full mx-auto p-4">
-            {{ $products->links('vendor.pagination.tailwind') }}
+                ])
+                @include('products.card',[
+                    'showimage' => 1
+                ])
+                <div class="w-full mx-auto p-4">
+                {{ $products->links('vendor.pagination.tailwind') }}
+                </div>
             </div>
+            {{-- โพส list --}}
+            <div class="p-2">
+                @include('partials.headbar',[
+                'svg' => ' <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current absolute"><path class="heroicon-ui" d="M6.3 12.3l10-10a1 1 0 0 1 1.4 0l4 4a1 1 0 0 1 0 1.4l-10 10a1 1 0 0 1-.7.3H7a1 1 0 0 1-1-1v-4a1 1 0 0 1 .3-.7zM8 16h2.59l9-9L17 4.41l-9 9V16zm10-2a1 1 0 0 1 2 0v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2h6a1 1 0 0 1 0 2H4v14h14v-6z"/></svg>',
+                'title' => 'โพสโฆษณา',
+                'link' => '/posts',
+                'linktext' => 'แสดงทั้งหมด',
+                'target' => '_self'
+                ])
+                @include('posts.card',[
+                    'showimage' => 1
+                ])
+                <div class="w-full mx-auto p-4">
+                {{ $posts->links('vendor.pagination.tailwind') }}
+                </div>
+            </div>
+
         </div>
 
 

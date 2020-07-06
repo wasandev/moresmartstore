@@ -96,7 +96,7 @@ class VendorController extends Controller
         $posts = Post::where('vendor_id',$id)
                     ->where('published',1)
                     ->orderBy('published_at', 'desc')
-                    ->get();
+                    ->paginate(3);
         return view('vendors.show',[
             'vendor' => $vendor,
             'products' => $products,

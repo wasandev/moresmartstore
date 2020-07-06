@@ -43,7 +43,7 @@ class MstoreController extends Controller
 
         $posts = Post::where('published', 1)
         ->orderBy('published_at', 'desc')
-        ->take(3)
+        ->take(6)
         ->get();
 
         $blogs = Blog::where('published', 1)

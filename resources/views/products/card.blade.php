@@ -1,4 +1,4 @@
-<div class="flex flex-wrap p-2  w-full xl:mx-0">
+<div class="flex flex-wrap w-full xl:mx-0">
     @foreach ($products as $product)
     <div class="w-full flex flex-col md:w-1/2 lg:w-1/3 xl:w-1/3">
         <a href="/products/{{ $product->id }}" class="bg-blue-500 flex flex-col flex-1 rounded-t-lg shadow hover:shadow-lg translateY-2px m-2 no-underline transition">
@@ -14,8 +14,11 @@
                         <p> {{ Str::of( $product->description)->limit(200) }} </p>
 
                     </div>
-                    <div class="mb-3 w-full mx-auto text-right text-base text-blue-700">
-                        {{ $product->vendor->name }}
+                    <div class="mb-3 w-full mx-auto  text-base text-blue-700 items-end">
+
+                        <p class="text-gray-600 text-sm ">ประเภท: {{ $product->category->name }}</p>
+                        <p class="text-gray-600 text-sm ">ชื่อธุรกิจ: {{ $product->vendor->name }} </p>
+                        <p class="text-gray-600 text-sm ">ผู้โพส: {{ $product->user->name}} </p>
                     </div>
                     <div class="w-full flex flex-row border-t border-gray-100 text-sm font-thin">
                         <div class="mt-2 text-left w-1/2">

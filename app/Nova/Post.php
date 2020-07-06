@@ -146,7 +146,23 @@ class Post extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            (new Actions\SetPostPublished)
+                ->confirmText('ต้องการเผยแพร่โพสรายการนี้?')
+                ->confirmButtonText('เผยแพร่')
+                ->cancelButtonText("ยกเลิก")
+                ->canSee(function ($request) {
+                    return $request->user()->role == 'admin' ;
+
+                }),
+            (new Actions\SetVendorInActive)
+                ->confirmText('ไม่ต้องการเผยแพร่โพสรายการนี้?')
+                ->confirmButtonText('ไม่เผยแพร่')
+                ->cancelButtonText("ยกเลิก")
+                ->canSee(function ($request) {
+                    return $request->user()->role == 'admin' ;
+                }),
+        ];
     }
 
     public static function indexQuery(NovaRequest $request, $query)

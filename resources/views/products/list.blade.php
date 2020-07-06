@@ -10,7 +10,7 @@
 
 <div id="app"  class="max-w-full mx-auto sm:justify-between sm:items-center  sm:py-3">
 
-    <div class="flex items-center justify-between px-4 py-4 sm:p-0  bg-gray-800 block sm:hidden ">
+    <div class="flex items-center justify-between px-4 py-4 sm:p-0  bg-gray-800 sm:hidden ">
 
         <div class="">
             <button class="sidebar-sign block text-blue-500 hover:text-white focus:text-white focus:outline-none">

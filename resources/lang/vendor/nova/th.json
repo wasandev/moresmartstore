@@ -410,6 +410,9 @@
     "Set Vendor InActive": "ไม่อนุมัติธุรกิจนี้",
     "Set Product Active": "อนุมัติสินค้านี้",
     "Set Product InActive": "ไม่อนุมัติสินค้านี้",
-    "Role": "สิทธิ์การใช้งาน"
+    "Role": "สิทธิ์การใช้งาน",
+    "Set Post Published": "เผยแพร่โพสนี้",
+    "Set Post Not Published": "ไม่เผยแพร่โพสนี้"
+
 
 }

@@ -3,7 +3,7 @@
     @include('partials.nav')
 @endsection
 @section('content')
-<div class="w-full mx-auto max-w-sm sm:mt-20 md:mt-32 lg:mt-32 xl:mt-32">
+<div id="app" class="w-full mx-auto max-w-sm sm:mt-20 md:mt-32 lg:mt-32 xl:mt-32">
     <div class="bg-white shadow-md rounded px-8 pt-6">
         <div class="font-thin text-base font-bold text-red-500 p-2 rounded-t">
             คุณยังไม่ได้ยืนยันที่อยู่อีเมล !!

@@ -1,4 +1,4 @@
-<div class="bg-white shadow-md lg:flex lg:justify-between lg:items-center lg:px-4 lg:py-3  fixed top-0 inset-x-0 z-50 ">
+<div class="bg-white shadow-md lg:flex lg:justify-between lg:items-center lg:px-4 lg:py-2  fixed top-0 inset-x-0 z-50 ">
 
         <div class="flex items-center justify-between  px-4 py-3 lg:p-0">
             <div class="flex text-left flex-no-shrink mr-0">

@@ -28,9 +28,17 @@ class PostObserver
 
     public function created(Post $post)
     {
-        $user = $post->user;
-        foreach ($user->followers as $follower) {
-            $follower->notify(new NewPost($user, $post));
+        Log::stack(['single'])->info('Sending email for new posts to, Admin');
+        $post->notify(new NewPostNotification($post));
+    }
+
+    public function updated(Post $post)
+    {
+        if(auth()->user()->role == 'admin' && $post->published == 1) {
+            $user = $post->user;
+            foreach ($user->followers as $follower) {
+                $follower->notify(new NewPost($user, $post));
+            }
         }
     }
 }

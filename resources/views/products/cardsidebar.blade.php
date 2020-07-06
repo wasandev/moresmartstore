@@ -16,7 +16,9 @@
 
             </div>
             <div class="mt-2 text-left text-sm">
-                {{ $product->category->name }}
+                <p class="text-gray-600 text-sm ">ประเภท: {{ $product->category->name }}</p>
+                <p class="text-gray-600 text-sm ">ชื่อธุรกิจ: {{ $product->vendor->name }} </p>
+                <p class="text-gray-600 text-sm ">ผู้โพส: {{ $product->user->name}} </p>
 
             </div>
             <div class="w-full flex flex-row border-t border-gray-100 text-sm font-thin ">

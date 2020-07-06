@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use App\Category;
-use App\Vendor;
 use App\Product;
 
 class ProductController extends Controller
 {
+    public function __construct(Request $request)
+    {
+        $this->request = $request;
+    }
     public function index(Request $request)
     {
         $category  = Category::withCount(['products' => function ($query) {
@@ -83,7 +88,6 @@ class ProductController extends Controller
                                 $query->where('status',1);
                             })
                             ->orderBy('created_at', 'desc')
-                            //->take(4)
                             ->paginate(6);
 
         $productvendors = Product::where('vendor_id', $product->vendor->id)
@@ -93,10 +97,20 @@ class ProductController extends Controller
                                 $query->where('active',1);
                             })
                             ->orderBy('created_at', 'desc')
-                            //->take(8)
                             ->paginate(3);
 
-        return view('products.show', compact('product','products','productvendors'));
+
+        return view('products.show',[
+            'product' => $product,
+            'products' => $products,
+            'productvendors' => $productvendors,
+            'open_graph' => [
+                'title' => $product->name,
+                'image' => url(Storage::url($product->image)),
+                'url' => $this->request->url(),
+                'description' => Str::of( $product->description)->limit(150)
+                ]
+            ]);
     }
 
 
