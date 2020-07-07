@@ -79,27 +79,7 @@
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v7.0&appId=662144831184109&autoLogAppEvents=1" nonce="iDG8qok2"></script>
 
-    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
 
-
-    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
-
-    <script>
-
-    var firebaseConfig = {
-        apiKey: "AIzaSyD1571LEF9PjmRR26I_3_fcOKZu_w7Pxo4",
-        authDomain: "mstore-6780b.firebaseapp.com",
-        databaseURL: "https://mstore-6780b.firebaseio.com",
-        projectId: "mstore-6780b",
-        storageBucket: "mstore-6780b.appspot.com",
-        messagingSenderId: "199619813635",
-        appId: "1:199619813635:web:f6400c27942aa57dfd4936",
-        measurementId: "G-PSYBW6QEYB"
-    };
-
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-    </script>
  </body>
 
 </html>
