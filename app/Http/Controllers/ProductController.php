@@ -23,6 +23,7 @@ class ProductController extends Controller
                 });
             }])
             ->where('active',1)
+            ->orderBy('id','asc')
             ->orderBy('products_count','desc')->get();
         $q= $request->input('product-search');
         $products = Product::where('status',1)
