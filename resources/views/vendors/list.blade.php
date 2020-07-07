@@ -33,7 +33,7 @@
 
                     @foreach ($businessData as $item)
                         <a href="/vendors/type/{{ $item->id }}" class=" block py-2 px-2 text-base font-medium text-gray-100 bg-blue-500 rounded lg:rounded-r-lg border-l-4 border-blue-200 hover:border-red-500 hover:bg-blue-700 hover:text-white">
-                            {{ $item->name }} - <span class="text-gray-400">({{ $item->vendors_count }} ธุรกิจ)</span>
+                            {{ $item->name }}  <span class="text-gray-400">({{ $item->vendors_count }} ธุรกิจ)</span>
                         </a>
                     @endforeach
                 </div>

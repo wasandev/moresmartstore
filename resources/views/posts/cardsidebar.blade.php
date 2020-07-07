@@ -11,7 +11,7 @@
         <div class="p-2 bg-gray-300 flex flex-col flex-1 text-left subpixel-antialiased">
 
             <div class="text-left text-sm flex-1 font-thin ">
-                <p> {!! Str::of( $post->content)->limit(200) !!} </p>
+                <p> {{ Str::of( $post->content)->limit(200) }} </p>
             </div>
             <div class="w-full flex flex-row border-t border-gray-100 text-sm font-thin ">
                 <div class="text-left w-1/2 mt-1">

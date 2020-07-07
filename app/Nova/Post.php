@@ -11,7 +11,6 @@ use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\HasMany;
-use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Post extends Resource
@@ -88,7 +87,7 @@ class Post extends Resource
             Text::make('หัวข้อโพส', 'title')
                 ->rules('required')
                 ->sortable(),
-            Trix::make('เนื้อหาโพส',  'content')
+            Textarea::make('เนื้อหาโพส',  'content')
                 ->rules('required')
                 ->hideFromIndex()
                 ->sortable(),
@@ -148,7 +147,7 @@ class Post extends Resource
     {
         return [
             (new Actions\SetPostPublished)
-                ->confirmText('ต้องการเผยแพร่โพสรายการนี้?')
+                ->confirmText('ต้องการเผยแพร่โพที่เลือก?')
                 ->confirmButtonText('เผยแพร่')
                 ->cancelButtonText("ยกเลิก")
                 ->canSee(function ($request) {
@@ -156,7 +155,7 @@ class Post extends Resource
 
                 }),
             (new Actions\SetVendorInActive)
-                ->confirmText('ไม่ต้องการเผยแพร่โพสรายการนี้?')
+                ->confirmText('ไม่ต้องการเผยแพร่โพสที่เลือก?')
                 ->confirmButtonText('ไม่เผยแพร่')
                 ->cancelButtonText("ยกเลิก")
                 ->canSee(function ($request) {

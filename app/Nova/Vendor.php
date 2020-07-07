@@ -217,7 +217,7 @@ class Vendor extends Resource
 
         return [
             (new Actions\SetVendorActive)
-                ->confirmText('ต้องการอนุมัติธุรกิจรายการนี้?')
+                ->confirmText('ต้องการอนุมัติธุรกิจที่เลือก?')
                 ->confirmButtonText('อนุมัติ')
                 ->cancelButtonText("ยกเลิก")
                 ->canSee(function ($request) {
@@ -225,7 +225,7 @@ class Vendor extends Resource
 
                 }),
             (new Actions\SetVendorInActive)
-                ->confirmText('ไม่อนุมัติธุรกิจรายการนี้?')
+                ->confirmText('ไม่อนุมัติธุรกิจที่เลือก?')
                 ->confirmButtonText('ไม่อนุมัติ')
                 ->cancelButtonText("ยกเลิก")
                 ->canSee(function ($request) {

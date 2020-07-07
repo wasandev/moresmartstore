@@ -13,7 +13,7 @@
 
                     <div class="text-left text-sm flex-1 font-thin ">
                         <p class="text-blue-500 font-semibold">{{ $post->vendor->name }}</p>
-                        <p> {!! Str::of( $post->content)->limit(200) !!} </p>
+                        <p> {{ Str::of( $post->content)->limit(200) }} </p>
 
                     </div>
 

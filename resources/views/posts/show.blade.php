@@ -24,7 +24,7 @@
                             <span class="pl-8 py-2">การดู:{{  $post->visits()->count() }} ครั้ง </span>
 
                         </div>
-                        <p class="text-gray-700 text-base">{!! $post->content !!}</p>
+                        <p class="text-gray-700 text-base">{{ $post->content }}</p>
 
                 </div>
 

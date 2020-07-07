@@ -53,7 +53,7 @@
 
 
         <div  class="flex mb-1 text-center">
-            <label class="flex items-center block text-xl font-bold">
+            <label class="flex items-center  text-xl font-bold">
                 <input class="" type="checkbox" name="terms" required>
                 <button  class="text-grey-darkest  no-underline hover:text-red-500" @click="termModalShowing = true">
                     <span class="text-sm ml-2">ยอมรับข้อตกลงในการใช้บริการ</span>

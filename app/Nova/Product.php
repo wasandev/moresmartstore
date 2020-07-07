@@ -154,7 +154,7 @@ class Product extends Resource
             // //new Actions\AddProductCustomerPrice,
             // new DownloadExcel,
             (new Actions\SetProductActive)
-                ->confirmText('ต้องการอนุมัติธุรกิจรายการนี้?')
+                ->confirmText('ต้องการอนุมัติธุรกิจที่เลือก?')
                 ->confirmButtonText('อนุมัติ')
                 ->cancelButtonText("ยกเลิก")
                 ->canSee(function ($request) {
@@ -162,7 +162,7 @@ class Product extends Resource
 
                 }),
             (new Actions\SetProductInActive)
-                ->confirmText('ไม่อนุมัติธุรกิจรายการนี้?')
+                ->confirmText('ไม่อนุมัติธุรกิจที่เลือก?')
                 ->confirmButtonText('ไม่อนุมัติ')
                 ->cancelButtonText("ยกเลิก")
                 ->canSee(function ($request) {

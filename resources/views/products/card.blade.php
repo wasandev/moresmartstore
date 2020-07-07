@@ -8,11 +8,23 @@
                     </div>
                 @endif
                 <p class="p-2 text-gray-100 text-base font-light text-center">{{ $product->name }} </p>
+
                 <div class="p-2 bg-white flex flex-col subpixel-antialiased flex-1">
 
                     <div class="mb-3 w-full mx-auto text-left text-sm font-thin flex-1 ">
                         <p> {{ Str::of( $product->description)->limit(200) }} </p>
+                        @auth
+                            @if (Auth::user()->id == $product->user->id)
 
+                                <p class="text-red-600 text-sm">
+                                    @if ( $product->status)
+                                        <span class="text-right">-เผยแพร่แล้ว-</span>
+                                    @else
+                                        <span class="text-right">-รอการอนุมัติ-</span>
+                                    @endif
+                                </p>
+                            @endif
+                        @endauth
                     </div>
                     <div class="mb-3 w-full mx-auto  text-base text-blue-700 items-end">
 

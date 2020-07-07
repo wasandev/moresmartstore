@@ -45,7 +45,7 @@ class Category extends Resource
      */
     public static function label()
     {
-        return 'หมวดสินค้า';
+        return 'ประเภทสินค้า/บริการ';
     }
     /**
      * Get the fields displayed by the resource.
@@ -57,7 +57,6 @@ class Category extends Resource
     {
         return [
             ID::make()->sortable(),
-
             Boolean::make('การเผยแพร่', 'active')
                 ->showOnCreating(function ($request) {
                     return $request->user()->role == 'admin';
@@ -65,7 +64,7 @@ class Category extends Resource
                 ->showOnUpdating(function ($request) {
                     return $request->user()->role == 'admin';
                     }),
-                    Text::make('ประเภทสินค้า', 'name')->sortable(),
+                    Text::make('ประเภทสินค้า/บริการ', 'name')->sortable(),
             BelongsTo::make('ผู้ทำรายการ', 'user', 'App\Nova\User')
                 ->onlyOnDetail()
                 ->canSee(function ($request) {
@@ -117,14 +116,28 @@ class Category extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            (new Actions\ImportCategory)
+            ->canSee(function ($request) {
+                return $request->user()->role == 'admin';
+                }),
+            (new Actions\SetCategoryActive)
+                ->confirmText('ต้องการเผยแพร่รายการที่เลือก?')
+                ->confirmButtonText('เผยแพร่')
+                ->cancelButtonText("ยกเลิก")
+                ->canSee(function ($request) {
+                    return $request->user()->role == 'admin' ;
+
+                }),
+            (new Actions\SetCategoryInActive)
+                ->confirmText('ไม่ต้องการเผยแพร่รายการที่เลือก?')
+                ->confirmButtonText('ไม่เผยแพร่')
+                ->cancelButtonText("ยกเลิก")
+                ->canSee(function ($request) {
+                    return $request->user()->role == 'admin' ;
+                }),
+        ];
     }
 
-    // public static function indexQuery(NovaRequest $request, $query)
-    // {
-    //     if ($request->user()->role == 'member') {
-    //         return $query->where('user_id', $request->user()->id);
-    //     }
-    //     return $query;
-    // }
+
 }

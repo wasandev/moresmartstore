@@ -9,17 +9,17 @@ use Illuminate\Support\Collection;
 use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
 
-class SetPostPublished extends Action
+class SetCategoryActive extends Action
 {
     use InteractsWithQueue, Queueable;
 
     public function uriKey()
     {
-        return 'Set Post Published';
+        return 'Set Category Active';
     }
     public function name()
     {
-        return __('Set Post Published');
+        return __('Set Category Active');
     }
     /**
      * Perform the action on the given models.
@@ -31,11 +31,12 @@ class SetPostPublished extends Action
     public function handle(ActionFields $fields, Collection $models)
     {
         foreach ($models as $model) {
-            if ($model->published) {
+            if ($model->active) {
                 return Action::danger('รายการนี้เผยแพร่แล้ว');
             } else {
-                $model->published = 1;
+                $model->active = 1;
             }
+
             $model->save();
         }
         return Action::message('ดำเนินการสมบูรณ์');

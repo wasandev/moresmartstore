@@ -406,13 +406,16 @@
     "—": "—",
     "The file was deleted!": "ลบไฟล์แล้ว",
     "This file field is read-only.": "This file field is read-only.",
-    "Set Vendor Active": "อนุมัติธุรกิจนี้",
-    "Set Vendor InActive": "ไม่อนุมัติธุรกิจนี้",
-    "Set Product Active": "อนุมัติสินค้านี้",
-    "Set Product InActive": "ไม่อนุมัติสินค้านี้",
+    "Set Vendor Active": "อนุมัติธุรกิจที่เลือก",
+    "Set Vendor InActive": "ไม่อนุมัติธุรกิจที่เลือก",
+    "Set Product Active": "อนุมัติสินค้าที่เลือก",
+    "Set Product InActive": "ไม่อนุมัติสินค้าที่เลือก",
     "Role": "สิทธิ์การใช้งาน",
-    "Set Post Published": "เผยแพร่โพสนี้",
-    "Set Post Not Published": "ไม่เผยแพร่โพสนี้"
-
+    "Set Post Published": "เผยแพร่โพสที่เลือก",
+    "Set Post Not Published": "ไม่เผยแพร่โพสที่เลือก",
+    "Import Category": "นำเข้าข้อมูลจาก Excel",
+    "Import Business Type": "นำเข้าข้อมูลจาก Excel",
+    "Set Category Active": "เผยแพร่รายการที่เลือก",
+    "Set Category InActive": "ไม่เผยแพร่รายการเลือก"
 
 }
