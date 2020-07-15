@@ -62,7 +62,17 @@
     @stack('scripts')
 
     <script data-ad-client="ca-pub-5073377677831929" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-</head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1074154-29"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-1074154-29');
+    </script>
+
+    </head>
 
 <body class="font-sans h-full bg-gray-200  leading-normal tracking-normal antialiased">
 
