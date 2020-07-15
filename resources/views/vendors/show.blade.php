@@ -11,7 +11,7 @@
 @section('content')
 
 
-<div  id="app" class="max-w-full mx-auto">
+<div  class="max-w-full mx-auto">
     <div class="flex ">
         {{-- vendor detail --}}
         <div class="w-full">
@@ -57,9 +57,9 @@
 
                         </p>
                         <div class="lg:flex lg:justify-between bg-gray-200 rounded-lg p-4">
-                            <div class="flex items-center lg:w-1/2 w-full">
-                                <img class=" w-16 h-16 rounded-full mr-2" src="{{  Storage::url($vendor->user->avatar) }}" alt="{{ $vendor->user->name }}">
-                                <div class="text-sm">
+                            <div class="flex flex-col items-center lg:w-1/2 w-full lg:flex lg:flex-row mx-auto">
+                                <img class=" lg:w-14 lg:h-14  w-16 h-16 rounded-full lg:mr-2" src="{{  Storage::url($vendor->user->avatar) }}" alt="{{ $vendor->user->name }}">
+                                <div class="text-sm lg:text-left text-center">
                                     <p class="text-gray-900 leading-none">สมาชิกผู้โพส : {{ $vendor->user->name }}</p>
                                     <p class="text-gray-900 leading-normal">เข้าร่วมเมื่อ : {{ formatDateThai($vendor->user->created_at) }}</p>
                                     <p class="text-gray-600 mb-2">จำนวนผู้ติดตาม : {{  $vendor->user->followers()->get()->count() }} </p>
@@ -67,16 +67,24 @@
                                 </div>
 
                             </div>
-                            <div class="lg:w-1/2 w-full  text-center lg:text-right mt-4 text-sm">
-                             <a class="bg-blue-500 hover:bg-blue-700 p-2  shadow rounded-lg text-white"
-                                href="/profile/{{$vendor->user->id}}">
-                                รายละเอียดสมาชิก
-                            </a>
-
-
+                            <div class="lg:w-1/2 w-full  text-center lg:text-right mt-4 text-sm m-2 items-center ">
+                                <a class="bg-blue-500 hover:bg-blue-700 p-2  shadow rounded-lg text-white"
+                                    href="/profile/{{$vendor->user->id}}">
+                                    ข้อมูลสมาชิก
+                                </a>
+                                @if($vendor->user->id != auth()->user()->id)
+                                <a class=" ml-4 bg-purple-500 hover:bg-purple-400 p-2  shadow rounded-lg text-white"
+                                    href="/messages/create/{{$vendor->user->id}}">
+                                    ส่งข้อความ
+                                </a>
+                                @endif
                             </div>
+
+
                         </div>
                     </div>
+
+
 
                     <div class="flex lg:flex-row flex-col p-2 text-sm lg:justify-center text-center ">
 

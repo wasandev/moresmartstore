@@ -329,7 +329,7 @@ module.exports = {
         boxShadow: ['responsive', 'hover', 'focus'],
         fill: [],
         stroke: [],
-        tableLayout: ['responsive'],
+        tableLayout: ['responsive', 'hover', 'focus'],
         textAlign: ['responsive'],
         textColor: ['responsive', 'hover', 'focus','active','visited'],
         textSizes: ['responsive'],

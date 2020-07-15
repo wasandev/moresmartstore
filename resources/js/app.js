@@ -20,6 +20,7 @@ window.$ = window.jQuery = require('jquery');
 require('./follow');
 require('./notification');
 
+
 window.Vue = require('vue');
 
 //import store from './store/index';

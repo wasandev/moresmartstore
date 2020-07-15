@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Broadcast;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,11 +18,16 @@ Broadcast::channel('App.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
 
-Broadcast::channel('search', function () {
-    return true;
-});
-Broadcast::channel('searchvendor', function () {
-    return true;
-});
+// Broadcast::channel('search', function () {
+//     return true;
+// });
+// Broadcast::channel('searchvendor', function () {
+//     return true;
+// });
 
 
+
+
+Broadcast::channel('for_user_' . Auth::id(), function ($user, $id) {
+    return true;
+});

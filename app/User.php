@@ -7,12 +7,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Pktharindu\NovaPermissions\Traits\HasRoles;
 use Overtrue\LaravelFollow\Followable;
+use Lexx\ChatMessenger\Traits\Messagable;
 
 
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable,HasRoles,Followable;
+    use Notifiable,HasRoles,Followable,Messagable;
 
     /**
      * The attributes that are mass assignable.

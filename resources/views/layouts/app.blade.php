@@ -61,7 +61,7 @@
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
     @stack('scripts')
 
-
+    <script data-ad-client="ca-pub-5073377677831929" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 <body class="font-sans h-full bg-gray-200  leading-normal tracking-normal antialiased">

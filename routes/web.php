@@ -43,6 +43,14 @@ Route::any('/products','ProductController@index');
 Route::any('/products/category/{id}','ProductController@list');
 Route::get('/products/{id}','ProductController@show');
 
-//Notification
+//Messages
 
-//Route::view('/notification', 'notifies/notification');
+Route::group(['prefix' => 'messages'], function () {
+    Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
+    Route::get('/unread', ['as' => 'messages.unread', 'uses' => 'MessagesController@unread']); // ajax + Pusher
+    Route::get('/create/{id}', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
+    Route::post('/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
+    Route::get('/{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
+    Route::put('/{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
+    Route::get('/{id}/read', ['as' => 'messages.read', 'uses' => 'MessagesController@read']); // ajax + Pusher
+});
