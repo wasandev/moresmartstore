@@ -9,37 +9,412 @@
 
 <url>
   <loc>https://moresmartstore.com/</loc>
-  <lastmod>2020-04-22T06:09:04+00:00</lastmod>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://moresmartstore.com/contact</loc>
-  <lastmod>2020-04-22T06:09:04+00:00</lastmod>
+  <loc>https://moresmartstore.com/vendors</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/post</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/blogs</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://moresmartstore.com/login</loc>
-  <lastmod>2020-04-22T06:09:04+00:00</lastmod>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://moresmartstore.com/terms</loc>
-  <lastmod>2020-04-22T06:09:04+00:00</lastmod>
+  <loc>https://moresmartstore.com/vendors/type/1</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://moresmartstore.com/privacy</loc>
-  <lastmod>2020-04-22T06:09:04+00:00</lastmod>
+  <loc>https://moresmartstore.com/vendors/type/2</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
   <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/vendors/type/3</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/vendors/type/4</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/vendors/type/5</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/vendors/type/6</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/blogs/mStore---Classifieds-Website-Portal</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/pages/terms</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/pages/privacy</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/pages/contact</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/vendors/type/7</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/vendors/type/8</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/vendors/type/9</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/vendors/type/10</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/vendors/type/11</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/vendors/type/12</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/vendors/type/13</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/vendors/type/14</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/vendors/type/15</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/vendors/type/16</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/vendors/type/17</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/vendors/type/18</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/vendors/type/19</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/vendors/type/20</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/vendors/type/21</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/vendors/type/22</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/vendors/type/23</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/vendors/type/24</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/vendors/type/25</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/vendors/type/26</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/vendors/type/27</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/2</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/3</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/4</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/5</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/6</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/7</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/8</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/9</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/10</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/11</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/12</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/13</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/14</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/15</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/16</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/17</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/18</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/19</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/20</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/21</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/22</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/23</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/24</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/25</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/26</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/27</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/28</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/29</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/30</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/31</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/32</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/33</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/34</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/35</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/36</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/37</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/38</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/39</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/40</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/41</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/42</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/43</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moresmartstore.com/products/category/44</loc>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>https://moresmartstore.com/password/reset</loc>
-  <lastmod>2020-04-22T06:09:04+00:00</lastmod>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://moresmartstore.com/register</loc>
-  <lastmod>2020-04-22T06:09:04+00:00</lastmod>
+  <lastmod>2020-07-15T08:50:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 
