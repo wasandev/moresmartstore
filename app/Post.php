@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Post extends Model
 {
+    use Notifiable;
     protected $fillable = [
         'vendor_id',
         'user_id',
