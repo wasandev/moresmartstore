@@ -6,6 +6,7 @@
                     <div class="aspect-16x9 rounded-t-lg"
                         style="background:url('{{  Storage::url($product->image) }}') no-repeat center center/cover">
                     </div>
+
                 @endif
                 <p class="p-2 text-gray-100 text-base font-light text-center">{{ $product->name }} </p>
 
