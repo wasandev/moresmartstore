@@ -357,5 +357,4 @@ module.exports = {
         require('tailwindcss-plugins/pagination')
     ],
 
-
 }
