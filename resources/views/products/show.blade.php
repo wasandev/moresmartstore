@@ -16,7 +16,9 @@
             {{-- product detail --}}
         <div class="p-2">
 
-            <div class="aspect-16x9 rounded-t-lg overflow-hidden" style="background:url('{{  Storage::url($product->image) }}') no-repeat center center/cover" title="{{ $product->title }}">
+
+            <div class=" flex items-center justify-center">
+                <img class="h-48 w-full object-cover" src="{{  Storage::url($product->image) }}" alt="{{$product->name}}">
             </div>
             <div class="bg-white rounded-b-none lg:rounded-t-r p-4 flex  flex-col justify-between leading-normal">
                 <div class="mb-4">
