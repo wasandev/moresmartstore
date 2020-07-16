@@ -28,7 +28,7 @@ class PostObserver
 
     public function created(Post $post)
     {
-        Log::stack(['single'])->info('Sending email for new posts to, Admin');
+        //Log::stack(['single'])->info('Sending email for new posts to, Admin');
         $post->notify(new NewPostNotification($post));
     }
 

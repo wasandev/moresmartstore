@@ -20,21 +20,21 @@ class VendorObserver
     {
         if(auth()->user()->role != 'admin') {
             $vendor->status = 0 ;
-            Log::stack(['single'])->info('Sending email for update vendors to, Admin');
+            //Log::stack(['single'])->info('Sending email for update vendors to, Admin');
             $vendor->notify(new UpdateVendorNotification($vendor));
         }
     }
 
     public function created(Vendor $vendor)
     {
-        Log::stack(['single'])->info('Sending email for new vendors to, Admin');
+        //Log::stack(['single'])->info('Sending email for new vendors to, Admin');
         $vendor->notify(new NewVendorNotification($vendor));
     }
 
     public function updated(Vendor $vendor)
     {
         if(auth()->user()->role == 'admin' && $vendor->status == 1) {
-            Log::stack(['single'])->info('Sending email to user for active vendors ');
+            //Log::stack(['single'])->info('Sending email to user for active vendors ');
             $vendor->notify(new ActiveVendorNotification($vendor));
         }
     }
