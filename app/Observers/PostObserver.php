@@ -4,6 +4,7 @@ namespace App\Observers;
 use App\Post;
 use App\Traits\ThaiSlug;
 use App\Notifications\NewPost;
+use App\Notifications\NewPostNotification;
 class PostObserver
 {
     use ThaiSlug;
