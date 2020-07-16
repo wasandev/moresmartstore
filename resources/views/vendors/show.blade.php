@@ -72,12 +72,14 @@
                                     href="/profile/{{$vendor->user->id}}">
                                     ข้อมูลสมาชิก
                                 </a>
-                                @if($vendor->user->id != auth()->user()->id)
-                                <a class=" ml-4 bg-purple-500 hover:bg-purple-400 p-2  shadow rounded-lg text-white"
-                                    href="/messages/create/{{$vendor->user->id}}">
-                                    ส่งข้อความ
-                                </a>
+                                @auth
+                                    @if($vendor->user->id != auth()->user()->id)
+                                    <a class=" ml-4 bg-purple-500 hover:bg-purple-400 p-2  shadow rounded-lg text-white"
+                                        href="/messages/create/{{$vendor->user->id}}">
+                                        ส่งข้อความ
+                                    </a>
                                 @endif
+                                @endauth
                             </div>
 
 
