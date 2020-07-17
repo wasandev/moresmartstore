@@ -92,7 +92,8 @@ class Product extends Resource
             Number::make('ราคาขาย','price'),
 
             BelongsTo::make('หน่วยนับ', 'unit', 'App\Nova\Unit')
-                ->showCreateRelationButton(),
+                ->showCreateRelationButton()
+                ->nullable(),
             Text::make('ลิงก์สำหรับสั่งซื้อออนไลน์', 'shopurl')
                 ->hideFromIndex()
                 ->rules('nullable','url')

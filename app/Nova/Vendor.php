@@ -84,10 +84,10 @@ class Vendor extends Resource
 
             Textarea::make('รายละเอียดธุรกิจ', 'description')
                 ->withMeta(['extraAttributes' => [
-                    'placeholder' => 'ความยาวต้องไม่ต่ำกว่า 400 ตัวอักษร']
+                    'placeholder' => 'ความยาวต้องไม่ต่ำกว่า 300 ตัวอักษร']
                     ])
                 ->alwaysShow()
-                ->rules('required','min:400'),
+                ->rules('required','min:300'),
             Text::make('เลขประจำตัวผู้เสียภาษี', 'taxid')
                 ->hideFromIndex(),
             Select::make('ประเภท', 'type')->options([
