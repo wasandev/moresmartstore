@@ -19,8 +19,10 @@ class BlogController extends Controller
 
         $q= $request->input('blog-search');
         $blogs = Blog::where('published',1)
-                ->where('title','LIKE','%'.$q.'%')
-                ->orWhere('blog_content','LIKE','%'.$q.'%')
+                ->where( function($query) use($q) {
+                    $query->where('title','LIKE','%'.$q.'%')
+                        ->orWhere('blog_content','LIKE','%'.$q.'%');
+                })
                 ->orderBy('published_at', 'desc')
                 ->paginate(6);
 
