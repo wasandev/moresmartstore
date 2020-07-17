@@ -33,7 +33,9 @@
                     </a>
                     <p class="text-gray-700 text-base">{!! $product->description !!}</p>
                     <p class="w-full py-2 text-sm text-red-600 flex text-center">
-                        <span class="text-lg font-semibold">ราคา: {{ number_format($product->price,2) }} บาท/{{$product->unit->name}}</span>
+                        @if (!is_null($product->unit_id))
+                            <span class="text-lg font-semibold">ราคา: {{ number_format($product->price,2) }} บาท/{{$product->unit->name}}</span>
+                        @endif
                     </p>
                     @if(!empty($product->shopurl))
                         <a href="{{$product->shopurl}}" class="bg-blue-500 p-2 rounded-full text-white text-sm hover:bg-blue-700" target="_blank">
