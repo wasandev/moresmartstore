@@ -47,7 +47,7 @@
             </div>
             <div class="flex">
                 <a class="rounded-full text-center text-gray-100 bg-red-500 hover:bg-blue-400  p-2 m-1 w-32" href="/app" target="_blank">
-                    ระบบจัดการ
+                    จัดการธุรกิจ
                 </a>
             </div>
 
