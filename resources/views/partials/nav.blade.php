@@ -19,6 +19,7 @@
                         <div id="notificationsMenu" class=" w-64 absolute  mt-0 p-2 bg-white rounded-lg shadow-xl invisible group-hover:visible">
                             <p class="text-sm text-gray-700">ไม่มีข้อความแจ้งเตือน</p>
                         </div>
+
                     </div>
                 @endauth
             </div>
@@ -62,9 +63,9 @@
                     </svg> --}}
                     <span>บทความ</span>
                 </a>
-                <a href="/pages" class="mx-4 block  text-blue-500  rounded-full  hover:bg-blue-500 hover:text-gray-100  ">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="fill-current"  width="24" height="24" viewBox="0 0 24 24"><path class="heroicon-ui" d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM10.59 8.59a1 1 0 1 1-1.42-1.42 4 4 0 1 1 5.66 5.66l-2.12 2.12a1 1 0 1 1-1.42-1.42l2.12-2.12A2 2 0 0 0 10.6 8.6zM12 18a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
 
+                <a href="/pages" class="mx-4 px-4 py-1 block text-gray-800  rounded-full border border-blue-500 hover:bg-blue-500 hover:text-gray-100  ">
+                    <span>รู้จัก mStore</span>
                 </a>
                 @auth
 
@@ -106,7 +107,7 @@
 
                 @else
                     <a href="{{ route('login') }}"
-                        class=" mx-4 block px-4 py-1 text-red-600 border-2 border-red-500 rounded-full hover:bg-red-500 hover:text-gray-100">
+                        class="mx-4 block px-4 py-1 text-red-600 border-2 border-red-500 rounded-full hover:bg-red-500 hover:text-gray-100">
                         {{-- <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute mr-4"  width="20" height="20" viewBox="0 0 20 20"><path d="M5 5a5 5 0 0 1 10 0v2A5 5 0 0 1 5 7V5zM0 16.68A19.9 19.9 0 0 1 10 14c3.64 0 7.06.97 10 2.68V20H0v-3.32z"/></svg> --}}
 
                         <span>{{ __('Login') }}</span>
