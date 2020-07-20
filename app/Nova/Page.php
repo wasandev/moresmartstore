@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Trix;
 
 class Page extends Resource
@@ -76,6 +77,12 @@ class Page extends Resource
             Boolean::make('การเผยแพร่', 'published')
                 ->rules('required')
                 ->sortable(),
+            Number::make('ลำดับการแสดง','menuorder')
+                ->rules('required')
+                ->sortable(),
+            Text::make('ชื่อเมนู','navtype')
+                ->rules('required')
+                ->sortable(),
             Text::make(__('Slug'),  'slug')
                 ->rules('required')
                 ->sortable(),
@@ -85,7 +92,7 @@ class Page extends Resource
             Trix::make(__('Content'),  'page_content')
                 ->rules('required')
                 ->hideFromIndex()
-                ->sortable(),
+                ->withFiles('public'),
             Image::make(__('Image'),  'page_image')
                 ->hideFromIndex()
                 ->sortable(),

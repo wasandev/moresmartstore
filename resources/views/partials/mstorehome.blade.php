@@ -18,6 +18,10 @@
                     class="ml-4 rounded-lg px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 text-white bg-red-600 hover:bg-blue-600 text-base  leading-tight shadow-md">
                     โพสข้อมูลธุรกิจ ฟรี!
                 </a>
+                <a href="/pages"
+                    class="ml-4 rounded-lg px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 text-white bg-blue-500 hover:bg-red-600 text-base  leading-tight shadow-md">
+                    รู้จัก mStore
+                </a>
             </div>
 
         </div>

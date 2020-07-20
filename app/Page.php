@@ -12,6 +12,8 @@ class Page extends Model
         'title',
         'page_content',
         'page_image',
+        'navtype',
+        'menuorder',
         'published',
         'published_at'
     ];

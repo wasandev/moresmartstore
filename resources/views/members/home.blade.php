@@ -33,17 +33,24 @@
             </div>
         </div>
         <div class="flex flex-col lg:flex-row  lg:w-1/2 w-full mx-auto items-center lg:justify-end ">
+
+            <div class="flex">
+                <span class="tl-follower rounded-full text-center text-gray-100 bg-blue-500 p-2 m-1 w-32">ผู้ติดตาม : {{ Auth::user()->followers()->get()->count() }}</span>
+            </div>
+            <div class="flex">
+                <span class= "rounded-full text-center text-gray-100 bg-blue-500 p-2 m-1 w-32">กำลังติดตาม : {{ Auth::user()->followings()->get()->count() }}</span>
+            </div>
             <div class="flex">
                 <a class="rounded-full text-center text-gray-100 bg-purple-500 hover:bg-purple-400  p-2 m-1 w-32" href="{{ url('/messages') }}">
                     <span>กล่องข้อความ @include('messenger.unread-count')</span>
                 </a>
             </div>
             <div class="flex">
-                <span class="tl-follower text-sm rounded-full text-center text-gray-100 bg-blue-500 p-2 m-1 w-32">ผู้ติดตาม : {{ Auth::user()->followers()->get()->count() }}</span>
+                <a class="rounded-full text-center text-gray-100 bg-red-500 hover:bg-blue-400  p-2 m-1 w-32" href="/app" target="_blank">
+                    ระบบจัดการ
+                </a>
             </div>
-            <div class="flex">
-                <span class= "text-sm rounded-full text-center text-gray-100 bg-blue-500 p-2 m-1 w-32">กำลังติดตาม : {{ Auth::user()->followings()->get()->count() }}</span>
-            </div>
+
         </div>
     </div>
 

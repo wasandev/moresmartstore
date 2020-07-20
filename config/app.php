@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Moresmartstore'),
+    'name' => env('APP_NAME', 'mStore'),
 
     /*
     |--------------------------------------------------------------------------

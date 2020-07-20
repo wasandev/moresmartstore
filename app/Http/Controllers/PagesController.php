@@ -13,10 +13,22 @@ class PagesController extends Controller
     {
         $page = page::whereSlug($slug)->first();
 
-        //collect([])->isNotEmpty();
         if (collect($page)->isNotEmpty() ) {
-            return view('pages.index')->with('page', $page);
+            return view('pages.show')->with('page', $page);
         }
-      }
+    }
+    public function about($navtype = 'about',$slug = 'about-mstore')
+    {
+        $page = page::whereSlug($slug)->first();
+
+        $pages = page::where('navtype',$navtype)
+                ->where('published',1)
+                ->orderBy('menuorder','asc')
+                ->get();
+
+        return view('pages.about',compact('page','pages'));
+
+    }
+
 
 }

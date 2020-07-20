@@ -22,6 +22,8 @@ Route::post('followUserRequest', 'HomeController@followUserRequest')->name('foll
 //Route::delete('profile/{id}/unfollow', 'HomeController@unfollow')->name('unfollow');
 //Pages
 Route::get('pages/{slug}', array('as' => 'page.show', 'uses' => 'PagesController@show'));
+Route::get('pages', array('as' => 'page.about', 'uses' => 'PagesController@about'));
+
 
 //vendors
 
