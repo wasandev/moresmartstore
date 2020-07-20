@@ -1,6 +1,7 @@
 <div class="w-full mx-auto px-4 ">
     <div class="mx-auto">
         <img class="w-64 mx-auto mb-4" src="{{ Storage::url($page->page_image) }}" title="{{ $page->title }}">
+
         <div class="px-4 pt-4 bg-gray w-full mr-20 border rounded-t-lg  text-sm md:text-base text-gray-700 leading-normal" >
             <p class="w-full text-center rounded-full text-2xl md:text-3xl text-gray-200 bg-blue-400">
                 {{ $page->title }}

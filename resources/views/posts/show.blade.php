@@ -17,7 +17,7 @@
                 {{-- <div class="aspect-16x9 rounded-t-lg  overflow-hidden" style="background:url('{{  Storage::url($post->post_image) }}') no-repeat center center/cover" title="{{ $post->title }}">
                 </div> --}}
                 <div class="flex items-center justify-center">
-                    <img class="h-48 w-full object-cover" src="{{  Storage::url($post->post_image) }}" alt="{{$post->title}}">
+                    <img class="h-full w-full object-cover" src="{{  Storage::url($post->post_image) }}" alt="{{$post->title}}">
                 </div>
                 <div class="bg-white rounded-b-none lg:rounded-t-r  p-2 flex  flex-col justify-between leading-normal">
 

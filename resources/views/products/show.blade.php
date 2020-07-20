@@ -18,7 +18,7 @@
 
 
             <div class=" flex items-center justify-center">
-                <img class="h-48 w-full object-cover" src="{{  Storage::url($product->image) }}" alt="{{$product->name}}">
+                <img class="h-full w-full object-cover" src="{{  Storage::url($product->image) }}" alt="{{$product->name}}">
             </div>
             <div class="bg-white rounded-b-none lg:rounded-t-r p-4 flex  flex-col justify-between leading-normal">
                 <div class="mb-4">

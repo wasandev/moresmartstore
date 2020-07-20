@@ -17,7 +17,7 @@
         <div class="w-full">
 
 
-            <div class="w-full p-2">
+            {{-- <div class="w-full p-2">
                 @include('partials.headbar',[
                     'svg' => '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class="fill-current absolute"><path d="M2 2c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v18l-8-4-8 4V2z"/></svg>',
                     'title' => 'หน้าธุรกิจ',
@@ -25,126 +25,126 @@
                     'linktext' => 'แสดงทั้งหมด',
                     'target' => '_self'
                 ])
-            </div>
+            </div> --}}
             <div class="w-full lg:max-w-full mx-auto lg:flex p-4 rounded-lg">
                 {{-- <div class="h-64 lg:h-auto lg:w-1/2 flex-none  bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-left  overflow-hidden" style="background:url('{{  Storage::url($vendor->imagefile) }}') " title="{{ $vendor->name }}">
                 </div> --}}
-                    <div class="p-8 lg:w-1/2 flex items-start justify-center">
-                        <img class="h-48 w-full object-cover" src="{{  Storage::url($vendor->imagefile) }}" alt="{{$vendor->name}}">
+                    <div class="lg:w-1/2 flex items-center justify-center lg:pl-2 rounded-lg">
+                        <img class="h-auto w-full object-cover" src="{{  Storage::url($vendor->imagefile) }}" alt="{{$vendor->name}}">
                     </div>
                     <div class="lg:w-1/2  bg-white rounded-b flex flex-1 flex-col justify-between leading-normal ">
 
-                    <div class="mb-4 p-4">
-                        <div class="flex flex-row ">
+                        <div class="mb-4 p-4">
+                            <div class="flex flex-row ">
 
-                                <img class="w-10 h-10 rounded-full mr-2" src="{{  Storage::url($vendor->logofile) }}" alt="{{ $vendor->name }}">
-                                <div class="">
-                                    <p class="text-2xl text-gray-700"> {{ $vendor->name }} </p>
-                                </div>
-
-                        </div>
-                        <div class="">
-                            <a href="/vendors/type/{{$vendor->businesstype_id}}" class="text-blue-500 hover:text-blue-700">
-                               ประเภทธุรกิจ: {{$vendor->businesstype->name}}
-                            </a>
-                            <div class="items-center  text-gray-600 ">การดู : {{  $vendor->visits()->count() }} ครั้ง</div>
-
-                        </div>
-                        <p class="w-full bg-gray-200 py-2 mb-2 px-4 text-sm text-gray-600 flex items-center rounded-lg mt-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M5.64 16.36a9 9 0 1 1 12.72 0l-5.65 5.66a1 1 0 0 1-1.42 0l-5.65-5.66zm11.31-1.41a7 7 0 1 0-9.9 0L12 19.9l4.95-4.95zM12 14a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
-                            <span class=" text-base ml-2">
-                                {{$vendor->address}}  {{ $vendor->sub_district}} {{$vendor->district}}
-                                {{$vendor->province}}  {{ $vendor->postal_code}}
-                            </span>
-
-                        </p>
-                        <div class="lg:flex lg:justify-between bg-gray-200 rounded-lg p-4">
-                            <div class="flex flex-col items-center lg:w-1/2 w-full lg:flex lg:flex-row mx-auto">
-                                <img class=" lg:w-14 lg:h-14  w-16 h-16 rounded-full lg:mr-2" src="{{  Storage::url($vendor->user->avatar) }}" alt="{{ $vendor->user->name }}">
-                                <div class="text-sm lg:text-left text-center">
-                                    <p class="text-gray-900 leading-none">สมาชิกผู้โพส : {{ $vendor->user->name }}</p>
-                                    <p class="text-gray-900 leading-normal">เข้าร่วมเมื่อ : {{ formatDateThai($vendor->user->created_at) }}</p>
-                                    <p class="text-gray-600 mb-2">จำนวนผู้ติดตาม : {{  $vendor->user->followers()->get()->count() }} </p>
-
-                                </div>
+                                    <img class="w-10 h-10 rounded-full mr-2" src="{{  Storage::url($vendor->logofile) }}" alt="{{ $vendor->name }}">
+                                    <div class="">
+                                        <p class="text-2xl text-gray-700"> {{ $vendor->name }} </p>
+                                    </div>
 
                             </div>
-                            <div class="lg:w-1/2 w-full  text-center lg:text-right mt-4 text-sm m-2 items-center ">
-                                <a class="bg-blue-500 hover:bg-blue-700 p-2  shadow rounded-lg text-white"
-                                    href="/profile/{{$vendor->user->id}}">
-                                    ข้อมูลสมาชิก
+                            <div class="">
+                                <a href="/vendors/type/{{$vendor->businesstype_id}}" class="text-blue-500 hover:text-blue-700">
+                                ประเภทธุรกิจ: {{$vendor->businesstype->name}}
                                 </a>
-                                @auth
-                                    @if($vendor->user->id != auth()->user()->id)
-                                    <a class=" ml-4 bg-purple-500 hover:bg-purple-400 p-2  shadow rounded-lg text-white"
-                                        href="/messages/create/{{$vendor->user->id}}">
-                                        ส่งข้อความ
+                                <div class="items-center  text-gray-600 ">การดู : {{  $vendor->visits()->count() }} ครั้ง</div>
+
+                            </div>
+                            <p class="w-full bg-gray-200 py-2 mb-2 px-4 text-sm text-gray-600 flex items-center rounded-lg mt-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M5.64 16.36a9 9 0 1 1 12.72 0l-5.65 5.66a1 1 0 0 1-1.42 0l-5.65-5.66zm11.31-1.41a7 7 0 1 0-9.9 0L12 19.9l4.95-4.95zM12 14a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
+                                <span class=" text-base ml-2">
+                                    {{$vendor->address}}  {{ $vendor->sub_district}} {{$vendor->district}}
+                                    {{$vendor->province}}  {{ $vendor->postal_code}}
+                                </span>
+
+                            </p>
+                            <div class="lg:flex lg:justify-between bg-gray-200 rounded-lg p-4">
+                                <div class="flex flex-col items-center lg:w-1/2 w-full lg:flex lg:flex-row mx-auto">
+                                    <img class=" lg:w-14 lg:h-14  w-16 h-16 rounded-full lg:mr-2" src="{{  Storage::url($vendor->user->avatar) }}" alt="{{ $vendor->user->name }}">
+                                    <div class="text-sm lg:text-left text-center">
+                                        <p class="text-gray-900 leading-none">สมาชิกผู้โพส : {{ $vendor->user->name }}</p>
+                                        <p class="text-gray-900 leading-normal">เข้าร่วมเมื่อ : {{ formatDateThai($vendor->user->created_at) }}</p>
+                                        <p class="text-gray-600 mb-2">จำนวนผู้ติดตาม : {{  $vendor->user->followers()->get()->count() }} </p>
+
+                                    </div>
+
+                                </div>
+                                <div class="lg:w-1/2 w-full  text-center lg:text-right mt-4 text-sm m-2 items-center ">
+                                    <a class="bg-blue-500 hover:bg-blue-700 p-2  shadow rounded-lg text-white"
+                                        href="/profile/{{$vendor->user->id}}">
+                                        ข้อมูลสมาชิก
                                     </a>
-                                @endif
-                                @endauth
+                                    @auth
+                                        @if($vendor->user->id != auth()->user()->id)
+                                        <a class=" ml-4 bg-purple-500 hover:bg-purple-400 p-2  shadow rounded-lg text-white"
+                                            href="/messages/create/{{$vendor->user->id}}">
+                                            ส่งข้อความ
+                                        </a>
+                                    @endif
+                                    @endauth
+                                </div>
+
+
                             </div>
-
-
                         </div>
-                    </div>
 
 
 
-                    <div class="flex lg:flex-row flex-col p-2 text-sm lg:justify-center text-center ">
+                        <div class="flex lg:flex-row flex-col p-2 text-sm lg:justify-center text-center ">
 
 
-                        @if(!empty($vendor->phoneno))
+                            @if(!empty($vendor->phoneno))
 
-                            <a class="w-48 mx-auto m-1 text-center items-center rounded-full border border-blue-500 p-2 lg:mx-2 text-blue-500 hover:text-gray-100 hover:bg-blue-500" href="tel:{{ $vendor->phoneno }}" >
-                                <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute mr-2" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M13.04 14.69l1.07-2.14a1 1 0 0 1 1.2-.5l6 2A1 1 0 0 1 22 15v5a2 2 0 0 1-2 2h-2A16 16 0 0 1 2 6V4c0-1.1.9-2 2-2h5a1 1 0 0 1 .95.68l2 6a1 1 0 0 1-.5 1.21L9.3 10.96a10.05 10.05 0 0 0 3.73 3.73zM8.28 4H4v2a14 14 0 0 0 14 14h2v-4.28l-4.5-1.5-1.12 2.26a1 1 0 0 1-1.3.46 12.04 12.04 0 0 1-6.02-6.01 1 1 0 0 1 .46-1.3l2.26-1.14L8.28 4zm7.43 5.7a1 1 0 1 1-1.42-1.4L18.6 4H16a1 1 0 0 1 0-2h5a1 1 0 0 1 1 1v5a1 1 0 0 1-2 0V5.41l-4.3 4.3z"/>
-                                </svg>
-                                <span class="ml-6">{{ $vendor->phoneno }}</span>
-                            </a>
-
-                        @endif
-
-                        @if(!empty($vendor->weburl))
-                            <a class="w-48 mx-auto m-1 items-center rounded-full border border-blue-500 p-2 lg:mx-2 text-blue-500 hover:text-gray-100 hover:bg-blue-500" href="{{ $vendor->weburl }}" target="_blank" >
-                                <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute mr-2" viewBox="0 0 24 24" width="24" height="24"><path d="M8 20H3V10H0L10 0l10 10h-3v10h-5v-6H8v6z"/></svg>
-                                <span class="ml-6">เว็บไซต์</span>
-                            </a>
-                        @endif
-
-                        @if(!empty($vendor->email))
-                            <a class="w-48  mx-auto m-1 items-center rounded-full border border-blue-500 p-2 lg:mx-2 text-blue-500 hover:text-gray-100 hover:bg-blue-500" href="mailto:{{ $vendor->email }}" target="_blank" >
-                                <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute mr-2" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2zm16 3.38V6H4v1.38l8 4 8-4zm0 2.24l-7.55 3.77a1 1 0 0 1-.9 0L4 9.62V18h16V9.62z"/></svg>
-                                <span class="ml-6">อีเมล</span>
-                            </a>
-
-                        @endif
-                        @if(!empty($vendor->facebook))
-
-                            <a class="w-48 mx-auto m-1 items-center rounded-full border border-blue-500 p-2 lg:mx-2 text-blue-500 hover:text-gray-100 hover:bg-blue-500" href="{{ $vendor->facebook}}" target="_blank">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute mr-2" viewBox="0 0 24 24" width="24" height="24"><path d="M17,1H3C1.9,1,1,1.9,1,3v14c0,1.101,0.9,2,2,2h7v-7H8V9.525h2V7.475c0-2.164,1.212-3.684,3.766-3.684l1.803,0.002v2.605 h-1.197C13.378,6.398,13,7.144,13,7.836v1.69h2.568L15,12h-2v7h4c1.1,0,2-0.899,2-2V3C19,1.9,18.1,1,17,1z"/></svg>
-                                <span class="ml-6">Facebook</span>
-                            </a>
-
-                        @endif
-                        @if(!empty($vendor->line))
-
-                            @if (substr($vendor->line, 0, 1) == '@')
-                                <a class="w-48 mx-auto m-1 items-center rounded-full border border-blue-500 p-2 lg:mx-2 text-blue-500 hover:text-gray-100 hover:bg-blue-500" href="http://line.me/R/ti/p/{{ $vendor->line}}" target="_blank">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute mr-2" viewBox="0 0 24 24" width="24" height="24"><path d="M10 15l-4 4v-4H2a2 2 0 0 1-2-2V3c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-8zM5 7v2h2V7H5zm4 0v2h2V7H9zm4 0v2h2V7h-2z"/></svg>
-                                    <span class="ml-6">Line</span>
+                                <a class="w-48 mx-auto m-1 text-center items-center rounded-full border border-blue-500 p-2 lg:mx-2 text-blue-500 hover:text-gray-100 hover:bg-blue-500" href="tel:{{ $vendor->phoneno }}" >
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute mr-2" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M13.04 14.69l1.07-2.14a1 1 0 0 1 1.2-.5l6 2A1 1 0 0 1 22 15v5a2 2 0 0 1-2 2h-2A16 16 0 0 1 2 6V4c0-1.1.9-2 2-2h5a1 1 0 0 1 .95.68l2 6a1 1 0 0 1-.5 1.21L9.3 10.96a10.05 10.05 0 0 0 3.73 3.73zM8.28 4H4v2a14 14 0 0 0 14 14h2v-4.28l-4.5-1.5-1.12 2.26a1 1 0 0 1-1.3.46 12.04 12.04 0 0 1-6.02-6.01 1 1 0 0 1 .46-1.3l2.26-1.14L8.28 4zm7.43 5.7a1 1 0 1 1-1.42-1.4L18.6 4H16a1 1 0 0 1 0-2h5a1 1 0 0 1 1 1v5a1 1 0 0 1-2 0V5.41l-4.3 4.3z"/>
+                                    </svg>
+                                    <span class="ml-6">{{ $vendor->phoneno }}</span>
                                 </a>
-                            @else
-                                <a class="w-48 mx-auto m-1 items-center rounded-full border border-blue-500 p-2 lg:mx-2 text-blue-500 hover:text-gray-100 hover:bg-blue-500" href="http://line.me/ti/p/~{{ $vendor->line}}" target="_blank">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute mr-2" viewBox="0 0 24 24" width="24" height="24"><path d="M10 15l-4 4v-4H2a2 2 0 0 1-2-2V3c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-8zM5 7v2h2V7H5zm4 0v2h2V7H9zm4 0v2h2V7h-2z"/></svg>
-                                    <span class="ml-6">Line</span>
+
+                            @endif
+
+                            @if(!empty($vendor->weburl))
+                                <a class="w-48 mx-auto m-1 items-center rounded-full border border-blue-500 p-2 lg:mx-2 text-blue-500 hover:text-gray-100 hover:bg-blue-500" href="{{ $vendor->weburl }}" target="_blank" >
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute mr-2" viewBox="0 0 24 24" width="24" height="24"><path d="M8 20H3V10H0L10 0l10 10h-3v10h-5v-6H8v6z"/></svg>
+                                    <span class="ml-6">เว็บไซต์</span>
                                 </a>
                             @endif
 
-                        @endif
-                        <div class="fb-share-button"
-                            data-href="{{ $open_graph['url'] }}"
-                            data-layout="box_count">
+                            @if(!empty($vendor->email))
+                                <a class="w-48  mx-auto m-1 items-center rounded-full border border-blue-500 p-2 lg:mx-2 text-blue-500 hover:text-gray-100 hover:bg-blue-500" href="mailto:{{ $vendor->email }}" target="_blank" >
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute mr-2" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2zm16 3.38V6H4v1.38l8 4 8-4zm0 2.24l-7.55 3.77a1 1 0 0 1-.9 0L4 9.62V18h16V9.62z"/></svg>
+                                    <span class="ml-6">อีเมล</span>
+                                </a>
+
+                            @endif
+                            @if(!empty($vendor->facebook))
+
+                                <a class="w-48 mx-auto m-1 items-center rounded-full border border-blue-500 p-2 lg:mx-2 text-blue-500 hover:text-gray-100 hover:bg-blue-500" href="{{ $vendor->facebook}}" target="_blank">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute mr-2" viewBox="0 0 24 24" width="24" height="24"><path d="M17,1H3C1.9,1,1,1.9,1,3v14c0,1.101,0.9,2,2,2h7v-7H8V9.525h2V7.475c0-2.164,1.212-3.684,3.766-3.684l1.803,0.002v2.605 h-1.197C13.378,6.398,13,7.144,13,7.836v1.69h2.568L15,12h-2v7h4c1.1,0,2-0.899,2-2V3C19,1.9,18.1,1,17,1z"/></svg>
+                                    <span class="ml-6">Facebook</span>
+                                </a>
+
+                            @endif
+                            @if(!empty($vendor->line))
+
+                                @if (substr($vendor->line, 0, 1) == '@')
+                                    <a class="w-48 mx-auto m-1 items-center rounded-full border border-blue-500 p-2 lg:mx-2 text-blue-500 hover:text-gray-100 hover:bg-blue-500" href="http://line.me/R/ti/p/{{ $vendor->line}}" target="_blank">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute mr-2" viewBox="0 0 24 24" width="24" height="24"><path d="M10 15l-4 4v-4H2a2 2 0 0 1-2-2V3c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-8zM5 7v2h2V7H5zm4 0v2h2V7H9zm4 0v2h2V7h-2z"/></svg>
+                                        <span class="ml-6">Line</span>
+                                    </a>
+                                @else
+                                    <a class="w-48 mx-auto m-1 items-center rounded-full border border-blue-500 p-2 lg:mx-2 text-blue-500 hover:text-gray-100 hover:bg-blue-500" href="http://line.me/ti/p/~{{ $vendor->line}}" target="_blank">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute mr-2" viewBox="0 0 24 24" width="24" height="24"><path d="M10 15l-4 4v-4H2a2 2 0 0 1-2-2V3c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-8zM5 7v2h2V7H5zm4 0v2h2V7H9zm4 0v2h2V7h-2z"/></svg>
+                                        <span class="ml-6">Line</span>
+                                    </a>
+                                @endif
+
+                            @endif
+                            <div class="fb-share-button"
+                                data-href="{{ $open_graph['url'] }}"
+                                data-layout="box_count">
+                            </div>
                         </div>
-                    </div>
                 </div>
 
             </div>
