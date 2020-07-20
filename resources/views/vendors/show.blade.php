@@ -29,8 +29,8 @@
             <div class="w-full lg:max-w-full mx-auto lg:flex p-4 rounded-lg">
                 {{-- <div class="h-64 lg:h-auto lg:w-1/2 flex-none  bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-left  overflow-hidden" style="background:url('{{  Storage::url($vendor->imagefile) }}') " title="{{ $vendor->name }}">
                 </div> --}}
-                    <div class="lg:w-1/2 flex items-center justify-center lg:pl-2 rounded-lg">
-                        <img class="h-auto w-full object-cover" src="{{  Storage::url($vendor->imagefile) }}" alt="{{$vendor->name}}">
+                    <div class="lg:w-1/2 flex items-center justify-center  bg-white">
+                        <img class="h-full w-full object-cover" src="{{  Storage::url($vendor->imagefile) }}" alt="{{$vendor->name}}">
                     </div>
                     <div class="lg:w-1/2  bg-white rounded-b flex flex-1 flex-col justify-between leading-normal ">
 
