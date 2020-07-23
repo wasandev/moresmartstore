@@ -1,1 +1,1 @@
-<p>Sorry, no threads.</p>
+<p class="text-gray-500">ยังไม่มีข้อความ</p>
