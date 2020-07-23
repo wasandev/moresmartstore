@@ -81,7 +81,7 @@ class Vendor extends Resource
             Image::make(__('Image'), 'imagefile')
                 ->hideFromIndex()
                 ->maxWidth(600)
-                ->rules('required','dimensions:max_width=2400,max_height=1260','image', 'max:1024')
+                ->rules('dimensions:max_width=2400,max_height=1260','image', 'max:1024')
                 ->help('ขนาดรูปภาพที่เหมาะสมไม่เกิน 2400x1260px และขนาดไฟล์ไม่เกิน 1 Mb.'),
             Image::make(__('Logo'), 'logofile')
                 ->hideFromIndex()
