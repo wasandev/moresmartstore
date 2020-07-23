@@ -11,14 +11,13 @@
 
 {{-- new post list for mobile--}}
 <div id="app" class="max-w-full  mx-auto flex">
-
-    <div class="w-full lg:max-w-xl lg:w-2/3 flex flex-col rounded-lg mt-2 ">
+    <div class="w-full  lg:w-2/3 mx-auto flex flex-col mt-2 ">
             {{-- product detail --}}
         <div class="p-2">
 
 
-            <div class=" flex items-center justify-center">
-                <img class="h-full w-full object-cover" src="{{  Storage::url($product->image) }}" alt="{{$product->name}}">
+            <div class=" flex items-center justify-center ">
+                <img class="h-full w-full object-cover rounded-t" src="{{  Storage::url($product->image) }}" alt="{{$product->name}}">
             </div>
             <div class="bg-white rounded-b-none lg:rounded-t-r p-4 flex  flex-col justify-between leading-normal">
                 <div class="mb-4">
@@ -46,9 +45,9 @@
 
             </div>
 
-            <div class="p-2 flex flex-row justify-between leading-normal border-t border-gray-300 bg-white">
+            <div class="p-2 flex flex-row justify-between leading-normal items-center border-t border-gray-300 bg-white">
 
-                <div class=" w-1/2 ">
+                <div class=" flex">
 
                     <a class="flex text-blue-500 hover:text-blue-700 items-center" href="/vendors/{{ $product->vendor->id }}" >
                         <img class="w-10 h-10 rounded-full mr-2" src="{{  Storage::url($product->vendor->logofile) }}" alt="{{ $product->vendor->name }}">
@@ -57,8 +56,20 @@
 
                 </div>
 
+                @auth
 
-                <div class="w-1/2 items-center text-right">
+                    @if($product->user->id != auth()->user()->id)
+                    <div>
+                    <a class=" ml-4 bg-purple-500 hover:bg-purple-400 p-2  shadow rounded-lg text-white"
+                    href="/messages/create/{{$product->user->id}}/{{$product->name}}">
+                        สอบถาม
+                    </a>
+                    </div>
+                    @endif
+                @endauth
+
+
+                <div class="items-center text-right">
                     <div class="fb-share-button"
                         data-href="{{ $open_graph['url'] }}"
                         data-layout="box_count">

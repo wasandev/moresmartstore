@@ -1,7 +1,11 @@
 @tailwind base
-@tailwind components
-@tailwind utilities
-@tailwind screens
+
+ol,
+ul
+  list-style: outside
+  margin: 0
+  padding-left: 2rem
+
 
 .transition
   transition: all .15s ease-in-out
@@ -40,3 +44,11 @@
     @apply text-green-500
 .text-danger
     @apply text-red-500
+
+@tailwind components
+@tailwind utilities
+@tailwind screens
+
+
+
+

@@ -3,12 +3,13 @@
 namespace Laravel\Nova;
 
 use Illuminate\Http\Resources\MergeValue;
+use Illuminate\Support\Traits\Macroable;
 use JsonSerializable;
 use Laravel\Nova\Metrics\HasHelpText;
 
 class Panel extends MergeValue implements JsonSerializable
 {
-    use Metable, Makeable, HasHelpText;
+    use Macroable, Metable, Makeable, HasHelpText;
 
     /**
      * The name of the panel.

@@ -48,7 +48,16 @@ class Product extends Resource
     ];
     public static function label()
     {
-        return 'ข้อมูลสินค้า';
+        return __('Product');
+    }
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Product');
     }
     /**
      * Get the fields displayed by the resource.
@@ -63,42 +72,44 @@ class Product extends Resource
         return [
             ID::make()->sortable(),
 
-            Boolean::make('การเผยแพร่', 'status')
+            Boolean::make(__('Status'), 'status')
                 ->showOnCreating(function ($request) {
                     return $request->user()->role == 'admin';
                     })
                 ->showOnUpdating(function ($request) {
                     return $request->user()->role == 'admin';
                     }),
-            Number::make('การดู(ครั้ง)', function () {
+            Number::make(__('Visits'), function () {
                         return $this->visits($this->id)->count();
                         }),
-            BelongsTo::make('ชื่อธุรกิจ','vendor','App\Nova\Vendor')
+            BelongsTo::make(__('Vendor Name'),'vendor','App\Nova\Vendor')
                     ->rules('required'),
-            BelongsTo::make('ประเภทสินค้า', 'category', 'App\Nova\Category')
+            BelongsTo::make(__('Category'), 'category', 'App\Nova\Category')
                 ->sortable()
                 ->showCreateRelationButton(),
-            Text::make('ชื่อสินค้า', 'name')
+            Text::make(__('Name'), 'name')
                 ->sortable()
                 ->rules('required'),
-            Textarea::make('รายละเอียด', 'description')
+            Textarea::make(__('Description'), 'description')
                 ->rules('required')
                 ->alwaysShow()
                 ->hideFromIndex(),
-            Image::make('รูปสินค้า','image')
+            Image::make(__('Image'),'image')
                 ->disk('public')
-                ->maxWidth(200)
-                ->hideFromIndex(),
-            Number::make('ราคาขาย','price'),
+                ->hideFromIndex()
+                ->maxWidth(600)
+                ->rules('required','dimensions:max_width=2400,max_height=1260','image', 'max:1024')
+                ->help('ขนาดรูปภาพที่เหมาะสมไม่เกิน 2400x1260px และขนาดไฟล์ไม่เกิน 1 Mb.'),
+            Number::make(__('Price'),'price'),
 
-            BelongsTo::make('หน่วยนับ', 'unit', 'App\Nova\Unit')
+            BelongsTo::make(__('Unit'), 'unit', 'App\Nova\Unit')
                 ->showCreateRelationButton()
                 ->nullable(),
-            Text::make('ลิงก์สำหรับสั่งซื้อออนไลน์', 'shopurl')
+            Text::make(__('Shop Url'), 'shopurl')
                 ->hideFromIndex()
                 ->rules('nullable','url')
                 ->help('url ของลิงก์ต้องมีรูปแบบดังนี้ http://www.example.com/xyz..'),
-            BelongsTo::make('ผู้ทำรายการ', 'user', 'App\Nova\User')
+            BelongsTo::make(__('User'), 'user', 'App\Nova\User')
                 ->onlyOnDetail()
                 ->canSee(function ($request) {
                     return $request->user()->role == 'admin';

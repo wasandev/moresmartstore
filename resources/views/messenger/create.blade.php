@@ -17,7 +17,7 @@
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="subject">
                     เรื่อง
                 </label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  name ="subject" type="text" placeholder="เรื่อง" value="{{ old('subject') }}">
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  name ="subject" type="text" placeholder="เรื่อง" value="{{ $subject }}">
             </div>
 
             <!-- Message Form Input -->
@@ -37,11 +37,12 @@
             </div>
 
             <!-- Submit Form Input -->
-
-            <button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
-                ส่งข้อความ
-            </button>
-
+            <div class="flex flex-row justify-between">
+                <button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
+                    ส่งข้อความ
+                </button>
+                <a href="/messages" type="submit" class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">ปิด</a>
+            </div>
     </form>
 </div>
 @endsection

@@ -130,16 +130,27 @@ export default {
 
   mounted() {
     this.field.fill = formData => {
+      let attribute = this.field.attribute
+
       if (this.file && !this.isVaporField) {
-        formData.append(this.field.attribute, this.file, this.fileName)
+        formData.append(attribute, this.file, this.fileName)
       }
 
       if (this.file && this.isVaporField) {
-        formData.append(this.field.attribute, this.fileName)
-        formData.append('vaporFile[key]', this.vaporFile.key)
-        formData.append('vaporFile[uuid]', this.vaporFile.uuid)
-        formData.append('vaporFile[filename]', this.vaporFile.filename)
-        formData.append('vaporFile[extension]', this.vaporFile.extension)
+        formData.append(attribute, this.fileName)
+        formData.append('vaporFile[' + attribute + '][key]', this.vaporFile.key)
+        formData.append(
+          'vaporFile[' + attribute + '][uuid]',
+          this.vaporFile.uuid
+        )
+        formData.append(
+          'vaporFile[' + attribute + '][filename]',
+          this.vaporFile.filename
+        )
+        formData.append(
+          'vaporFile[' + attribute + '][extension]',
+          this.vaporFile.extension
+        )
       }
     }
   },

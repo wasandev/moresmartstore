@@ -6,9 +6,9 @@
             <p class="w-full text-center rounded-full text-2xl md:text-3xl text-gray-200 bg-blue-400">
                 {{ $page->title }}
             </p>
-            <p class=" leading-tight p-4">
+            <div class="leading-normal p-4 list-disc ">
                 {!! $page->page_content !!}
-            </p>
+            </div>
             <div class="mt-6 py-2 border-t flex items-center">
                 <p class="text-left w-1/2">ปรับปรุงล่าสุด :  {{ formatDateThai($page->updated_at) }}</p>
                 <p class="text-right w-1/2">Moresmartstore.com</p>

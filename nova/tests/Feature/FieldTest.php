@@ -548,7 +548,7 @@ class FieldTest extends IntegrationTest
         });
 
         $field->resolve((object) ['name' => 'David']);
-        $this->assertEquals('David', $field->value);
+        $this->assertEquals('Computed', $field->value);
     }
 }
 

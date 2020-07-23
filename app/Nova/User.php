@@ -60,7 +60,8 @@ class User extends Resource
         return [
             ID::make()->sortable(),
 
-            Avatar::make('รูปโปรไฟล์','avatar'),
+            Avatar::make('รูปโปรไฟล์','avatar')
+                ->maxWidth(500),
 
             Text::make('ชื่อผู้ใช้','name')
                 ->sortable()

@@ -2,6 +2,10 @@
   <table
     v-if="resources.length > 0"
     class="table w-full"
+    :class="[
+      `table-${resourceInformation.tableStyle}`,
+      resourceInformation.showColumnBorders ? 'table-grid' : '',
+    ]"
     cellpadding="0"
     cellspacing="0"
     data-testid="resource-table"

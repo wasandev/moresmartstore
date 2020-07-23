@@ -45,7 +45,16 @@ class Category extends Resource
      */
     public static function label()
     {
-        return 'ประเภทสินค้า/บริการ';
+        return __('Category');
+    }
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Category');
     }
     /**
      * Get the fields displayed by the resource.
@@ -57,21 +66,21 @@ class Category extends Resource
     {
         return [
             ID::make()->sortable(),
-            Boolean::make('การเผยแพร่', 'active')
+            Boolean::make(__('Active'), 'active')
                 ->showOnCreating(function ($request) {
                     return $request->user()->role == 'admin';
                     })
                 ->showOnUpdating(function ($request) {
                     return $request->user()->role == 'admin';
                     }),
-                    Text::make('ประเภทสินค้า/บริการ', 'name')->sortable(),
-            BelongsTo::make('ผู้ทำรายการ', 'user', 'App\Nova\User')
+                    Text::make(__('Category'), 'name')->sortable(),
+            BelongsTo::make(__('User'), 'user', 'App\Nova\User')
                 ->onlyOnDetail()
                 ->canSee(function ($request) {
                     return $request->user()->role == 'admin';
                     }),
 
-            HasMany::make('สินค้า', 'products', 'App\Nova\Product'),
+            HasMany::make(__('Product'), 'products', 'App\Nova\Product'),
         ];
     }
 

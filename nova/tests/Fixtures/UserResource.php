@@ -42,6 +42,26 @@ class UserResource extends Resource
     }
 
     /**
+     * Determine whether to show borders for each column on the X-axis.
+     *
+     * @return string
+     */
+    public static function showColumnBorders()
+    {
+        return $_SERVER['nova.user.showColumnBorders'] ?? static::$showColumnBorders;
+    }
+
+    /**
+     * Get the visual style that should be used for the table.
+     *
+     * @return string
+     */
+    public static function tableStyle()
+    {
+        return $_SERVER['nova.user.tableStyle'] ?? static::$tableStyle;
+    }
+
+    /**
      * Determine if the user can add / associate models of the given type to the resource.
      *
      * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request

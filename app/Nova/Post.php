@@ -49,7 +49,7 @@ class Post extends Resource
      */
     public static function label()
     {
-        return 'โพสโฆษณา';
+        return __('Post');
     }
 
     /**
@@ -59,7 +59,7 @@ class Post extends Resource
      */
     public static function singularLabel()
     {
-        return __('โพสโฆษณา');
+        return __('Post');
     }
 
     /**
@@ -74,7 +74,7 @@ class Post extends Resource
             ID::make(__('Id'),  'id')
                 ->rules('required')
                 ->sortable(),
-            Boolean::make('เผยแพร่', 'published')
+            Boolean::make(__('Published'), 'published')
                 ->showOnCreating(function ($request) {
                     return $request->user()->role == 'admin';
                     })
@@ -82,25 +82,29 @@ class Post extends Resource
                     return $request->user()->role == 'admin';
                     })
                 ->sortable(),
-            BelongsTo::make('ชื่อธุรกิจ','vendor','App\Nova\Vendor')
+            BelongsTo::make(__('Vendor Name'),'vendor','App\Nova\Vendor')
                 ->rules('required'),
-            Text::make('หัวข้อโพส', 'title')
+            Text::make(__('Title'), 'title')
                 ->rules('required')
                 ->sortable(),
-            Textarea::make('เนื้อหาโพส',  'content')
+            Textarea::make(__('Post Content'),  'content')
                 ->rules('required')
                 ->hideFromIndex()
                 ->sortable(),
-            Image::make('รูปภาพ',  'post_image')
-                ->hideFromIndex(),
-            DateTime::make('วันที่เผยแพร่',  'published_at')
+            Image::make(__('Image'),  'post_image')
+                ->hideFromIndex()
+                ->maxWidth(600)
+                ->rules('required','dimensions:max_width=2400,max_height=1260','image', 'max:1024')
+                ->help('ขนาดรูปภาพที่เหมาะสมไม่เกิน 2400x1260px และขนาดไฟล์ไม่เกิน 1 Mb.'),
+
+            DateTime::make(__('Published_at'),  'published_at')
                 ->hideFromIndex()
                 ->sortable(),
-            BelongsTo::make('ผู้ทำรายการ', 'user', 'App\Nova\User')
+            BelongsTo::make(__('User'), 'user', 'App\Nova\User')
                    ->canSee(function ($request) {
                     return $request->user()->role == 'admin';
                     }),
-            //HasMany::make('ความเห็น', 'comments', 'App\Nova\Comment')
+
         ];
     }
 

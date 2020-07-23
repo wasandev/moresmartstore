@@ -9,7 +9,7 @@ use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
-use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\Trix;
 
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Symfony\Component\VarDumper\Cloner\Data;
@@ -49,7 +49,17 @@ class Blog extends Resource
      */
     public static function label()
     {
-        return 'บทความเว็บ';
+        return __('Blog');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Blog');
     }
     /**
      * Get the fields displayed by the resource.
@@ -61,36 +71,37 @@ class Blog extends Resource
     {
         return [
             ID::make()->sortable(),
-            Boolean::make('การเผยแพร่', 'published')
+            Boolean::make(__('Published'), 'published')
                 ->rules('required')
                 ->sortable(),
-            DateTime::make('วันที่เผยแพร่',  'published_at')
+            DateTime::make(__('Published_at'),  'published_at')
                 ->sortable(),
 
-            Text::make('การดู(ครั้ง)', function () {
+            Text::make(__('Visits'), function () {
                     return $this->visits($this->id)->count();
                     }),
-            BelongsTo::make('ผู้ทำรายการ', 'user', 'App\Nova\User')
+            BelongsTo::make(__('User'), 'user', 'App\Nova\User')
                 ->onlyOnDetail(),
-            BelongsTo::make('หมวดบทความ','blog_cat','App\Nova\Blog_cat')
+            BelongsTo::make(__('Blog_cat'),'blog_cat','App\Nova\Blog_cat')
                 ->rules('required')
                 ->hideFromIndex()
                 ->sortable(),
-            Text::make('เรื่อง',  'title')
+            Text::make(__('Title'),  'title')
                 ->rules('required')
                 ->sortable(),
 
-            Textarea::make('บทความ',  'blog_content')
+            Trix::make(__('Blog_content'),  'blog_content')
                 ->rules('required')
                 ->hideFromIndex()
                 ->stacked()
-                ->alwaysShow(),
-            Image::make('รูปภาพ',  'blog_image')
+                ->alwaysShow()
+                ->withFiles('public'),
+            Image::make(__('Blog_image'),  'blog_image')
                 ->hideFromIndex()
-                ->sortable(),
-
-
-        ];
+                ->maxWidth(600)
+                ->rules('required','dimensions:max_width=2400,max_height=1260','image', 'max:1024')
+                ->help('ขนาดรูปภาพที่เหมาะสมไม่เกิน 2400x1260px และขนาดไฟล์ไม่เกิน 1 Mb.'),
+            ];
     }
 
     /**

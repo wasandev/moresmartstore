@@ -43,7 +43,16 @@ class Blog_cat extends Resource
      */
     public static function label()
     {
-        return 'หมวดหมู่บทความ';
+        return __('Blog_cat');
+    }
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Blog_cat');
     }
     /**
      * Get the fields displayed by the resource.

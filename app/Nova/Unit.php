@@ -39,7 +39,16 @@ class Unit extends Resource
 
     public static function label()
     {
-        return 'หน่วยนับ';
+        return __('Unit');
+    }
+     /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return  string
+     */
+    public static function singularLabel()
+    {
+        return __('Unit');
     }
     /**
      * Get the fields displayed by the resource.
@@ -51,8 +60,8 @@ class Unit extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('ชื่อหน่วยนับ', 'name')->sortable(),
-            BelongsTo::make('ผู้ทำรายการ', 'user', 'App\Nova\User')
+            Text::make(__('Name'), 'name')->sortable(),
+            BelongsTo::make(__('User'), 'user', 'App\Nova\User')
                 ->onlyOnDetail()
                 ->canSee(function ($request) {
                     return $request->user()->role == 'admin';

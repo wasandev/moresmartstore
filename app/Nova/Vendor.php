@@ -60,9 +60,9 @@ class Vendor extends Resource
     {
         return [
             ID::make()->sortable(),
-            BelongsTo::make('ผู้เพิ่มข้อมูล', 'user', 'App\Nova\User')
+            BelongsTo::make(__('User'), 'user', 'App\Nova\User')
                 ->onlyOnDetail(),
-            Boolean::make('การเผยแพร่', 'status')
+            Boolean::make(__('Status'), 'status')
                 ->showOnCreating(function ($request) {
                     return $request->user()->role == 'admin';
                     })
@@ -70,38 +70,40 @@ class Vendor extends Resource
                 ->showOnUpdating(function ($request) {
                     return $request->user()->role == 'admin';
                     }),
-            Number::make('การดู(ครั้ง)', function () {
+            Number::make(__('Visits'), function () {
                     return $this->visits($this->id)->count();
                     }),
-            BelongsTo::make('ประเภทธุรกิจ', 'businesstype', 'App\Nova\Businesstype')
+            BelongsTo::make(__('Businesstype'), 'businesstype', 'App\Nova\Businesstype')
                 ->hideFromIndex(),
-            Text::make('ชื่อธุรกิจ', 'name')
+            Text::make(__('Vendor Name'), 'name')
                 ->sortable()
                 ->rules('required'),
-            Image::make('รูปภาพธุรกิจ', 'imagefile')
-                ->hideFromIndex(),
-            Image::make('โลโก้', 'logofile')->hideFromIndex(),
-
-            Textarea::make('รายละเอียดธุรกิจ', 'description')
+            Image::make(__('Image'), 'imagefile')
+                ->hideFromIndex()
+                ->maxWidth(600)
+                ->rules('required','dimensions:max_width=2400,max_height=1260','image', 'max:1024')
+                ->help('ขนาดรูปภาพที่เหมาะสมไม่เกิน 2400x1260px และขนาดไฟล์ไม่เกิน 1 Mb.'),
+            Image::make(__('Logo'), 'logofile')
+                ->hideFromIndex()
+                ->rules('dimensions:max_width=1200,max_height=1200','max:1024')
+                ->help('ขนาดรูปภาพที่เหมาะสมไม่เกิน 1200x1200px และขนาดไฟล์ไม่เกิน 512Kb.'),
+            Textarea::make(__('Description'), 'description')
                 ->withMeta(['extraAttributes' => [
                     'placeholder' => 'ความยาวต้องไม่ต่ำกว่า 300 ตัวอักษร']
                     ])
                 ->alwaysShow()
                 ->rules('required','min:300'),
-            Text::make('เลขประจำตัวผู้เสียภาษี', 'taxid')
+            Text::make(__('Tax ID'), 'taxid')
                 ->hideFromIndex(),
-            Select::make('ประเภท', 'type')->options([
+            Select::make(__('Business Type'), 'type')->options([
                 'company' => 'นิติบุคคล',
                 'person' => 'บุคคลธรรมดา'
             ])->displayUsingLabels()
                 ->hideFromIndex(),
-            new Panel('ข้อมูลการติดต่อ', $this->contactFields()),
-            new Panel('ที่อยู่', $this->addressFields()),
-            HasMany::make('สินค้า','products','App\Nova\Product'),
-            //HasMany::make('รายการโพสโฆษณา','posts','App\Nova\Post'),
-
-
-
+            new Panel(__('Contact Field'), $this->contactFields()),
+            new Panel(__('Address'), $this->addressFields()),
+            HasMany::make(__('Product'),'products','App\Nova\Product'),
+            HasMany::make(__('Post'),'posts','App\Nova\Post'),
         ];
     }
     /**
@@ -112,22 +114,22 @@ class Vendor extends Resource
     protected function contactFields()
     {
         return [
-            Text::make('ชื่อผู้ติดต่อ', 'contractname')
+            Text::make(__('Contact Name'), 'contractname')
                 ->hideFromIndex(),
-            Text::make('โทรศัพท์', 'phoneno')
+            Text::make(__('Phone No'), 'phoneno')
                 ->rules('required')
                 ->hideFromIndex(),
-            Text::make('เว็บไซต์', 'weburl')
+            Text::make(__('Website'), 'weburl')
                 ->hideFromIndex()
                 ->rules('nullable','url')
                 ->help('url ของเว็บไซต์ต้องมีรูปแบบดังนี้ http://www.example.com'),
-            Text::make('Facebook', 'facebook')
+            Text::make(__('Facebook'), 'facebook')
                 ->hideFromIndex()
                 ->rules('nullable','url')
                 ->help('url ของ Facebook ต้องมีรูปแบบดังนี้ https://www.facebook.com/example'),
-            Text::make('Line ID', 'line')
+            Text::make(__('Line'), 'line')
                 ->hideFromIndex(),
-            Text::make('Email', 'email')
+            Text::make(__('Email'), 'email')
                 ->hideFromIndex()
                 ->rules('required', 'email:rfc,dns', 'max:255'),
 
@@ -142,29 +144,29 @@ class Vendor extends Resource
     {
         return [
 
-            Text::make('ที่อยู่', 'address')->hideFromIndex()
+            Text::make(__('Address'), 'address')->hideFromIndex()
                 ->rules('required'),
-            InputSubDistrict::make('ตำบล/แขวง', 'sub_district')
+            InputSubDistrict::make(__('Sub District'), 'sub_district')
                 ->withValues(['district', 'amphoe', 'province', 'zipcode'])
                 ->fromValue('district')
                 ->rules('required')
                 ->hideFromIndex(),
-            InputDistrict::make('อำเภอ/เขต', 'district')
+            InputDistrict::make(__('District'), 'district')
                 ->withValues(['district', 'amphoe', 'province', 'zipcode'])
                 ->fromValue('amphoe')
                 ->rules('required')
                 ->sortable(),
-            InputProvince::make('จังหวัด', 'province')
+            InputProvince::make(__('Province'), 'province')
                 ->withValues(['district', 'amphoe', 'province', 'zipcode'])
                 ->fromValue('province')
                 ->rules('required')
                 ->sortable(),
-            InputPostalCode::make('รหัสไปรษณีย์', 'postal_code')
+            InputPostalCode::make(__('Postal Code'), 'postal_code')
                 ->withValues(['district', 'amphoe', 'province', 'zipcode'])
                 ->fromValue('zipcode')
                 ->rules('required')
                 ->hideFromIndex(),
-            NovaGoogleMaps::make('ตำแหน่งที่ตั้งบน Google Map', 'location')->setValue($this->location_lat, $this->location_lng)
+            NovaGoogleMaps::make(__('Google Map'), 'location')->setValue($this->location_lat, $this->location_lng)
                 ->hideFromIndex(),
 
         ];

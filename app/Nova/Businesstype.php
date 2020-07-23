@@ -47,7 +47,16 @@ class Businesstype extends Resource
      */
     public static function label()
     {
-        return 'ประเภทธุรกิจ';
+        return __('Businesstype');
+    }
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Businesstype');
     }
     /**
      * Get the fields displayed by the resource.
@@ -60,18 +69,18 @@ class Businesstype extends Resource
         return [
             ID::make()->sortable(),
 
-            Boolean::make('ใช้งาน', 'active')
+            Boolean::make(__('Active'), 'active')
                 ->showOnCreating(function ($request) {
                     return $request->user()->role == 'admin';
                     })
                 ->showOnUpdating(function ($request) {
                     return $request->user()->role == 'admin';
                     }),
-            Text::make('Name')
+            Text::make(__('Name'),'name')
                     ->sortable()
                     ->rules('required', 'max:255'),
-            Textarea::Make('Description'),
-            BelongsTo::make('ผู้ทำรายการ', 'user', 'App\Nova\User')
+            Textarea::Make(__('Description'),'description'),
+            BelongsTo::make(__('User'), 'user', 'App\Nova\User')
                 ->onlyOnDetail()
                 ->canSee(function ($request) {
                     return $request->user()->role == 'admin';

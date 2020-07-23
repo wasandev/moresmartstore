@@ -22,7 +22,8 @@
       v-for="action in actions"
       :key="action.uriKey"
       @click="executeSingleAction(action)"
-      class="btn btn-xs btn-primary mr-1"
+      class="btn btn-xs mr-1"
+      :class="action.class"
     >
       {{ action.name }}
     </button>

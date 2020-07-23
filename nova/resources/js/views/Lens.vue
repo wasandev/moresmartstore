@@ -492,12 +492,14 @@ export default {
      * Sort the resources by the given field.
      */
     orderByField(field) {
-      var direction = this.currentOrderByDirection == 'asc' ? 'desc' : 'asc'
-      if (this.currentOrderBy != field.attribute) {
+      let direction = this.currentOrderByDirection == 'asc' ? 'desc' : 'asc'
+
+      if (this.currentOrderBy != field.sortableUriKey) {
         direction = 'asc'
       }
+
       this.updateQueryString({
-        [this.orderByParameter]: field.attribute,
+        [this.orderByParameter]: field.sortableUriKey,
         [this.orderByDirectionParameter]: direction,
       })
     },

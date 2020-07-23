@@ -76,10 +76,10 @@ class MessagesController extends Controller
      *
      * @return mixed
      */
-    public function create($id)
+    public function create($id,$subject)
     {
         $user = User::findOrFail($id);
-        return view('messenger.create', compact('user'));
+        return view('messenger.create', compact('user','subject'));
     }
 
     /**

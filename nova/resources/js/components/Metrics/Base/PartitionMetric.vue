@@ -174,7 +174,9 @@ export default {
     },
 
     formattedTotal() {
-      return _.sumBy(this.chartData, 'value')
+      const total = _.sumBy(this.chartData, 'value')
+
+      return Nova.formatNumber(new String(total))
     },
   },
 }

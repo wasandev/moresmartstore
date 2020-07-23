@@ -11,7 +11,7 @@
 
 @section('content')
 <!--image-->
-<div id="app" class="max-w-2xl mx-auto">
+<div id="app" class="max-w-full mx-auto">
     <div class="m-2 p-2 lg:flex lg:flex-row flex-col  rounded-lg shadow-md bg-white">
         <div class="lg:flex lg:flex-row lg:w-1/2 w-full mx-auto items-center">
             <div class="md:mr-2 text-center">
@@ -31,7 +31,7 @@
             <div class="flex">
                 @if($user->id != auth()->user()->id)
                 <a class="rounded-full text-center text-gray-100 bg-purple-500 hover:bg-purple-400  p-2 m-1 w-32"
-                    href="/messages/create/{{ $user->id }}">
+            href="/messages/create/{{ $user->id }}/สวัสดี {{$user->name}}">
                     <span>ส่งข้อความ</span>
                 </a>
                 @endif
@@ -60,7 +60,7 @@
     </div>
 
 
-    <div class="max-w-2xl mx-auto">
+    <div class="max-w-full mx-auto">
         <div class="flex">
             <div class="w-full mb-8">
                 {{-- รายชื่อธุรกิจของคุณ --}}

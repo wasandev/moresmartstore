@@ -17,7 +17,7 @@ class ToolCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'nova:tool {name} {--no-interaction : Do not ask any interactive question.}';
+    protected $signature = 'nova:tool {name}';
 
     /**
      * The console command description.

@@ -17,13 +17,15 @@
             {{-- <div class="aspect-16x9 rounded-t-lg  overflow-hidden" style="background:url('{{  Storage::url($blog->blog_image) }}') no-repeat center center/cover" title="{{ $blog->title }}">
             </div> --}}
             <div class="flex items-center justify-center">
-                <img class="h-auto w-full object-cover" src="{{  Storage::url($blog->blog_image) }}" alt="{{$blog->title}}">
+                <img class="h-auto w-full object-cover rounded-t" src="{{  Storage::url($blog->blog_image) }}" alt="{{$blog->title}}">
             </div>
-            <div class="bg-white text-blue-700  px-2">
-                <p class="font-bold text-xl py-2">{{ $blog->title }}</p>
+            <div class="bg-white px-2">
+                <p class="font-bold text-xl py-2 text-blue-500">{{ $blog->title }}</p>
+
+                <p class="text-gray-700 mt-2 py-2">{!! $blog->blog_content !!}</p>
                 <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M17.56 17.66a8 8 0 0 1-11.32 0L1.3 12.7a1 1 0 0 1 0-1.42l4.95-4.95a8 8 0 0 1 11.32 0l4.95 4.95a1 1 0 0 1 0 1.42l-4.95 4.95zm-9.9-1.42a6 6 0 0 0 8.48 0L20.38 12l-4.24-4.24a6 6 0 0 0-8.48 0L3.4 12l4.25 4.24zM11.9 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
-                <span class="pl-8 py-2">การดู:{{  $blog->visits()->count() }} ครั้ง </span>
-                <p class="text-gray-700 text-base">{!! $blog->blog_content !!}</p>
+
+                <span class="pl-8 py-2 text-sm">การดู:{{  $blog->visits()->count() }} ครั้ง </span>
             </div>
 
 
@@ -52,7 +54,7 @@
                 ])
             @if(count($blogs) > 0 )
                 @include('blogs.card',[
-                    'showimage' => 0
+                    'showimage' => 1
                 ])
                 <div class="p-2">
                 {{ $blogs->links('vendor.pagination.tailwind') }}
@@ -71,7 +73,7 @@
                 ])
             @if(count($blogs) > 0 )
                 @include('blogs.cardsidebar',[
-                    'showimage' => 0
+                    'showimage' => 1
                 ])
             <div class="p-4">
                 {{ $blogs->links('vendor.pagination.tailwind') }}

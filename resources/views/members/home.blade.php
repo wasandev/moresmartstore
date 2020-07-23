@@ -13,7 +13,7 @@
 @section('content')
 
 <!--image-->
-<div id="app" class="max-w-2xl mx-auto">
+<div id="app" class="max-w-full mx-auto">
     <div class="m-2 p-2 lg:flex lg:flex-row flex-col  rounded-lg shadow-md bg-white">
         <div class="lg:flex lg:flex-row lg:w-1/2 w-full mx-auto items-center">
             <div class="lg:mr-2">
@@ -35,19 +35,19 @@
         <div class="flex flex-col lg:flex-row  lg:w-1/2 w-full mx-auto items-center lg:justify-end ">
 
             <div class="flex">
-                <span class="tl-follower rounded-full text-center text-gray-100 bg-blue-500 p-2 m-1 w-32">ผู้ติดตาม : {{ Auth::user()->followers()->get()->count() }}</span>
+                <span class="tl-follower rounded-full text-center text-gray-100 bg-blue-500 p-2 m-1">ผู้ติดตาม : {{ Auth::user()->followers()->get()->count() }}</span>
             </div>
             <div class="flex">
-                <span class= "rounded-full text-center text-gray-100 bg-blue-500 p-2 m-1 w-32">กำลังติดตาม : {{ Auth::user()->followings()->get()->count() }}</span>
+                <span class= "rounded-full text-center text-gray-100 bg-blue-500 p-2 m-1">กำลังติดตาม : {{ Auth::user()->followings()->get()->count() }}</span>
             </div>
             <div class="flex">
-                <a class="rounded-full text-center text-gray-100 bg-purple-500 hover:bg-purple-400  p-2 m-1 w-32" href="{{ url('/messages') }}">
+                <a class="rounded text-center text-gray-100 bg-purple-500 hover:bg-purple-400  p-2 m-1 " href="{{ url('/messages') }}">
                     <span>กล่องข้อความ @include('messenger.unread-count')</span>
                 </a>
             </div>
             <div class="flex">
-                <a class="rounded-full text-center text-gray-100 bg-red-500 hover:bg-blue-400  p-2 m-1 w-32" href="/app" target="_blank">
-                    จัดการธุรกิจ
+                <a class="rounded text-center text-gray-100 bg-red-500 hover:bg-blue-400  p-2 m-1" href="/app" target="_blank">
+                    ระบบจัดการธุรกิจ
                 </a>
             </div>
 
@@ -55,7 +55,7 @@
     </div>
 
 
-    <div class="max-w-2xl mx-auto">
+    <div class="max-w-full mx-auto">
         <div class="flex">
             <div class="w-full mb-8">
                 {{-- รายชื่อธุรกิจของคุณ --}}

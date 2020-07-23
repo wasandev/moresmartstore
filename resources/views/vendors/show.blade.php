@@ -30,7 +30,7 @@
                 {{-- <div class="h-64 lg:h-auto lg:w-1/2 flex-none  bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-left  overflow-hidden" style="background:url('{{  Storage::url($vendor->imagefile) }}') " title="{{ $vendor->name }}">
                 </div> --}}
                     <div class="lg:w-1/2 flex items-center justify-center  bg-white">
-                        <img class="h-full w-full object-cover" src="{{  Storage::url($vendor->imagefile) }}" alt="{{$vendor->name}}">
+                        <img class="h-full w-full object-cover lg:rounded-tl rounded-t lg:rounded-tr-none" src="{{  Storage::url($vendor->imagefile) }}" alt="{{$vendor->name}}">
                     </div>
                     <div class="lg:w-1/2  bg-white rounded-b flex flex-1 flex-col justify-between leading-normal ">
 
@@ -77,7 +77,7 @@
                                     @auth
                                         @if($vendor->user->id != auth()->user()->id)
                                         <a class=" ml-4 bg-purple-500 hover:bg-purple-400 p-2  shadow rounded-lg text-white"
-                                            href="/messages/create/{{$vendor->user->id}}">
+                                href="/messages/create/{{$vendor->user->id}}/{{$vendor->name}}">
                                             ส่งข้อความ
                                         </a>
                                     @endif

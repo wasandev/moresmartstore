@@ -1151,9 +1151,9 @@ export default {
 
       return (
         this.resources.length &&
-        `${first + 1}-${first + this.resources.length} ${this.__('of')} ${
-          this.allMatchingResourceCount
-        }`
+        `${Nova.formatNumber(first + 1)}-${Nova.formatNumber(
+          first + this.resources.length
+        )} ${this.__('of')} ${Nova.formatNumber(this.allMatchingResourceCount)}`
       )
     },
 

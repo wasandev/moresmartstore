@@ -13,6 +13,11 @@ class Role extends RoleResource
 
     public static function label()
     {
-        return 'สิทธิ์การใช้งาน';
+        return __('Role');
+    }
+
+    public static function singulaLabel()
+    {
+        return __('Role');
     }
 }

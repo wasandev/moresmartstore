@@ -49,7 +49,7 @@ class Page extends Resource
      */
     public static function label()
     {
-        return 'เว็บเพจ';
+        return __('Page');
     }
 
     /**
@@ -59,7 +59,7 @@ class Page extends Resource
      */
     public static function singularLabel()
     {
-        return 'เว็บเพจ';
+        return __('Page');
     }
 
     /**
@@ -89,13 +89,16 @@ class Page extends Resource
             Text::make(__('Title'),  'title')
                 ->rules('required')
                 ->sortable(),
+
             Trix::make(__('Content'),  'page_content')
                 ->rules('required')
                 ->hideFromIndex()
                 ->withFiles('public'),
             Image::make(__('Image'),  'page_image')
                 ->hideFromIndex()
-                ->sortable(),
+                ->maxWidth(600)
+                ->rules('required','dimensions:max_width=2400,max_height=1260','image', 'max:1024')
+                ->help('ขนาดรูปภาพที่เหมาะสมไม่เกิน 2400x1260px และขนาดไฟล์ไม่เกิน 1 Mb.'),
 
             DateTime::make(__('Published At'),  'published_at')
                 ->hideFromIndex()

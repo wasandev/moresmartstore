@@ -1,18 +1,16 @@
 <div class="flex flex-wrap  w-full xl:mx-0 ">
     @foreach ($blogs as $blog)
-        <div class="w-full  flex flex-col md:w-1/3 ">
-        <a href="/blogs/{{ $blog->slug }}" class="bg-white flex flex-col flex-1 rounded-lg shadow hover:shadow-lg translateY-2px m-2 no-underline transition">
+        <div class="w-full  flex flex-col md:w-1/2 lg:w-1/3 xl:w-1/3">
+            <a href="/blogs/{{ $blog->slug }}" class="bg-white flex flex-col flex-1 rounded-lg shadow hover:shadow-lg translateY-2px m-2 no-underline transition">
                 <div class="aspect-16x9 rounded-t-lg"
                     style="background:url('{{  Storage::url($blog->blog_image) }}') no-repeat center center/cover">
                 </div>
 
 
-                <div class="p-2 flex flex-col flex-1 text-left rounded-b-lg ">
-                    <p class="text-base font-semibold text-left text-blue-700 ">{{ $blog->title }}
-                    <p class="text-sm">วันที่เผยแพร่ : {{formatDateThai( $blog->published_at )}}</p>
-                </p>
-
-                    <p class="text-sm"> {{Str::of( $blog->blog_content)->limit(150) }} </p>
+                <div class="p-2 flex-1 text-left rounded-b-lg ">
+                    <p class="text-base font-semibold text-left text-blue-700 ">{{ $blog->title }}</p>
+                    <p class="text-sm text-gray-600">วันที่เผยแพร่ : {{formatDateThai( $blog->published_at )}}</p>
+                    {{-- <p class="text-sm text-gray-600"> {!! Str::of( $blog->blog_content)->limit(150) !!} </p> --}}
 
                 </div>
                 <div class="px-2 w-full  flex  flex-row border-t border-gray-100 text-sm font-thin ">

@@ -617,6 +617,18 @@ class Action implements JsonSerializable
     }
 
     /**
+     * Return the CSS classes for the Action.
+     *
+     * @return string
+     */
+    public function actionClass()
+    {
+        return $this instanceof DestructiveAction
+            ? 'btn-danger'
+            : 'btn-primary';
+    }
+
+    /**
      * Prepare the action for JSON serialization.
      *
      * @return array
@@ -627,6 +639,7 @@ class Action implements JsonSerializable
             'cancelButtonText' => __($this->cancelButtonText),
             'component' => $this->component(),
             'confirmButtonText' => __($this->confirmButtonText),
+            'class' => $this->actionClass(),
             'confirmText' => __($this->confirmText),
             'destructive' => $this instanceof DestructiveAction,
             'name' => $this->name(),
