@@ -62,6 +62,13 @@
     </div>
 </div>
 @endsection
+@section('ogmeta')
+    <meta property="og:url" content="{{ $open_graph['url'] }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{ $open_graph['title'] }}" />
+    <meta property="og:description" content="{{ $open_graph['description'] }}" />
+    <meta property="og:image" content="{{ $open_graph['image'] }}" />
+@endsection
 @section('footer')
     @include('partials.footer')
 
