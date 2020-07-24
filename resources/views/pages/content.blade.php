@@ -8,6 +8,13 @@
             </p>
             <div class="leading-normal p-4 list-disc ">
                 {!! $page->page_content !!}
+
+            </div>
+            <div class="items-center text-center">
+                <div class="fb-share-button"
+                    data-href="{{ $open_graph['url'] }}"
+                    data-layout="box_count">
+                </div>
             </div>
             <div class="mt-6 py-2 border-t flex items-center">
                 <p class="text-left w-1/2">ปรับปรุงล่าสุด :  {{ formatDateThai($page->updated_at) }}</p>
