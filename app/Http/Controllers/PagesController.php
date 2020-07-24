@@ -23,7 +23,7 @@ class PagesController extends Controller
                 ->orderBy('menuorder','asc')
                 ->get();
 
-        return view('pages.about',[
+        return view('pages.show',[
                     'page'=>$page,
                     'pages'=>$pages,
                     'open_graph' => [
