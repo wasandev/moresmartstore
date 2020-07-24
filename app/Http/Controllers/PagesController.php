@@ -30,7 +30,7 @@ class PagesController extends Controller
                         'title' => $page->title,
                         'image' => url(Storage::url($page->page_image)),
                         'url' => $this->request->url(),
-                        'description' => e(Str::of( $page->page_content)->limit(150))
+                        'description' => strip_tags(Str::of( $page->page_content)->limit(150))
                         ]
                     ]);
     }
@@ -51,7 +51,7 @@ class PagesController extends Controller
                 'image' => url(Storage::url($page->page_image)),
                 'url' => $this->request->url(),
                 //'description' => Str::of( $page->page_content)->limit(150)
-                'description' => e(Str::of( $page->page_content)->limit(150))
+                'description' => strip_tags(Str::of( $page->page_content)->limit(150))
                 ]
             ]);
 
