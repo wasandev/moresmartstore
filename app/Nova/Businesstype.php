@@ -79,7 +79,8 @@ class Businesstype extends Resource
             Text::make(__('Name'),'name')
                     ->sortable()
                     ->rules('required', 'max:255'),
-            Textarea::Make(__('Description'),'description'),
+            Textarea::Make(__('Description'),'description')
+            ->alwaysShow(),
             BelongsTo::make(__('User'), 'user', 'App\Nova\User')
                 ->onlyOnDetail()
                 ->canSee(function ($request) {
