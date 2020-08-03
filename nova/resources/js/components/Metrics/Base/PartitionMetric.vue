@@ -149,7 +149,11 @@ export default {
             color: this.getItemColor(item, index),
             percentage:
               this.formattedTotal > 0
-                ? ((item.value * 100) / this.formattedTotal).toFixed(2)
+                ? Nova.formatNumber(
+                    new String(
+                      ((item.value * 100) / this.formattedTotal).toFixed(2)
+                    )
+                  )
                 : '0',
           }
         })
@@ -174,9 +178,7 @@ export default {
     },
 
     formattedTotal() {
-      const total = _.sumBy(this.chartData, 'value')
-
-      return Nova.formatNumber(new String(total))
+      return _.sumBy(this.chartData, 'value')
     },
   },
 }
