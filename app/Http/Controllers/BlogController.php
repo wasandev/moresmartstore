@@ -49,7 +49,7 @@ class BlogController extends Controller
                 'title' => $blog->title,
                 'image' => url(Storage::url($blog->blog_image)),
                 'url' => $this->request->url(),
-                'description' => Str::of( $blog->blog_content)->limit(150)
+                'description' => strip_tags(Str::of( $blog->blog_content)->limit(150))
                 ]
             ]);
     }

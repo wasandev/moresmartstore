@@ -20,7 +20,11 @@
 @section('content')
 <div id="app" class="max-w-full mx-auto">
     <div class="flex">
-        <div class="w-full mx-auto  xl:w-3/4">
+            @if ( count($products) > 0 )
+                <div class="w-full mx-auto  xl:w-3/4">
+            @else
+                <div class="w-full mx-auto  xl:w-full">
+            @endif
 
             {{--vendor --}}
             @if (count($vendors) > 0 )
@@ -86,9 +90,9 @@
             @endif
         </div>
         {{-- //right-side --}}
-        <div class="hidden  xl:block xl:w-1/4 h-full  ">
-            @if ( count($products) > 0 )
 
+        @if ( count($products) > 0 )
+             <div class="hidden  xl:block xl:w-1/4 h-full  ">
 
             @include('partials.headbar',[
                     'svg' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="fill-current absolute"><path class="heroicon-ui" d="M5 3h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2zm0 2v4h4V5H5zm10-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2zm0 2v4h4V5h-4zM5 13h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4c0-1.1.9-2 2-2zm0 2v4h4v-4H5zm10-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4c0-1.1.9-2 2-2zm0 2v4h4v-4h-4z"/></svg>',
@@ -100,8 +104,9 @@
             @include('products.cardsidebar',[
                 'showimage' => 0
             ])
-            @endif
-        </div>
+            </div>
+        @endif
+
     </div>
 </div>
 

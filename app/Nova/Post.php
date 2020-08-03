@@ -158,7 +158,7 @@ class Post extends Resource
                     return $request->user()->role == 'admin' ;
 
                 }),
-            (new Actions\SetVendorInActive)
+            (new Actions\SetPostNotPublished)
                 ->confirmText('ไม่ต้องการเผยแพร่โพสที่เลือก?')
                 ->confirmButtonText('ไม่เผยแพร่')
                 ->cancelButtonText("ยกเลิก")

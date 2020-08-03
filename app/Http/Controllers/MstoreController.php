@@ -42,6 +42,9 @@ class MstoreController extends Controller
             ->get();
 
         $posts = Post::where('published', 1)
+        ->whereHas('vendor',function($query) {
+            $query->where('status',1);
+        })
         ->orderBy('published_at', 'desc')
         ->take(6)
         ->get();
