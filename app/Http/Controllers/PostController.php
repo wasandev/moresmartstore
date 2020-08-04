@@ -55,7 +55,7 @@ class PostController extends Controller
             'posts' => $posts,
             'open_graph' => [
                 'title' => $post->title,
-                'image' => url(Storage::url($post->image)),
+                'image' => url(Storage::url($post->post_image)),
                 'url' => $this->request->url(),
                 'description' => Str::of( $post->content)->limit(150)
                 ]
