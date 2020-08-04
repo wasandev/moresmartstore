@@ -57,7 +57,7 @@
             window.Laravel.userId = <?php echo auth()->user()->id; ?>
         </script>
     @endif
-
+    <link rel="shortcut icon" href="<?php echo asset('images/icons/favicon.png'); ?>">
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
     @stack('scripts')
 

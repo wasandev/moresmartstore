@@ -78,59 +78,63 @@
             </div>
         </div>
         {{-- สินค้าหมวดเดียวกันlist --}}
-        <div class="">
-            @include('partials.headbar',[
-                'svg' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="fill-current absolute"><path class="heroicon-ui" d="M5 3h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2zm0 2v4h4V5H5zm10-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2zm0 2v4h4V5h-4zM5 13h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4c0-1.1.9-2 2-2zm0 2v4h4v-4H5zm10-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4c0-1.1.9-2 2-2zm0 2v4h4v-4h-4z"/></svg>',
-                'title' => 'สินค้าหมวดเดียวกัน',
-                'link' => '/products/category/'.$product->category_id,
-                'linktext' => 'แสดงทั้งหมด',
-                'target' => '_self'
-            ])
-            @if(count($products) > 0 )
-                @include('products.card',[
-                    'showimage' => 0
+        @if(count($products) > 0 )
+            <div class="">
+                @include('partials.headbar',[
+                    'svg' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="fill-current absolute"><path class="heroicon-ui" d="M5 3h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2zm0 2v4h4V5H5zm10-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2zm0 2v4h4V5h-4zM5 13h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4c0-1.1.9-2 2-2zm0 2v4h4v-4H5zm10-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4c0-1.1.9-2 2-2zm0 2v4h4v-4h-4z"/></svg>',
+                    'title' => 'สินค้าหมวดเดียวกัน',
+                    'link' => '/products/category/'.$product->category_id,
+                    'linktext' => 'แสดงทั้งหมด',
+                    'target' => '_self'
+                ])
+
+                    @include('products.card',[
+                        'showimage' => 0
+                    ])
+                    <div class="p-4">
+                        {{ $products->links('vendor.pagination.tailwind') }}
+                    </div>
+
+            </div>
+        @endif
+        {{-- สินค้าจากร้านเดียวกัน --}}
+        @if (count($productvendors) > 0 )
+            <div class="lg:hidden ">
+                @include('partials.headbar',[
+                    'svg' => ' <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current absolute"><path class="heroicon-ui" d="M6.3 12.3l10-10a1 1 0 0 1 1.4 0l4 4a1 1 0 0 1 0 1.4l-10 10a1 1 0 0 1-.7.3H7a1 1 0 0 1-1-1v-4a1 1 0 0 1 .3-.7zM8 16h2.59l9-9L17 4.41l-9 9V16zm10-2a1 1 0 0 1 2 0v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2h6a1 1 0 0 1 0 2H4v14h14v-6z"/></svg>',
+                    'title' => 'สินค้าอื่นๆจากผู้ขายนี้',
+                    'link' => '/vendors/'.$product->vendor_id,
+                    'linktext' => 'แสดงทั้งหมด',
+                    'target' => '_self'
+                ])
+                @include('products.cardvendor',[
+                    'showimage' => 1
                 ])
                 <div class="p-4">
-                    {{ $products->links('vendor.pagination.tailwind') }}
+                    {{ $productvendors->links('vendor.pagination.tailwind') }}
                 </div>
-            @endif
-        </div>
-        {{-- สินค้าจากร้านเดียวกัน --}}
-        <div class="lg:hidden ">
+            </div>
+        @endif
+    </div>
+
+    {{-- //right-side สินค้าจากร้านเดียวกัน--}}
+    @if (count($productvendors) > 0 )
+        <div class="hidden  lg:block lg:w-1/3 h-full  ">
             @include('partials.headbar',[
-                'svg' => ' <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current absolute"><path class="heroicon-ui" d="M6.3 12.3l10-10a1 1 0 0 1 1.4 0l4 4a1 1 0 0 1 0 1.4l-10 10a1 1 0 0 1-.7.3H7a1 1 0 0 1-1-1v-4a1 1 0 0 1 .3-.7zM8 16h2.59l9-9L17 4.41l-9 9V16zm10-2a1 1 0 0 1 2 0v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2h6a1 1 0 0 1 0 2H4v14h14v-6z"/></svg>',
-                'title' => 'สินค้าอื่นๆจากผู้ขายนี้',
-                'link' => '/vendors/'.$product->vendor_id,
-                'linktext' => 'แสดงทั้งหมด',
-                'target' => '_self'
-            ])
+                    'svg' => ' <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current absolute"><path class="heroicon-ui" d="M6.3 12.3l10-10a1 1 0 0 1 1.4 0l4 4a1 1 0 0 1 0 1.4l-10 10a1 1 0 0 1-.7.3H7a1 1 0 0 1-1-1v-4a1 1 0 0 1 .3-.7zM8 16h2.59l9-9L17 4.41l-9 9V16zm10-2a1 1 0 0 1 2 0v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2h6a1 1 0 0 1 0 2H4v14h14v-6z"/></svg>',
+                    'title' => 'สินค้าจากผู้ขายนี้',
+                    'link' => '/vendors/'.$product->vendor_id,
+                    'linktext' => 'แสดงทั้งหมด',
+                    'target' => '_self'
+                ])
             @include('products.cardvendor',[
-                'showimage' => 1
+                'showimage' => 0
             ])
             <div class="p-4">
                 {{ $productvendors->links('vendor.pagination.tailwind') }}
             </div>
         </div>
-
-    </div>
-
-    {{-- //right-side สินค้าจากร้านเดียวกัน--}}
-    <div class="hidden  lg:block lg:w-1/3 h-full  ">
-        @include('partials.headbar',[
-                'svg' => ' <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current absolute"><path class="heroicon-ui" d="M6.3 12.3l10-10a1 1 0 0 1 1.4 0l4 4a1 1 0 0 1 0 1.4l-10 10a1 1 0 0 1-.7.3H7a1 1 0 0 1-1-1v-4a1 1 0 0 1 .3-.7zM8 16h2.59l9-9L17 4.41l-9 9V16zm10-2a1 1 0 0 1 2 0v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2h6a1 1 0 0 1 0 2H4v14h14v-6z"/></svg>',
-                'title' => 'สินค้าจากผู้ขายนี้',
-                'link' => '/vendors/'.$product->vendor_id,
-                'linktext' => 'แสดงทั้งหมด',
-                'target' => '_self'
-            ])
-        @include('products.cardvendor',[
-            'showimage' => 0
-        ])
-        <div class="p-4">
-            {{ $productvendors->links('vendor.pagination.tailwind') }}
-        </div>
-    </div>
-
+    @endif
 </div>
 
 
