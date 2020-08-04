@@ -82,6 +82,7 @@
         @yield('nav')
         @yield('search')
         @yield('mstorehome')
+        @yield('googleads')
         @yield('businesstype')
         @yield('content')
         @yield('footer')

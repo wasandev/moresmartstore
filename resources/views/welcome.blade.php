@@ -10,7 +10,9 @@
 @section('mstorehome')
     @include('partials.mstorehome')
 @endsection
-
+@section('googleads')
+    @include('partials.googleads1')
+@endsection
 @section('businesstype')
     @include('partials.businesstype')
 @endsection
