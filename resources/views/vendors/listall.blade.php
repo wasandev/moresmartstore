@@ -13,6 +13,7 @@
                 'showimage' => 0
             ])
         {{ $vendors->links('vendor.pagination.tailwind') }}
+        @include('partials.googleads1')
 
     @elseif(isset($message))
         <div class="p-4">

@@ -61,7 +61,7 @@
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
     @stack('scripts')
 
-    <script data-ad-client="ca-pub-5073377677831929" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script data-ad-client="ca-pub-5073377677831929" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1074154-29"></script>
@@ -82,7 +82,6 @@
         @yield('nav')
         @yield('search')
         @yield('mstorehome')
-        @yield('googleads')
         @yield('businesstype')
         @yield('content')
         @yield('footer')

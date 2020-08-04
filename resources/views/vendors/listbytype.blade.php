@@ -23,3 +23,4 @@
         <a href="/vendors" class="text-blue-500 hover:text-blue-700">แสดงทั้งหมด</a>
     @endif
 </div>
+@include('partials.googleads1')

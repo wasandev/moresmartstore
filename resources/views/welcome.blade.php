@@ -10,9 +10,9 @@
 @section('mstorehome')
     @include('partials.mstorehome')
 @endsection
-@section('googleads')
-    @include('partials.googleads1')
-@endsection
+
+
+
 @section('businesstype')
     @include('partials.businesstype')
 @endsection
@@ -21,6 +21,7 @@
 
 @section('content')
 <div id="app" class="max-w-full mx-auto">
+
     <div class="flex">
             @if ( count($products) > 0 )
                 <div class="w-full mx-auto  xl:w-3/4">
@@ -88,6 +89,7 @@
                         'target' => '_self'
                     ])
                     @include('blogs.card')
+                    @include('partials.googleads1')
                 </div>
             @endif
         </div>
@@ -106,6 +108,7 @@
             @include('products.cardsidebar',[
                 'showimage' => 0
             ])
+            @include('partials.googleads1')
             </div>
         @endif
 
