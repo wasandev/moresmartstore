@@ -48,6 +48,7 @@
             @include('vendors.listall')
     </div>
 </div>
+@include('partials.googleads1')
 @endsection
 
 @section('footer')

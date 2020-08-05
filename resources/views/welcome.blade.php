@@ -108,7 +108,7 @@
             @include('products.cardsidebar',[
                 'showimage' => 0
             ])
-            @include('partials.googleads1')
+
             </div>
         @endif
 

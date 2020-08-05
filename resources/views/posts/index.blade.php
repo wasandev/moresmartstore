@@ -28,7 +28,7 @@
         <p class="text-red-500">{{ $message }}</p>
         <a href="/post" class="text-blue-500 hover:text-blue-700">แสดงทั้งหมด</a>
     @endif
-
+    @include('partials.googleads1')
 @endsection
 
 @section('footer')
