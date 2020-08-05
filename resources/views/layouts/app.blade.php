@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="theme-color" content="#4299E1" />
-    <meta name='description' content='mStore: เว็บไซต์ โพสข้อมูลธุรกิจ ข้อมูลสินค้าและบริการ โพสโฆษณาข้อความและรูปภาพ เพื่อนำเสนอรายละเอียดธุรกิจของสมาชิกได้ฟรี'>
+    <meta name='description' content='mStore: เว็บไซต์สำหรับลงโพสโฆษณาธุรกิจ สินค้าและบริการฟรี โพสโฆษณาด้วยข้อความและรูปภาพ พื้นที่ฝากร้านที่ให้คุณโพสและแชร์ข้อมูลธุรกิจฟรี'>
     <title>mStore : พื้นที่โพสข้อมูลธุรกิจฟรี</title>
     @yield('ogmeta')
 
