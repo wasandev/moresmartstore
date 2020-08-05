@@ -38,7 +38,7 @@
                             <span class="pl-8 py-2">การดู:{{  $post->visits()->count() }} ครั้ง </span>
                         </div>
 
-                        <div class="text-right w-1/2 mt-1 items-center">วันที่โพส: {{formatDateThai( $post->published_at )}}</div>
+                        <div class="text-right w-1/2 mt-1 items-center">{{formatDateThai( $post->published_at )}}</div>
                     </div>
                 </div>
             </a>
