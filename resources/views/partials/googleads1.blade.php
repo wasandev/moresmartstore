@@ -1,4 +1,4 @@
-<div class=" max-w-xl mx-4 p-4">
+<div class="max-w-full mx-4">
 
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
