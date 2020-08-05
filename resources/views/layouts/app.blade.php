@@ -7,7 +7,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="theme-color" content="#4299E1" />
-    <title>mStore : Classifieds website portal</title>
+    <meta name='description' content='mStore: เว็บไซต์ โพสข้อมูลธุรกิจ ข้อมูลสินค้าและบริการ โพสโฆษณาข้อความและรูปภาพ เพื่อนำเสนอรายละเอียดธุรกิจของสมาชิกได้ฟรี'>
+    <title>mStore : พื้นที่โพสข้อมูลธุรกิจฟรี</title>
     @yield('ogmeta')
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
