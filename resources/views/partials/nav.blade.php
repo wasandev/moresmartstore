@@ -65,11 +65,11 @@
                     <span class="ml-6">บทความ</span>
                 </a>
 
-                <a href="/pages" class="mx-2 px-3 py-1 block text-green-500 mt-2 lg:mt-0 rounded-full border border-gray-200 hover:bg-blue-500 hover:text-gray-100  ">
+                <a href="/pages" class="mx-2 px-3 py-1 block text-red-500 mt-2 lg:mt-0 rounded-full border border-gray-200 hover:bg-blue-500 hover:text-gray-100  ">
                     <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute mr-2"  width="20" height="20" viewBox="0 0 24 24"><path class="heroicon-ui" d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM10.59 8.59a1 1 0 1 1-1.42-1.42 4 4 0 1 1 5.66 5.66l-2.12 2.12a1 1 0 1 1-1.42-1.42l2.12-2.12A2 2 0 0 0 10.6 8.6zM12 18a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
                     </svg>
 
-                    <span class="ml-6">รู้จัก mStore</span>
+                    <span class="ml-6 font-semibold">รู้จัก mStore</span>
                 </a>
                 @auth
 
@@ -111,7 +111,7 @@
 
                 @else
                     <a href="{{ route('login') }}"
-                        class="mx-2 block px-3 py-1 mt-2   mb-2 lg:mb-0 text-blue-600 border border-gray-200 rounded-full hover:bg-blue-500 hover:text-gray-100">
+                        class="mx-2 block px-3 py-1 mt-2 lg:mt-0   mb-2 lg:mb-0 text-blue-600 border border-gray-200 rounded-full hover:bg-blue-500 hover:text-gray-100">
                         <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute mr-2"  width="20" height="20" viewBox="0 0 24 24"><path d="M5 5a5 5 0 0 1 10 0v2A5 5 0 0 1 5 7V5zM0 16.68A19.9 19.9 0 0 1 10 14c3.64 0 7.06.97 10 2.68V20H0v-3.32z"/></svg>
 
                         <span class="ml-6">{{ __('Login') }}</span>
