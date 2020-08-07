@@ -7,8 +7,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="theme-color" content="#4299E1" />
-    <meta name='description' content='mStore: เว็บไซต์สำหรับลงโพสโฆษณาธุรกิจ สินค้าและบริการฟรี โพสโฆษณาด้วยข้อความและรูปภาพ พื้นที่ฝากร้านที่ให้คุณโพสและแชร์ข้อมูลธุรกิจฟรี'>
-    <title>mStore : พื้นที่โพสข้อมูลธุรกิจฟรี</title>
+    <title>mStore ลงโพสข้อมูลธุรกิจฟรี</title>
+    <meta name='description' content='mStore - Moresmartstore.com เว็บไซต์สำหรับลงโพสโฆษณาธุรกิจ สินค้าและบริการฟรี พื้นที่ฝากร้าน ที่ให้คุณโพสและแชร์ข้อมูลธุรกิจ'>
+
     @yield('ogmeta')
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
