@@ -6,10 +6,10 @@
         <div class="p-6 max-w-2xl mx-auto text-center leading-tight bg-gray-300 rounded-lg shadow-xl" style="opacity: .70;">
 
             <h1 class=" text-3xl text-black font-extrabold xl:text-3xl leading-tight">
-                พื้นที่ฝากร้าน โพสข้อมูลธุรกิจ
+                mStore
             </h1>
             <p class=" sm:block text-red-600 text-2xl font-bold ">
-                mStore - เว็บค้นหาและโพสข้อมูลธุรกิจ
+                เว็บค้นหา โพส แชร์ ข้อมูลธุรกิจ
             </p>
             <p class="mt-2 leading-relaxed sm:text-base md:text-base  text-black  antialiased ">
                 แพลตฟอร์มออนไลน์ง่ายๆที่ให้ผู้ใช้โพสและแชร์ข้อมูลธุรกิจ สินค้าและบริการได้ตามประเภทธุรกิจ เพื่อให้ผู้คนที่กำลังค้นหาข้อมูลธุรกิจ ได้รับข้อมูลที่ต้องการได้อย่างรวดเร็ว
