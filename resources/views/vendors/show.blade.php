@@ -39,7 +39,7 @@
 
                                     <img class="w-10 h-10 rounded-full mr-2" src="{{  Storage::url($vendor->logofile) }}" alt="{{ $vendor->name }}">
                                     <div class="">
-                                        <p class="text-2xl text-gray-700"> {{ $vendor->name }} </p>
+                                        <h1 class="text-2xl text-gray-700"> {{ $vendor->name }} </h1>
                                     </div>
 
                             </div>

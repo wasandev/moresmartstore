@@ -1,6 +1,6 @@
     <div class="py-2 px-4">
         <h1 class="font-normal text-3xl text-grey-darkest leading-none mb-4">
-            {{ $btype->name}}
+            รายชื่อธุรกิจ {{ $btype->name}}
         </h1>
 
         <!-- description -->
