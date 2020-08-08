@@ -39,7 +39,7 @@ class BlogController extends Controller
         $blogs = Blog::where('slug','<>',$slug)
                             ->where('published',1)
                             ->orderBy('published_at', 'desc')
-                            ->paginate(3);
+                            ->paginate(5);
 
 
         return view('blogs.show',[
