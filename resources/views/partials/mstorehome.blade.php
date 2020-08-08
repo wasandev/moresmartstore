@@ -6,12 +6,12 @@
         <div class="p-6 max-w-2xl mx-auto text-center leading-tight bg-gray-300 rounded-lg shadow-xl" style="opacity: .70;">
 
             <h1 class=" text-3xl text-black font-extrabold xl:text-3xl leading-tight">
-                Classifieds Website Portal
+                พื้นที่ฝากร้าน โพสข้อมูลธุรกิจ
             </h1>
             <span class=" sm:block text-red-600 text-2xl font-bold ">
-                ลงโพสโฆษณาธุรกิจตามประเภทที่ต้องการ</span>
+                mStore โพสข้อมูลธุรกิจ สินค้า/บริการ ฟรี</span>
             <p class="mt-2 leading-relaxed sm:text-base md:text-base  text-black  antialiased ">
-                แพลตฟอร์มออนไลน์ง่ายๆ ให้ผู้ใช้โพสข้อมูลธุรกิจและสินค้าได้ตามประเภทธุรกิจที่แตกต่างกันเพื่อให้ผู้ค้นหาสามารถได้รับข้อมูลที่ต้องการได้อย่างรวดเร็ว
+                แพลตฟอร์มออนไลน์ง่ายๆที่ให้ผู้ใช้โพสและแชร์ข้อมูลธุรกิจ สินค้าและบริการได้ตามประเภทธุรกิจ เพื่อให้ผู้คนที่กำลังค้นหาข้อมูลธุรกิจ ได้รับข้อมูลที่ต้องการได้อย่างรวดเร็ว
             </p>
             <div class=" mx-auto flex mt-4 justify-center ">
                 <a href="/home"

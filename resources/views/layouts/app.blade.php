@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="theme-color" content="#4299E1" />
     <title>mStore ลงโพสข้อมูลธุรกิจฟรี</title>
-    <meta name='description' content='mStore - Moresmartstore.com เว็บไซต์สำหรับลงโพสโฆษณาธุรกิจ สินค้าและบริการฟรี พื้นที่ฝากร้าน ที่ให้คุณโพสและแชร์ข้อมูลธุรกิจ'>
+    <meta name='description' content='mStore - Moresmartstore.com แพลตฟอร์มออนไลน์ง่ายๆที่ให้ผู้ใช้โพสและแชร์ข้อมูลธุรกิจ สินค้าและบริการได้ตามประเภทธุรกิจ เพื่อให้ผู้คนที่กำลังค้นหาข้อมูลธุรกิจ ได้รับข้อมูลที่ต้องการได้อย่างรวดเร็ว'>
 
     @yield('ogmeta')
 
