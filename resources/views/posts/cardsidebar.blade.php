@@ -6,7 +6,7 @@
             style="background:url('{{  Storage::url($post->post_image) }}') no-repeat center center/cover">
         </div>
         @endif
-        <p class="p-2 text-gray-100 text-base font-light">{{ $post->title }} </p>
+        <h1 class="p-2 text-gray-100 text-base font-light">{{ $post->title }} </h1>
 
         <div class="p-2 bg-gray-300 flex flex-col flex-1 text-left subpixel-antialiased">
 

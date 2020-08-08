@@ -7,7 +7,7 @@
 
         </div>
         @endif
-        <p class="p-2 text-gray-100 text-base font-light">{{ $productvendor->name }} </p>
+        <h1 class="p-2 text-gray-100 text-base font-light">{{ $productvendor->name }} </h1>
 
         <div class="p-2 bg-white flex flex-col flex-1 text-left subpixel-antialiased">
 

@@ -8,7 +8,7 @@
 
 
                 <div class="p-2 flex-1 text-left rounded-b-lg ">
-                    <p class="text-base font-semibold text-left text-blue-700 ">{{ $blog->title }}</p>
+                    <h1 class="text-base font-semibold text-left text-blue-700 ">{{ $blog->title }}</h1>
                         <p class="text-sm text-gray-600 font-italic">{{formatDateThai( $blog->published_at )}}</p>
 
                     {{-- <p class="text-sm text-gray-600"> {!! Str::of( $blog->blog_content)->limit(150) !!} </p> --}}
