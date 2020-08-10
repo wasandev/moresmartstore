@@ -2,6 +2,25 @@
 @section('nav')
     @include('partials.nav')
 @endsection
+@section('adsconversion')
+        <!-- Event snippet for สมัครใช้บริการ conversion page
+    In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-625418009/TmRCCO_b0toBEJm-nKoC',
+          'event_callback': callback
+      });
+      return false;
+    }
+    </script>
+
+@endsection
 @section('content')
 <div id="app" class="w-full mx-auto max-w-sm sm:mt-20 md:mt-32 lg:mt-32 xl:mt-32">
     <div class="bg-white shadow-md rounded px-8 pt-6">
