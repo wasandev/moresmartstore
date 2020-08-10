@@ -9,15 +9,15 @@
                 mStore
             </h1>
             <p class=" sm:block text-red-600 text-2xl font-bold ">
-                เว็บค้นหา โพส แชร์ ข้อมูลธุรกิจ
+                เว็บค้นหา โพส แชร์ โปรโมทธุรกิจ
             </p>
             <p class="mt-2 leading-relaxed sm:text-base md:text-base  text-black  antialiased ">
-                แพลตฟอร์มออนไลน์ง่ายๆที่ให้ผู้ใช้โพสและแชร์ข้อมูลธุรกิจ สินค้าและบริการได้ตามประเภทธุรกิจ เพื่อให้ผู้คนที่กำลังค้นหาข้อมูลธุรกิจ ได้รับข้อมูลที่ต้องการได้อย่างรวดเร็ว
+                แพลตฟอร์มออนไลน์ง่ายๆที่ให้ผู้ใช้โพสโปรโมทธุรกิจและแชร์ข้อมูลธุรกิจ โพสสินค้าและบริการได้ตามประเภทธุรกิจ เพื่อให้ผู้คนที่กำลังค้นหาข้อมูลธุรกิจ ได้รับข้อมูลที่ต้องการได้อย่างรวดเร็ว
             </p>
             <div class=" mx-auto flex mt-4 justify-center ">
                 <a href="/home"
                     class="ml-4 rounded-lg px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 text-white bg-red-600 hover:bg-blue-600 text-base  leading-tight shadow-md">
-                    โพสข้อมูลธุรกิจ ฟรี!
+                    โปรโมทธุรกิจ ฟรี!
                 </a>
                 <a href="/pages"
                     class="ml-4 rounded-lg px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 text-white bg-blue-500 hover:bg-red-600 text-base  leading-tight shadow-md">
