@@ -83,20 +83,25 @@
 
                         <div class="w-48 absolute right-0 mt-0 py-1 bg-white rounded-lg shadow-xl invisible group-hover:visible">
                             <a href="/home"
-                                class="no-un2erline px-3 py-1 block text-grey-900 hover:text-blue-500">
+                                class="no-underline px-3 py-1 block text-grey-900 hover:text-blue-500">
 
                                 <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute mr-2"  width="20" height="20" viewBox="0 0 24 24"><path d="M18 9.87V20H2V9.87a4.25 4.25 0 0 0 3-.38V14h10V9.5a4.26 4.26 0 0 0 3 .37zM3 0h4l-.67 6.03A3.43 3.43 0 0 1 3 9C1.34 9 .42 7.73.95 6.15L3 0zm5 0h4l.7 6.3c.17 1.5-.91 2.7-2.42 2.7h-.56A2.38 2.38 0 0 1 7.3 6.3L8 0zm5 0h4l2.05 6.15C19.58 7.73 18.65 9 17 9a3.42 3.42 0 0 1-3.33-2.97L13 0z"/></svg>
                                 <span class="ml-6">จัดการข้อมูลธุรกิจ</span>
                             </a>
                             <hr class="border-t mx-2 border-gray-300" >
-                            <a href="{{ url('/messages') }}" class="no-un2erline px-3 py-1 block text-grey-900 hover:text-blue-500">
+                            <a href="{{ url('/messages') }}" class="no-underline px-3 py-1 block text-grey-900 hover:text-blue-500">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute mr-2"  width="20" height="20" viewBox="0 0 24 24"><path d="M0 2C0 .9.9 0 2 0h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm14 12h4V2H2v12h4c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2z"/></svg>
                                 <span class="ml-6">กล่องข้อความ @include('messenger.unread-count')</span>
+                            </a>
+                            <hr class="border-t mx-2 border-gray-300" >
+                            <a href="{{ url('/messages/create/1/แจ้งปัญหาการใช้งาน') }}" class="no-underline px-2 py-1 mt-2 block text-grey-900 hover:text-blue-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute mr-2"  width="20" height="20" viewBox="0 0 24 24"><path class="heroicon-ui" d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm0 9a1 1 0 0 1-1-1V8a1 1 0 0 1 2 0v4a1 1 0 0 1-1 1zm0 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
+                                <span class="ml-6">แจ้งปัญหาการใช้งาน</span>
                             </a>
                             <hr class="border-t mx-2 border-gray-300">
 
                             <a href="{{ route('logout') }}"
-                                class=" no-un2erline px-3 py-1 block text-gray-900 hover:text-blue-500" onclick="event.preventDefault();
+                                class=" no-underline px-3 py-1 block text-gray-900 hover:text-blue-500" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
                                   <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute mr-2"  width="20" height="20" viewBox="0 0 24 24"><path d="M10 7H2v6h8v5l8-8-8-8v5z"/></svg>
 
@@ -135,6 +140,10 @@
                         <a href="{{ url('/messages') }}" class="no-underline px-2 py-1 mt-2 block text-grey-900 hover:text-blue-500">
                             <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute mr-2"  width="20" height="20" viewBox="0 0 20 20"><path d="M0 2C0 .9.9 0 2 0h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm14 12h4V2H2v12h4c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2z"/></svg>
                             <span class="ml-6">กล่องข้อความ @include('messenger.unread-count')</span>
+                        </a>
+                        <a href="{{ url('/messages/create/1/แจ้งปัญหาการใช้งาน') }}" class="no-underline px-2 py-1 mt-2 block text-grey-900 hover:text-blue-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute mr-2"  width="20" height="20" viewBox="0 0 24 24"><path class="heroicon-ui" d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm0 9a1 1 0 0 1-1-1V8a1 1 0 0 1 2 0v4a1 1 0 0 1-1 1zm0 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
+                            <span class="ml-6">แจ้งปัญหาการใช้งาน</span>
                         </a>
                         <hr class="border-t mx-2 border-gray-300">
 

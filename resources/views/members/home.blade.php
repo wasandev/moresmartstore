@@ -32,7 +32,7 @@
                 </p>
             </div>
         </div>
-        <div class="flex flex-col lg:flex-row  lg:w-1/2 w-full mx-auto items-center lg:justify-end ">
+        <div class="flex flex-col lg:flex-row  lg:w-1/2 w-full mx-auto items-center lg:justify-end text-sm">
 
             <div class="flex">
                 <span class="tl-follower rounded-full text-center text-gray-100 bg-blue-500 p-2 m-1">ผู้ติดตาม : {{ Auth::user()->followers()->get()->count() }}</span>
@@ -46,10 +46,16 @@
                 </a>
             </div>
             <div class="flex">
-                <a class="rounded text-center text-gray-100 bg-red-500 hover:bg-blue-400  p-2 m-1" href="/app" target="_blank">
-                    ระบบจัดการข้อมูลธุรกิจ
+                <a class="rounded text-center text-gray-100 bg-purple-500 hover:bg-blue-400  p-2 m-1" href="/messages/create/1/แจ้งปัญหาการใช้งาน" >
+                    แจ้งปัญหาการใช้งาน
                 </a>
             </div>
+            <div class="flex">
+                <a class="rounded text-center text-gray-100 bg-red-500 hover:bg-blue-400  p-2 m-1" href="/app" target="_blank">
+                    จัดการข้อมูลธุรกิจ
+                </a>
+            </div>
+
 
         </div>
     </div>

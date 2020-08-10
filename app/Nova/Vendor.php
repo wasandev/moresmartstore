@@ -80,19 +80,16 @@ class Vendor extends Resource
                 ->rules('required'),
             Image::make(__('Image'), 'imagefile')
                 ->hideFromIndex()
-                ->maxWidth(600)
-                ->rules('dimensions:max_width=2400,max_height=1260','image', 'max:1024')
-                ->help('ขนาดรูปภาพที่เหมาะสมไม่เกิน 2400x1260px และขนาดไฟล์ไม่เกิน 1 Mb.'),
+                ->maxWidth(600),
             Image::make(__('Logo'), 'logofile')
-                ->hideFromIndex()
-                ->rules('dimensions:max_width=1200,max_height=1200','max:1024')
-                ->help('ขนาดรูปภาพที่เหมาะสมไม่เกิน 1200x1200px และขนาดไฟล์ไม่เกิน 512Kb.'),
+                ->hideFromIndex(),
+
             Textarea::make(__('Description'), 'description')
                 ->withMeta(['extraAttributes' => [
-                    'placeholder' => 'ความยาวต้องไม่ต่ำกว่า 300 ตัวอักษร']
+                    'placeholder' => 'ความยาวต้องไม่ต่ำกว่า 150 ตัวอักษร']
                     ])
                 ->alwaysShow()
-                ->rules('required','min:300'),
+                ->rules('required','min:150'),
             Text::make(__('Tax ID'), 'taxid')
                 ->hideFromIndex(),
             Select::make(__('Business Type'), 'type')->options([

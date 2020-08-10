@@ -83,7 +83,8 @@ class Product extends Resource
                         return $this->visits($this->id)->count();
                         }),
             BelongsTo::make(__('Vendor Name'),'vendor','App\Nova\Vendor')
-                    ->rules('required'),
+                    ->rules('required')
+                    ->showCreateRelationButton(),
             BelongsTo::make(__('Category'), 'category', 'App\Nova\Category')
                 ->sortable()
                 ->showCreateRelationButton(),
@@ -98,8 +99,7 @@ class Product extends Resource
                 ->disk('public')
                 ->hideFromIndex()
                 ->maxWidth(600)
-                ->rules('dimensions:max_width=2400,max_height=1260','image', 'max:1024')
-                ->help('ขนาดรูปภาพที่เหมาะสมไม่เกิน 2400x1260px และขนาดไฟล์ไม่เกิน 1 Mb.'),
+                ,
             Number::make(__('Price'),'price'),
 
             BelongsTo::make(__('Unit'), 'unit', 'App\Nova\Unit')
