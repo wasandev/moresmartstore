@@ -124,7 +124,7 @@ class Vendor extends Resource
             Text::make(__('Contact Name'), 'contractname')
                 ->hideFromIndex(),
             Text::make(__('Phone No'), 'phoneno')
-                ->rules('required')
+                ->rules('required',"numeric","digits_between:9,10")
                 ->hideFromIndex(),
             Text::make(__('Website'), 'weburl')
                 ->hideFromIndex()

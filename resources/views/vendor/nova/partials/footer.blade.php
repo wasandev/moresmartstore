@@ -4,4 +4,6 @@
     &copy; {{ date('Y') }} mStore - Classifieds Website Portal.
     <span class="px-1">&middot;</span>
     v.1.0
+    <span class="px-1">&middot;</span>
+    v{{ \Laravel\Nova\Nova::version() }}
 </p>
