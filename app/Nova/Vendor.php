@@ -5,7 +5,7 @@ namespace App\Nova;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Image;
+//use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasMany;
@@ -19,6 +19,7 @@ use Jfeid\NovaGoogleMaps\NovaGoogleMaps;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Textarea;
+use Ctessier\NovaAdvancedImageField\AdvancedImage;
 
 class Vendor extends Resource
 {
@@ -78,11 +79,7 @@ class Vendor extends Resource
             Text::make(__('Vendor Name'), 'name')
                 ->sortable()
                 ->rules('required'),
-            Image::make(__('Image'), 'imagefile')
-                ->hideFromIndex()
-                ->maxWidth(600),
-            Image::make(__('Logo'), 'logofile')
-                ->hideFromIndex(),
+
 
             Textarea::make(__('Description'), 'description')
                 ->withMeta(['extraAttributes' => [
@@ -97,8 +94,21 @@ class Vendor extends Resource
                 'person' => 'บุคคลธรรมดา'
             ])->displayUsingLabels()
                 ->hideFromIndex(),
+
             new Panel(__('Contact Field'), $this->contactFields()),
             new Panel(__('Address'), $this->addressFields()),
+            // Image::make(__('Image'), 'imagefile')
+            //     ->hideFromIndex()
+            //     ->maxWidth(600),
+            AdvancedImage::make(__('Image'),'imagefile')->croppable()->resize(1920)
+                    ->hideFromIndex()
+                    ->rules("mimes:jpeg,bmp,png","max:2000")
+                    ->help('ขนาดไฟล์ไม่เกิน 2 MB.'),
+
+            AdvancedImage::make(__('Logo'), 'logofile')->croppable()->resize(500,500)
+                ->hideFromIndex()
+                ->rules("mimes:jpeg,bmp,png","max:2048")
+                    ->help('ขนาดไฟล์ไม่เกิน 2 MB.'),
             HasMany::make(__('Product'),'products','App\Nova\Product'),
             HasMany::make(__('Post'),'posts','App\Nova\Post'),
         ];

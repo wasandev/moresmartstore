@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Image;
+//use Laravel\Nova\Fields\Image;
+use Ctessier\NovaAdvancedImageField\AdvancedImage;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Textarea;
@@ -92,10 +93,13 @@ class Post extends Resource
                 ->rules('required')
                 ->hideFromIndex()
                 ->sortable(),
-            Image::make(__('Image'),  'post_image')
-                ->hideFromIndex()
-                ->maxWidth(600),
-
+            // Image::make(__('Image'),  'post_image')
+            //     ->hideFromIndex()
+            //     ->maxWidth(600),
+            AdvancedImage::make(__('Image'),'post_image')->croppable()->resize(1920)
+                    ->hideFromIndex()
+                    ->rules("mimes:jpeg,bmp,png","max:2000")
+                    ->help('ขนาดไฟล์ไม่เกิน 2 MB.'),
             DateTime::make(__('Published_at'),  'published_at')
                 ->hideFromIndex()
                 ->sortable(),

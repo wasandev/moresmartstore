@@ -11,6 +11,7 @@
         "php": "^7.2.5",
         "anaseqal/nova-import": "^0.0.3",
         "awssat/laravel-visits": "^2.2",
+        "ctessier/nova-advanced-image-field": "^1.1",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "gregoriohc/laravel-nova-theme-responsive": "^0.8.1",

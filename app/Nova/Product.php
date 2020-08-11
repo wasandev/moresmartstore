@@ -10,8 +10,8 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\Image;
-
+//use Laravel\Nova\Fields\Image;
+use Ctessier\NovaAdvancedImageField\AdvancedImage;
 //use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
 
 
@@ -95,11 +95,16 @@ class Product extends Resource
                 ->rules('required')
                 ->alwaysShow()
                 ->hideFromIndex(),
-            Image::make(__('Image'),'image')
-                ->disk('public')
-                ->hideFromIndex()
-                ->maxWidth(600)
-                ,
+            // Image::make(__('Image'),'image')
+            //     ->disk('public')
+            //     ->hideFromIndex()
+            //     ->maxWidth(600)
+            //     ,
+
+            AdvancedImage::make(__('Image'),'image')->croppable()->resize(1920)
+                    ->hideFromIndex()
+                    ->rules("mimes:jpeg,bmp,png","max:2000")
+                    ->help('ขนาดไฟล์ไม่เกิน 2 MB.'),
             Number::make(__('Price'),'price'),
 
             BelongsTo::make(__('Unit'), 'unit', 'App\Nova\Unit')
