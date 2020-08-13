@@ -102,7 +102,7 @@ class Vendor extends Resource
             //     ->maxWidth(600),
             AdvancedImage::make(__('Image'),'imagefile')->croppable()->resize(1920)
                     ->hideFromIndex()
-                    ->rules("mimes:jpeg,bmp,png","max:2000")
+                    ->rules("mimes:jpeg,bmp,png","max:2048")
                     ->help('ขนาดไฟล์ไม่เกิน 2 MB.'),
 
             AdvancedImage::make(__('Logo'), 'logofile')->croppable()->resize(500,500)
