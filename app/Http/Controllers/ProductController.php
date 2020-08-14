@@ -23,7 +23,6 @@ class ProductController extends Controller
                 });
             }])
             ->where('active',1)
-            ->orderBy('id','asc')
             ->orderBy('products_count','desc')->get();
         $q= $request->input('product-search');
         $products = Product::where('status',1)
@@ -37,6 +36,7 @@ class ProductController extends Controller
                         $query->where('name','LIKE','%'.$q.'%')
                               ->orWhere('description','LIKE','%'.$q.'%');
                     })
+                    ->orderBy('created_at', 'desc')
                     ->paginate(9);
 
         if(count($products) > 0)
@@ -66,7 +66,8 @@ class ProductController extends Controller
                     ->whereHas('vendor',function($query){
                         $query->where('status',1);
                     })
-                    ->paginate(9);
+                    ->orderBy('created_at', 'desc')
+                    ->paginate(12);
 
         if(count($products) > 0)
             return view('products.list',compact('category','categoryData','products'))->withQuery ( $q );
@@ -89,7 +90,7 @@ class ProductController extends Controller
                                 $query->where('status',1);
                             })
                             ->orderBy('created_at', 'desc')
-                            ->paginate(6);
+                            ->paginate(12);
 
         $productvendors = Product::where('vendor_id', $product->vendor->id)
                             ->where('id','<>',$id)

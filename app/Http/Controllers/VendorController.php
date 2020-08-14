@@ -51,7 +51,9 @@ class VendorController extends Controller
                                     ->where('published',1)
                                     ->orWhere('content','like', '%'.$q.'%');
                                 });
-                    })->paginate(9);
+                    })
+                    ->orderBy('created_at', 'desc')
+                    ->paginate(12);
 
         if(count($vendors) > 0)
             return view('vendors.index',compact('businessData','vendors'))->withQuery ( $q );
@@ -72,7 +74,8 @@ class VendorController extends Controller
 
         $vendors = Vendor::where('businesstype_id',$id)
                     ->where('status',1)
-                    ->paginate(9);
+                    ->orderBy('created_at', 'desc')
+                    ->paginate(12);
 
         if(count($vendors) > 0)
             return view('vendors.list',compact('businessData','btype','vendors'))->withQuery ( $q );
