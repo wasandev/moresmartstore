@@ -17,7 +17,11 @@
 
 
             <div class=" flex items-center justify-center ">
-                <img class="h-full w-full object-cover rounded-t" src="{{  Storage::url($product->image) }}" alt="{{$product->name}}">
+                @if(!empty($product->image))
+                    <img class="h-full w-full object-cover rounded-t" src="{{  Storage::url($product->image) }}" alt="{{$product->name}}">
+                @else
+                    <img class="h-full w-full object-cover lg:rounded-tl rounded-t lg:rounded-tr-none" src="{{  Storage::url('store.jpg')}}" alt="{{$product->name}}">
+                @endif
             </div>
             <div class="bg-white rounded-b-none lg:rounded-t-r p-4 flex  flex-col justify-between leading-normal">
                 <div class="mb-4">

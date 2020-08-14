@@ -17,7 +17,12 @@
                 {{-- <div class="aspect-16x9 rounded-t-lg  overflow-hidden" style="background:url('{{  Storage::url($post->post_image) }}') no-repeat center center/cover" title="{{ $post->title }}">
                 </div> --}}
                 <div class="flex items-center justify-center rounded-t">
+                    @if (!@empty($post->post_image))
                     <img class="h-full w-full object-cover" src="{{  Storage::url($post->post_image) }}" alt="{{$post->title}}">
+                    @else
+                            <img class="h-full w-full object-cover lg:rounded-tl rounded-t lg:rounded-tr-none" src="{{  Storage::url('store.jpg')}}" alt="{{$post->title}}">
+                    @endif
+
                 </div>
                 <div class="bg-white rounded-b-none lg:rounded-t-r  p-2 flex  flex-col justify-between leading-normal">
 
