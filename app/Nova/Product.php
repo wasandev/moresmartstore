@@ -87,7 +87,8 @@ class Product extends Resource
                     ->showCreateRelationButton(),
             BelongsTo::make(__('Category'), 'category', 'App\Nova\Category')
                 ->sortable()
-                ->showCreateRelationButton(),
+                ->showCreateRelationButton()
+                ->hideFromIndex(),
             Text::make(__('Name'), 'name')
                 ->sortable()
                 ->rules('required'),
