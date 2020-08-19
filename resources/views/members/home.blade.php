@@ -8,6 +8,9 @@
 
     @include('partials.search')
 @endsection
+@section('mstorehome')
+    @include('partials.mstorehome')
+@endsection
 
 
 @section('content')

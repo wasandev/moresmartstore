@@ -6,6 +6,9 @@
 @section('search')
     @include('partials.postsearch')
 @endsection
+@section('mstorehome')
+    @include('partials.mstorehome')
+@endsection
 
 @section('content')
 
