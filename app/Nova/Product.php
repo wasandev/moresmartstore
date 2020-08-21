@@ -85,13 +85,14 @@ class Product extends Resource
             BelongsTo::make(__('Vendor Name'),'vendor','App\Nova\Vendor')
                     ->rules('required')
                     ->showCreateRelationButton(),
+            Text::make(__('Name'), 'name')
+                    ->sortable()
+                    ->rules('required'),
             BelongsTo::make(__('Category'), 'category', 'App\Nova\Category')
                 ->sortable()
                 ->showCreateRelationButton()
                 ->hideFromIndex(),
-            Text::make(__('Name'), 'name')
-                ->sortable()
-                ->rules('required'),
+
             Textarea::make(__('Description'), 'description')
                 ->rules('required')
                 ->alwaysShow()
