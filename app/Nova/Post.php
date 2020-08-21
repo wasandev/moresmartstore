@@ -83,12 +83,13 @@ class Post extends Resource
                     return $request->user()->role == 'admin';
                     })
                 ->sortable(),
-            BelongsTo::make(__('Vendor Name'),'vendor','App\Nova\Vendor')
-                ->rules('required')
-                ->showCreateRelationButton(),
             Text::make(__('Title'), 'title')
                 ->rules('required')
                 ->sortable(),
+            BelongsTo::make(__('Vendor Name'),'vendor','App\Nova\Vendor')
+                ->rules('required')
+                ->showCreateRelationButton(),
+
             Textarea::make(__('Post Content'),  'content')
                 ->rules('required')
                 ->hideFromIndex()
