@@ -82,12 +82,13 @@ class Product extends Resource
             Number::make(__('Visits'), function () {
                         return $this->visits($this->id)->count();
                         }),
+            Text::make(__('Name'), 'name')
+                        ->sortable()
+                        ->rules('required'),
             BelongsTo::make(__('Vendor Name'),'vendor','App\Nova\Vendor')
                     ->rules('required')
                     ->showCreateRelationButton(),
-            Text::make(__('Name'), 'name')
-                    ->sortable()
-                    ->rules('required'),
+
             BelongsTo::make(__('Category'), 'category', 'App\Nova\Category')
                 ->sortable()
                 ->showCreateRelationButton()
