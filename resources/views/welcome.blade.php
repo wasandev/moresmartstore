@@ -58,7 +58,7 @@
                         'target' => '_self'
                     ])
                 @include('products.card',[
-                    'showimage' => 0
+                    'showimage' => 1
                 ])
                 </div>
             @endif
@@ -73,7 +73,7 @@
                         'target' => '_self'
                     ])
                     @include('posts.card',[
-                        'showimage' => 0
+                        'showimage' => 1
                     ])
                 </div>
             @endif
@@ -106,7 +106,7 @@
                     'target' => '_self'
                 ])
             @include('products.cardsidebar',[
-                'showimage' => 0
+                'showimage' => 1
             ])
 
             </div>

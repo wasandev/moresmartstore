@@ -38,7 +38,7 @@ class MstoreController extends Controller
                 $query->where('status',1);
             })
             ->orderBy('created_at', 'desc')
-            ->take(4)
+            ->take(3)
             ->get();
 
         $posts = Post::where('published', 1)
