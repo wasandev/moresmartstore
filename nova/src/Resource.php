@@ -135,6 +135,13 @@ abstract class Resource implements ArrayAccess, JsonSerializable, UrlRoutable
     public static $trafficCop = true;
 
     /**
+     * The maximum value of the resource's primary key column.
+     *
+     * @var int
+     */
+    public static $maxPrimaryKeySize = PHP_INT_MAX;
+
+    /**
      * The default displayable pivot class name.
      *
      * @var string
@@ -289,6 +296,16 @@ abstract class Resource implements ArrayAccess, JsonSerializable, UrlRoutable
     public function subtitle()
     {
         //
+    }
+
+    /**
+     * Get the text for the create resource button.
+     *
+     * @return string|null
+     */
+    public static function createButtonLabel()
+    {
+        return __('Create :resource', ['resource' => static::singularLabel()]);
     }
 
     /**
@@ -490,6 +507,16 @@ abstract class Resource implements ArrayAccess, JsonSerializable, UrlRoutable
     public static function redirectAfterDelete(NovaRequest $request)
     {
         return '/resources/'.static::uriKey();
+    }
+
+    /**
+     * Return the maximum primary key size for the Resource.
+     *
+     * @return int
+     */
+    public static function maxPrimaryKeySize()
+    {
+        return static::$maxPrimaryKeySize;
     }
 
     /**

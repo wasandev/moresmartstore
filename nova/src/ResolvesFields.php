@@ -575,7 +575,7 @@ trait ResolvesFields
      */
     public function pivotAccessorFor(NovaRequest $request, $relatedResource)
     {
-        $field = $this->availableFields($request)->first(function ($field) use ($request, $relatedResource) {
+        $field = $this->availableFields($request)->first(function ($field) use ($relatedResource) {
             return ($field instanceof BelongsToMany ||
                     $field instanceof MorphToMany) &&
                    $field->resourceName == $relatedResource;

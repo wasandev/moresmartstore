@@ -293,6 +293,8 @@ export default {
         .get('/nova-api/' + this.resourceName + '/actions', {
           params: {
             resourceId: this.resourceId,
+            editing: true,
+            editMode: 'create',
           },
         })
         .then(response => {

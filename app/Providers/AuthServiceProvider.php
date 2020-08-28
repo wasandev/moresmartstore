@@ -6,6 +6,7 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 use Illuminate\Support\Facades\Gate;
 use Pktharindu\NovaPermissions\Traits\ValidatesPermissions;
 use App\User;
+//use KirschbaumDevelopment\NovaMail\Models\NovaMailTemplate;
 class AuthServiceProvider extends ServiceProvider
 {
 
@@ -17,6 +18,8 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         // 'App\Model' => 'App\Policies\ModelPolicy',
+        'KirschbaumDevelopment\NovaMail\Models\NovaMailTemplate' => 'App\Policies\NovaMailTemplatePolicy',
+        'KirschbaumDevelopment\NovaMail\Models\NovaSentMail' => 'App\Policies\NovaSentMailPolicy'
     ];
 
     /**

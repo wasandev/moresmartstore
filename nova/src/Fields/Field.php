@@ -747,7 +747,7 @@ abstract class Field extends FieldElement implements JsonSerializable, Resolvabl
     protected function resolveDefaultValue(NovaRequest $request)
     {
         if ($request->isCreateOrAttachRequest()) {
-            if (is_null($this->value) && is_callable($this->defaultCallback)) {
+            if (is_null($this->value) && $this->defaultCallback instanceof Closure) {
                 return call_user_func($this->defaultCallback, $request);
             }
 

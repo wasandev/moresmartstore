@@ -11,9 +11,12 @@ use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use KirschbaumDevelopment\NovaMail\Actions\SendMail;
+
 
 class User extends Resource
 {
+
     public static $group = "Admin";
     public static $priority = 1;
 
@@ -135,7 +138,13 @@ class User extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            (new SendMail)
+            ->canSee(function ($request) {
+                return $request->user()->role == 'admin' ;
+
+            }),
+        ];
     }
     public static function indexQuery(NovaRequest $request, $query)
     {

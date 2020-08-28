@@ -3,9 +3,11 @@
 namespace Laravel\Nova\Tests\Feature;
 
 use Illuminate\Support\Collection;
+use Illuminate\Validation\ValidationException;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Http\Requests\ResourceDetailRequest;
 use Laravel\Nova\Http\Requests\ResourceIndexRequest;
+use Laravel\Nova\Tests\Fixtures\CustomFieldNameUserResource;
 use Laravel\Nova\Tests\Fixtures\Post;
 use Laravel\Nova\Tests\Fixtures\PostResource;
 use Laravel\Nova\Tests\Fixtures\User;
@@ -187,5 +189,22 @@ class ResourceFieldTest extends IntegrationTest
 
         $this->assertCount(2, $resource->availableFields($request));
         $this->assertEquals('Create Name', $resource->availableFields($request)->first()->name);
+    }
+
+    public function test_use_field_names_as_validator_attributes()
+    {
+        $user = factory(User::class)->create();
+        $resource = new CustomFieldNameUserResource($user);
+
+        $request = NovaRequest::create(
+            '/nova-api/users', 'POST', [], [], [], [], json_encode(['name' => null])
+        );
+
+        try {
+            $resource::validateForCreation($request);
+            $this->fail('ValidationException expected');
+        } catch (ValidationException $e) {
+            $this->assertStringContainsString('Custom Name', $e->validator->errors()->first(), 'Attribute name not found');
+        }
     }
 }

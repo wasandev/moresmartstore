@@ -47,7 +47,7 @@
           :disabled="isWorking"
           :processing="wasSubmittedViaCreateResource"
         >
-          {{ __('Create :resource', { resource: singularName }) }}
+          {{ createButtonLabel }}
         </progress-button>
       </div>
     </form>
@@ -278,6 +278,10 @@ export default {
       }
 
       return this.resourceInformation.singularLabel
+    },
+
+    createButtonLabel() {
+      return this.resourceInformation.createButtonLabel
     },
 
     isRelation() {

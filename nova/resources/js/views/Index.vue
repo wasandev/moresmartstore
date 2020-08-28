@@ -58,6 +58,7 @@
 
         <!-- Create / Attach Button -->
         <create-resource-button
+          :label="createButtonLabel"
           :singular-name="singularName"
           :resource-name="resourceName"
           :via-resource="viaResource"
@@ -252,6 +253,7 @@
 
             <create-resource-button
               classes="btn btn-sm btn-outline inline-flex items-center focus:outline-none focus:shadow-outline active:outline-none active:shadow-outline"
+              :label="createButtonLabel"
               :singular-name="singularName"
               :resource-name="resourceName"
               :via-resource="viaResource"
@@ -1003,6 +1005,13 @@ export default {
       }
 
       return Capitalize(this.resourceInformation.singularLabel)
+    },
+
+    /**
+     * Get the default label for the create button
+     */
+    createButtonLabel() {
+      return this.resourceInformation.createButtonLabel
     },
 
     /**

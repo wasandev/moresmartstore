@@ -458,8 +458,10 @@
     "District": "อำเภอ/เขต",
     "Province": "จังหวัด",
     "Postal Code": "รหัสไปรษณีย์",
-    "Google Map": "ตำแหน่งที่ตั้งบน Google Map"
-
+    "Google Map": "ตำแหน่งที่ตั้งบน Google Map",
+    "OTHER": "อื่นๆ",
+    "Sent Mail": "ส่งเมล์",
+    "Mail Templates": "รูปแบบเมล์"
 
 
 

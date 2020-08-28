@@ -8,12 +8,12 @@ use Illuminate\Notifications\Notifiable;
 use Pktharindu\NovaPermissions\Traits\HasRoles;
 use Overtrue\LaravelFollow\Followable;
 use Lexx\ChatMessenger\Traits\Messagable;
-
+use KirschbaumDevelopment\NovaMail\Traits\Mailable;
 
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable,HasRoles,Followable,Messagable;
+    use Notifiable,HasRoles,Followable,Messagable,Mailable;
 
     /**
      * The attributes that are mass assignable.
@@ -55,6 +55,16 @@ class User extends Authenticatable implements MustVerifyEmail
     public function vendors()
     {
         return $this->hasMany('App\Vendor');
+    }
+
+     /**
+     * Get the name of the email field for the model.
+     *
+     * @return string
+     */
+    public function getEmailField(): string
+    {
+        return 'email';
     }
 
     // public function posts()

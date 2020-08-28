@@ -11,6 +11,7 @@ use Laravel\Nova\NovaCoreServiceProvider;
 use Laravel\Nova\NovaServiceProvider;
 use Laravel\Nova\Tests\Fixtures\AddressResource;
 use Laravel\Nova\Tests\Fixtures\BooleanResource;
+use Laravel\Nova\Tests\Fixtures\CallableDefaultResource;
 use Laravel\Nova\Tests\Fixtures\CommentResource;
 use Laravel\Nova\Tests\Fixtures\CustomConnectionActionResource;
 use Laravel\Nova\Tests\Fixtures\CustomKeyResource;
@@ -66,6 +67,7 @@ abstract class IntegrationTest extends TestCase
         Nova::resources([
             AddressResource::class,
             BooleanResource::class,
+            CallableDefaultResource::class,
             CommentResource::class,
             CustomKeyResource::class,
             DiscussionResource::class,
