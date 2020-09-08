@@ -39,7 +39,9 @@
                     'linktext' => 'แสดงทั้งหมด',
                     'target' => '_self'
                 ])
+
                 @include('blogs.card')
+                @include('partials.googleads1')
 
             </div>
         @endif
