@@ -91,7 +91,7 @@
                     ])
                 </div>
             @endif
-
+            @include('partials.googleads1')
         </div>
         {{-- //right-side --}}
 
