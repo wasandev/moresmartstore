@@ -30,7 +30,7 @@ class PostController extends Controller
                               ->orWhere('description','LIKE','%'.$q.'%');
                     })
                     ->orderBy('published_at', 'desc')
-                    ->paginate(6);
+                    ->paginate(12);
 
         if(count($posts) > 0)
             return view('posts.index',compact('posts'))->withQuery ( $q );

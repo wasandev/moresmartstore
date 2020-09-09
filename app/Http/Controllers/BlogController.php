@@ -24,7 +24,7 @@ class BlogController extends Controller
                         ->orWhere('blog_content','LIKE','%'.$q.'%');
                 })
                 ->orderBy('published_at', 'desc')
-                ->paginate(6);
+                ->paginate(12);
 
         if(count($blogs) > 0)
             return view('blogs.index',compact('blogs'))->withQuery ( $q );
