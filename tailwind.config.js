@@ -3,11 +3,13 @@ module.exports = {
         extend: {
 
             fontFamily: {
-                'sans': ['Nunito'],
-              },
+                'sans': ['Bai Jamjuree'],
+            },
 
         },
-        maxWidth: (theme, { breakpoints }) => ({
+        maxWidth: (theme, {
+            breakpoints
+        }) => ({
             none: 'none',
             xs: '20rem',
             sm: '24rem',
@@ -21,7 +23,7 @@ module.exports = {
             '6xl': '72rem',
             full: '100%',
             ...breakpoints(theme('screens')),
-          }),
+        }),
 
     },
     variants: {
@@ -34,4 +36,4 @@ module.exports = {
     plugins: [
         require('tailwindcss-plugins/pagination')
     ],
-  }
+}
