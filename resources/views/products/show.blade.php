@@ -60,7 +60,7 @@
                         @if(!@empty($product->vendor->logofile))
                             <img class="w-10 h-10 rounded-full mr-2" src="{{  Storage::url($product->vendor->logofile) }}" alt="{{ $product->vendor->name }}">
                         @else
-                            <img class="w-10 h-10 rounded-full mr-2" src="{{  Storage::url('store.jpg') }}" alt="{{ $product->vendor->name }}">
+                            <img class="w-10 h-10 rounded-full mr-2" src="{{  Storage::url('storelogo.png') }}" alt="{{ $product->vendor->name }}">
                         @endif
                             <span class="text-blue-700 "> {{ $product->vendor->name }}</span>
                     </a>

@@ -47,7 +47,7 @@
                                 @if(!@empty($post->vendor->logofile))
                                     <img class="w-10 h-10 rounded-full mr-2" src="{{  Storage::url($post->vendor->logofile) }}" alt="{{ $post->vendor->name }}">
                                 @else
-                                    <img class="w-10 h-10 rounded-full mr-2" src="{{  Storage::url('store.jpg') }}" alt="{{ $post->vendor->name }}">
+                                    <img class="w-10 h-10 rounded-full mr-2" src="{{  Storage::url('storelogo.png') }}" alt="{{ $post->vendor->name }}">
                                 @endif
                                 <span class="text-blue-700 "> {{ $post->vendor->name }}</span>
                             </a>
