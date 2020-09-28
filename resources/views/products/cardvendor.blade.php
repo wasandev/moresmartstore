@@ -1,6 +1,6 @@
 <div class="flex flex-col xl:mx-0 ">
     @foreach ($productvendors as $productvendor)
-    <a href="/products/{{ $productvendor->id }}" class="bg-blue-500 flex flex-col flex-1 border border-gray-200 hover:shadow-lg translateY-2px m-4 p-4 no-underline transition">
+    <a href="/products/{{ $productvendor->id }}" class=" flex flex-col flex-1 border border-gray-200 hover:shadow-lg translateY-2px m-4 p-4 no-underline transition">
         @if ($showimage)
         <div class="aspect-16x9 "
             style="background:url('{{  Storage::url($productvendor->image) }}') no-repeat center center/cover">
