@@ -1,6 +1,6 @@
 <div class="flex flex-wrap w-full xl:mx-0 ">
     @foreach ($posts as $post)
-        <div class="w-full flex flex-col md:w-1/2 lg:w-1/4 xl:w-1/4">
+        <div class="w-full flex flex-col md:w-1/2 lg:w-1/2 xl:w-1/2">
         <a href="/post/{{ $post->id }}" class="bg-blue-400 flex flex-col flex-1 rounded-t-lg shadow hover:shadow-lg translateY-2px m-2 no-underline transition">
                 @if ($showimage)
                     <div class="aspect-16x9 rounded-t-lg"
