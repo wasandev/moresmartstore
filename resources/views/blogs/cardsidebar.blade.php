@@ -1,6 +1,6 @@
 <div class="flex flex-col xl:mx-0 ">
     @foreach ($blogs as $blog)
-    <a href="/blogs/{{ $blog->slug }}" class="bg-blue-400 flex flex-col flex-1 border border-gray-200 hover:shadow-lg translateY-2px m-4 p-4 no-underline transition">
+    <a href="/blogs/{{ $blog->slug }}" class=" flex flex-col flex-1 border border-gray-200 hover:shadow-lg translateY-2px m-4 p-4 no-underline transition">
         @if ($showimage)
         <div class="aspect-16x9 rounded-t"
             style="background:url('{{  Storage::url($blog->blog_image) }}') no-repeat center center/cover">

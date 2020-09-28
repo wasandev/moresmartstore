@@ -212,7 +212,7 @@
     </div>
 
 </div>
-@include('partials.googleads1')
+
 
 @endsection
 @section('ogmeta')

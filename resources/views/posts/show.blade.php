@@ -98,7 +98,7 @@
         @endif
 
 </div>
-@include('partials.googleads1')
+
 @endsection
 @section('ogmeta')
     <meta property="og:url" content="{{ $open_graph['url'] }}" />
