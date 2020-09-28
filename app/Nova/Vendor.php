@@ -5,7 +5,7 @@ namespace App\Nova;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-//use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasMany;
@@ -19,7 +19,7 @@ use Jfeid\NovaGoogleMaps\NovaGoogleMaps;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Textarea;
-use Ctessier\NovaAdvancedImageField\AdvancedImage;
+//use Ctessier\NovaAdvancedImageField\AdvancedImage;
 
 class Vendor extends Resource
 {
@@ -66,14 +66,14 @@ class Vendor extends Resource
             Boolean::make(__('Status'), 'status')
                 ->showOnCreating(function ($request) {
                     return $request->user()->role == 'admin';
-                    })
+                })
                 ->sortable()
                 ->showOnUpdating(function ($request) {
                     return $request->user()->role == 'admin';
-                    }),
+                }),
             Number::make(__('Visits'), function () {
-                    return $this->visits($this->id)->count();
-                    }),
+                return $this->visits($this->id)->count();
+            }),
             BelongsTo::make(__('Businesstype'), 'businesstype', 'App\Nova\Businesstype')
                 ->hideFromIndex(),
             Text::make(__('Vendor Name'), 'name')
@@ -83,10 +83,10 @@ class Vendor extends Resource
 
             Textarea::make(__('Description'), 'description')
                 ->withMeta(['extraAttributes' => [
-                    'placeholder' => 'ความยาวต้องไม่ต่ำกว่า 150 ตัวอักษร']
-                    ])
+                    'placeholder' => 'ความยาวต้องไม่ต่ำกว่า 150 ตัวอักษร'
+                ]])
                 ->alwaysShow()
-                ->rules('required','min:150'),
+                ->rules('required', 'min:150'),
             Text::make(__('Tax ID'), 'taxid')
                 ->hideFromIndex(),
             Select::make(__('Business Type'), 'type')->options([
@@ -100,17 +100,17 @@ class Vendor extends Resource
             // Image::make(__('Image'), 'imagefile')
             //     ->hideFromIndex()
             //     ->maxWidth(600),
-            AdvancedImage::make(__('Image'),'imagefile')->croppable()->resize(1920)
-                    ->hideFromIndex()
-                    ->rules("mimes:jpeg,bmp,png","max:2048")
-                    ->help('ขนาดไฟล์ไม่เกิน 2 MB.'),
-
-            AdvancedImage::make(__('Logo'), 'logofile')->croppable()->resize(500,500)
+            Image::make(__('Image'), 'imagefile')
                 ->hideFromIndex()
-                ->rules("mimes:jpeg,bmp,png","max:2048")
-                    ->help('ขนาดไฟล์ไม่เกิน 2 MB.'),
-            HasMany::make(__('Product'),'products','App\Nova\Product'),
-            HasMany::make(__('Post'),'posts','App\Nova\Post'),
+                ->rules("mimes:jpeg,bmp,png", "max:2048")
+                ->help('ขนาดไฟล์ไม่เกิน 2 MB.'),
+
+            Image::make(__('Logo'), 'logofile')
+                ->hideFromIndex()
+                ->rules("mimes:jpeg,bmp,png", "max:2048")
+                ->help('ขนาดไฟล์ไม่เกิน 2 MB.'),
+            HasMany::make(__('Product'), 'products', 'App\Nova\Product'),
+            HasMany::make(__('Post'), 'posts', 'App\Nova\Post'),
         ];
     }
     /**
@@ -124,15 +124,15 @@ class Vendor extends Resource
             Text::make(__('Contact Name'), 'contractname')
                 ->hideFromIndex(),
             Text::make(__('Phone No'), 'phoneno')
-                ->rules('required',"numeric","digits_between:9,10")
+                ->rules('required', "numeric", "digits_between:9,10")
                 ->hideFromIndex(),
             Text::make(__('Website'), 'weburl')
                 ->hideFromIndex()
-                ->rules('nullable','url')
+                ->rules('nullable', 'url')
                 ->help('url ของเว็บไซต์ต้องมีรูปแบบดังนี้ http://www.example.com'),
             Text::make(__('Facebook'), 'facebook')
                 ->hideFromIndex()
-                ->rules('nullable','url')
+                ->rules('nullable', 'url')
                 ->help('url ของ Facebook ต้องมีรูปแบบดังนี้ https://www.facebook.com/example'),
             Text::make(__('Line'), 'line')
                 ->hideFromIndex(),
@@ -230,18 +230,16 @@ class Vendor extends Resource
                 ->confirmButtonText('อนุมัติ')
                 ->cancelButtonText("ยกเลิก")
                 ->canSee(function ($request) {
-                    return $request->user()->role == 'admin' ;
-
+                    return $request->user()->role == 'admin';
                 }),
             (new Actions\SetVendorInActive)
                 ->confirmText('ไม่อนุมัติธุรกิจที่เลือก?')
                 ->confirmButtonText('ไม่อนุมัติ')
                 ->cancelButtonText("ยกเลิก")
                 ->canSee(function ($request) {
-                    return $request->user()->role == 'admin' ;
+                    return $request->user()->role == 'admin';
                 }),
         ];
-
     }
 
     public static function indexQuery(NovaRequest $request, $query)

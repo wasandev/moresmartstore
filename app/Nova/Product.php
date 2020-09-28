@@ -10,8 +10,8 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Boolean;
-//use Laravel\Nova\Fields\Image;
-use Ctessier\NovaAdvancedImageField\AdvancedImage;
+use Laravel\Nova\Fields\Image;
+//use Ctessier\NovaAdvancedImageField\AdvancedImage;
 //use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
 
 
@@ -75,19 +75,19 @@ class Product extends Resource
             Boolean::make(__('Status'), 'status')
                 ->showOnCreating(function ($request) {
                     return $request->user()->role == 'admin';
-                    })
+                })
                 ->showOnUpdating(function ($request) {
                     return $request->user()->role == 'admin';
-                    }),
+                }),
             Number::make(__('Visits'), function () {
-                        return $this->visits($this->id)->count();
-                        }),
+                return $this->visits($this->id)->count();
+            }),
             Text::make(__('Name'), 'name')
-                        ->sortable()
-                        ->rules('required'),
-            BelongsTo::make(__('Vendor Name'),'vendor','App\Nova\Vendor')
-                    ->rules('required')
-                    ->showCreateRelationButton(),
+                ->sortable()
+                ->rules('required'),
+            BelongsTo::make(__('Vendor Name'), 'vendor', 'App\Nova\Vendor')
+                ->rules('required')
+                ->showCreateRelationButton(),
 
             BelongsTo::make(__('Category'), 'category', 'App\Nova\Category')
                 ->sortable()
@@ -104,24 +104,24 @@ class Product extends Resource
             //     ->maxWidth(600)
             //     ,
 
-            AdvancedImage::make(__('Image'),'image')->croppable()->resize(1920)
-                    ->hideFromIndex()
-                    ->rules("mimes:jpeg,bmp,png","max:2000")
-                    ->help('ขนาดไฟล์ไม่เกิน 2 MB.'),
-            Number::make(__('Price'),'price'),
+            Image::make(__('Image'), 'image')
+                ->hideFromIndex()
+                ->rules("mimes:jpeg,bmp,png", "max:2000")
+                ->help('ขนาดไฟล์ไม่เกิน 2 MB.'),
+            Number::make(__('Price'), 'price'),
 
             BelongsTo::make(__('Unit'), 'unit', 'App\Nova\Unit')
                 ->showCreateRelationButton()
                 ->nullable(),
             Text::make(__('Shop Url'), 'shopurl')
                 ->hideFromIndex()
-                ->rules('nullable','url')
+                ->rules('nullable', 'url')
                 ->help('url ของลิงก์ต้องมีรูปแบบดังนี้ http://www.example.com/xyz..'),
             BelongsTo::make(__('User'), 'user', 'App\Nova\User')
                 ->onlyOnDetail()
                 ->canSee(function ($request) {
                     return $request->user()->role == 'admin';
-                    }),
+                }),
 
         ];
     }
@@ -178,15 +178,14 @@ class Product extends Resource
                 ->confirmButtonText('อนุมัติ')
                 ->cancelButtonText("ยกเลิก")
                 ->canSee(function ($request) {
-                    return $request->user()->role == 'admin' ;
-
+                    return $request->user()->role == 'admin';
                 }),
             (new Actions\SetProductInActive)
                 ->confirmText('ไม่อนุมัติธุรกิจที่เลือก?')
                 ->confirmButtonText('ไม่อนุมัติ')
                 ->cancelButtonText("ยกเลิก")
                 ->canSee(function ($request) {
-                    return $request->user()->role == 'admin' ;
+                    return $request->user()->role == 'admin';
                 }),
 
         ];

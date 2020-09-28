@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Text;
-//use Laravel\Nova\Fields\Image;
-use Ctessier\NovaAdvancedImageField\AdvancedImage;
+use Laravel\Nova\Fields\Image;
+//use Ctessier\NovaAdvancedImageField\AdvancedImage;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Textarea;
@@ -78,15 +78,15 @@ class Post extends Resource
             Boolean::make(__('Published'), 'published')
                 ->showOnCreating(function ($request) {
                     return $request->user()->role == 'admin';
-                    })
+                })
                 ->showOnUpdating(function ($request) {
                     return $request->user()->role == 'admin';
-                    })
+                })
                 ->sortable(),
             Text::make(__('Title'), 'title')
                 ->rules('required')
                 ->sortable(),
-            BelongsTo::make(__('Vendor Name'),'vendor','App\Nova\Vendor')
+            BelongsTo::make(__('Vendor Name'), 'vendor', 'App\Nova\Vendor')
                 ->rules('required')
                 ->showCreateRelationButton(),
 
@@ -97,17 +97,17 @@ class Post extends Resource
             // Image::make(__('Image'),  'post_image')
             //     ->hideFromIndex()
             //     ->maxWidth(600),
-            AdvancedImage::make(__('Image'),'post_image')->croppable()->resize(1920)
-                    ->hideFromIndex()
-                    ->rules("mimes:jpeg,bmp,png","max:2000")
-                    ->help('ขนาดไฟล์ไม่เกิน 2 MB.'),
+            Image::make(__('Image'), 'post_image')
+                ->hideFromIndex()
+                ->rules("mimes:jpeg,bmp,png", "max:2000")
+                ->help('ขนาดไฟล์ไม่เกิน 2 MB.'),
             DateTime::make(__('Published_at'),  'published_at')
                 ->hideFromIndex()
                 ->sortable(),
             BelongsTo::make(__('User'), 'user', 'App\Nova\User')
-                   ->canSee(function ($request) {
+                ->canSee(function ($request) {
                     return $request->user()->role == 'admin';
-                    }),
+                }),
 
         ];
     }
@@ -159,15 +159,14 @@ class Post extends Resource
                 ->confirmButtonText('เผยแพร่')
                 ->cancelButtonText("ยกเลิก")
                 ->canSee(function ($request) {
-                    return $request->user()->role == 'admin' ;
-
+                    return $request->user()->role == 'admin';
                 }),
             (new Actions\SetPostNotPublished)
                 ->confirmText('ไม่ต้องการเผยแพร่โพสที่เลือก?')
                 ->confirmButtonText('ไม่เผยแพร่')
                 ->cancelButtonText("ยกเลิก")
                 ->canSee(function ($request) {
-                    return $request->user()->role == 'admin' ;
+                    return $request->user()->role == 'admin';
                 }),
         ];
     }

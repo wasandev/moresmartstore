@@ -57,8 +57,12 @@
                 <div class=" flex">
 
                     <a class="flex text-blue-500 hover:text-blue-700 items-center" href="/vendors/{{ $product->vendor->id }}" >
-                        <img class="w-10 h-10 rounded-full mr-2" src="{{  Storage::url($product->vendor->logofile) }}" alt="{{ $product->vendor->name }}">
-                        <span class="text-blue-700 "> {{ $product->vendor->name }}</span>
+                        @if(!@empty($product->vendor->logofile))
+                            <img class="w-10 h-10 rounded-full mr-2" src="{{  Storage::url($product->vendor->logofile) }}" alt="{{ $product->vendor->name }}">
+                        @else
+                            <img class="w-10 h-10 rounded-full mr-2" src="{{  Storage::url('store.jpg') }}" alt="{{ $product->vendor->name }}">
+                        @endif
+                            <span class="text-blue-700 "> {{ $product->vendor->name }}</span>
                     </a>
 
                 </div>
