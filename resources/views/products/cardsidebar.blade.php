@@ -1,13 +1,13 @@
 <div class="flex flex-col xl:mx-0 ">
     @foreach ($products as $product)
-    <a href="/products/{{ $product->id }}" class="bg-blue-500 rounded-lg flex flex-col flex-1 shadow hover:shadow-lg translateY-2px m-2 no-underline transition">
+    <a href="/products/{{ $product->id }}" class="flex flex-col flex-1 border border-gray-200 hover:shadow-lg translateY-2px m-4 p-4 no-underline transition">
         @if ($showimage)
-        <div class="aspect-16x9 rounded-t-lg"
+        <div class="aspect-16x9"
             style="background:url('{{  Storage::url($product->image) }}') no-repeat center center/cover">
 
         </div>
         @endif
-        <p class="p-2 text-gray-100 text-base font-light text-center">{{ $product->name }} </p>
+        <p class="p-2 text-base font-semibold text-left text-blue-700 ">{{ $product->name }} </p>
 
         <div class="p-2 bg-white flex flex-col flex-1 text-left subpixel-antialiased">
 

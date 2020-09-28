@@ -1,17 +1,17 @@
 <div class="flex flex-wrap  w-full xl:mx-0 ">
     @foreach ($vendors as $vendor)
-        <div class="w-full flex flex-col md:w-1/2 lg:w-1/2 xl:w-1/2 ">
-            <a href="/vendors/{{ $vendor->id}}" class="rounded-lg bg-blue-500 flex flex-col flex-1  shadow hover:shadow-xl translateY-2px m-2 no-underline transition">
+        <div class="w-full flex flex-col md:w-1/2 lg:w-1/2 xl:w-1/2  ">
+            <a href="/vendors/{{ $vendor->id}}" class="flex flex-col flex-1 border border-gray-200  hover:shadow-xl translateY-2px m-4 p-4 no-underline transition">
                 @if ($showimage)
-                    <div class="aspect-16x9 rounded-t-lg object-cover"
+                    <div class="aspect-16x9 object-cover"
                         style="background:url('{{  Storage::url($vendor->imagefile) }}') no-repeat center center/cover">
                     </div>
                 @endif
-                <p class="p-2 text-gray-100 text-base font-light text-center">{{ $vendor->name }} </p>
+                <p class="text-base font-semibold text-left text-blue-700 px-2">{{ $vendor->name }} </p>
 
 
                 <div class="p-2 bg-white flex flex-col flex-1 subpixel-antialiased">
-                    <p class="w-full  py-2 text-sm text-blue-400 flex items-center">
+                    <p class="w-full  text-sm text-blue-400 flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M5.64 16.36a9 9 0 1 1 12.72 0l-5.65 5.66a1 1 0 0 1-1.42 0l-5.65-5.66zm11.31-1.41a7 7 0 1 0-9.9 0L12 19.9l4.95-4.95zM12 14a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
                         <span>
                         {{$vendor->district}}
@@ -33,7 +33,7 @@
                         @endauth
                     </div>
 
-                    <div class="w-full flex flex-row border-t border-gray-200 text-sm font-thin">
+                    <div class="w-full flex flex-row border-t border-gray-100 text-sm font-thin">
                         <div class="text-left w-1/2 mt-2">
                             <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M17.56 17.66a8 8 0 0 1-11.32 0L1.3 12.7a1 1 0 0 1 0-1.42l4.95-4.95a8 8 0 0 1 11.32 0l4.95 4.95a1 1 0 0 1 0 1.42l-4.95 4.95zm-9.9-1.42a6 6 0 0 0 8.48 0L20.38 12l-4.24-4.24a6 6 0 0 0-8.48 0L3.4 12l4.25 4.24zM11.9 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
                             <span class="pl-8 py-2">การดู {{$vendor->visits()->count() }} ครั้ง </span>
