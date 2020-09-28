@@ -11,10 +11,10 @@
 
         <div class="p-2 bg-white flex flex-col flex-1 text-left subpixel-antialiased">
 
-            <div class="text-left text-sm flex-1 font-thin">
+            {{-- <div class="text-left text-sm flex-1 font-thin">
                 <p> {{ Str::of( $product->description)->limit(200) }} </p>
 
-            </div>
+            </div> --}}
             <div class="mt-2 text-left text-sm">
                 <p class="text-gray-600 text-sm ">ประเภท: {{ $product->category->name }}</p>
                 <p class="text-gray-600 text-sm ">ชื่อธุรกิจ: {{ $product->vendor->name }} </p>
