@@ -6,7 +6,7 @@
                     style="background:url('{{  Storage::url($blog->blog_image) }}') no-repeat center center/cover">
                 </div> --}}
                 <div class="flex items-center justify-center">
-                    <img class="h-64 w-full object-cover rounded-t" src="{{  Storage::url($blog->blog_image) }}" alt="{{$blog->title}}">
+                    <img class=" h-48 w-full object-cover " src="{{  Storage::url($blog->blog_image) }}" alt="{{$blog->title}}">
                 </div>
 
                 <div class="p-2 flex-1 text-left rounded-b-lg ">
