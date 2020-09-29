@@ -12,16 +12,16 @@
 
             @foreach ($businesstypes as $businesstype)
 
-                    <a href="/vendors/type/{{ $businesstype->id }}" class="flex flex-col  border border-gray-200 hover:shadow-md translateY-2px m-4 no-underline transition bg-gray-200 text-gray-600 hover:text-gray-100  hover:bg-blue-600 ">
-                       <div class="p-2 flex-1 ">
-                            <svg class="fill-current absolute " width="20" height="20"
+                    <a href="/vendors/type/{{ $businesstype->id }}" class="flex flex-col rounded border border-gray-200 hover:shadow-md translateY-2px m-4 p-2 no-underline transition bg-gray-100 text-gray-900 hover:text-gray-100  hover:bg-blue-700 ">
+                        <div class="">
+                            <svg class="fill-current mt-4 ml-2" width="40" height="40"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                <path d="M18 9.87V20H2V9.87a4.25 4.25 0 0 0 3-.38V14h10V9.5a4.26 4.26 0 0 0 3 .37zM3 0h4l-.67 6.03A3.43 3.43 0 0 1 3 9C1.34 9 .42 7.73.95 6.15L3 0zm5 0h4l.7 6.3c.17 1.5-.91 2.7-2.42 2.7h-.56A2.38 2.38 0 0 1 7.3 6.3L8 0zm5 0h4l2.05 6.15C19.58 7.73 18.65 9 17 9a3.42 3.42 0 0 1-3.33-2.97L13 0z"/>
+                                <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2 2v10h16V6H2z"/>
                             </svg>
-
-                            <span class="ml-6 text-base font-thin ">{{ $businesstype->name }}</span>
-                            <span class="text-sm font-thin ">( {{ $businesstype->vendors_count }} ธุรกิจ )</span>
                         </div>
+                        <div class="p-2 mt-1 space-y-0 flex-1 ">
+                            <p class="mb-2 text-sm font-thin ">{{ $businesstype->name }} ( {{ $businesstype->vendors_count }} ธุรกิจ )</p>
+                         </div>
 
                     </a>
 
