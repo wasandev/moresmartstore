@@ -16,7 +16,7 @@
 
     {{-- post detail --}}
         <div class="w-full  lg:w-2/3 mx-auto flex flex-col rounded-lg mt-2 ">
-            <div class="p-2">
+            <div class="m-2 p-2 lg:m-4 lg:p-4">
                 {{-- <div class="aspect-16x9 rounded-t-lg  overflow-hidden" style="background:url('{{  Storage::url($post->post_image) }}') no-repeat center center/cover" title="{{ $post->title }}">
                 </div> --}}
                 <div class="flex items-center justify-center rounded-t">
@@ -82,7 +82,7 @@
         </div>
         {{-- Side-bar --}}
         @if(count($posts) > 0 )
-            <div class="hidden  lg:block lg:w-1/3 ">
+            <div class="hidden  lg:block lg:w-1/3 m-2 p-2  ">
                 @include('partials.headbar',[
                             'svg' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="fill-current absolute"><path class="heroicon-ui" d="M5 3h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2zm0 2v4h4V5H5zm10-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2zm0 2v4h4V5h-4zM5 13h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4c0-1.1.9-2 2-2zm0 2v4h4v-4H5zm10-2h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4c0-1.1.9-2 2-2zm0 2v4h4v-4h-4z"/></svg>',
                             'title' => 'โพสอื่นๆ',
