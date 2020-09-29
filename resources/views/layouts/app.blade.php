@@ -88,7 +88,7 @@
         @yield('adsconversion')
     </head>
 
-<body class="font-sans h-full bg-white  leading-normal tracking-normal antialiased">
+<body class="font-sans  bg-white  leading-normal tracking-normal antialiased">
 
     <div>
 
