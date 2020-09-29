@@ -1,4 +1,4 @@
-<div class="flex flex-wrap w-full xl:mx-0 ">
+<div class="flex flex-wrap w-full ">
     @foreach ($posts as $post)
         <div class="w-full flex flex-col md:w-1/2 lg:w-1/2 xl:w-1/2">
         <a href="/post/{{ $post->id }}" class="flex flex-col flex-1 border border-gray-200 hover:shadow-lg translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">

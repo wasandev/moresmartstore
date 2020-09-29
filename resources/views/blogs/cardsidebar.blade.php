@@ -1,4 +1,4 @@
-<div class="flex flex-col xl:mx-0 ">
+<div class="flex flex-col  ">
     @foreach ($blogs as $blog)
     <a href="/blogs/{{ $blog->slug }}" class=" flex flex-col flex-1 border border-gray-200 hover:shadow-lg translateY-2px m-4 p-4 no-underline transition">
         @if ($showimage)
