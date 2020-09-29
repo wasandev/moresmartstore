@@ -58,7 +58,7 @@
                 @include('vendors.card',[
                     'showimage' => 1
                 ])
-                @endif
+
                 </div>
             @endif
 
