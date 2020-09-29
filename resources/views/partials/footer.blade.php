@@ -1,4 +1,4 @@
-<footer class="bg-gray-900 lg:flex lg:justify-between lg:items-center lg:px-4 lg:py-2">
+<footer class="bg-gray-900 lg:flex lg:justify-between lg:items-center lg:px-4 lg:py-2 fixed bottom-0 inset-x-0 z-50">
 
     <div class="flex items-center justify-between px-4 py-3 lg:p-0">
         <div class="px-2 pt-2 pb-4 lg:flex lg:p-0 lg:items-left lg:w-auto text-gray-300 text-sm font-thin">

@@ -20,7 +20,7 @@
 
 
 @section('content')
-<div id="app" class="max-w-full mx-auto">
+<div id="app" class="max-w-full  pb-16" >
 
     <div class="flex mx-4">
 
