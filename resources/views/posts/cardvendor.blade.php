@@ -1,7 +1,7 @@
 <div class="flex flex-wrap w-full xl:mx-0 ">
     @foreach ($posts as $post)
         <div class="w-full flex flex-col md:w-1/2 lg:w-1/4 xl:w-1/4">
-        <a href="/post/{{ $post->id }}" class="bg-blue-400 flex flex-col flex-1 border border-gray-200 shadow hover:shadow-lg translateY-2px m-4 p-4 active:no-underline transition">
+        <a href="/post/{{ $post->id }}" class="flex flex-col flex-1 border border-gray-200 shadow hover:shadow-lg translateY-2px m-2 p-2 lg:m-4 lg:p-4 active:no-underline transition">
                 @if ($showimage)
                     <div class="aspect-16x9 "
                         style="background:url('{{  Storage::url($post->post_image) }}') no-repeat center center/cover">

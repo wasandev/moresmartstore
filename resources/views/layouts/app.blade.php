@@ -16,7 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Bai Jamjuree:300,400,500,600,"
+    <link href="https://fonts.googleapis.com/css?family=Bai Jamjuree:400,500,600,700"
         rel="stylesheet">
 
         <script src="{{ mix('/js/app.js') }}" defer></script>
