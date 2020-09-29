@@ -415,7 +415,7 @@ ul {
  */
 
 html {
-  font-family: Bai Jamjuree; /* 1 */
+  font-family: Bai Jamjuree, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
   line-height: 1.5; /* 2 */
 }
 
@@ -6183,7 +6183,7 @@ ul {
 }
 
 .font-sans {
-  font-family: Bai Jamjuree;
+  font-family: Bai Jamjuree, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .font-serif {
@@ -16471,14 +16471,6 @@ ul {
   visibility: hidden;
 }
 
-.group:hover .group-hover\:visible {
-  visibility: visible;
-}
-
-.group:hover .group-hover\:invisible {
-  visibility: hidden;
-}
-
 .whitespace-normal {
   white-space: normal;
 }
@@ -24611,7 +24603,7 @@ ul {
   }
 
   .sm\:font-sans {
-    font-family: Bai Jamjuree;
+    font-family: Bai Jamjuree, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
   .sm\:font-serif {
@@ -34899,14 +34891,6 @@ ul {
     visibility: hidden;
   }
 
-  .group:hover .sm\:group-hover\:visible {
-    visibility: visible;
-  }
-
-  .group:hover .sm\:group-hover\:invisible {
-    visibility: hidden;
-  }
-
   .sm\:whitespace-normal {
     white-space: normal;
   }
@@ -43040,7 +43024,7 @@ ul {
   }
 
   .md\:font-sans {
-    font-family: Bai Jamjuree;
+    font-family: Bai Jamjuree, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
   .md\:font-serif {
@@ -53328,14 +53312,6 @@ ul {
     visibility: hidden;
   }
 
-  .group:hover .md\:group-hover\:visible {
-    visibility: visible;
-  }
-
-  .group:hover .md\:group-hover\:invisible {
-    visibility: hidden;
-  }
-
   .md\:whitespace-normal {
     white-space: normal;
   }
@@ -61469,7 +61445,7 @@ ul {
   }
 
   .lg\:font-sans {
-    font-family: Bai Jamjuree;
+    font-family: Bai Jamjuree, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
   .lg\:font-serif {
@@ -71757,14 +71733,6 @@ ul {
     visibility: hidden;
   }
 
-  .group:hover .lg\:group-hover\:visible {
-    visibility: visible;
-  }
-
-  .group:hover .lg\:group-hover\:invisible {
-    visibility: hidden;
-  }
-
   .lg\:whitespace-normal {
     white-space: normal;
   }
@@ -79898,7 +79866,7 @@ ul {
   }
 
   .xl\:font-sans {
-    font-family: Bai Jamjuree;
+    font-family: Bai Jamjuree, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
   .xl\:font-serif {
@@ -90183,14 +90151,6 @@ ul {
   }
 
   .xl\:invisible {
-    visibility: hidden;
-  }
-
-  .group:hover .xl\:group-hover\:visible {
-    visibility: visible;
-  }
-
-  .group:hover .xl\:group-hover\:invisible {
     visibility: hidden;
   }
 

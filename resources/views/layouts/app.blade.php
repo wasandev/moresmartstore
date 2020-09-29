@@ -86,9 +86,9 @@
         gtag('config', 'AW-625418009');
         </script>
         @yield('adsconversion')
-    </head>
+</head>
 
-<body class="font-sans  bg-white  leading-normal tracking-normal antialiased">
+<body class="font-sans h-auto bg-white  leading-normal tracking-normal antialiased">
 
     <div>
 
