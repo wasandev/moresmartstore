@@ -1,11 +1,13 @@
-<div class="flex flex-wrap  w-full h-auto  ">
+<div class="flex flex-wrap w-full ">
     @foreach ($blogs as $blog)
         <div class="w-full  flex flex-col md:w-1/2 lg:w-1/2 xl:w-1/2">
             <a href="/blogs/{{ $blog->slug }}" class="bg-white flex flex-col flex-1  border border-gray-200 hover:shadow-lg translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">
-                <div class="aspect-16x9 "
+                {{-- <div class="aspect-16x9 "
                     style="background:url('{{  Storage::url($blog->blog_image) }}') no-repeat center center/cover">
+                </div> --}}
+                <div class="flex items-center justify-center">
+                    <img class="h-64 w-full object-cover rounded-t" src="{{  Storage::url($blog->blog_image) }}" alt="{{$blog->title}}">
                 </div>
-
 
                 <div class="p-2 flex-1 text-left rounded-b-lg ">
                     <p class="text-base font-semibold text-left text-blue-700 ">{{ $blog->title }}</p>
