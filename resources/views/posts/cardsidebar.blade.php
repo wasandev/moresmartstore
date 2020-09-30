@@ -1,4 +1,4 @@
-<div class="flex flex-col  ">
+<div class="grid grid-cols-1">
     @foreach ($posts as $post)
     <a href="/post/{{ $post->id }}" class="flex flex-col flex-1 rounded-t-lg shadow hover:shadow-lg translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">
         @if ($showimage)

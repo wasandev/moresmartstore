@@ -1,6 +1,6 @@
-<div class="flex flex-wrap  w-full ">
+<div class="grid grid-cols-1  md:grid-cols-2 ">
     @foreach ($vendors as $vendor)
-        <div class="w-full flex flex-col md:w-1/2 lg:w-1/2 xl:w-1/2  ">
+        <div>
             <a href="/vendors/{{ $vendor->id}}" class="flex flex-col flex-1 border border-gray-200  hover:shadow-xl translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">
                 @if ($showimage)
 

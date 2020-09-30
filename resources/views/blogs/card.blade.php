@@ -1,7 +1,7 @@
 <div class="grid grid-cols-1  md:grid-cols-2 ">
     @foreach ($blogs as $blog)
-        <div class="">
-            <a href="/blogs/{{ $blog->slug }}" class="flex flex-col rounded  border border-gray-200 hover:shadow-lg translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">
+        <div>
+            <a href="/blogs/{{ $blog->slug }}" class="flex flex-col  border border-gray-200 hover:shadow-lg translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">
                 <div class="aspect-16x9 "
                     style="background:url('{{  Storage::url($blog->blog_image) }}') no-repeat center center/cover">
                 </div>
