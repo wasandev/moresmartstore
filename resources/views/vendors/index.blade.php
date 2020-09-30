@@ -31,7 +31,7 @@
 
     </div>
     <div class="flex flex-wrap">
-        <nav id = "sidebar-nav" class="md:block w-full hidden lg:w-1/4 ">
+        <nav id = "sidebar-nav" class="sm:block w-full hidden md:w-1/4 ">
             <div class="px-2  sm:flex sm:p-0 ">
                   <div class="grid grid-cols-1 gap-1  p-2 shadow-lg">
 
@@ -43,7 +43,7 @@
                 </div>
             </div>
         </nav>
-        <div class="hidden md:block lg:w-3/4 ">
+        <div class="hidden md:block md:w-3/4 ">
             @include('vendors.listall')
         </div>
     </div>
