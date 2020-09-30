@@ -12,7 +12,7 @@
         <div class="p-2  text-left subpixel-antialiased">
 
             <div class="text-left text-sm  font-thin">
-                <p> {{Str::of( $productvendor->description)->limit(200) }} </p>
+                <p> {{Str::of( $productvendor->description)->limit(120) }} </p>
 
             </div>
             <div class=" text-right">

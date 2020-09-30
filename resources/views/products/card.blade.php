@@ -12,9 +12,9 @@
 
                 <div class="p-2 subpixel-antialiased ">
 
-                        {{-- <div class="mb-3 w-full mx-auto text-left text-sm font-thin ">
-                        <p> {{ Str::of( $product->description)->limit(200) }} </p>
-                        </div> --}}
+                        <div class="mb-3 w-full mx-auto text-left text-sm font-thin ">
+                        <p> {{ Str::of( $product->description)->limit(120) }} </p>
+                        </div>
                         @auth
                             @if (Auth::user()->id == $product->user->id)
 

@@ -11,7 +11,7 @@
 
 @section('content')
 
-<div id="app"  class="max-w-full mx-auto sm:justify-between sm:items-center  sm:py-3">
+<div id="app"  class="max-w-full mx-auto sm:justify-between sm:items-center">
 
     <div class="flex items-center justify-between px-4 py-3 sm:p-0  bg-gray-800 sm:hidden ">
 
@@ -27,12 +27,12 @@
 
     </div>
     <div class="flex flex-wrap">
-        <nav id = "sidebar-nav" class="sm:block w-full hidden text-sm font-medium  md:w-1/4 ">
+        <nav id = "sidebar-nav" class="sm:block w-full hidden md:w-1/4 pt-4  bg-gray-100 shadow">
             <div class="px-2  md:flex md:p-0 ">
-                  <div class="grid grid-cols-1 gap-1  p-2 shadow-lg">
+                  <div class="grid grid-cols-1 p-2 ">
 
                     @foreach ($businessData as $item)
-                        <a href="/vendors/type/{{ $item->id }}" class=" block py-2 px-2  text-gray-100 bg-blue-500 rounded lg:rounded-r-lg border-l-4 border-blue-200 hover:border-red-500 hover:bg-blue-700 hover:text-white">
+                        <a href="/vendors/type/{{ $item->id }}" class="block py-2 px-2 text-sm lg:text-base  text-gray-900   hover:bg-blue-600 hover:text-white">
                             {{ $item->name }}  <span class="text-gray-400">({{ $item->vendors_count }} ธุรกิจ)</span>
                         </a>
                     @endforeach
@@ -47,7 +47,7 @@
             @include('vendors.listbytype')
     </div>
 </div>
-@include('partials.googleads1')
+
 @endsection
 
 @section('footer')

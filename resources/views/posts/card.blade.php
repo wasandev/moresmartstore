@@ -12,10 +12,10 @@
 
                 <div class="p-2 text-left subpixel-antialiased">
 
-                    {{-- <div class="text-left text-sm  font-thin ">
+                    <div class="text-left text-sm  font-thin ">
 
-                        <p> {{ Str::of( $post->content)->limit(200) }} </p>
-                        </div> --}}
+                        <p> {{ Str::of( $post->content)->limit(120) }} </p>
+                        </div>
                     <div class="text-left text-sm  font-thin items-end">
                         <p class="text-blue-500 font-semibold">ชื่อธุรกิจ: {{ $post->vendor->name }}</p>
                         <p class="text-gray-600 text-sm">ผู้โพส: {{ $post->user->name}} </p>

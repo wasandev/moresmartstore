@@ -1,16 +1,16 @@
-    <div class="py-2 px-4">
+    <div class="py-4 px-4">
         <h1 class="font-normal text-3xl text-grey-darkest leading-none mb-4">
             รายชื่อธุรกิจ {{ $btype->name}}
         </h1>
 
         <!-- description -->
-        <div class="mb-4">
+        <div >
             <p>{{ $btype->description }}</p>
         </div>
 
 </div>
 
-<div class="p-4">
+<div class="px-2">
     @if(isset($vendors))
         @include('vendors.card',[
             'showimage' => 1
