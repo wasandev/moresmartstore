@@ -3,21 +3,19 @@
         <div>
         <a href="/post/{{ $post->id }}" class="flex flex-col flex-1 border border-gray-200 hover:shadow-lg translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">
                 @if ($showimage)
-                    {{-- <div class="aspect-16x9"
+                    <div class="aspect-16x9"
                         style="background:url('{{  Storage::url($post->post_image) }}') no-repeat center center/cover">
-                    </div> --}}
-                    <div class="flex items-center justify-center">
-                        <img class=" h-48 w-full object-cover " src="{{  Storage::url($post->post_image) }}" alt="{{$post->title}}">
                     </div>
+
                 @endif
                 <p class="text-base font-semibold text-left text-blue-700 px-2">{{ $post->title }} </p>
 
                 <div class="p-2 text-left subpixel-antialiased">
 
-                    <div class="text-left text-sm  font-thin ">
+                    {{-- <div class="text-left text-sm  font-thin ">
 
                         <p> {{ Str::of( $post->content)->limit(200) }} </p>
-                        </div>
+                        </div> --}}
                     <div class="text-left text-sm  font-thin items-end">
                         <p class="text-blue-500 font-semibold">ชื่อธุรกิจ: {{ $post->vendor->name }}</p>
                         <p class="text-gray-600 text-sm">ผู้โพส: {{ $post->user->name}} </p>

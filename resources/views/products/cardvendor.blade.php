@@ -11,11 +11,11 @@
 
         <div class="p-2  text-left subpixel-antialiased">
 
-            <div class="text-left text-sm flex-1 font-thin">
+            <div class="text-left text-sm  font-thin">
                 <p> {{Str::of( $productvendor->description)->limit(200) }} </p>
 
             </div>
-            <div class="mt-2 text-right">
+            <div class=" text-right">
                 {{ $productvendor->category->name }}
 
             </div>

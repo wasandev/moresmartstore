@@ -2,25 +2,24 @@
     @foreach ($products as $product)
     <a href="/products/{{ $product->id }}" class="flex flex-col flex-1 border border-gray-200 hover:shadow-lg translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">
         @if ($showimage)
-        {{-- <div class="aspect-16x9"
+        <div class="aspect-16x9"
             style="background:url('{{  Storage::url($product->image) }}') no-repeat center center/cover">
 
-        </div> --}}
+        </div>
 
 
         @endif
         <p class="p-2 text-base font-semibold text-left text-blue-700 ">{{ $product->name }} </p>
 
-        <div class="p-2 bg-white  text-left subpixel-antialiased">
+        <div class="px-2 bg-white  text-left subpixel-antialiased">
 
             {{-- <div class="text-left text-sm flex-1 font-thin">
                 <p> {{ Str::of( $product->description)->limit(200) }} </p>
 
             </div> --}}
-            <div class="mt-2 text-left text-sm">
+            <div class=" text-left text-sm">
                 <p class="text-gray-600 text-sm ">ประเภท: {{ $product->category->name }}</p>
                 <p class="text-gray-600 text-sm ">ชื่อธุรกิจ: {{ $product->vendor->name }} </p>
-                <p class="text-gray-600 text-sm ">ผู้โพส: {{ $product->user->name}} </p>
 
             </div>
             <div class="w-full flex flex-row border-t border-gray-100 text-sm font-thin ">
@@ -30,7 +29,7 @@
                 </div>
                 @if (!is_null($product->unit_id))
                 <div class="text-right w-1/2 text-red-500 mt-2">
-                    {{ number_format($product->price,2) }} บาท/{{$product->unit->name}}
+                    ผู้โพส: {{ $product->user->name}}
                 </div>
                 @endif
             </div>
