@@ -27,19 +27,19 @@
 
     </div>
     <div class="flex flex-wrap">
-        <nav id = "sidebar-nav" class="sm:block w-full hidden text-sm font-medium  md:w-1/4 ">
-            <div class="px-2  sm:flex sm:p-0 ">
+        <nav id = "sidebar-nav" class="md:block w-full hidden text-sm font-medium  lg:w-1/4 ">
+            <div class="px-2  md:flex md:p-0 ">
                   <div class="grid grid-cols-1 gap-1  p-2 shadow-lg">
 
                     @foreach ($businessData as $item)
-                        <a href="/vendors/type/{{ $item->id }}" class=" block py-2 px-2 text-base font-medium text-gray-100 bg-blue-500 rounded lg:rounded-r-lg border-l-4 border-blue-200 hover:border-red-500 hover:bg-blue-700 hover:text-white">
+                        <a href="/vendors/type/{{ $item->id }}" class=" block py-2 px-2  text-gray-100 bg-blue-500 rounded lg:rounded-r-lg border-l-4 border-blue-200 hover:border-red-500 hover:bg-blue-700 hover:text-white">
                             {{ $item->name }}  <span class="text-gray-400">({{ $item->vendors_count }} ธุรกิจ)</span>
                         </a>
                     @endforeach
                 </div>
             </div>
         </nav>
-        <div class="hidden md:block md:w-3/4">
+        <div class="hidden md:block lg:w-3/4">
             @include('vendors.listbytype')
         </div>
     </div>
