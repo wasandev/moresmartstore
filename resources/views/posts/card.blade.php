@@ -12,9 +12,9 @@
                 @endif
                 <p class="text-base font-semibold text-left text-blue-700 px-2">{{ $post->title }} </p>
 
-                <div class="p-2 flex flex-col flex-1 text-left subpixel-antialiased">
+                <div class="p-2 text-left subpixel-antialiased">
 
-                    <div class="text-left text-sm flex-1 font-thin ">
+                    <div class="text-left text-sm  font-thin ">
 
                         <p> {{ Str::of( $post->content)->limit(200) }} </p>
                         </div>

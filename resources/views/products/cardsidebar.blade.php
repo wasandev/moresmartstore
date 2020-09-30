@@ -11,7 +11,7 @@
         @endif
         <p class="p-2 text-base font-semibold text-left text-blue-700 ">{{ $product->name }} </p>
 
-        <div class="p-2 bg-white flex flex-col flex-1 text-left subpixel-antialiased">
+        <div class="p-2 bg-white  text-left subpixel-antialiased">
 
             {{-- <div class="text-left text-sm flex-1 font-thin">
                 <p> {{ Str::of( $product->description)->limit(200) }} </p>

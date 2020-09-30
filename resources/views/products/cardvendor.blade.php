@@ -9,7 +9,7 @@
         @endif
         <p class="p-2 text-base font-semibold text-left text-blue-700 ">{{ $productvendor->name }} </p>
 
-        <div class="p-2 flex flex-col flex-1 text-left subpixel-antialiased">
+        <div class="p-2  text-left subpixel-antialiased">
 
             <div class="text-left text-sm flex-1 font-thin">
                 <p> {{Str::of( $productvendor->description)->limit(200) }} </p>

@@ -3,18 +3,16 @@
     <div>
         <a href="/products/{{ $product->id }}" class="flex flex-col flex-1  border border-gray-200 hover:shadow-lg translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">
                 @if ($showimage)
-                    {{-- <div class="aspect-16x9 "
+                    <div class="aspect-16x9 "
                         style="background:url('{{  Storage::url($product->image) }}') no-repeat center center/cover">
-                    </div> --}}
-                     <div class="flex items-center justify-center">
-                        <img class=" h-48 w-full object-cover " src="{{  Storage::url($product->image) }}" alt="{{$product->name}}">
                     </div>
+
                 @endif
                 <p class="text-base font-semibold text-left text-blue-700 px-2">{{ $product->name }} </p>
 
-                <div class="p-2 flex flex-col subpixel-antialiased flex-1">
+                <div class="p-2 subpixel-antialiased ">
 
-                    <div class="mb-3 w-full mx-auto text-left text-sm font-thin flex-1 ">
+                    <div class="mb-3 w-full mx-auto text-left text-sm font-thin ">
                         <p> {{ Str::of( $product->description)->limit(200) }} </p>
                         @auth
                             @if (Auth::user()->id == $product->user->id)
