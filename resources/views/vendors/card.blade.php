@@ -3,15 +3,14 @@
         <div>
             <a href="/vendors/{{ $vendor->id}}" class="flex flex-col flex-1 border border-gray-200  hover:shadow-xl translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">
                 @if ($showimage)
-
-                     <div class="flex items-center justify-center">
-                        <img class=" h-48 w-full object-cover " src="{{  Storage::url($vendor->imagefile) }}" alt="{{$vendor->name}}">
+                    <div class="aspect-16x9"
+                     style="background:url('{{  Storage::url($vendor->imagefile) }}') no-repeat center center/cover">
                     </div>
                 @endif
-                <p class="text-base font-semibold text-left text-blue-700 px-2">{{ $vendor->name }} </p>
+                <p class="text-base font-semibold text-left text-blue-700 p-2">{{ $vendor->name }} </p>
 
 
-                <div class="p-2 bg-white flex flex-col flex-1 subpixel-antialiased">
+                <div class="p-2 bg-white subpixel-antialiased">
                     <p class="w-full  text-sm text-blue-400 flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M5.64 16.36a9 9 0 1 1 12.72 0l-5.65 5.66a1 1 0 0 1-1.42 0l-5.65-5.66zm11.31-1.41a7 7 0 1 0-9.9 0L12 19.9l4.95-4.95zM12 14a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
                         <span>
