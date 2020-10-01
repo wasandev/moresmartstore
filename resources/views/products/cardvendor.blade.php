@@ -1,4 +1,4 @@
-<div class="grid grid-cols-1  md:grid-cols-2 ">
+<div class="grid grid-cols-1 ">
     @foreach ($productvendors as $productvendor)
     <a href="/products/{{ $productvendor->id }}" class=" flex flex-col flex-1 border border-gray-200 hover:shadow-lg translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">
         @if ($showimage)
