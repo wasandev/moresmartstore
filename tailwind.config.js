@@ -696,7 +696,7 @@ module.exports = {
         backgroundRepeat: ['responsive'],
         backgroundSize: ['responsive'],
         borderCollapse: ['responsive'],
-        borderColor: ['responsive', 'hover', 'focus'],
+        borderColor: ['responsive', 'hover', 'focus', "group-hover"],
         borderOpacity: ['responsive', 'hover', 'focus'],
         borderRadius: ['responsive'],
         borderStyle: ['responsive'],
@@ -765,7 +765,7 @@ module.exports = {
         textTransform: ['responsive'],
         userSelect: ['responsive'],
         verticalAlign: ['responsive'],
-        visibility: ['responsive'],
+        visibility: ['responsive', "group-hover"],
         whitespace: ['responsive'],
         width: ['responsive'],
         wordBreak: ['responsive'],
@@ -792,7 +792,9 @@ module.exports = {
         transitionDelay: ['responsive'],
         animation: ['responsive'],
     },
-    corePlugins: {},
+    corePlugins: {
+        container: true,
+    },
     plugins: [
         require('tailwindcss-plugins/pagination')
     ],
