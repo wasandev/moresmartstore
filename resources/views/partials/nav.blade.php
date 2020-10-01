@@ -47,7 +47,7 @@
 
 
 
-        <div id="main-nav" class="lg:block lg:w-auto hidden text-base font-thin  text-left">
+        <div id="main-nav" class="lg:block lg:w-auto hidden text-sm  text-left">
             <div class="lg:flex lg:justify-between items-center ">
                 <a href="/" class="mx-2 block px-3 py-1 text-gray-800 mt-2 lg:mt-0  hover:bg-blue-500 hover:text-gray-100">
                     {{-- <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute mr-2"  width="20" height="20" viewBox="0 0 24 24"><path d="M8 20H3V10H0L10 0l10 10h-3v10h-5v-6H8v6z"/>
