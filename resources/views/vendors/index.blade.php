@@ -27,7 +27,7 @@
 
     </div>
     <div class="flex flex-wrap">
-        <nav id = "sidebar-nav" class="sm:block w-full hidden md:w-1/4 pt-4  shadow-lg">
+        <nav id = "sidebar-nav" class="sm:block w-full mx-auto hidden md:w-1/4 pt-4  shadow-lg">
             <div class="px-2  md:flex md:p-0 ">
                 <div class="grid grid-cols-1 gap-1 p-2 w-full">
                         @foreach ($businessData as $item)
