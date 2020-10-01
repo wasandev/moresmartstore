@@ -6,18 +6,19 @@
         </p>
     </div>
     @endif
+    <div class="px-2">
+        @if(isset($vendors))
 
-    @if(isset($vendors))
-
-        @include('vendors.card',[
-                'showimage' => 1
-            ])
-        {{ $vendors->links('vendor.pagination.tailwind') }}
+            @include('vendors.card',[
+                    'showimage' => 1
+                ])
+            {{ $vendors->links('vendor.pagination.tailwind') }}
 
 
-    @elseif(isset($message))
-        <div class="p-4">
-            <p class="text-red-500">{{ $message }}</p>
-            <a href="/vendors" class="text-blue-500 hover:text-blue-700">แสดงทั้งหมด</a>
-        </div>
-    @endif
+        @elseif(isset($message))
+            <div class="p-4">
+                <p class="text-red-500">{{ $message }}</p>
+                <a href="/vendors" class="text-blue-500 hover:text-blue-700">แสดงทั้งหมด</a>
+            </div>
+        @endif
+    </div>

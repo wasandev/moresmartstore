@@ -27,18 +27,18 @@
 
     </div>
     <div class="flex flex-wrap">
-        <nav id = "sidebar-nav" class="sm:block w-full mx-auto hidden md:w-1/4 pt-4 bg-gray-200 shadow">
+        <nav id = "sidebar-nav" class="sm:block w-full mx-auto hidden md:w-1/4 pt-4 shadow-lg">
             <div class="px-2 md:flex md:p-0 ">
                   <div class="grid grid-cols-1 gap-1 p-2 w-full ">
                     @foreach ($category as $item)
-                        <a href="/products/category/{{ $item->id }}" class="block py-2 px-2 text-sm lg:text-base  text-gray-900 border border-gray-100 rounded   hover:bg-blue-600 hover:text-white">
+                        <a href="/products/category/{{ $item->id }}" class="block py-2 px-2 text-sm lg:text-base  text-white bg-blue-500 border  rounded   hover:bg-blue-600 hover:text-white hover:shadow">
                             {{ $item->name }}
                         </a>
                     @endforeach
                 </div>
             </div>
         </nav>
-        <div class="hidden md:block md:w-3/4 mx-auto">
+        <div class="hidden md:block md:w-3/4">
             @include('products.listall')
         </div>
     </div>
