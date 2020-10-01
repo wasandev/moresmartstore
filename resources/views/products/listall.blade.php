@@ -4,7 +4,7 @@
         <a href="/products" class="text-blue-500 hover:text-blue-700">แสดงทั้งหมด</a>
     </p>
     @endif
-     <div class="px-2">
+     <div class="w-full mx-auto px-2">
         @if(isset($products))
             @include('products.card',[
                 'showimage' => 0

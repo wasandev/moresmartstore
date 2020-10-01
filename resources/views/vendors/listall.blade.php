@@ -6,7 +6,7 @@
         </p>
     </div>
     @endif
-    <div class="px-2">
+    <div class="w-full mx-auto px-2">
         @if(isset($vendors))
 
             @include('vendors.card',[
