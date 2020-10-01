@@ -27,11 +27,11 @@
 
     </div>
     <div class="flex flex-wrap">
-        <nav id = "sidebar-nav" class="sm:block w-full mx-auto hidden md:w-1/4 pt-4 bg-gray-200 shadow">
-            <div class="px-2  sm:flex sm:p-0 ">
+        <nav id = "sidebar-nav" class="sm:block w-full mx-auto hidden md:w-1/4 pt-4 bg-gray-100 shadow">
+            <div class="px-2  md:flex md:p-0 ">
                 <div class="grid grid-cols-1 p-2 gap-1 w-full ">
                         @foreach ($businessData as $item)
-                            <a href="/vendors/type/{{ $item->id }}" class="block py-2 px-2 text-sm lg:text-base  text-gray-900 border border-gray-100 rounded hover:bg-blue-600 hover:text-white">
+                            <a href="/vendors/type/{{ $item->id }}" class="block py-2 px-2 text-sm lg:text-base  text-gray-900 border border-orange-600 rounded hover:bg-blue-600 hover:text-white">
                                 {{ $item->name }}
                             </a>
                         @endforeach
