@@ -38,7 +38,7 @@
                 </div>
             </div>
         </nav>
-        <div class="hidden md:block md:w-3/4">
+        <div class="hidden md:block md:w-3/4 mx-auto">
             @include('products.listall')
         </div>
     </div>

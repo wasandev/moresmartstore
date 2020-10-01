@@ -39,7 +39,7 @@
                 </div>
             </div>
         </nav>
-        <div class="hidden md:block md:w-3/4 ">
+        <div class="hidden md:block mx-auto md:w-3/4 ">
             @include('vendors.listall')
         </div>
     </div>
