@@ -10,7 +10,7 @@
         @if(isset($vendors))
 
             @include('vendors.card',[
-                    'showimage' => 1
+                    'showimage' => 0
                 ])
             {{ $vendors->links('vendor.pagination.tailwind') }}
 
