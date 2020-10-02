@@ -63,37 +63,37 @@ class User extends Resource
         return [
             ID::make()->sortable(),
 
-            Avatar::make('รูปโปรไฟล์','avatar')
+            Avatar::make('รูปโปรไฟล์', 'avatar')
                 ->maxWidth(500),
 
-            Text::make('ชื่อผู้ใช้','name')
+            Text::make('ชื่อผู้ใช้', 'name')
                 ->sortable()
                 ->rules('required', 'max:255'),
 
-            Text::make('อีเมล','email')
+            Text::make('อีเมล', 'email')
                 ->sortable()
                 ->rules('required', 'email', 'max:254')
                 ->creationRules('unique:users,email')
                 ->updateRules('unique:users,email,{{resourceId}}'),
 
-            Password::make('รหัสผ่าน','password')
+            Password::make('รหัสผ่าน', 'password')
                 ->onlyOnForms()
                 ->creationRules('required', 'string', 'min:8')
                 ->updateRules('nullable', 'string', 'min:8'),
             Text::make('โทรศัพท์', 'mobile'),
             Select::make('สิทธิ์การใช้งาน', 'role')->options([
-                    'admin' => 'Admin',
-                    'member' => 'Member',
-                ])->displayUsingLabels()
-                  ->canSee(function ($request) {
+                'admin' => 'Admin',
+                'member' => 'Member',
+            ])->displayUsingLabels()
+                ->canSee(function ($request) {
                     return $request->user()->role == 'admin';
-                    }),
+                }),
             BelongsToMany::make('กำหนดสิทธิ์การใช้งาน', 'roles', \Pktharindu\NovaPermissions\Nova\Role::class)
                 ->canSee(function ($request) {
                     return $request->user()->role == 'admin';
-                    }),
-            HasMany::make('รายชื่อธุรกิจ','vendors','App\Nova\Vendor'),
-           //HasMany::make('รายการโพส','posts','App\Nova\Post')
+                }),
+            HasMany::make('รายชื่อธุรกิจ', 'vendors', 'App\Nova\Vendor'),
+            //HasMany::make('รายการโพส','posts','App\Nova\Post')
         ];
     }
 
@@ -140,10 +140,9 @@ class User extends Resource
     {
         return [
             (new SendMail)
-            ->canSee(function ($request) {
-                return $request->user()->role == 'admin' ;
-
-            }),
+                ->canSee(function ($request) {
+                    return $request->user()->role == 'admin';
+                }),
         ];
     }
     public static function indexQuery(NovaRequest $request, $query)
