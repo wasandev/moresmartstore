@@ -26,16 +26,18 @@
                 <h1 class="font-bold text-xl py-2 text-blue-500">{{ $blog->title }}</h1>
 
                 <p class="text-gray-700 mt-2 py-2">{!! $blog->blog_content !!}</p>
-                <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M17.56 17.66a8 8 0 0 1-11.32 0L1.3 12.7a1 1 0 0 1 0-1.42l4.95-4.95a8 8 0 0 1 11.32 0l4.95 4.95a1 1 0 0 1 0 1.42l-4.95 4.95zm-9.9-1.42a6 6 0 0 0 8.48 0L20.38 12l-4.24-4.24a6 6 0 0 0-8.48 0L3.4 12l4.25 4.24zM11.9 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
+                <p class="text-sm"> วันที่เผยแพร่: {{formatDateThai( $blog->published_at )}}</p>
 
-                <span class="pl-8 py-2 text-sm">{{  $blog->visits()->count() }} </span>
             </div>
 
 
             <div class="p-4 flex flex-row justify-between leading-normal border-t border-gray-300 bg-white">
 
                     <div class=" w-1/2">
-                        วันที่เผยแพร่: {{formatDateThai( $blog->published_at )}}
+                         <svg xmlns="http://www.w3.org/2000/svg" class="fill-current absolute" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M17.56 17.66a8 8 0 0 1-11.32 0L1.3 12.7a1 1 0 0 1 0-1.42l4.95-4.95a8 8 0 0 1 11.32 0l4.95 4.95a1 1 0 0 1 0 1.42l-4.95 4.95zm-9.9-1.42a6 6 0 0 0 8.48 0L20.38 12l-4.24-4.24a6 6 0 0 0-8.48 0L3.4 12l4.25 4.24zM11.9 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
+
+                        <span class="pl-8 py-2 text-sm">{{  $blog->visits()->count() }} </span>
+
                     </div>
 
                     <div class="w-1/2 items-center text-right">
