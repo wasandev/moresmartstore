@@ -22,7 +22,7 @@
     @endif
     @if(isset($posts))
         @include('posts.card',[
-            'showimage' => 1
+            'showimage' => 0
         ])
         <div class="p-4">
             {{ $posts->links('vendor.pagination.tailwind') }}
