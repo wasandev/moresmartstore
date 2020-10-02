@@ -8,7 +8,7 @@
         'target' => '_self'
     ])
     <div class="w-full">
-        <div class="grid grid-cols-2  md:grid-cols-3 ">
+        <div class="grid grid-cols-2  md:grid-cols-4 ">
 
             @foreach ($businesstypes as $businesstype)
 
