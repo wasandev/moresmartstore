@@ -17,7 +17,7 @@
             <div class=" mx-auto flex mt-4 justify-center ">
                 <a href="/home"
                     class=" ml-4 rounded-lg px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 text-white bg-red-600 hover:bg-blue-600 text-sm  leading-tight shadow-md">
-                    โปรโมทธุรกิจ ฟรี!
+                    เพิ่มรายชื่อธุรกิจ
                 </a>
                 <a href="/pages"
                     class=" ml-4 rounded-lg px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 text-white bg-blue-500 hover:bg-red-600 text-sm  leading-tight shadow-md">
