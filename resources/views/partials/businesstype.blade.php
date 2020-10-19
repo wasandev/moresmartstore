@@ -12,8 +12,8 @@
 
             @foreach ($businesstypes as $businesstype)
 
-                    <a href="/vendors/type/{{ $businesstype->id }}" class="flex flex-col  rounded items-left hover:shadow-md translateY-2px m-2 p-2 no-underline transition bg-yellow-300 text-gray-800 hover:text-gray-100  hover:bg-blue-700 ">
-                        <div class="flex-1">
+                    <a href="/vendors/type/{{ $businesstype->id }}" class="rounded items-left hover:shadow-md translateY-2px m-2 p-2 no-underline transition bg-yellow-300 text-gray-800 hover:text-gray-100  hover:bg-blue-700 ">
+                        <div class="p-2">
                             <svg class="fill-current absolute " width="20" height="20"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                 <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2 2v10h16V6H2z"/>
