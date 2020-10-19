@@ -8,19 +8,19 @@
         'target' => '_self'
     ])
     <div class="w-full">
-        <div class="grid grid-cols-2  md:grid-cols-4 ">
+        <div class="grid grid-cols-2  md:grid-cols-4 gap-1">
 
             @foreach ($businesstypes as $businesstype)
 
-                    <a href="/vendors/type/{{ $businesstype->id }}" class="flex flex-col flex-1 rounded  hover:shadow-md translateY-2px m-4 p-2 no-underline transition bg-blue-300 text-gray-900 hover:text-gray-100  hover:bg-blue-700 ">
+                    <a href="/vendors/type/{{ $businesstype->id }}" class="flex flex-col  rounded  hover:shadow-md translateY-2px m-2 p-2 no-underline transition bg-yellow-300 text-gray-800 hover:text-gray-100  hover:bg-blue-700 ">
                         <div class="">
-                            <svg class="fill-current mt-4 ml-2" width="40" height="40"
+                            <svg class="fill-current mt-2" width="40" height="40"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                 <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2 2v10h16V6H2z"/>
                             </svg>
                         </div>
-                        <div class="p-2 mt-1 space-y-0 flex-1 ">
-                            <p class="mb-2 text-sm font-thin ">{{ $businesstype->name }} ( {{ $businesstype->vendors_count }} ธุรกิจ )</p>
+                        <div class=" flex-1 ">
+                            <p class="text-sm font-thin ">{{ $businesstype->name }} ( {{ $businesstype->vendors_count }} ธุรกิจ )</p>
                          </div>
 
                     </a>
