@@ -7,12 +7,12 @@
         'linktext' => 'แสดงทั้งหมด',
         'target' => '_self'
     ])
-    <div class="w-full">
+    <div class="w-full mx-auto">
         <div class="grid grid-cols-2  md:grid-cols-4">
 
             @foreach ($businesstypes as $businesstype)
 
-                    <a href="/vendors/type/{{ $businesstype->id }}" class="rounded items-left hover:shadow-md translateY-2px m-2 p-2 no-underline transition bg-yellow-300 text-gray-800 hover:text-gray-100  hover:bg-blue-700 ">
+                    <a href="/vendors/type/{{ $businesstype->id }}" class="flex flex-col flex-1 rounded items-left hover:shadow-md  m-2 p-2 no-underline transition bg-yellow-300 text-gray-800 hover:text-gray-100  hover:bg-blue-700 ">
                         <div class="p-2">
                             <svg class="fill-current absolute " width="20" height="20"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
