@@ -25,7 +25,7 @@
 
             </div>
             <div class="lg:ml-16">
-                <a href="https://www.facebook.com/moresmartstore" target="_blank"
+                <a href="fb://page/1434260050125109"
                 class="text-blue-500 hover:text-blue-700">
                     <svg class=" h-8 w-8 fill-current" viewBox="0 0 24 24">
                     <path d="M17,1H3C1.9,1,1,1.9,1,3v14c0,1.101,0.9,2,2,2h7v-7H8V9.525h2V7.475c0-2.164,1.212-3.684,3.766-3.684l1.803,0.002v2.605
