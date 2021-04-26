@@ -16,6 +16,7 @@
         "fruitcake/laravel-cors": "^1.0",
         "gregoriohc/laravel-nova-theme-responsive": "^0.8.1",
         "guzzlehttp/guzzle": "^6.3",
+        "jenssegers/agent": "^2.6",
         "jfeid/nova-google-maps": "^1.1",
         "kirschbaum-development/nova-mail": "^0.1.0",
         "laravel/framework": "^7.0",
