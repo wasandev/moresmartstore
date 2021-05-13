@@ -245,7 +245,7 @@ module.exports = {
         },
         fontFamily: {
             sans: [
-                'Kodchasan',
+                'Chakra Petch',
                 'system-ui',
                 '-apple-system',
                 'BlinkMacSystemFont',
