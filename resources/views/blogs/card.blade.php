@@ -12,7 +12,7 @@
 
 
                 </div>
-                  {{-- <p class="text-sm text-gray-600"> {!! Str::of( $blog->blog_content)->limit(150) !!} </p> --}}
+                  <p class="text-sm text-gray-600"> {!! Str::of( $blog->blog_content)->limit(200) !!} </p>
 
                 <div class="px-2 flex flex-row w-full justify-between  border-t border-gray-100 text-sm font-thin ">
 
