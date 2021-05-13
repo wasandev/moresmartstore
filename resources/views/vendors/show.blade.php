@@ -18,15 +18,7 @@
         <div class="w-full">
 
 
-            {{-- <div class="w-full p-2">
-                @include('partials.headbar',[
-                    'svg' => '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class="fill-current absolute"><path d="M2 2c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v18l-8-4-8 4V2z"/></svg>',
-                    'title' => 'หน้าธุรกิจ',
-                    'link' => '/vendors',
-                    'linktext' => 'แสดงทั้งหมด',
-                    'target' => '_self'
-                ])
-            </div> --}}
+
             <div class="w-full lg:max-w-full mx-auto lg:flex p-4 rounded-lg">
                 {{-- <div class="h-64 lg:h-auto lg:w-1/2 flex-none  bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-left  overflow-hidden" style="background:url('{{  Storage::url($vendor->imagefile) }}') " title="{{ $vendor->name }}">
                 </div> --}}
@@ -58,19 +50,33 @@
 
                             </div>
                             <p class="w-full bg-gray-200 py-2 mb-2 px-4 text-sm text-gray-600 flex items-center rounded-lg mt-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M5.64 16.36a9 9 0 1 1 12.72 0l-5.65 5.66a1 1 0 0 1-1.42 0l-5.65-5.66zm11.31-1.41a7 7 0 1 0-9.9 0L12 19.9l4.95-4.95zM12 14a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
-                                <span class=" text-base ml-2">
+                                 <span class=" text-base ml-2">
                                     {{$vendor->address}}  {{ $vendor->sub_district}} {{$vendor->district}}
                                     {{$vendor->province}}  {{ $vendor->postal_code}}
                                 </span>
 
                             </p>
 
+                            <div class="lg:w-full w-full lg:p-4 text-gray-800 text-base text-left mt-2 ">{{ $vendor->description }}
+                            </div>
+
                         </div>
 
 
 
-                        <div class="flex lg:flex-row flex-col p-2 text-base font-semibold lg:justify-center text-center ">
+
+                </div>
+
+            </div>
+        @if (!empty($vendor->location_lat) || !empty($vendor->location_lat  ))
+
+                <div class="lg:w-1/2 w-full  bg-white text-center ">
+                        @include('vendors.googlemap')
+                    </div>
+
+
+            @endif
+            <div class="flex lg:flex-row flex-col p-2 text-base font-semibold lg:justify-center text-center ">
 
 
                             @if(!empty($vendor->phoneno))
@@ -125,22 +131,6 @@
                                 data-layout="box_count">
                             </div>
                         </div>
-                </div>
-
-            </div>
-
-            <div class="lg:flex lg:flex-row p-4 mx-4 mt-4 rounded-lg border bg-white text-right ">
-                @if (!empty($vendor->location_lat) || !empty($vendor->location_lat  ))
-                <div class="lg:w-1/2 w-full lg:p-4 text-gray-800 text-base text-left mt-2 ">{{ $vendor->description }}</div>
-
-                <div class="lg:w-1/2 w-full  bg-white text-center ">
-                        @include('vendors.googlemap')
-                    </div>
-                @else
-                    <div class="lg:w-full w-full lg:p-4 text-gray-800 text-base text-left mt-2 ">{{ $vendor->description }}</div>
-
-                @endif
-            </div>
             <div class="lg:flex lg:justify-between rounded-lg p-4">
                                 <div class="flex flex-col items-center lg:w-1/2 w-full lg:flex lg:flex-row mx-auto">
                                     <img class=" lg:w-14 lg:h-14  w-16 h-16 rounded-full lg:mr-2" src="{{  Storage::url($vendor->user->avatar) }}" alt="{{ $vendor->user->name }}">
