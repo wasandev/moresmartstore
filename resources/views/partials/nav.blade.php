@@ -69,32 +69,32 @@
                     </svg>
                     <span class="ml-6">MENU</span>
                 </button>
-                 <div class="hidden bg-black  text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mb-1" style="min-width:12rem" id="dropdown-id">
-                    <a href="/" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-100 hover:bg-white hover:text-black">
+                 <div class="hidden bg-gray-600  text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mb-1" style="min-width:12rem" id="dropdown-id">
+                    <a href="/" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap  text-gray-100 hover:bg-white hover:text-black">
                     หน้าหลัก
                     </a>
-                    <a href="/vendors" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-100 hover:bg-white hover:text-black">
+                    <a href="/vendors" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap  text-gray-100 hover:bg-white hover:text-black">
                     ข้อมูลธุรกิจ
                     </a>
-                    <a href="/products" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-100 hover:bg-white hover:text-black">
+                    <a href="/products" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap  text-gray-100 hover:bg-white hover:text-black">
                     สินค้า/บริการ
                     </a>
-                    <a href="/post" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-100 hover:bg-white hover:text-black">
+                    <a href="/post" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap  text-gray-100 hover:bg-white hover:text-black">
                     โพส
                     </a>
-                     <a href="/blogs" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-100 hover:bg-white hover:text-black">
+                     <a href="/blogs" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap  text-gray-100 hover:bg-white hover:text-black">
                     บทความ
                     </a>
-                     <a href="/pages" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-100 hover:bg-white hover:text-black">
+                     <a href="/pages" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap  text-gray-100 hover:bg-white hover:text-black">
                     About
                     </a>
                      @auth
                         <div class="h-0 my-2 border border-solid border-t-0 border-blueGray-800 opacity-25"></div>
-                            <a href="/home" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-100 hover:bg-white hover:text-black">
+                            <a href="/home" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap  text-gray-100 hover:bg-white hover:text-black">
                             เพิ่มธุรกิจ
                             </a>
                         <div class="h-0 my-2 border border-solid border-t-0 border-blueGray-800 opacity-25"></div>
-                        <a href="{{ route('logout') }}" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-100 hover:bg-white hover:text-black"
+                        <a href="{{ route('logout') }}" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap  text-gray-100 hover:bg-white hover:text-black"
                         onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
                             Logout
@@ -105,7 +105,7 @@
                     @else
 
                      <div class="h-0 my-2 border border-solid border-t-0 border-blueGray-800 opacity-25"></div>
-                    <a href="{{ route('login') }}" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-100 hover:bg-white hover:text-black">
+                    <a href="{{ route('login') }}" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap  text-gray-100 hover:bg-white hover:text-black">
                     Login
                     </a>
                     @endauth

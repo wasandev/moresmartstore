@@ -7,7 +7,7 @@
     @include('partials.search')
 @endsection
 
-@section('mstorehome')
+{{-- @section('mstorehome')
     @include('partials.mstorehome')
 @endsection
 
@@ -15,7 +15,7 @@
 
 @section('businesstype')
     @include('partials.businesstype')
-@endsection
+@endsection --}}
 
 
 
