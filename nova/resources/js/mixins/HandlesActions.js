@@ -63,6 +63,13 @@ export default {
     },
 
     /**
+     * Close the action response modal.
+     */
+    closeActionResponseModal() {
+      this.showActionResponseModal = false
+    },
+
+    /**
      * Initialize all of the action fields to empty strings.
      */
     initializeActionFields() {
@@ -78,11 +85,6 @@ export default {
      */
     executeAction() {
       this.working = true
-
-      if (this.selectedResources.length == 0) {
-        alert(this.__('Please select a resource to perform this action on.'))
-        return
-      }
 
       Nova.request({
         method: 'post',
@@ -122,7 +124,10 @@ export default {
      * Handle the action response. Typically either a message, download or a redirect.
      */
     handleActionResponse(data) {
-      if (data.message) {
+      if (data.modal) {
+        this.actionResponseData = data
+        this.showActionResponseModal = true
+      } else if (data.message) {
         this.$emit('actionExecuted')
         Nova.$emit('action-executed')
         Nova.success(data.message)
@@ -200,11 +205,30 @@ export default {
     },
 
     /**
+     * Get all of the available actions for the resource.
+     */
+    availableActions() {
+      return _(this.actions)
+        .filter(action => {
+          if (this.selectedResources.length == 0) {
+            return action.standalone
+          }
+
+          return true
+        })
+        .value()
+    },
+
+    /**
      * Get all of the available pivot actions for the resource.
      */
     availablePivotActions() {
       return _(this.pivotActions.actions)
         .filter(action => {
+          if (this.selectedResources.length == 0) {
+            return action.standalone
+          }
+
           if (this.selectedResources != 'all') {
             return true
           }

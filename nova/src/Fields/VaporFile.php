@@ -213,6 +213,10 @@ class VaporFile extends Field implements StorableContract, DeletableContract, Do
      */
     protected function fillAttribute(NovaRequest $request, $requestAttribute, $model, $attribute)
     {
+        if (is_null(optional($request->input('vaporFile'))[$requestAttribute])) {
+            return;
+        }
+
         $result = call_user_func(
             $this->storageCallback,
             $request,

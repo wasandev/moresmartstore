@@ -44,9 +44,11 @@
         :panel="panel"
       >
         <div v-if="panel.showToolbar" class="flex items-center mb-3">
-          <heading :level="1" class="flex-no-shrink">{{ panel.name }}</heading>
+          <heading :level="1" class="flex-auto truncate">{{
+            panel.name
+          }}</heading>
 
-          <div class="ml-3 w-full flex items-center">
+          <div class="ml-3 flex items-center">
             <custom-detail-toolbar
               :resource="resource"
               :resource-name="resourceName"
@@ -141,7 +143,7 @@
               <icon
                 type="edit"
                 class="text-white"
-                style="margin-top: -2px; margin-left: 3px;"
+                style="margin-top: -2px; margin-left: 3px"
               />
             </router-link>
           </div>
@@ -157,11 +159,23 @@ import {
   Errors,
   Deletable,
   Minimum,
+  mapProps,
   HasCards,
 } from 'laravel-nova'
 
 export default {
-  props: ['resourceName', 'resourceId'],
+  metaInfo() {
+    if (this.resourceInformation && this.title) {
+      return {
+        title: this.__(':resource Details: :title', {
+          resource: this.resourceInformation.singularLabel,
+          title: this.title,
+        }),
+      }
+    }
+  },
+
+  props: mapProps(['resourceName', 'resourceId']),
 
   mixins: [Deletable, HasCards, InteractsWithResourceInformation],
 
@@ -169,6 +183,7 @@ export default {
     initialLoading: true,
     loading: true,
 
+    title: null,
     resource: null,
     panels: [],
     actions: [],
@@ -182,6 +197,7 @@ export default {
     resourceId: function (newResourceId, oldResourceId) {
       if (newResourceId != oldResourceId) {
         this.initializeComponent()
+        this.fetchCards()
       }
     },
   },
@@ -193,14 +209,14 @@ export default {
     if (Nova.missingResource(this.resourceName))
       return this.$router.push({ name: '404' })
 
-    document.addEventListener('keydown', this.handleKeydown)
+    Nova.addShortcut('e', this.handleKeydown)
   },
 
   /**
-   * Unbind the keydown even listener when the component is destroyed
+   * Unbind the keydown even listener when the before component is destroyed
    */
-  destroyed() {
-    document.removeEventListener('keydown', this.handleKeydown)
+  beforeDestroy() {
+    Nova.disableShortcut('e')
   },
 
   /**
@@ -217,13 +233,9 @@ export default {
     handleKeydown(e) {
       if (
         this.resource.authorizedToUpdate &&
-        !e.ctrlKey &&
-        !e.altKey &&
-        !e.metaKey &&
-        !e.shiftKey &&
-        e.keyCode == 69 &&
         e.target.tagName != 'INPUT' &&
-        e.target.tagName != 'TEXTAREA'
+        e.target.tagName != 'TEXTAREA' &&
+        e.target.contentEditable != 'true'
       ) {
         this.$router.push({
           name: 'edit',
@@ -253,7 +265,8 @@ export default {
           '/nova-api/' + this.resourceName + '/' + this.resourceId
         )
       )
-        .then(({ data: { panels, resource } }) => {
+        .then(({ data: { title, panels, resource } }) => {
+          this.title = title
           this.panels = panels
           this.resource = resource
           this.loading = false
@@ -295,10 +308,11 @@ export default {
             resourceId: this.resourceId,
             editing: true,
             editMode: 'create',
+            display: 'detail',
           },
         })
         .then(response => {
-          this.actions = _.filter(response.data.actions, a => a.showOnDetail)
+          this.actions = response.data.actions
         })
     },
 
@@ -338,18 +352,30 @@ export default {
      * Show the confirmation modal for deleting or detaching a resource
      */
     async confirmDelete() {
-      this.deleteResources([this.resource], () => {
+      this.deleteResources([this.resource], response => {
         Nova.success(
           this.__('The :resource was deleted!', {
             resource: this.resourceInformation.singularLabel.toLowerCase(),
           })
         )
 
-        if (!this.resource.softDeletes) {
-          this.$router.push({
-            name: 'index',
-            params: { resourceName: this.resourceName },
+        if (response && response.data && response.data.redirect) {
+          this.$router.push({ path: response.data.redirect }, () => {
+            window.scrollTo(0, 0)
           })
+          return
+        }
+
+        if (!this.resource.softDeletes) {
+          this.$router.push(
+            {
+              name: 'index',
+              params: { resourceName: this.resourceName },
+            },
+            () => {
+              window.scrollTo(0, 0)
+            }
+          )
           return
         }
 
@@ -406,12 +432,17 @@ export default {
      * Show the confirmation modal for force deleting
      */
     async confirmForceDelete() {
-      this.forceDeleteResources([this.resource], () => {
+      this.forceDeleteResources([this.resource], response => {
         Nova.success(
           this.__('The :resource was deleted!', {
             resource: this.resourceInformation.singularLabel.toLowerCase(),
           })
         )
+
+        if (response && response.data && response.data.redirect) {
+          this.$router.push({ path: response.data.redirect })
+          return
+        }
 
         this.$router.push({
           name: 'index',

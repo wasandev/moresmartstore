@@ -126,10 +126,10 @@ class Category extends Resource
     public function actions(Request $request)
     {
         return [
-            (new Actions\ImportCategory)
-            ->canSee(function ($request) {
-                return $request->user()->role == 'admin';
-                }),
+            // (new Actions\ImportCategory)
+            // ->canSee(function ($request) {
+            //     return $request->user()->role == 'admin';
+            //     }),
             (new Actions\SetCategoryActive)
                 ->confirmText('ต้องการเผยแพร่รายการที่เลือก?')
                 ->confirmButtonText('เผยแพร่')

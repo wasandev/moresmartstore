@@ -37,7 +37,7 @@
         v-if="!shouldShowDropdownArrow && !disabled"
         tabindex="-1"
         class="absolute p-2 inline-block"
-        style="right: 4px; top: 6px;"
+        style="right: 4px; top: 6px"
       >
         <svg
           class="block fill-current icon h-2 w-2"
@@ -78,7 +78,7 @@
         ref="container"
         class="search-input-options relative overflow-y-scroll scrolling-touch text-sm"
         tabindex="-1"
-        style="max-height: 155px;"
+        style="max-height: 155px"
       >
         <div
           v-for="(option, index) in data"
@@ -187,14 +187,21 @@ export default {
   },
 
   mounted() {
-    document.addEventListener('keydown', e => {
-      if (this.show && (e.keyCode == 9 || e.keyCode == 27)) {
-        setTimeout(() => this.close(), 50)
-      }
-    })
+    document.addEventListener('keydown', this.handleEscape)
+  },
+
+  beforeDestroy() {
+    document.removeEventListener('keydown', this.handleEscape)
   },
 
   methods: {
+    handleEscape(e) {
+      // 'tab' or 'escape'
+      if (this.show && (e.keyCode == 9 || e.keyCode == 27)) {
+        setTimeout(() => this.close(), 50)
+      }
+    },
+
     getTrackedByKey(option) {
       return _.get(option, this.trackBy)
     },

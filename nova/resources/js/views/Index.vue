@@ -2,6 +2,7 @@
   <loading-view
     :loading="initialLoading"
     :dusk="resourceName + '-index-component'"
+    :data-relationship="viaRelationship"
   >
     <custom-index-header
       v-if="!viaResource"
@@ -47,6 +48,7 @@
           v-model="search"
           @keydown.stop="performSearch"
           @search="performSearch"
+          spellcheck="false"
         />
       </div>
 
@@ -82,7 +84,8 @@
             shouldShowDeleteMenu ||
             softDeletes ||
             !viaResource ||
-            hasFilters,
+            hasFilters ||
+            haveStandaloneActions,
         }"
       >
         <div class="flex items-center">
@@ -104,6 +107,7 @@
                       <checkbox-with-label
                         :checked="selectAllChecked"
                         @input="toggleSelectAll"
+                        dusk="select-all-button"
                       >
                         {{ __('Select All') }}
                       </checkbox-with-label>
@@ -131,11 +135,19 @@
         </div>
 
         <div class="flex items-center ml-auto px-3">
+          <resource-polling-button
+            v-if="shouldShowPollingToggle"
+            :currently-polling="currentlyPolling"
+            @start-polling="startPolling"
+            @stop-polling="stopPolling"
+            class="mr-1"
+          />
+
           <!-- Action Selector -->
           <action-selector
-            v-if="selectedResources.length > 0"
+            v-if="selectedResources.length > 0 || haveStandaloneActions"
             :resource-name="resourceName"
-            :actions="actions"
+            :actions="availableActions"
             :pivot-actions="pivotActions"
             :pivot-name="pivotName"
             :query-string="{
@@ -177,10 +189,8 @@
             :via-has-one="viaHasOne"
             :trashed="trashed"
             :per-page="perPage"
-            :per-page-options="perPageOptions"
-            :show-trashed-option="
-              authorizedToForceDeleteAnyResources ||
-              authorizedToRestoreAnyResources
+            :per-page-options="
+              perPageOptions || resourceInformation.perPageOptions
             "
             @clear-selected-filters="clearSelectedFilters"
             @filter-changed="filterChanged"
@@ -243,7 +253,10 @@
               />
             </svg>
 
-            <h3 class="text-base text-80 font-normal mb-6">
+            <h3
+              class="text-base text-80 font-normal"
+              :class="{ 'mb-6': authorizedToCreate && !resourceIsFull }"
+            >
               {{
                 __('No :resource matched the given criteria.', {
                   resource: singularName.toLowerCase(),
@@ -323,22 +336,24 @@
 </template>
 
 <script>
-import { Capitalize, Inflector, SingularOrPlural } from 'laravel-nova'
 import {
-  Errors,
+  Capitalize,
   Deletable,
   Filterable,
   HasCards,
+  InteractsWithQueryString,
+  InteractsWithResourceInformation,
   Minimum,
   Paginatable,
   PerPageable,
-  InteractsWithQueryString,
-  InteractsWithResourceInformation,
   mapProps,
 } from 'laravel-nova'
+import HasActions from '@/mixins/HasActions'
+import { CancelToken, Cancel } from 'axios'
 
 export default {
   mixins: [
+    HasActions,
     Deletable,
     Filterable,
     HasCards,
@@ -348,7 +363,20 @@ export default {
     InteractsWithQueryString,
   ],
 
+  metaInfo() {
+    if (this.shouldOverrideMeta) {
+      return {
+        title: this.__(`${this.resourceInformation.label}`),
+      }
+    }
+  },
+
   props: {
+    shouldOverrideMeta: {
+      type: Boolean,
+      default: true,
+    },
+
     field: {
       type: Object,
     },
@@ -369,10 +397,17 @@ export default {
       type: Boolean,
       default: false,
     },
+
+    initialPerPage: {
+      type: Number,
+      required: false,
+    },
   },
 
   data: () => ({
-    actionEventsRefresher: null,
+    debouncer: null,
+    canceller: null,
+    pollingListener: null,
     initialLoading: true,
     loading: true,
 
@@ -385,9 +420,6 @@ export default {
 
     deleteModalOpen: false,
 
-    actions: [],
-    pivotActions: null,
-
     search: '',
     lenses: [],
 
@@ -399,6 +431,8 @@ export default {
 
     // Load More Pagination
     currentPageLoadMore: null,
+
+    currentlyPolling: false,
   }),
 
   /**
@@ -408,10 +442,15 @@ export default {
     if (Nova.missingResource(this.resourceName))
       return this.$router.push({ name: '404' })
 
+    this.debouncer = _.debounce(
+      callback => callback(),
+      this.resourceInformation.debounce
+    )
+
     // Bind the keydown even listener when the router is visited if this
     // component is not a relation on a Detail page
     if (!this.viaResource && !this.viaResourceId) {
-      document.addEventListener('keydown', this.handleKeydown)
+      Nova.addShortcut('c', this.handleKeydown)
     }
 
     this.initializeSearchFromQueryString()
@@ -419,7 +458,7 @@ export default {
     this.initializeTrashedFromQueryString()
     this.initializeOrderingFromQueryString()
 
-    this.perPage = this.resourceInformation.perPageOptions[0]
+    this.currentlyPolling = this.resourceInformation.polling
 
     await this.initializeFilters()
     await this.getResources()
@@ -444,38 +483,39 @@ export default {
         )
       },
       () => {
+        if (this.canceller !== null) this.canceller()
+
         this.getResources()
       }
     )
 
-    // Refresh the action events
-    if (this.resourceName === 'action-events') {
-      Nova.$on('refresh-action-events', () => {
-        this.getResources()
-      })
+    Nova.$on('refresh-resources', () => {
+      this.getResources()
+    })
 
-      this.actionEventsRefresher = setInterval(() => {
-        if (document.hasFocus()) {
-          this.getResources()
-        }
-      }, 15 * 1000)
+    if (this.resourceInformation.polling) {
+      this.startPolling()
     }
-  },
-
-  beforeRouteUpdate(to, from, next) {
-    next()
-    this.initializeState(false)
   },
 
   /**
-   * Unbind the keydown even listener when the component is destroyed
+   * Unbind the keydown even listener when the before component is destroyed
    */
-  destroyed() {
-    if (this.actionEventsRefresher) {
-      clearInterval(this.actionEventsRefresher)
+  beforeDestroy() {
+    if (this.pollingListener) {
+      clearInterval(this.pollingListener)
     }
 
-    document.removeEventListener('keydown', this.handleKeydown)
+    if (!this.viaResource && !this.viaResourceId) {
+      Nova.disableShortcut('c')
+    }
+  },
+
+  watch: {
+    $route(to, from) {
+      this.initializeSearchFromQueryString()
+      this.initializeState(false)
+    },
   },
 
   methods: {
@@ -486,13 +526,9 @@ export default {
       // `c`
       if (
         this.authorizedToCreate &&
-        !e.ctrlKey &&
-        !e.altKey &&
-        !e.metaKey &&
-        !e.shiftKey &&
-        e.keyCode == 67 &&
         e.target.tagName != 'INPUT' &&
-        e.target.tagName != 'TEXTAREA'
+        e.target.tagName != 'TEXTAREA' &&
+        e.target.contentEditable != 'true'
       ) {
         this.$router.push({
           name: 'create',
@@ -552,22 +588,32 @@ export default {
         return Minimum(
           Nova.request().get('/nova-api/' + this.resourceName, {
             params: this.resourceRequestQueryString,
+            cancelToken: new CancelToken(canceller => {
+              this.canceller = canceller
+            }),
           }),
           300
-        ).then(({ data }) => {
-          this.resources = []
+        )
+          .then(({ data }) => {
+            this.resources = []
 
-          this.resourceResponse = data
-          this.resources = data.resources
-          this.softDeletes = data.softDeletes
-          this.perPage = data.per_page
+            this.resourceResponse = data
+            this.resources = data.resources
+            this.softDeletes = data.softDeletes
+            this.perPage = data.per_page
+            this.allMatchingResourceCount = data.total
 
-          this.loading = false
+            this.loading = false
 
-          this.getAllMatchingResourceCount()
+            Nova.$emit('resources-loaded')
+          })
+          .catch(e => {
+            if (e instanceof Cancel) {
+              return
+            }
 
-          Nova.$emit('resources-loaded')
-        })
+            throw e
+          })
       })
     },
 
@@ -629,6 +675,7 @@ export default {
     getActions() {
       this.actions = []
       this.pivotActions = null
+
       return Nova.request()
         .get(`/nova-api/${this.resourceName}/actions`, {
           params: {
@@ -636,10 +683,11 @@ export default {
             viaResourceId: this.viaResourceId,
             viaRelationship: this.viaRelationship,
             relationshipType: this.relationshipType,
+            display: 'index',
           },
         })
         .then(response => {
-          this.actions = _.filter(response.data.actions, a => a.showOnIndex)
+          this.actions = response.data.actions
           this.pivotActions = response.data.pivotActions
         })
     },
@@ -658,8 +706,6 @@ export default {
         }
       })
     },
-
-    debouncer: _.debounce(callback => callback(), 500),
 
     /**
      * Clear the selected resouces and the "select all" states.
@@ -768,7 +814,7 @@ export default {
         this.resourceResponse = data
         this.resources = [...this.resources, ...data.resources]
 
-        this.getAllMatchingResourceCount()
+        this.allMatchingResourceCount = data.total
 
         Nova.$emit('resources-loaded')
       })
@@ -786,7 +832,34 @@ export default {
      */
     initializePerPageFromQueryString() {
       this.perPage =
-        this.$route.query[this.perPageParameter] || _.first(this.perPageOptions)
+        this.$route.query[this.perPageParameter] ||
+        this.initialPerPage ||
+        this.resourceInformation.perPageOptions[0]
+    },
+
+    /**
+     * Pause polling for new resources.
+     */
+    stopPolling() {
+      clearInterval(this.pollingListener)
+
+      this.$nextTick(() => (this.currentlyPolling = false))
+    },
+
+    /**
+     * Start polling for new resources.
+     */
+    startPolling() {
+      this.pollingListener = setInterval(() => {
+        if (
+          document.hasFocus() &&
+          document.querySelectorAll('div.modal').length < 1
+        ) {
+          this.getResources()
+        }
+      }, this.resourceInformation.pollingInterval)
+
+      this.$nextTick(() => (this.currentlyPolling = true))
     },
   },
 
@@ -820,7 +893,9 @@ export default {
      * Get the name of the search query string variable.
      */
     searchParameter() {
-      return this.viaRelationship + '_search'
+      return this.viaRelationship
+        ? this.viaRelationship + '_search'
+        : this.resourceName + '_search'
     },
 
     /**
@@ -913,36 +988,6 @@ export default {
     },
 
     /**
-     * Get all of the actions available to the resource.
-     */
-    allActions() {
-      return this.hasPivotActions
-        ? this.actions.concat(this.pivotActions.actions)
-        : this.actions
-    },
-
-    /**
-     * Determine if the resource has any pivot actions available.
-     */
-    hasPivotActions() {
-      return this.pivotActions && this.pivotActions.actions.length > 0
-    },
-
-    /**
-     * Determine if the resource has any actions available.
-     */
-    actionsAreAvailable() {
-      return this.allActions.length > 0
-    },
-
-    /**
-     * Get the name of the pivot model for the resource.
-     */
-    pivotName() {
-      return this.pivotActions ? this.pivotActions.name : ''
-    },
-
-    /**
      * Get the current search value from the query string.
      */
     currentSearch() {
@@ -984,7 +1029,10 @@ export default {
      * Determine if the resource / relationship is "full".
      */
     resourceIsFull() {
-      return this.viaHasOne && this.resources.length > 0
+      return (
+        (Boolean(this.viaHasOne) && this.resources.length > 0) ||
+        Boolean(this.viaHasOneThrough && this.resources.length > 0)
+      )
     },
 
     /**
@@ -994,6 +1042,10 @@ export default {
       return (
         this.relationshipType == 'hasOne' || this.relationshipType == 'morphOne'
       )
+    },
+
+    viaHasOneThrough() {
+      return this.relationshipType == 'hasOneThrough'
     },
 
     /**
@@ -1012,13 +1064,6 @@ export default {
      */
     createButtonLabel() {
       return this.resourceInformation.createButtonLabel
-    },
-
-    /**
-     * Get the selected resources for the action selector.
-     */
-    selectedResourcesForActionSelector() {
-      return this.selectAllMatchingChecked ? 'all' : this.selectedResourceIds
     },
 
     /**
@@ -1225,6 +1270,13 @@ export default {
         this.resourceResponse &&
         this.resources.length > 0
       )
+    },
+
+    /**
+     * Determine if the polling toggle button should be shown.
+     */
+    shouldShowPollingToggle() {
+      return this.resourceInformation.showPollingToggle
     },
   },
 }

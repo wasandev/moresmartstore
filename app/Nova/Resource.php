@@ -12,6 +12,13 @@ abstract class Resource extends NovaResource
     ];
     public static $perPageViaRelationship = 10;
     /**
+ * Whether to show borders for each column on the X-axis.
+ *
+ * @var bool
+ */
+    public static $tableStyle = 'tight';
+    public static $showColumnBorders = true;
+    /**
      * Build an "index" query for the given resource.
      *
      * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request

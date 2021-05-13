@@ -1,5 +1,8 @@
 <template>
-  <tr :dusk="resource['id'].value + '-row'">
+  <tr
+    :dusk="resource['id'].value + '-row'"
+    :data-pivot-id="resource['id'].pivotValue"
+  >
     <!-- Resource Selection Checkbox -->
     <td class="w-16" v-if="shouldShowCheckboxes">
       <checkbox
@@ -32,6 +35,7 @@
           :resource="resource"
           :resource-name="resourceName"
           :actions="availableActions"
+          :endpoint="actionsEndpoint"
           @actionExecuted="$emit('actionExecuted')"
         />
 
@@ -74,6 +78,7 @@
               },
               query: {
                 viaRelationship: viaRelationship,
+                viaPivotId: resource['id'].pivotValue,
               },
             }"
           >
@@ -190,6 +195,7 @@ export default {
     'viaManyToMany',
     'checked',
     'actionsAreAvailable',
+    'actionsEndpoint',
     'shouldShowCheckboxes',
     'updateSelectionStatus',
     'queryString',

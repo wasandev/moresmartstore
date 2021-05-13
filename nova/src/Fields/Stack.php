@@ -2,6 +2,8 @@
 
 namespace Laravel\Nova\Fields;
 
+use Laravel\Nova\Http\Requests\NovaRequest;
+
 class Stack extends Field
 {
     /**
@@ -36,6 +38,7 @@ class Stack extends Field
      * Create a new Stack field.
      *
      * @param  string  $name
+     * @param  string|array|null $attribute
      * @param  array $lines
      * @return void
      */
@@ -86,7 +89,15 @@ class Stack extends Field
     {
         $this->ensureLinesAreResolveable();
 
-        $this->lines->each->resolveForDisplay($resource, $attribute);
+        $request = app(NovaRequest::class);
+
+        $this->lines = $this->lines->filter(function ($field) use ($request, $resource) {
+            if ($request->isResourceIndexRequest()) {
+                return $field->isShownOnIndex($request, $resource);
+            }
+
+            return $field->isShownOnDetail($request, $resource);
+        })->values()->each->resolveForDisplay($resource, $attribute);
     }
 
     /**

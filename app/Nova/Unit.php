@@ -111,10 +111,7 @@ class Unit extends Resource
     public function actions(Request $request)
     {
         return [
-            (new Actions\ImportUnit)
-            ->canSee(function ($request) {
-                return $request->user()->role == 'admin';
-                }),
+            
         ];
     }
 }
