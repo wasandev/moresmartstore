@@ -245,7 +245,7 @@ module.exports = {
         },
         fontFamily: {
             sans: [
-                'Chakra Petch',
+                'Roboto',
                 'system-ui',
                 '-apple-system',
                 'BlinkMacSystemFont',
