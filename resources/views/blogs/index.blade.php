@@ -6,10 +6,6 @@
 @section('search')
     @include('partials.blogsearch')
 @endsection
-@section('mstorehome')
-    @include('partials.mstorehome')
-@endsection
-
 
 @section('content')
 

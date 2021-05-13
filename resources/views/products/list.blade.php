@@ -5,9 +5,7 @@
 @section('search')
     @include('partials.productsearch')
 @endsection
-@section('mstorehome')
-    @include('partials.mstorehome')
-@endsection
+
 
 @section('content')
 
