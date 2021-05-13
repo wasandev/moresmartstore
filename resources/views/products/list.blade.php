@@ -16,12 +16,19 @@
     <div class="flex items-center justify-between px-4 py-4 sm:p-0  bg-gray-800 sm:hidden ">
 
         <div class="block lg:hidden">
-            <button class="sidebar-sign block text-blue-500 hover:text-white focus:text-white focus:outline-none">
+           <button class="sidebar-sign block text-blue-500 hover:text-white focus:text-white focus:outline-none" type="button" onclick="openDropdown(event,'category2')">
                 <svg class="h-6 w-6 fill-current absolute" viewBox="0 0 24 24">
                 <path  fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"/>
                 </svg>
                 <span class="ml-6">เลือกประเภทสินค้า</span>
             </button>
+            <div class="hidden bg-white  text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mb-1" style="min-width:12rem" id="category2">
+                @foreach ($category as $item)
+                <a href="/products/category/{{ $item->id }}" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
+                   {{ $item->name }}
+                </a>
+                @endforeach
+               </div>
         </div>
 
 
