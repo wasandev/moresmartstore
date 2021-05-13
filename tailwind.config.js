@@ -245,7 +245,7 @@ module.exports = {
         },
         fontFamily: {
             sans: [
-                'Bai Jamjuree',
+                'Kodchasan',
                 'system-ui',
                 '-apple-system',
                 'BlinkMacSystemFont',
@@ -264,9 +264,9 @@ module.exports = {
             mono: ['Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
         },
         fontSize: {
-            xs: '0.87rem',
-            sm: '0.95rem',
-            base: '1.10rem',
+            xs: '0.75rem',
+            sm: '0.875rem',
+            base: '1rem',
             lg: '1.125rem',
             xl: '1.25rem',
             '2xl': '1.5rem',
