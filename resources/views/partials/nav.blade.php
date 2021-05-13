@@ -69,7 +69,7 @@
                     </svg>
                     <span class="ml-6">MENU</span>
                 </button>
-                 <div class="hidden bg-gray-700  text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mb-1" style="min-width:12rem" id="dropdown-id">
+                 <div class="hidden bg-black  text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mb-1" style="min-width:12rem" id="dropdown-id">
                     <a href="/" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-100 hover:bg-white hover:text-black">
                     หน้าหลัก
                     </a>

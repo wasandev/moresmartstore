@@ -22,7 +22,7 @@
                 </svg>
                 <span class="ml-6">เลือกประเภทธุรกิจ</span>
             </button>
-               <div class="hidden bg-gray-700  text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mb-1" style="min-width:12rem" id="businesstype2">
+               <div class="hidden bg-black  text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mb-1" style="min-width:12rem" id="businesstype2">
                 @foreach ($businessData as $item)
                 <a href="/vendors/type/{{ $item->id }}" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-100 hover:bg-white hover:text-black">
                    {{ $item->name }}
