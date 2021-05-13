@@ -19,7 +19,7 @@
     {{-- <link href="https://fonts.googleapis.com/css?family=Bai Jamjuree:500,600,700,800"
         rel="stylesheet"> --}}
 <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600&display=swap" rel="stylesheet">
 @if (App::environment('production', 'staging'))
             <script>
                 if ('serviceWorker' in navigator) {
