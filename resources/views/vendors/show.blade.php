@@ -19,19 +19,20 @@
 
 
 
-            <div class="w-full lg:max-w-full mx-auto lg:flex p-4 rounded-lg">
-                {{-- <div class="h-64 lg:h-auto lg:w-1/2 flex-none  bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-left  overflow-hidden" style="background:url('{{  Storage::url($vendor->imagefile) }}') " title="{{ $vendor->name }}">
-                </div> --}}
+            <div class="w-full lg:max-w-full mx-auto lg:flex p-2 rounded-lg">
+
                     <div class="lg:w-1/2 flex items-center justify-center  bg-white">
                         @if(!empty($vendor->imagefile))
                             <img class="h-full w-full object-cover lg:rounded-tl rounded-t lg:rounded-tr-none" src="{{  Storage::url($vendor->imagefile) }}" alt="{{$vendor->name}}">
                         @else
                             <img class="h-full w-full object-cover lg:rounded-tl rounded-t lg:rounded-tr-none" src="{{  Storage::url('store.jpg')}}" alt="{{$vendor->name}}">
                         @endif
+
                         </div>
+
                     <div class="lg:w-1/2  bg-white rounded-b flex flex-1 flex-col justify-between leading-normal ">
 
-                        <div class="mb-4 p-4">
+                        <div class="mb-4 p-2">
                             <div class="flex flex-row ">
                                     @if(!@empty($vendor->logofile))
                                         <img class="w-10 h-10 rounded-full mr-2" src="{{  Storage::url($vendor->logofile) }}" alt="{{ $vendor->name }}">
@@ -56,28 +57,26 @@
                                 </span>
 
                             </p>
-
-                            <div class="lg:w-full w-full lg:p-4 text-gray-800 text-base text-left mt-2 ">{{ $vendor->description }}
+                            <div class="fb-share-button"
+                                data-href="{{ $open_graph['url'] }}"
+                                data-layout="box_count">
+                            </div>
+                            <div class="lg:w-full w-full  text-gray-800 text-base text-left  ">{{ $vendor->description }}
                             </div>
 
                         </div>
 
-
-
-
                 </div>
 
             </div>
-        @if (!empty($vendor->location_lat) || !empty($vendor->location_lat  ))
+            @if (!empty($vendor->location_lat) || !empty($vendor->location_lat  ))
 
                 <div class="lg:w-1/2 w-full  bg-white text-center ">
                         @include('vendors.googlemap')
                     </div>
 
-
             @endif
-            <div class="flex lg:flex-row flex-col p-2 text-base font-semibold lg:justify-center text-center ">
-
+            <div class="flex lg:flex-row flex-col  text-base font-semibold lg:justify-center text-center ">
 
                             @if(!empty($vendor->phoneno))
 
@@ -126,10 +125,7 @@
                                 @endif
 
                             @endif
-                            <div class="fb-share-button"
-                                data-href="{{ $open_graph['url'] }}"
-                                data-layout="box_count">
-                            </div>
+
                         </div>
             <div class="lg:flex lg:justify-between rounded-lg p-4">
                                 <div class="flex flex-col items-center lg:w-1/2 w-full lg:flex lg:flex-row mx-auto">
