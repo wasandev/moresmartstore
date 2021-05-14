@@ -244,7 +244,7 @@ module.exports = {
             default: '1',
         },
         fontFamily: {
-            sans: [
+            sans: ['Maitree',
                 'Roboto',
                 'system-ui',
                 '-apple-system',
