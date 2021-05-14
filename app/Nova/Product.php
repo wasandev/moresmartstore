@@ -19,7 +19,7 @@ use Laravel\Nova\Fields\Image;
 
 class Product extends Resource
 {
-    //public static $displayInNavigation = false;
+    public static $displayInNavigation = false;
     public static $group = "จัดการข้อมูลธุรกิจ";
     public static $priority = 2;
 

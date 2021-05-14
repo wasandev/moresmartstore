@@ -27,7 +27,8 @@
         "overtrue/laravel-follow": "^2.1",
         "pktharindu/nova-permissions": "^2.1",
         "pusher/pusher-php-server": "~4.0",
-        "wasandev/input-thai-address": "*"
+        "wasandev/input-thai-address": "*",
+        "wasandev/user-menu": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
@@ -54,6 +55,10 @@
         {
             "type": "path",
             "url": "./nova-components/InputThaiAddress"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/UserMenu"
         }
     ],
     "autoload": {
@@ -65,9 +70,7 @@
             "database/factories"
         ],
         "files": [
-
             "app/helpers.php"
-
         ]
     },
     "autoload-dev": {

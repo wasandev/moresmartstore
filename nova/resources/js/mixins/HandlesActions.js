@@ -210,11 +210,18 @@ export default {
     availableActions() {
       return _(this.actions)
         .filter(action => {
-          if (this.selectedResources.length == 0) {
-            return action.standalone
-          }
+          return this.selectedResources.length > 0 && !action.standalone
+        })
+        .value()
+    },
 
-          return true
+    /**
+     * Get all of the available actions for the resource.
+     */
+    availableStandaloneActions() {
+      return _(this.actions)
+        .filter(action => {
+          return action.standalone
         })
         .value()
     },

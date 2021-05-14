@@ -16,7 +16,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Post extends Resource
 {
-    public static $displayInNavigation = true;
+    public static $displayInNavigation = false;
     public static $group = "จัดการข้อมูลธุรกิจ";
     public static $priority = 5;
     /**
