@@ -44,7 +44,7 @@
                                 <div class="items-center  text-gray-600 ">การดู : {{  $vendor->visits()->count() }} ครั้ง</div>
 
                             </div>
-                            <p class="w-full bg-gray-200 py-2 mb-2 px-4 text-sm text-gray-600 flex items-center rounded-lg mt-2">
+                            <p class="w-full bg-gray-100 py-2 mb-2 px-2 text-base text-gray-800 flex items-center rounded-lg mt-2">
                                  <span class=" text-base ml-2">
                                     {{$vendor->address}}  {{ $vendor->sub_district}} {{$vendor->district}}
                                     {{$vendor->province}}  {{ $vendor->postal_code}}
