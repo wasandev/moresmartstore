@@ -71,7 +71,7 @@
         </div>
 
     </form>
-    <div>
+    {{-- <div>
 
         <terms-modal :showing="termModalShowing" @close="termModalShowing = false">
             <h2 class="text-xl font-bold text-gray-900">ข้อตกลงในการใช้บริการ</h2>
@@ -103,7 +103,7 @@
                 ปิด
             </button>
         </terms-modal>
-    </div>
+    </div> --}}
 </div>
 @endsection
 
