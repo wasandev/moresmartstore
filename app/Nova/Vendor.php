@@ -83,17 +83,17 @@ class Vendor extends Resource
 
             Textarea::make(__('Description'), 'description')
                 ->withMeta(['extraAttributes' => [
-                    'placeholder' => 'ความยาวต้องไม่ต่ำกว่า 150 ตัวอักษร'
+                    'placeholder' => 'ความยาวต้องไม่ต่ำกว่า 50 ตัวอักษร'
                 ]])
                 ->alwaysShow()
-                ->rules('required', 'min:150'),
-            Text::make(__('Tax ID'), 'taxid')
-                ->hideFromIndex(),
-            Select::make(__('Business Type'), 'type')->options([
-                'company' => 'นิติบุคคล',
-                'person' => 'บุคคลธรรมดา'
-            ])->displayUsingLabels()
-                ->hideFromIndex(),
+                ->rules('required', 'min:50'),
+            // Text::make(__('Tax ID'), 'taxid')
+            //     ->hideFromIndex(),
+            // Select::make(__('Business Type'), 'type')->options([
+            //     'company' => 'นิติบุคคล',
+            //     'person' => 'บุคคลธรรมดา'
+            // ])->displayUsingLabels()
+            //     ->hideFromIndex(),
 
             new Panel(__('Contact Field'), $this->contactFields()),
             new Panel(__('Address'), $this->addressFields()),
