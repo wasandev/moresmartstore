@@ -19,13 +19,11 @@
 
 
             <div class="w-full lg:max-w-full mx-auto lg:flex p-2 rounded-lg">
-
-                    <div class="lg:w-1/2 flex items-center justify-center  bg-white">
-                        @isset($vendor->imagefile)
-                            <img class="h-full w-full object-cover lg:rounded-tl rounded-t lg:rounded-tr-none" src="{{  Storage::url($vendor->imagefile) }}" alt="{{$vendor->name}}">
-                        @endisset
+                    @if(!@empty($vendor->imagefile))
+                    <div class="lg:w-1/2 flex items-center justify-center bg-white">
+                        <img class="h-full w-full object-cover lg:rounded-tl rounded-t lg:rounded-tr-none" src="{{  Storage::url($vendor->imagefile) }}" alt="{{$vendor->name}}">
                     </div>
-
+                    @endif
                     <div class="lg:w-1/2  bg-white rounded-b flex flex-1 flex-col justify-between leading-normal ">
 
                         <div class="mb-4 p-2">
