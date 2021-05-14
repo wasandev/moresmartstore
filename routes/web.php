@@ -6,15 +6,15 @@ use Illuminate\Support\Facades\Route;
 
 
 
-//Auth::routes(['verify' => true]);
+Auth::routes();
 //Auth::routes();
 //Welcome page : /
-Route::get('/','MstoreController@index');
+Route::get('/', 'MstoreController@index');
 
 //Memeber page : /
-Route::get('/home','HomeController@index');
+Route::get('/home', 'HomeController@index');
 Route::get('/notifications', 'HomeController@notifications');
-Route::get('/profile/{id}','HomeController@profile');
+Route::get('/profile/{id}', 'HomeController@profile');
 Route::post('followUserRequest', 'HomeController@followUserRequest')->name('followuserRequest');
 
 
@@ -27,12 +27,12 @@ Route::get('pages', array('as' => 'page.about', 'uses' => 'PagesController@about
 
 //vendors
 
-Route::any('/vendors','VendorController@index');
-Route::any('/vendors/type/{id}','VendorController@list');
-Route::get('/vendors/{id}','VendorController@show');
+Route::any('/vendors', 'VendorController@index');
+Route::any('/vendors/type/{id}', 'VendorController@list');
+Route::get('/vendors/{id}', 'VendorController@show');
 //Route::get('send', 'VendorController@sendNotification');
 //Posts
-Route::any('/post','PostController@index');
+Route::any('/post', 'PostController@index');
 Route::get('/post/{id}', 'PostController@show');
 //Blogs
 Route::any('/blogs', 'BlogController@index');
@@ -41,9 +41,9 @@ Route::get('/blogs/{slug}', 'BlogController@show');
 
 
 //Products
-Route::any('/products','ProductController@index');
-Route::any('/products/category/{id}','ProductController@list');
-Route::get('/products/{id}','ProductController@show');
+Route::any('/products', 'ProductController@index');
+Route::any('/products/category/{id}', 'ProductController@list');
+Route::get('/products/{id}', 'ProductController@show');
 
 //Messages
 
