@@ -105,7 +105,10 @@ class Category extends Resource
     {
         return [];
     }
-
+    public static function availableForNavigation(Request $request)
+    {
+        return $request->user()->hasPermissionTo('edit categories');
+    }
     /**
      * Get the lenses available for the resource.
      *

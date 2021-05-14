@@ -21,6 +21,10 @@ class Unit extends Resource
      */
     public static $model = 'App\Unit';
 
+    public static function availableForNavigation(Request $request)
+    {
+        return $request->user()->hasPermissionTo('edit units');
+    }
     /**
      * The single value that should be used to represent the resource when being displayed.
      *

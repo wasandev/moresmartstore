@@ -23,7 +23,10 @@ class Businesstype extends Resource
      */
     public static $model = \App\Businesstype::class;
     public static $with = ['user'];
-
+    public static function availableForNavigation(Request $request)
+    {
+        return $request->user()->hasPermissionTo('edit businesstypes');
+    }
     /**
      * The single value that should be used to represent the resource when being displayed.
      *

@@ -5,9 +5,9 @@
 
 @include('partials.header')
 
-<div  class="w-full mx-auto max-w-xs">
+<div  class="w-full mx-auto max-w-xs ">
 <form
-    class=" bg-white shadow-md rounded-lg px-8 pt-4 pb-8 mb-4" method="POST" action="{{ route('login') }}">
+    class=" bg-gray-200 shadow-md rounded-md  px-8 pt-4 pb-8 mb-4" method="POST" action="{{ route('login') }}">
 
     {{ csrf_field() }}
     @component('partials.heading')
@@ -52,8 +52,8 @@
         </button>
     </div>
     <div class="mb-4 w-full mx-auto text-center">
-        <a class="w-full inline-block px-2 py-2 align-baseline font-base text-sm rounded-lg text-gray-100 bg-red-500 hover:text-black hover:bg-yellow-400" href="{{ route('register') }}">
-            ยังไม่มีบัญชี คลิกที่นี่เพื่อสมัคร
+        <a class="w-full inline-block px-2 py-2 align-baseline text-lg rounded-lg text-gray-100 bg-red-500 hover:text-black hover:bg-yellow-400" href="{{ route('register') }}">
+            ลงทะเบียน
         </a>
     <div>
 

@@ -20,7 +20,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth', 'verified']);
+        $this->middleware(['auth']);
     }
     /**
      * Show the application dashboard.
@@ -30,54 +30,51 @@ class HomeController extends Controller
     public function index()
     {
         $vendors = Vendor::where('user_id', Auth::id())
-        ->orderBy('created_at', 'desc')
-        ->get();
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         $products = Product::where('user_id', Auth::id())
-        ->orderBy('created_at', 'desc')
-        ->get();
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         $posts = Post::where('user_id', Auth::id())
-        ->orderBy('published_at', 'desc')
-        ->get();
+            ->orderBy('published_at', 'desc')
+            ->get();
 
-        return view('members.home',compact('vendors','products','posts'));
-
+        return view('members.home', compact('vendors', 'products', 'posts'));
     }
     public function profile($id)
     {
-        $user = User::where('id',$id)->firstOrFail();
+        $user = User::where('id', $id)->firstOrFail();
         $vendors = Vendor::where('user_id', $id)
-        ->orderBy('created_at', 'desc')
-        ->get();
+            ->orderBy('created_at', 'desc')
+            ->get();
         $products = Product::where('user_id', $id)
-        ->orderBy('created_at', 'desc')
-        ->get();
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         $posts = Post::where('user_id', Auth::id())
-        ->orderBy('published_at', 'desc')
-        ->get();
+            ->orderBy('published_at', 'desc')
+            ->get();
 
-        return view('members.profile',compact('user','vendors','products','posts'));
-
+        return view('members.profile', compact('user', 'vendors', 'products', 'posts'));
     }
 
-    public function followUserRequest(Request $request){
+    public function followUserRequest(Request $request)
+    {
 
         $user = User::find($request->user_id);
         $follower = auth()->user();
         if (auth()->user()->isFollowing($user)) {
             $response = auth()->user()->unfollow($user);
 
-            return response()->json(['success'=>'unfollow']);
-        }else {
+            return response()->json(['success' => 'unfollow']);
+        } else {
 
             $response = auth()->user()->follow($user);
-            $user->notify(new UserFollowed( $follower ));
-            return response()->json(['success'=>'follow']);
+            $user->notify(new UserFollowed($follower));
+            return response()->json(['success' => 'follow']);
         }
-
-
     }
 
     public function notifications()

@@ -151,10 +151,10 @@
                         </div>
 
                         <div class="w-48 absolute right-0 mt-0 py-1 bg-white rounded-lg shadow-xl invisible group-hover:visible">
-                            <a href="/home"
+                            <a href="/app" target="_blank"
                                 class="no-underline px-3 py-1 block text-grey-900 hover:text-blue-500">
 
-                                <span class="ml-6">โปรโมทธุรกิจ</span>
+                                <span class="ml-6">จัดการข้อมูลธุรกิจ</span>
                             </a>
                             {{--
                             <hr class="border-t mx-2 border-gray-300" >

@@ -11,9 +11,10 @@ use Lexx\ChatMessenger\Traits\Messagable;
 use KirschbaumDevelopment\NovaMail\Traits\Mailable;
 
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
+//implements MustVerifyEmail
 {
-    use Notifiable,HasRoles,Followable,Messagable,Mailable;
+    use Notifiable, HasRoles, Followable, Messagable, Mailable;
 
     /**
      * The attributes that are mass assignable.
@@ -21,7 +22,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','role',  'avatar', 'mobile'
+        'name', 'email', 'password', 'role',  'avatar', 'mobile'
     ];
 
     /**
@@ -57,7 +58,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany('App\Vendor');
     }
 
-     /**
+    /**
      * Get the name of the email field for the model.
      *
      * @return string
