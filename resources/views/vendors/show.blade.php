@@ -19,7 +19,7 @@
 
 
             <div class="w-full lg:max-w-full mx-auto lg:flex p-2 rounded-lg">
-                    @if($vendor->imagefile <> 'store.jpg'))
+                    @if($vendor->imagefile <> 'store.jpg')
                     <div class="lg:w-1/2 flex items-center justify-center bg-white">
                         <img class="h-full w-full object-cover lg:rounded-tl rounded-t lg:rounded-tr-none" src="{{  Storage::url($vendor->imagefile) }}" alt="{{$vendor->name}}">
                     </div>
