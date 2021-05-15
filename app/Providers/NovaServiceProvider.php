@@ -9,7 +9,7 @@ use Laravel\Nova\NovaApplicationServiceProvider;
 use App\Nova\Role;
 use Anaseqal\NovaImport\NovaImport;
 use App\Nova\Dashboards\AdminDashboard;
-use Wasandev\UserMenu\UserMenu;
+use Wasandev\UserCard\UserCard;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -61,7 +61,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function cards()
     {
         return [
-            (new UserMenu()),
+
+            new UserCard(),
+
         ];
     }
 
@@ -76,6 +78,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             (new AdminDashboard())->canSee(function ($request) {
                 return  $request->user()->role == 'admin';
             }),
+
         ];
     }
 

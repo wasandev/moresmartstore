@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5b8ed19351988fa30eaacbb94b7a9f9d",
+    "content-hash": "fe821ac27fe50aabb6bdb5654df54a5d",
     "packages": [
         {
             "name": "anaseqal/nova-import",
@@ -7311,12 +7311,12 @@
             }
         },
         {
-            "name": "wasandev/user-menu",
+            "name": "wasandev/user-card",
             "version": "dev-master",
             "dist": {
                 "type": "path",
-                "url": "./nova-components/UserMenu",
-                "reference": "329eb7eff44e3d964df90f9765bf5413093bd924"
+                "url": "./nova-components/UserCard",
+                "reference": "a146a0f1a34cbd5d202dd5ecd4b54f872188288a"
             },
             "require": {
                 "php": ">=7.1.0"
@@ -7325,13 +7325,13 @@
             "extra": {
                 "laravel": {
                     "providers": [
-                        "Wasandev\\UserMenu\\CardServiceProvider"
+                        "Wasandev\\UserCard\\CardServiceProvider"
                     ]
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Wasandev\\UserMenu\\": "src/"
+                    "Wasandev\\UserCard\\": "src/"
                 }
             },
             "license": [
