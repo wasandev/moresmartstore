@@ -10,6 +10,7 @@ use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Trix;
+use Metrixinfo\Nova\Fields\Iframe\Iframe;
 
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Symfony\Component\VarDumper\Cloner\Data;
@@ -39,7 +40,7 @@ class Blog extends Resource
      * @var array
      */
     public static $search = [
-        'id','title','blog_content'
+        'id', 'title', 'blog_content'
     ];
 
     /**
@@ -78,11 +79,11 @@ class Blog extends Resource
                 ->sortable(),
 
             Text::make(__('Visits'), function () {
-                    return $this->visits($this->id)->count();
-                    }),
+                return $this->visits($this->id)->count();
+            }),
             BelongsTo::make(__('User'), 'user', 'App\Nova\User')
                 ->onlyOnDetail(),
-            BelongsTo::make(__('Blog_cat'),'blog_cat','App\Nova\Blog_cat')
+            BelongsTo::make(__('Blog_cat'), 'blog_cat', 'App\Nova\Blog_cat')
                 ->rules('required')
                 ->hideFromIndex()
                 ->sortable(),
@@ -96,10 +97,13 @@ class Blog extends Resource
                 ->stacked()
                 ->alwaysShow()
                 ->withFiles('public'),
+            Text::make('Embed script', 'embed')
+                ->onlyOnForms(),
+            Iframe::make('HTML Content', 'embed'),
             Image::make(__('Blog_image'),  'blog_image')
                 ->hideFromIndex()
                 ->maxWidth(600),
-            ];
+        ];
     }
 
     /**

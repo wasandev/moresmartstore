@@ -22,6 +22,7 @@
             </div>
             <div class="bg-white px-2">
                 <h1 class="font-bold text-xl py-2 text-blue-500">{{ $blog->title }}</h1>
+                {!!$blog->embed !!}
 
                 <p class="text-gray-700 mt-2 py-2">{!! $blog->blog_content !!}</p>
                 <p class="text-sm"> วันที่เผยแพร่: {{formatDateThai( $blog->published_at )}}</p>

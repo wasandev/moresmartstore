@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fe821ac27fe50aabb6bdb5654df54a5d",
+    "content-hash": "aca7b99f0e85fdba5a9e8f890da0e214",
     "packages": [
         {
             "name": "anaseqal/nova-import",
@@ -2801,6 +2801,49 @@
                 "vector"
             ],
             "time": "2021-01-23T16:37:31+00:00"
+        },
+        {
+            "name": "metrixinfo/nova-iframe",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/metrixinfo/nova-iframe.git",
+                "reference": "e40a0968901bb98339e826647ec60759ee8a34cc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/metrixinfo/nova-iframe/zipball/e40a0968901bb98339e826647ec60759ee8a34cc",
+                "reference": "e40a0968901bb98339e826647ec60759ee8a34cc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Metrixinfo\\Nova\\Fields\\Iframe\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Metrixinfo\\Nova\\Fields\\Iframe\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova iFrame field.",
+            "keywords": [
+                "field",
+                "iframe",
+                "laravel",
+                "nova"
+            ],
+            "time": "2021-02-17T15:54:42+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",

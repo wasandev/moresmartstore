@@ -14,10 +14,11 @@ class Blog extends Model
         'title',
         'blog_content',
         'blog_image',
+        'embed',
         'published',
         'published_at'
     ];
-   // protected $dateFormat = 'TH';
+    // protected $dateFormat = 'TH';
     protected $casts = [
         'published_at' => 'datetime',
     ];
@@ -35,5 +36,4 @@ class Blog extends Model
     {
         return visits($this);
     }
-
 }
