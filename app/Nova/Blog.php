@@ -20,6 +20,9 @@ class Blog extends Resource
 {
     public static $group = "Admin";
     public static $priority = 8;
+
+    public static $trafficCop = false;
+    public static $preventFormAbandonment = true;
     /**
      * The model the resource corresponds to.
      *
