@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Trix;
 use Metrixinfo\Nova\Fields\Iframe\Iframe;
 
@@ -97,7 +98,7 @@ class Blog extends Resource
                 ->stacked()
                 ->alwaysShow()
                 ->withFiles('public'),
-            Text::make('Embed script', 'embed')
+            Textarea::make('Embed script', 'embed')
                 ->onlyOnForms(),
             Iframe::make('HTML Content', 'embed'),
             Image::make(__('Blog_image'),  'blog_image')
