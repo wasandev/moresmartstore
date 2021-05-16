@@ -28,7 +28,7 @@
 
             @if (count($blogs) > 0 )
                 {{--  Blogs --}}
-                <div>
+                <div class="border-gray-200 border mt-4 rounded-md ">
 
                     @include('partials.headbar',[
                         'svg' => '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class="fill-current absolute"><path d="M16 2h4v15a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V0h16v2zm0 2v13a1 1 0 0 0 1 1 1 1 0 0 0 1-1V4h-2zM2 2v15a1 1 0 0 0 1 1h11.17a2.98 2.98 0 0 1-.17-1V2H2zm2 8h8v2H4v-2zm0 4h8v2H4v-2zM4 4h8v4H4V4z"/></svg>',
@@ -45,7 +45,7 @@
             @endif
             {{--vendor --}}
             @if (count($vendors) > 0 )
-                <div>
+                <div class="border-gray-200 border mt-4 rounded-md ">
 
                 @include('partials.headbar',[
                     'svg' => '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class="fill-current absolute"><path d="M2 2c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v18l-8-4-8 4V2z"/></svg>',
@@ -81,7 +81,7 @@
 
             @if (count($posts) > 0 )
                 {{--post --}}
-                <div >
+                <div class="border-gray-200 border mt-4 rounded-md ">
                     @include('partials.headbar',[
                         'svg' => ' <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current absolute"><path class="heroicon-ui" d="M6.3 12.3l10-10a1 1 0 0 1 1.4 0l4 4a1 1 0 0 1 0 1.4l-10 10a1 1 0 0 1-.7.3H7a1 1 0 0 1-1-1v-4a1 1 0 0 1 .3-.7zM8 16h2.59l9-9L17 4.41l-9 9V16zm10-2a1 1 0 0 1 2 0v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2h6a1 1 0 0 1 0 2H4v14h14v-6z"/></svg>',
                         'title' => 'โพสโฆษณา',
@@ -100,7 +100,7 @@
 
         @if ( count($products) > 0 )
             <div class="hidden  lg:block lg:w-1/3  ">
-                <a href="/home" class="flex flex-col flex-1 border border-gray-200 hover:shadow-lg translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">
+                <a href="/app"  target="_blank" class="flex flex-col flex-1 border border-gray-200 hover:shadow-lg translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">
                     <img class="w-full object-cover rounded" src="{{  Storage::url('mstoreplus.png') }}" alt="โปรโมทธุรกิจฟรี">
 
                 </a>

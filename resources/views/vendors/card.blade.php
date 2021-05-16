@@ -1,7 +1,7 @@
-<div class="grid grid-cols-1  md:grid-cols-2 ">
+<div class="grid grid-cols-1  md:grid-cols-3 ">
     @foreach ($vendors as $vendor)
         <div>
-            <a href="/vendors/{{ $vendor->id}}" class="flex flex-col flex-1 border border-gray-200  hover:shadow-xl translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">
+            <a href="/vendors/{{ $vendor->id}}" class="flex flex-col flex-1 shadow  hover:shadow-xl translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">
                 @if ($showimage)
                     <div class="aspect-16x9"
                      style="background:url('{{  Storage::url($vendor->imagefile) }}') no-repeat center center/cover">

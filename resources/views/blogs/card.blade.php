@@ -1,14 +1,20 @@
-<div class="grid grid-cols-1  md:grid-cols-2 ">
+<div class="grid grid-cols-1  md:grid-cols-3 ">
+    <div class="lg:hidden ">
+        <a href="/app"  target="_blank" class="flex flex-col flex-1 hover:shadow-lg translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">
+            <img class="w-full object-cover rounded" src="{{  Storage::url('mstoreplus.png') }}" alt="โปรโมทธุรกิจฟรี">
+
+        </a>
+    </div>
     @foreach ($blogs as $blog)
         <div>
-            <a href="/blogs/{{ $blog->slug }}" class="flex flex-col  border border-gray-200 hover:shadow-lg translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">
+            <a href="/blogs/{{ $blog->slug }}" class="flex flex-col shadow hover:shadow-lg translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">
                 <div class="aspect-16x9 "
                     style="background:url('{{  Storage::url($blog->blog_image) }}') no-repeat center center/cover">
                 </div>
 
 
                 <div class="p-2 text-left rounded-b-lg ">
-                    <p class="text-base font-semibold text-left text-blue-700 ">{{ $blog->title }}</p>
+                    <p class="text-base font-semibold text-center text-blue-700 ">{{ $blog->title }}</p>
 
 
                 </div>
