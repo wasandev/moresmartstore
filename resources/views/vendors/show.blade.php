@@ -18,13 +18,14 @@
         <div class="w-full">
 
 
-            <div class="w-full lg:max-w-full mx-auto lg:flex p-2 rounded-lg">
+            <div class="w-full lg:max-w-full lg:flex mx-auto  p-2 rounded-lg">
                     @if($vendor->imagefile <> 'store.jpg')
-                    <div class="lg:w-1/2 flex items-center justify-center bg-white">
-                        <img class="h-full w-full object-cover lg:rounded-tl rounded-t lg:rounded-tr-none" src="{{  Storage::url($vendor->imagefile) }}" alt="{{$vendor->name}}">
+                    <div class="lg:w-1/2  items-center justify-center bg-white">
+                        <img class="h-auto p-4 rounded-md" src="{{  Storage::url($vendor->imagefile) }}" alt="{{$vendor->name}}">
                     </div>
+
                     @endif
-                    <div class="lg:w-1/2  bg-white rounded-b flex flex-1 flex-col justify-between leading-normal ">
+                    <div class="lg:w-1/2 bg-white rounded-b flex  justify-between leading-normal ">
 
                         <div class="mb-4 p-2">
                             <div class="flex flex-row ">
@@ -55,7 +56,8 @@
                                 data-href="{{ $open_graph['url'] }}"
                                 data-layout="box_count">
                             </div>
-                            <div class="lg:w-full w-full  text-gray-800 text-base text-left  ">{{ $vendor->description }}
+
+                            <div class="mt-4 lg:w-full w-full  text-gray-800 text-base text-left  ">{{ $vendor->description }}
                             </div>
 
                         </div>
@@ -121,7 +123,7 @@
                             @endif
 
                         </div>
-            <div class="lg:flex lg:justify-between rounded-lg p-4">
+                        <div class="lg:flex lg:justify-between  p-4 lg:bg-gray-300">
                                 <div class="flex flex-col items-center lg:w-1/2 w-full lg:flex lg:flex-row mx-auto">
                                     <img class=" lg:w-14 lg:h-14  w-16 h-16 rounded-full lg:mr-2" src="{{  Storage::url($vendor->user->avatar) }}" alt="{{ $vendor->user->name }}">
                                     <div class="text-sm lg:text-left text-center">
