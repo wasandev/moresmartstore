@@ -27,7 +27,7 @@ class MstoreController extends Controller
                 $query->where('active', 1);
             })
             ->orderBy('created_at', 'desc')
-            ->take(4)
+            ->take(6)
             ->get();
 
         $products = Product::where('status', 1)
