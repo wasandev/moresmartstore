@@ -19,6 +19,8 @@ use Jfeid\NovaGoogleMaps\NovaGoogleMaps;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\Trix;
+
 //use Ctessier\NovaAdvancedImageField\AdvancedImage;
 
 class Vendor extends Resource
@@ -81,7 +83,7 @@ class Vendor extends Resource
                 ->rules('required'),
 
 
-            Textarea::make(__('Description'), 'description')
+            Trix::make(__('Description'), 'description')
                 ->withMeta(['extraAttributes' => [
                     'placeholder' => 'ความยาวต้องไม่ต่ำกว่า 50 ตัวอักษร'
                 ]])

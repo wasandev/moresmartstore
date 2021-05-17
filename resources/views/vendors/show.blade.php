@@ -57,7 +57,8 @@
                                 data-layout="box_count">
                             </div>
 
-                            <div class="mt-4 lg:w-full w-full  text-gray-800 text-base text-left  ">{{ $vendor->description }}
+                            <div class="mt-4 lg:w-full w-full  text-gray-800 text-base text-left  ">
+                                {!! $vendor->description !!}
                             </div>
 
                         </div>

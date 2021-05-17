@@ -18,7 +18,7 @@
                 <div class="px-2 bg-white subpixel-antialiased">
 
                     <div class="mb-3 w-full mx-auto text-left text-sm font-thin flex-1 ">
-                        <p> {{Str::of( $vendor->description)->limit(150) }} </p>
+                        {{-- {{Str::of( $vendor->description)->limit(150) }} --}}
                         @auth
                             @if (Auth::user()->id == $vendor->user->id)
 
