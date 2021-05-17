@@ -27,7 +27,7 @@ class MstoreController extends Controller
                 $query->where('active', 1);
             })
             ->orderBy('created_at', 'desc')
-            ->take(6)
+            ->take(4)
             ->get();
 
         $products = Product::where('status', 1)
@@ -38,7 +38,7 @@ class MstoreController extends Controller
                 $query->where('status', 1);
             })
             ->orderBy('created_at', 'desc')
-            ->take(6)
+            ->take(4)
             ->get();
 
         $posts = Post::where('published', 1)
@@ -46,12 +46,12 @@ class MstoreController extends Controller
                 $query->where('status', 1);
             })
             ->orderBy('published_at', 'desc')
-            ->take(6)
+            ->take(4)
             ->get();
 
         $blogs = Blog::where('published', 1)
             ->orderBy('published_at', 'desc')
-            ->take(6)
+            ->take(4)
             ->get();
 
         return view('welcome', compact('businesstypes', 'vendors', 'blogs', 'products', 'posts'));
