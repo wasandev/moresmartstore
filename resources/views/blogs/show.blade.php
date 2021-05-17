@@ -24,11 +24,11 @@
             </div>
 
 
-            <center>{!!$blog->embed !!}</center>
+
 
             <div class="bg-white px-4">
 
-
+                <center>{!!$blog->embed !!}</center>
 
                 <p class="text-gray-700 mt-2 py-2">{!! $blog->blog_content !!}</p>
                 <p class="text-sm text-right"> วันที่เผยแพร่: {{formatDateThai( $blog->published_at )}}</p>
