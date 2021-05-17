@@ -40,7 +40,7 @@
                 ])
 
                 @include('vendors.card',[
-                    'showimage' => 0
+                    'showimage' => 1
                 ])
 
                 </div>

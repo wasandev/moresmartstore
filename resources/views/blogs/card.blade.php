@@ -2,7 +2,7 @@
 
     @foreach ($blogs as $blog)
         <div>
-            <a href="/blogs/{{ $blog->slug }}" class="flex flex-col shadow hover:shadow-lg translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">
+            <a href="/blogs/{{ $blog->slug }}" class="flex flex-col shadow hover:shadow-lg translateY-2px m-2 no-underline transition">
                 <div class="aspect-16x9 "
                     style="background:url('{{  Storage::url($blog->blog_image) }}') no-repeat center center/cover">
                 </div>

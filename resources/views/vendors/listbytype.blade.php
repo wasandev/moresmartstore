@@ -13,7 +13,7 @@
 <div class="w-full mx-auto px-2">
     @if(isset($vendors))
         @include('vendors.card',[
-            'showimage' => 0
+            'showimage' => 1
         ])
         {{ $vendors->links('vendor.pagination.tailwind') }}
 

@@ -1,7 +1,7 @@
 <div class="grid grid-cols-1  md:grid-cols-2 ">
     @foreach ($products as $product)
     <div>
-        <a href="/products/{{ $product->id }}" class="flex flex-col flex-1  border border-gray-200 hover:shadow-lg translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">
+        <a href="/products/{{ $product->id }}" class="flex flex-col flex-1  border border-gray-200 hover:shadow-lg translateY-2px m-2 no-underline transition">
                 @if ($showimage)
                     <div class="aspect-16x9 "
                         style="background:url('{{  Storage::url($product->image) }}') no-repeat center center/cover">
