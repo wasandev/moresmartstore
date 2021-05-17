@@ -1,4 +1,4 @@
-<div class="grid grid-cols-1  md:grid-cols-3 ">
+<div class="grid grid-cols-1  md:grid-cols-4 ">
     @foreach ($vendors as $vendor)
         <div>
             <a href="/vendors/{{ $vendor->id}}" class="flex flex-col flex-1 shadow  hover:shadow-xl translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">

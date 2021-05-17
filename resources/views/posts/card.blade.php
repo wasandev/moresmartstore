@@ -1,4 +1,4 @@
-<div class="grid grid-cols-1  md:grid-cols-3 ">
+<div class="grid grid-cols-1  md:grid-cols-4 ">
     @foreach ($posts as $post)
         <div>
         <a href="/post/{{ $post->id }}" class="flex flex-col flex-1 shadow hover:shadow-lg translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">

@@ -14,7 +14,7 @@
 
 <!--image-->
 <div id="app" class="max-w-full mx-auto">
-    <div class="m-2 p-2 lg:flex lg:flex-row flex-col  rounded-lg shadow-md bg-white">
+    <div class="m-2 p-2 lg:flex lg:flex-row flex-col  rounded-lg shadow-md bg-gray-400">
         <div class="lg:flex lg:flex-row lg:w-1/2 w-full mx-auto items-center">
             <div class="lg:mr-2">
                 <img class="w-16 h-16 rounded-full lg:ml-2 mx-auto" src="{{  Storage::url(Auth::user()->avatar) }}" alt="{{Auth::user()->name }}">
@@ -24,17 +24,17 @@
                 <h1 class="text-xl font-semibold leading-tight mt-2">
                     สวัสดี {{ Auth::user()->name }} ,
                 </h1>
-                <p class="sm:block text-blue-700 text-sm">
+                <p class="sm:block text-black text-sm">
                     เข้าร่วม : {{ formatDateThai(Auth::user()->created_at) }}
                 </p>
-                <p class="sm:block text-blue-700 text-base">
+                <p class="sm:block text-black text-base">
                     หน้าธุรกิจของคุณ สำหรับจัดการรายชื่อธุรกิจ,สินค้า
                 </p>
             </div>
         </div>
         <div class="flex flex-col lg:flex-row  lg:w-1/2 w-full mx-auto items-center lg:justify-end text-sm">
 
-            <div class="flex">
+            {{-- <div class="flex">
                 <span class="tl-follower rounded-full text-center text-gray-100 bg-blue-500 p-2 m-1">ผู้ติดตาม : {{ Auth::user()->followers()->get()->count() }}</span>
             </div>
             <div class="flex">
@@ -49,9 +49,9 @@
                 <a class="rounded text-center text-gray-100 bg-purple-500 hover:bg-blue-400  p-2 m-1" href="/messages/create/1/แจ้งปัญหาการใช้งาน" >
                     แจ้งปัญหาการใช้งาน
                 </a>
-            </div>
+            </div> --}}
             <div class="flex">
-                <a class="rounded text-center text-gray-100 bg-red-500 hover:bg-blue-400  p-2 m-1" href="/app" target="_blank">
+                <a class=" font-bold rounded text-center text-white bg-black hover:bg-blue-600  p-2 m-1" href="/app" target="_blank">
                     จัดการข้อมูลธุรกิจ
                 </a>
             </div>

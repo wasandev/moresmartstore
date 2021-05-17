@@ -100,7 +100,7 @@
 
         @if ( count($products) > 0 )
             <div class="hidden  lg:block lg:w-1/3  ">
-                <a href="/app"  target="_blank" class="flex flex-col flex-1 border border-gray-200 hover:shadow-lg translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">
+                <a href="/home"  target="_blank" class="flex flex-col flex-1 border border-gray-200 hover:shadow-lg translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">
                     <img class="w-full object-cover rounded" src="{{  Storage::url('mstoreplus.png') }}" alt="โปรโมทธุรกิจฟรี">
 
                 </a>

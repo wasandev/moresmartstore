@@ -7,7 +7,7 @@
                 </a>
 
             </div>
-            <div class="lg:ml-16">
+            {{-- <div class="lg:ml-16">
                 @auth
                     <div id="notifications" class="block relative group">
                         <div  class="cursor-pointer">
@@ -23,7 +23,7 @@
                     </div>
                 @endauth
 
-            </div>
+            </div> --}}
             <div class="lg:ml-16">
                 @if((new \Jenssegers\Agent\Agent())->isDesktop())
                     <a href="https://www.facebook.com/moresmartstore" target="_blank"
