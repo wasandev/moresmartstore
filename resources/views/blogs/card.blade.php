@@ -1,10 +1,5 @@
 <div class="grid grid-cols-1  md:grid-cols-2 ">
-    <div class="lg:hidden ">
-        <a href="/home"  target="_blank" class="flex flex-col flex-1 hover:shadow-lg translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">
-            <img class="w-full object-cover rounded" src="{{  Storage::url('mstoreplus.png') }}" alt="โปรโมทธุรกิจฟรี">
 
-        </a>
-    </div>
     @foreach ($blogs as $blog)
         <div>
             <a href="/blogs/{{ $blog->slug }}" class="flex flex-col shadow hover:shadow-lg translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">
@@ -32,4 +27,10 @@
             </a>
         </div>
     @endforeach
+    <div class="lg:hidden ">
+        <a href="/home"  target="_blank" class="flex flex-col flex-1 hover:shadow-lg translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">
+            <img class="w-full object-cover rounded" src="{{  Storage::url('mstoreplus.png') }}" alt="โปรโมทธุรกิจฟรี">
+
+        </a>
+    </div>
 </div>
