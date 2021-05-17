@@ -1,4 +1,4 @@
-<div class="grid grid-cols-1  md:grid-cols-3 ">
+<div class="grid grid-cols-1  md:grid-cols-4 ">
     <div class="lg:hidden ">
         <a href="/home"  target="_blank" class="flex flex-col flex-1 hover:shadow-lg translateY-2px m-2 p-2 lg:m-4 lg:p-4 no-underline transition">
             <img class="w-full object-cover rounded" src="{{  Storage::url('mstoreplus.png') }}" alt="โปรโมทธุรกิจฟรี">

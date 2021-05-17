@@ -19,7 +19,7 @@ class MstoreController extends Controller
         }])
             ->where('active', 1)
             ->orderBy('vendors_count', 'desc')
-            ->take(8)
+            ->take(4)
             ->get();
 
         $vendors = Vendor::where('status', 1)
