@@ -56,6 +56,7 @@
                                 data-href="{{ $open_graph['url'] }}"
                                 data-layout="box_count">
                             </div>
+
                         </div>
                 </div>
             </div>
@@ -108,6 +109,8 @@
     <meta property="og:title" content="{{ $open_graph['title'] }}" />
     <meta property="og:description" content="{{ $open_graph['description'] }}" />
     <meta property="og:image" content="{{ $open_graph['image'] }}" />
+    <meta property="fb:app_id" content="662144831184109" />
+
 @endsection
 
 @section('footer')

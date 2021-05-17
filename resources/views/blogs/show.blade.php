@@ -11,21 +11,23 @@
 
 @section('content')
 
-<div id="app" class="max-w-full  mx-auto  flex">
+<div id="app" class="max-w-full  mx-auto  flex border border-gray-200">
     {{-- blog detail --}}
     <div class="w-full  lg:w-2/3 mx-auto flex flex-col  rounded-lg mt-2">
         <div class="p-2">
-            {{-- <div class="aspect-16x9 rounded-t-lg  overflow-hidden" style="background:url('{{  Storage::url($blog->blog_image) }}') no-repeat center center/cover" title="{{ $blog->title }}">
+
+             <h1 class="font-bold text-xl p-4 text-blue-500">{{ $blog->title }}</h1>
+             {{-- <div class="aspect-16x9 rounded-t-lg  overflow-hidden" style="background:url('{{  Storage::url($blog->blog_image) }}') no-repeat center center/cover" title="{{ $blog->title }}">
             </div> --}}
             <div class="flex items-center justify-center">
-                <img class="h-auto w-full object-cover rounded-t" src="{{  Storage::url($blog->blog_image) }}" alt="{{$blog->title}}">
+                <img class="w-full p-4 object-cover rounded-t" src="{{  Storage::url($blog->blog_image) }}" alt="{{$blog->title}}">
             </div>
-            <div class="bg-white px-2">
-                <h1 class="font-bold text-xl py-2 text-blue-500">{{ $blog->title }}</h1>
+            <div class="bg-white px-4">
+
                 {!!$blog->embed !!}
 
                 <p class="text-gray-700 mt-2 py-2">{!! $blog->blog_content !!}</p>
-                <p class="text-sm"> วันที่เผยแพร่: {{formatDateThai( $blog->published_at )}}</p>
+                <p class="text-sm text-right"> วันที่เผยแพร่: {{formatDateThai( $blog->published_at )}}</p>
 
             </div>
 
