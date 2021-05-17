@@ -23,9 +23,9 @@
                 <img class="w-full p-4 object-cover rounded-t" src="{{  Storage::url($blog->blog_image) }}" alt="{{$blog->title}}">
             </div>
 
-            <div class="aspect-16x9">
-                <center>{!!$blog->embed !!}</center>
-            </div>
+
+            <center>{!!$blog->embed !!}</center>
+
             <div class="bg-white px-4">
 
 
