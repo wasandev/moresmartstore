@@ -7,11 +7,14 @@
                         <div class="aspect-16x9"
                              style="background:url('{{  Storage::url('store.jpg') }}') no-repeat center center/cover">
                         </div>
+                    @elseif ($vendor->imagefile == 'store.jpg')
+                        <div class="aspect-16x9"
+                             style="background:url('{{  Storage::url('store.jpg') }}') no-repeat center center/cover">
+                        </div>
                     @else
-
-                    <div class="aspect-16x9"
-                     style="background:url('{{  Storage::url($vendor->imagefile) }}') no-repeat center center/cover">
-                    </div>
+                        <div class="aspect-16x9"
+                        style="background:url('{{  Storage::url($vendor->imagefile) }}') no-repeat center center/cover">
+                        </div>
                     @endif
                 @endif
                 <p class="text-base font-semibold text-center text-blue-700 mt-1  ">{{ $vendor->name }} </p>
