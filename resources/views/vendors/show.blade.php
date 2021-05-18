@@ -21,10 +21,15 @@
             <div class="w-full lg:max-w-full lg:flex mx-auto  p-2 rounded-lg">
                     @if($vendor->imagefile == '')
                          <div class="lg:w-1/2  items-center justify-center bg-white">
-                            <img class="h-auto p-4 rounded-md" src="{{  Storage::url('/images/store.jpg') }}" alt="{{$vendor->name}}">
+                            <img class="h-auto p-4 rounded-md" src="/images/store.jpg" alt="{{$vendor->name}}">
 
                         </div>
 
+                    @elseif ($vendor->imagefile == 'store.jpg')
+                        <div class="lg:w-1/2  items-center justify-center bg-white">
+                            <img class="h-auto p-4 rounded-md" src="/images/store.jpg" alt="{{$vendor->name}}">
+
+                        </div>
                     @else
                         <div class="lg:w-1/2  items-center justify-center bg-white">
                             <img class="h-auto p-4 rounded-md" src="{{  Storage::url($vendor->imagefile) }}" alt="{{$vendor->name}}">
