@@ -5,11 +5,11 @@
                 @if ($showimage)
                     @if ($vendor->imagefile == '')
                         <div class="aspect-16x9"
-                             style="background:url('{{  Storage::url('store.jpg') }}') no-repeat center center/cover">
+                             style="background:url('{{  Storage::url('images/store.jpg') }}') no-repeat center center/cover">
                         </div>
                     @elseif ($vendor->imagefile == 'store.jpg')
                         <div class="aspect-16x9"
-                             style="background:url('{{  Storage::url('store.jpg') }}') no-repeat center center/cover">
+                             style="background:url('{{  Storage::url('images/store.jpg') }}') no-repeat center center/cover">
                         </div>
                     @else
                         <div class="aspect-16x9"
