@@ -244,7 +244,7 @@ module.exports = {
             default: '1',
         },
         fontFamily: {
-            sans: ['Noto Sans Thai',
+            sans: ['Itim',
                 'Roboto',
                 'system-ui',
                 '-apple-system',
