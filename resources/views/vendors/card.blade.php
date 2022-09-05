@@ -1,4 +1,4 @@
-<div class="grid grid-cols-1  md:grid-cols-3 ">
+<div class="grid grid-cols-1  md:grid-cols-2 ">
     @foreach ($vendors as $vendor)
         <div class="m-2">
             <a href="/vendors/{{ $vendor->id }}"
