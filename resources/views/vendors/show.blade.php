@@ -39,13 +39,13 @@
 
                         <div class="mb-4 p-2">
                             <div class="flex flex-row ">
-                                @if (!@empty($vendor->logofile))
+                                {{-- @if (!@empty($vendor->logofile))
                                     <img class="w-10 h-10 rounded-full mr-2" src="{{ Storage::url($vendor->logofile) }}"
                                         alt="{{ $vendor->name }}">
                                 @else
                                     <img class="w-10 h-10 rounded-full mr-2" src="{{ Storage::url('storelogo.png') }}"
                                         alt="{{ $vendor->name }}">
-                                @endif
+                                @endif --}}
 
                                 <h1 class="text-2xl text-gray-700"> {{ $vendor->name }} </h1>
 
